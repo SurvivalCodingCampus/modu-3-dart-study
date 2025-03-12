@@ -9,6 +9,7 @@ int sumOfMultiples(int limit) {
     }
   }
 
+  // 3의 배수 또는 5의 배수인 숫자들의 합을 반환.
   return sum;
 }
 

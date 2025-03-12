@@ -5,6 +5,7 @@ bool isPrime(int number) {
     return false;
   }
 
+  // 어떤 소수도 number의 제곱근보다 큰 수로 나눠지지 않는다는 규칙을 이용.
   for (int i = 2; i * i <= number; i++) {
     if (number % i == 0) {
       return false;
