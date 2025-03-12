@@ -7,7 +7,7 @@ extension MyIntExtension on int {
     if (this <= 1) return false;
     if (this == 2) return true;
     if (this % 2 == 0) return false;
-    for (int i = 3; i < this; i += 2) {
+    for (int i = 3; i * i <= this; i += 2) {
       if (this % i == 0) {
         return false;
       }
