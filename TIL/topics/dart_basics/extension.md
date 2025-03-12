@@ -8,7 +8,10 @@ extension MyIntExtension on int {
 	int get square => this * this;
 
 	bool get isPrime {
-		for (int i = 2; i < this; i++) {
+		if (this <= 1) return false;
+		if (this == 2) return true;
+		if (this % 2 == 0) return false;
+		for (int i = 3; i * i <= this; i += 2) {
 			if (this % i == 0) {
 				return false;
 			}
