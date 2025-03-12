@@ -12,8 +12,8 @@ void main() {
 }
 
 bool isPrime(int number) {
-  int count = 0;
-  if (number < 2) {
+  int count = 1;
+  if (number == 0 || number == 1) {
     return false;
   }
   for (int i = 2; i <= number; i++) {
