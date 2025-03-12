@@ -10,20 +10,11 @@ bool isPrime(int number) {
   // for문과 if문을 사용하여 구현하세요
 
   //소수면 true 반환, 아니면 false
-  bool resultIsPrime = false;
-
-  for(int i = 2; i < number; i++){
-    if(i != number){
-      if(number % i != 0){
-        resultIsPrime = true;
-        break;
-      }else{
-        resultIsPrime = false;
-        break;
-      }
+  for(int i = 2 ; i < number; i++){
+    if(number % i == 0){
+      return false;
     }
   }
 
-  return resultIsPrime;
-
+  return true;
 }
