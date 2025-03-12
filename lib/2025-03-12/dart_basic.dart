@@ -52,9 +52,30 @@ void main() {
     print('이도저도 아님요!');
   }
 
-  // for 반복문
+     // for 반복문
++  for (int i = 0; i < 5; i++) {
++    print('반복 횟수: $i');
++  }
++
++  // 컬렉션을 순회하는 for-in 반복문
++  for (String favorite in favorites) {
++    print('좋아하는 것: $favorite');
++  }
 
-  // while 반복문
+   // while 반복문
++  int count = 0;
++  while (count < 3) {
++    print('while 반복: $count');
++    count++;
++  }
++
++  // do-while 반복문 예시
++  int doCount = 0;
++  do {
++    print('do-while 반복: $doCount');
++    doCount++;
++  } while (doCount < 3);
+ }
 }
 
 //----------------------------
