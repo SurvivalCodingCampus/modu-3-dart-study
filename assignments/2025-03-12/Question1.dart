@@ -21,7 +21,6 @@ int sumOfMultiples(int limit) {
   // 3의 배수를 찾는다. 3으로 나눈 나머지 0
   // 5의 배수를 찾는다. 5로 나눈 나머지 0
   // 3의 배수와 5의 배수의 값이 같으면 (예:30) 한번만 더한다.
-
   for (int i = 1; i < limit; i++) {
     if (i % 3 == 0 || i % 5 == 0) {
       sum = sum + i;
@@ -38,4 +37,3 @@ int sumOfMultiples(int limit) {
 
   return sum;
 }
-
