@@ -4,9 +4,16 @@ bool isPrime(int number) {
   if (number < 2) {
     return false;
   }
+  // 2는 짝수 중 유일한 소수이므로 따로 처리.
+  if (number == 2) {
+    return true;
+  }
+  if (number % 2 == 0) {
+    return false;
+  }
 
   // 어떤 소수도 number의 제곱근보다 큰 수로 나눠지지 않는다는 규칙을 이용.
-  for (int i = 2; i * i <= number; i++) {
+  for (int i = 3; i * i <= number; i++) {
     if (number % i == 0) {
       return false;
     }
