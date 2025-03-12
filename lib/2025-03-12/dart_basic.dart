@@ -52,9 +52,19 @@ void main() {
     print('이도저도 아님요!');
   }
 
-  // for 반복문
+  //---------------------------
+  //[반복문]
+  // for문
+  for (int i = 0; i < 5; i++) {
+    print(i);
+  }
 
-  // while 반복문
+  // while문
+  int count = 0;
+  while (count < 5) {
+    print(count);
+    count++;
+  }
 }
 
 //----------------------------
