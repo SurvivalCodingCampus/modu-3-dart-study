@@ -4,7 +4,7 @@ bool isPrime(int number) {
   if (number < 2) {
     return false;
   }
-  for (int num = 2; num < number ~/ 2; num++) {
+  for (int num = 2; num <= number ~/ 2; num++) {
     if (number % num == 0) {
       return false;
     }
