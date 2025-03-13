@@ -32,8 +32,8 @@ class Hero {
 //   hero.hp = 50;
 //
 //   print(hero.hp);
-//
-//   final Random random = Random();
+//   final Random random =
+// //    Random();
 //   final int randomNumber = random.nextInt(10); // 0 ~ 9
 //   print(randomNumber);
 // }
