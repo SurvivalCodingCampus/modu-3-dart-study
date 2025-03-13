@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-13/slime.dart';
+import '../../assignments/2025-03-13/slime.dart';
 import 'package:test/test.dart';
 
 void main(){

@@ -2,10 +2,11 @@ import 'dart:math';
 
 class Cleric {
   final String name;
-  int hp = 50;
-  int mp = 10;
   final int maxHp = 50;
   final int maxMp = 10;
+  int hp = 50;
+  int mp = 10;
+  
 
   Cleric(
     this.name,
@@ -15,7 +16,7 @@ class Cleric {
   // 체력을 최대로 회복
   void selfAid(){
     // 마나 부족시 return
-    if(mp < 6){
+    if(mp < 5){
       print("MP가 부족하여 스킬을 사용할 수 없습니다.");
       return;
     }
@@ -34,7 +35,7 @@ class Cleric {
       recoveredMp += maxMp - mp;
       mp = maxMp;
     }
-    print("$name이 mp $recoveredMp 회복하였습니다. 현재 mp: $mp");
+    print("$name이(가) mp $recoveredMp 회복하였습니다. 현재 mp: $mp");
     return recoveredMp;
   }
 }

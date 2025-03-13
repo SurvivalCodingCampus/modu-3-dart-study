@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-13/cleric.dart';
+import '../../assignments/2025-03-13/cleric.dart';
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
@@ -11,11 +11,11 @@ void main() {
     cleric1.hp = 1;
 
     cleric1.selfAid();
-    final recoveredMp = cleric1.pray(5);
+    final recoveredMp = cleric1.pray(3);
     print("mp 회복량: $recoveredMp");
 
     // then
     expect(cleric1.hp, equals(50));
-    expect(cleric1.mp, equals(10));
+    expect(cleric1.mp, equals(5 + recoveredMp));
   });
 }
