@@ -1,5 +1,8 @@
 
 
+import 'dart:convert';
+
+import 'Cleric.dart';
 import 'hero.dart';
 import 'slime.dart';
 
@@ -12,6 +15,9 @@ void main (List<String> arguments) {
   // 슬라임 2마리 생성
   Slime slime1 = Slime(50, 'A');
   Slime slime2 = Slime(50, 'B');
+
+  // 성직자 생성
+  Cleric cleric = Cleric('성직자', 50, 10);
 
   // 공격, 도망, 잠자기 지시
   hero.attack();
