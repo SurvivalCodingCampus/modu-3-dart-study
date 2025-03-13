@@ -13,15 +13,7 @@ class Hero {
   }
 }
 
-class Slime {
-  int hp;
-  final int level = 10;
-  Slime(this.hp);
-}
-
 void main() {
-  int i = 10;
   Hero hero = Hero('홍길동', 10); //인스턴스 생성. 클래스를 통해 Hero라는 타입을 만든것. new는 생략 가능
   hero.attack(); //메서드 호출
-  hero.run();
 }
