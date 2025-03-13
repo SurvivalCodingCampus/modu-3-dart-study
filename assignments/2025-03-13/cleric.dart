@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Cleric {
   static const int maxHp = 50;
   static const int maxMp = 10;
@@ -14,5 +16,14 @@ class Cleric {
   void selfAid() {
     mp -= 5;
     hp = maxHp;
+  }
+
+  int pray(int second) {
+    final int recoveryAmount = second + Random().nextInt(3);
+    final int sum = mp + recoveryAmount;
+
+    mp = (sum > maxMp) ? maxMp : sum;
+
+    return recoveryAmount;
   }
 }
