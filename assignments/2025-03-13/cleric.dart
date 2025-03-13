@@ -20,6 +20,10 @@ class Cleric {
   }
 
   int pray(int sec) {
+    if (sec <= 0) {
+      print('기도 시간은 1초 이상이어야 합니다.');
+      return 0;
+    }
     final int recover = sec + Random().nextInt(3);
     final int recoverActual = mp + recover > maxMp ? maxMp - mp : recover;
     mp += recoverActual;

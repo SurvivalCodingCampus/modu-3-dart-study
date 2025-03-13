@@ -45,4 +45,20 @@ void main() {
     expect(result, inInclusiveRange(sec, sec + 3));
     expect(cleric.mp, lessThanOrEqualTo(10));
   });
+
+  test('Cleric pray Fail', () {
+    // given
+    final Cleric cleric = Cleric('cleric');
+    const int sec = 0;
+    const int initMP = 2;
+
+    // when
+    cleric.mp = initMP;
+    final int result = cleric.pray(sec);
+
+    // then
+    expect(cleric.mp, equals((initMP + result) > 10 ? 10 : initMP + result));
+    expect(result, inInclusiveRange(sec, sec + 3));
+    expect(cleric.mp, lessThanOrEqualTo(10));
+  });
 }
