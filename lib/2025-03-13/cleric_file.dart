@@ -18,7 +18,11 @@ class Cleric{
       mp -= 5;
       hp = maxHp;
     }else{
-      print("이미 HP는 전부 회복 되었습니다");
+        if(mp < 5) {
+          print("MP가 부족하여 selfAid를 사용할 수 없습니다");
+        } else {
+          print("이미 HP는 전부 회복 되었습니다");
+        }
     }
   }
 
