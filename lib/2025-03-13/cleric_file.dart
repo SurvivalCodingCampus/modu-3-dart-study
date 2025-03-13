@@ -35,20 +35,22 @@ class Cleric{
 
     print("회복량 $recoveryValue");
 
+    //회복 되는 코드 추가하기
     if(mp < maxMp){
-      if(mp + recoveryValue == maxMp){
+      if((mp + recoveryValue == maxMp) || (mp + recoveryValue < maxMp)){
         print("실제 회복량 ${recoveryValue}");
-        return recoveryValue;
-      }else if(mp + recoveryValue < maxMp){
-        print("실제 회복량 ${recoveryValue}");
-        return recoveryValue;
+
       }else{
         print("실제 회복량 ${maxMp - mp}");
-        return maxMp - mp;
-
+        recoveryValue = maxMp - mp;
       }
+      mp += recoveryValue; // 회복코드
+      return recoveryValue; // 회복량 리턴 코드
     }
+
     return 0;
+
+    //중간 중간에 리턴이 있는 것보다 한번에 리턴하는게 좋음 -> 코드의 맥략을 파악하기 어려워서 그럼
   }
 
   Cleric(this.name, {this.prayTime});

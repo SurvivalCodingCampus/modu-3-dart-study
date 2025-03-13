@@ -31,12 +31,27 @@ void main(){
   });
 
 
-  test("pray test", (){
-    //준비
-    final cleric = Cleric("홍길동",prayTime: 3);
+  test('MP 회복 테스트 - 정상적인 회복', () {
+    Cleric cleric = Cleric('TestCleric');
+    cleric.mp = 5;
+    int recoveredMp = cleric.pray(3);
+    expect(cleric.mp, lessThanOrEqualTo(cleric.maxMp));
+    expect(recoveredMp, inInclusiveRange(3, 5));
+  });
 
+  test('MP 회복 테스트 - MP가 이미 최대일 경우', () {
+    Cleric cleric = Cleric('TestCleric');
+    cleric.mp = 10;
+    int recoveredMp = cleric.pray(3);
+    expect(recoveredMp, equals(0));
+    expect(cleric.mp, equals(10));
+  });
+
+  test('MP 회복 테스트 - 회복량이 최대 MP를 초과할 경우', () {
+    Cleric cleric = Cleric('TestCleric');
     cleric.mp = 9;
-    cleric.pray(3);
-
+    int recoveredMp = cleric.pray(3);
+    expect(recoveredMp, lessThanOrEqualTo(1));
+    expect(cleric.mp, equals(10));
   });
 }
