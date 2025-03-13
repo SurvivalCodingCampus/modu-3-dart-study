@@ -25,3 +25,10 @@ git log - 커밋 기록 확인하기 (종료: q 키)
 1. git add .
 2. git commit -m “메세지”
 3. git push
+
+# Branch를 합치는 과정
+1. git branch 이름 : 해당되는 이름의 branch 생성
+2. git checkout 이름 : 생성된 branch로 이동해서 작업하기
+3. 생성된 branch에서 작업 완료하고 git push까지 진행
+4. git checkout master : master branch로 이동
+5. git merge 이름 : master bracnh에서 새로 생성한 branch로 merge됨
