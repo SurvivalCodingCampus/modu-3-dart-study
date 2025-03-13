@@ -12,4 +12,12 @@ void main() {
     expect(cleric.hp, equals(50));
     expect(cleric.mp, equals(5));
   });
+
+  //연습 문제 3
+  test('pray 사용', () {
+    final Cleric cleric = Cleric(50, 5, '유준1');
+
+    int mp = cleric.pray(1);
+    print(mp);
+  });
 }
