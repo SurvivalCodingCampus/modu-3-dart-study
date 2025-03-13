@@ -41,7 +41,7 @@ void main() {
     final int result = cleric.pray(sec);
 
     // then
-    expect(cleric.mp, inInclusiveRange(initMP, initMP + result));
+    expect(cleric.mp, equals(initMP + result));
     expect(result, inInclusiveRange(sec, sec + 3));
   });
 }
