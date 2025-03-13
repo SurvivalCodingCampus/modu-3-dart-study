@@ -33,8 +33,8 @@ void main() {
   test('Cleric pray Success', () {
     // given
     final Cleric cleric = Cleric('cleric');
-    final int sec = 3;
-    final int initMP = 5;
+    const int sec = 3;
+    const int initMP = 5;
 
     // when
     cleric.mp = initMP;
