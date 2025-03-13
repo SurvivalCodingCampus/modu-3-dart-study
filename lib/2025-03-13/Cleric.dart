@@ -6,10 +6,12 @@ class Cleric {
   int hp = 50;
   int mp = 50;
 
+  //Cleric 생성자
   Cleric(this.name, this.hp, this.mp) {
     //print ('$name, hp: $hp, mp: $mp 성직자 생성');
   }
 
+  //자기 응급처치기능. MP가 5이상 보유 해야 사용할 수 있다.
   void selfAid() {
     //print('$name, 사용전 hp: $hp, 사용전 mp: $mp');
     if (mp >= 5) {
