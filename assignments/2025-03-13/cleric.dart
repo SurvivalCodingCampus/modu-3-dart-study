@@ -10,4 +10,9 @@ class Cleric {
     hp = (hp > maxHp) ? maxHp : hp;
     mp = (mp > maxMp) ? maxMp : mp;
   }
+
+  void selfAid() {
+    mp -= 5;
+    hp = maxHp;
+  }
 }
