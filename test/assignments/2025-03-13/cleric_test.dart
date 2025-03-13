@@ -36,4 +36,16 @@ void main() {
     expect(cleric.hp, equals(Cleric.maxHp));
     expect(cleric.mp, equals(0));
   });
+  test('클레릭이 기도 pray(int second) 메서드를 호출하면 (기도 시간 + 0 ~ 2) 을 현재 MP에 더한다.', () {
+    // GIVEN
+    Cleric cleric = Cleric('A', 10, 5);
+    int praySecond = 2;
+
+    // WHEN
+    int recoveryAmount = cleric.pray(praySecond);
+
+    // THEN
+    expect(recoveryAmount, inInclusiveRange(2, 4));
+    expect(cleric.mp, inInclusiveRange(7, 9));
+  });
 }
