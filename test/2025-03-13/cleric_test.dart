@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   test('selfAid 테스트', () {
     // 준비
-    Cleric cleric = Cleric('이름', 30, 10);
+    Cleric cleric = Cleric('성직자', 30, 10);
     //실행
     cleric.selfAid();
     //검증
@@ -14,7 +14,7 @@ void main() {
 
   test('pray 테스트', () {
     // 준비
-    Cleric cleric = Cleric('이름', 50, 5);
+    Cleric cleric = Cleric('성직자', 50, 5);
     //실행
     int prayMP = cleric.pray(9); //기도 시간 지정
     //검증

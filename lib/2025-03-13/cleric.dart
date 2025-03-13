@@ -15,7 +15,7 @@ class Cleric {
     mp -= 5;
     hp = maxHP;
 
-    print('HP가 회복되었습니다. (HP : $hp | MP : $mp)\n\n');
+    print('$name의 HP가 회복되었습니다. (HP : $hp | MP : $mp)\n\n');
   }
 
   int pray(int sec) {
@@ -33,7 +33,7 @@ class Cleric {
       mp = mp + sec + randomNumber;
     }
 
-    print('MP가 $prayMP만큼 회복되었습니다. (HP : $hp | MP : $mp)\n\n');
+    print('$name의 MP가 $prayMP만큼 회복되었습니다. (HP : $hp | MP : $mp)\n\n');
 
     return prayMP;
   }
