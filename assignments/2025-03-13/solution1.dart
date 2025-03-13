@@ -13,8 +13,12 @@ class Cleric {
 
   // 연습 문제 2
   void selfAid() {
-    mp -= 5;
-    hp = maxHp;
+    if (mp >= 5) {
+      mp -= 5;
+      hp = maxHp;
+    } else {
+      print('mp가 부족합니다.');
+    }
   }
 
   //연습 문제 3

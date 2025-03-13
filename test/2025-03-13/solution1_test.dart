@@ -9,8 +9,8 @@ void main() {
 
     cleric.selfAid();
 
-    expect(cleric.hp, equals(50));
-    expect(cleric.mp, equals(5));
+    expect(cleric.hp, equals(50)); // 최대 체력으로 바뀌었는지 체크
+    expect(cleric.mp, equals(5)); // mp 가 10 에서 5 로 바뀌었는지 체크
   });
 
   //연습 문제 3
