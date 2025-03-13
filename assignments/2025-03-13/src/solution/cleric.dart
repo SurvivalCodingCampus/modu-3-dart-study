@@ -6,4 +6,9 @@ class Cleric {
   final int maxMp = 10; // 최대 마법력 10 초기화
 
   Cleric(this.name); // 생성자. 이름 지정
+
+  void selfAid() {
+    mp -= 5; // mp의 값을 5만큼 감소
+    hp = maxHp; // hp의 값을 maxHp값으로 설정
+  }
 }
