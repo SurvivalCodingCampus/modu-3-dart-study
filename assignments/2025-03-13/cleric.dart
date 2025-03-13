@@ -9,7 +9,7 @@ class Cleric {
   final int maxMp = 10;
 
   // 생성자
-  Cleric(this.name) {
+  Cleric(this.name, this.hp, this.mp) {
     print('🎉🎮 [캐릭터 탄생] 🎮🎉');
     print('--------------------------------------');
     print('✨ 이름: $name');
