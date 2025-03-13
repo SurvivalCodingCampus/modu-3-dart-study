@@ -17,7 +17,7 @@ void main (List<String> arguments) {
   Slime slime2 = Slime(50, 'B');
 
   // 성직자 생성
-  Cleric cleric = Cleric('성직자', 50, 10);
+  Cleric cleric = Cleric('성직자', 40, 5);
 
   // 공격, 도망, 잠자기 지시
   hero.attack();
@@ -25,4 +25,7 @@ void main (List<String> arguments) {
   slime2.run();
   hero.run();
   hero.sleep();
+
+  cleric.selfAid();
+  cleric.selfAid();
 }
