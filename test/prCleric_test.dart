@@ -1,8 +1,8 @@
-import 'package:modu_3_dart_study/PR2025-03-13/prClialic.dart';
+import 'package:modu_3_dart_study/PR2025-03-13/prCleric.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Cliaclic Test', () {
+  test('Cleric Test', () {
     //given(준비)
     Cleric cleric = Cleric();
     //when(실행)
