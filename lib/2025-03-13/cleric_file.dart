@@ -14,7 +14,7 @@ class Cleric{
 
   //연습문제 2
   void selfAid(){
-    if(maxHp > hp) {
+    if(maxHp > hp&& mp >= 5) {
       mp -= 5;
       hp = maxHp;
     }else{

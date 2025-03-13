@@ -51,7 +51,7 @@ void main(){
     Cleric cleric = Cleric('TestCleric');
     cleric.mp = 9;
     int recoveredMp = cleric.pray(3);
-    expect(recoveredMp, lessThanOrEqualTo(1));
+    expect(recoveredMp, equals(1));
     expect(cleric.mp, equals(10));
   });
 }
