@@ -27,40 +27,6 @@ class Hero {
 
   // - 잠을 자면서 hp를 100까지 회복하는 함수
   void sleep() {
-    class Hero {
-  /* 필드 */
-  // 속성을 정의한다.
-  String name;
-  int hp;
-+ int maxHp;
-
-  /* 생성자 */
-- Hero(this.name, this.hp) {
-+ Hero(this.name, this.hp, {this.maxHp = 100}) {
-    // 인스턴스 생성 시마다 프린트 구분
-    print('$name(용사)가 생성되었다. HP: $hp');
-  }
-
-  /* 메서드 */
-  // - 공격 받았을 시, hp 5씩 줄어드느 함수
-  void attack() {
-    hp -= 5;
-+   if (hp < 0) hp = 0;
-    print('[공격]으로 $name의 HP가 $hp 되었다.');
-  }
-
-  // - 용사가 도망가는 함수
-  void run() {
-    print('$name(용사)이/가 도망간다. 낄낄');
-  }
-
-  // - 잠을 자면서 hp를 maxHp까지 회복하는 함수
-  void sleep() {
-    hp = 100;
-    hp = maxHp;
-    print('[회복]$name(용사)이/가 잠자서 HP가 $hp로 회복이 되었다.');
-  }
-}
     print('[회복]$name(용사)이/가 잠자서 HP가 $hp로 회복이 되었다.');
   }
 }
