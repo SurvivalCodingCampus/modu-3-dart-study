@@ -24,6 +24,7 @@ class Cleric {
   //연습 문제 3
   int pray(int seconds) {
     int mpPlus = Random().nextInt(3) + seconds;
+    print('회복할 Mp : $mpPlus');
     if (mp >= maxMp) {
       print('더 이상 mp 를 채울 수 없습니다.');
     } else {
