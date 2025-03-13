@@ -16,15 +16,16 @@ class Cleric {
 
   int pray(int prayTime) {
     Random random = Random(); // 랜덤 객체 생성
+    // prayTime에 0~2 사이의 난수를 더하여 회복량 설정
+    int recoveryAmount = prayTime + random.nextInt(3);
 
-    // prayTime에 0~2 사이의 난수를 더하여 기존 mp값에 더해줌
-    mp += prayTime + random.nextInt(3);
+    mp += recoveryAmount; // 기존 mp값에 회복량을 증가
 
     // mp값이 maxMp보다 클 경우 maxMp로 설정
     if (mp > maxMp) {
       mp = maxMp;
     }
 
-    return mp;
+    return recoveryAmount;
   }
 }
