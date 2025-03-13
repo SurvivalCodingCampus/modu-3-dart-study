@@ -28,4 +28,11 @@ void main (List<String> arguments) {
 
   cleric.selfAid();
   cleric.selfAid();
+  cleric.pray(1);
+  cleric.pray(10);
+  cleric.pray(0);
+
+
+
+
 }
