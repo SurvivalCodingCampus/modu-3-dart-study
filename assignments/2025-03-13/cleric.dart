@@ -15,7 +15,7 @@ class Cleric {
     }
     mp -= 5;
     hp = maxHp;
-    print("현재 MP : $mp");
+    print("남은 MP : $mp");
     print("hp가 모두 회복되었습니다.");
   }
 
@@ -35,4 +35,3 @@ class Cleric {
     return amountOfRecoverMp;
   }
 }
-
