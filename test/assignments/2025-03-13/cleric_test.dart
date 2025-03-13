@@ -25,4 +25,15 @@ void main() {
       expect(cleric.mp, equals(8));
     },
   );
+  test('클레릭이 자가 치유 selfAid() 메서드를 호출하면 MP가 5 소모되고, HP가 최대 수치까지 회복되야한다.', () {
+    // GIVEN
+    Cleric cleric = Cleric('A', 10, 5);
+
+    // WHEN
+    cleric.selfAid();
+
+    // THEN
+    expect(cleric.hp, equals(Cleric.maxHp));
+    expect(cleric.mp, equals(0));
+  });
 }
