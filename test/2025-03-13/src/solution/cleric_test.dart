@@ -23,9 +23,9 @@ void main() {
 
     // when(실행)
     cleric.selfAid(); // mp -> 5
-    cleric.pray(3); // mp -> 8 ~ 10 사이의 숫자
+    int testMp = cleric.pray(3); // testMp -> 8 ~ 10 사이의 숫자
 
     // then(검증)
-    expect(cleric.mp, inInclusiveRange(8, 10));
+    expect(cleric.mp, equals(testMp)); // mp값과 testMp 값이 일치하면 성공
   });
 }
