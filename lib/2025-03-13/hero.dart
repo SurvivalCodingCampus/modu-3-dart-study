@@ -27,6 +27,7 @@ class Hero {
 
   // - 잠을 자면서 hp를 100까지 회복하는 함수
   void sleep() {
+    hp = maxHp;
     print('[회복]$name(용사)이/가 잠자서 HP가 $hp로 회복이 되었다.');
   }
 }
