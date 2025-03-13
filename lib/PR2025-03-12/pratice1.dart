@@ -1,9 +1,9 @@
 // 주어진 범위 내에서 3의 배수 또는 5의 배수인 모든 숫자의 합을 구하는 함수를 작성하세요.
 int sumOfMultiples(int limit) {
-  int sum=0;
-  for(int i=0; i< limit; i++){
-    if(i%3 ==0 || i%5 ==0){
-       sum += i;
+  int sum = 0;
+  for (int i = 0; i < limit; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+      sum += i;
     }
   }
   return sum;
