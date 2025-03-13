@@ -27,6 +27,7 @@ class Cleric {
     int randomBonus = Random().nextInt(3);
     int amountOfRecoverMp = sec + randomBonus;
     if (mp + amountOfRecoverMp > maxMp) {
+      amountOfRecoverMp = maxMp - mp;
       mp = maxMp;
     } else {
       mp += amountOfRecoverMp;
