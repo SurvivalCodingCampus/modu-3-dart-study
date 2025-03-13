@@ -1,8 +1,5 @@
-
 import 'package:test/test.dart';
-
-import '../../assignments/2025-03-13/src/solution2/cleric.dart';
-// import '../../assignments/2025-03-13/src/solution1/cleric.dart';
+import '../../assignments/2025-03-13/src/solution1/cleric.dart';
 
 void main() {
   // 과제1 테스트
