@@ -1,37 +1,21 @@
-// 연습 문제 1
-import 'dart:math';
-
 class Cleric {
-  final int maxHp = 50;
-  final int maxMp = 10;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   String name;
   int hp;
   int mp;
 
-  Cleric(this.hp, this.mp, this.name);
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
+}
 
-  // 연습 문제 2
-  void selfAid() {
-    if (mp < 5) {
-      print('mp가 부족합니다.');
-      return;
-    }
-    mp -= 5;
-    hp = maxHp;
-  }
-
-  //연습 문제 3
-  int pray(int seconds) {
-    int mpPlus = Random().nextInt(3) + seconds;
-
-    if (mp >= maxMp) {
-      print('더 이상 mp 를 채울 수 없습니다.');
-      return 0;
-    }
-    mpPlus = min(mpPlus, maxMp - mp);
-    mp += mpPlus;
-
-    return mpPlus;
-  }
+void main() {
+  // 이름, mp, hp 를 지정하여 인스턴스화 성공
+  Cleric('아서스', hp: 40, mp: 5);
+  // 이름과 hp 값만 지정하여 인스턴스화 성공 mp 는 최대 mp 로 지정
+  Cleric('아서스', hp: 45);
+  // 이름만 지정하여 인스턴스화 성공 hp, mp 는 최대 hp, mp 로 지정
+  Cleric('아서스');
+  // 이름 지정 하지 않았기 때문에 생성 불가
+  // Cleric();
 }
