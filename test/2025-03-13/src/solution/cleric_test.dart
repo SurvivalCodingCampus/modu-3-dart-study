@@ -6,7 +6,7 @@ void main() {
   test('Cleric - selfAid 테스트', () {
     // selfAid 테스트
     // given(준비)
-    Cleric cleric = Cleric("성직자");
+    Cleric cleric = Cleric("성직자", hp: 50, mp: 10);
 
     // when(실행)
     cleric.selfAid(); // mp -> 5
@@ -19,7 +19,7 @@ void main() {
   test('Cleric - pray 테스트', () {
     // pray 테스트
     // given(준비)
-    Cleric cleric = Cleric("성직자");
+    Cleric cleric = Cleric("성직자", hp: 50, mp: 10);
 
     // when(실행)
     cleric.selfAid(); // mp -> 5
