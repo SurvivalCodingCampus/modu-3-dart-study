@@ -51,14 +51,17 @@ class Cleric {
     recoveryAmount = min(recoveryAmount, maxMp - mp);
 
     mp += recoveryAmount; // 실제 MP 회복
+    
     print('--------------------------------------');
     print('⛪ [기도] $second 초 동안 기도하며 마나를 회복 중...');
     print('✨ 기도 후, 실제 회복된 마나: $recoveryAmount');
     print('💠 현재 마나: $mp / $maxMp');
+    
     if (mp == maxMp) {
       print('💥 마나가 가득 찼습니다! 더 이상 기도할 필요가 없습니다.');
     }
     print('--------------------------------------');
+    
     return recoveryAmount;
   }
 }
