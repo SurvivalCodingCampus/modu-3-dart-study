@@ -3,11 +3,11 @@ import 'package:test/test.dart';
 import '../../assignments/2025-03-14/cleric.dart';
 
 void main() {
-  final String testName = '아서스';
-  final int testMaxHp = 50;
-  final int testMaxMp = 10;
-  final int defaultHp = 50;
-  final int defaultMp = 10;
+  const String testName = '아서스';
+  const int testMaxHp = 50;
+  const int testMaxMp = 10;
+  const int defaultHp = 50;
+  const int defaultMp = 10;
 
   test("Perfect Cleric Create", () {
     // given
