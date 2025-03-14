@@ -1,4 +1,4 @@
-import 'dart:math';
+
 
 void main() {
   Hero hero1 = Hero(name: "히어로1", hp: 50);
