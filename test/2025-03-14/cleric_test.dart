@@ -28,14 +28,4 @@ void main() {
     expect(cleric.hp, equals(50));
     expect(cleric.mp, equals(10));
   });
-
-  test('Cleric - 이름만 지정', () {
-    // GIVEN
-    final Cleric cleric = Cleric('최윤석');
-
-    // THEN
-    expect(cleric.hp, equals(50));
-    expect(cleric.mp, equals(10));
-  });
-
 }
