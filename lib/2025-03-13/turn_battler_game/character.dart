@@ -9,10 +9,14 @@ abstract class Character {
   Character({required this.name, required this.statistics});
 
   int get hp => statistics.hp;
-  int get mp => statistics.hp;
+  int get mp => statistics.mp;
   int get dex => statistics.dexterity;
   int get ap => statistics.ap;
   int get luck => statistics.luck;
+
+  set hp(int hp) {
+    statistics.hp = hp;
+  }
 
   void attack(Character target) {
     double criticalChance = luck * 0.03;
@@ -34,7 +38,6 @@ abstract class Character {
   }
 
   void takeAttack(int ap) {
-    if (ap > statistics.hp) statistics.hp = 0;
-    statistics.hp = (ap > statistics.hp) ? 0 : statistics.hp - ap;
+    hp = (ap > hp) ? 0 : hp -= ap;
   }
 }

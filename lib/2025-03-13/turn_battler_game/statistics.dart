@@ -52,6 +52,6 @@ class Statistics {
 
   @override
   String toString() {
-    return 'Statistics{maxXp: $maxXp, xp: $xp, level: $level, strength: $strength, dexterity: $dexterity, intelligence: $intelligence, charisma: $charisma, constitution: $constitution, maxHp: $maxHp, maxMp: $maxMp, hp: $hp, mp: $mp, ap: $ap}';
+    return 'Statistics{maxXp: $maxXp, xp: $xp, level: $level, strength: $strength, dexterity: $dexterity, intelligence: $intelligence, charisma: $charisma, constitution: $constitution, luck: $luck, maxHp: $maxHp, maxMp: $maxMp, hp: $hp, mp: $mp, ap: $ap}';
   }
 }
