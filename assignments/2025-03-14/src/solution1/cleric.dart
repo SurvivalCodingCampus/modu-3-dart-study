@@ -26,7 +26,7 @@ class Cleric {
       final int prevMp = mp;
 
       mp -= selfAidMpPt;
-      hp == maxHp;
+      hp = maxHp;
       print('$name(은)는 셀프 에이드를 시전하였다! (Hp $prevHp -> $hp / Mp:$prevMp -> $mp)');
     }
   }
