@@ -10,7 +10,7 @@ class Cleric {
   //이름 받기
   Cleric(this.name);
 
-  //mp를 5 소비하고 자신의 HP를 최대 HP까지 회복 가능
+  //mp를 5 소비 후 자신의 HP를 최대 HP 까지 회복 가능
   void selfAid() {
     //mp가 5 이상인지 확인
     if (MP >= 5) {
@@ -25,7 +25,7 @@ class Cleric {
     }
   }
 
-  //자신의 MP를 회복 (3초미만 0~2MP,3초이상 3~5MP 회복)
+  //자신의 MP를 회복 (3초미만 0~2MP,3초이상 3~5MP 회복), seconds = 기도 시간
   int pray(int seconds) {
     //기도 전 mp 저장
     int beforeMP = MP;
