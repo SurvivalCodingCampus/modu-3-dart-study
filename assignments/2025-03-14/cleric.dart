@@ -13,6 +13,15 @@ class Cleric {
       this.mp = maxMp,
     });
 
+  // -------------------------------------
+  // 쓰지 않는 함수(추후 예외 처리 배워서 진행할 예정)
+  // 변수로 들어온 hp 와 mp가
+  // 최대치를 넘었다면 최대로 설정
+  void checkMax(){
+    mp = min(maxMp, mp);
+    hp = min(maxHp, hp);
+  }
+
   // 체력 회복 스킬
   // 체력을 최대로 회복
   void selfAid() {
