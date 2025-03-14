@@ -48,15 +48,8 @@ class Cleric {
     int addMp = sec + Random().nextInt(2);
 
     //최종 회복될 mp값
-    int resultAddMp = 0;
+    int resultAddMp = min(addMp, maxMp - mp);
 
-    if (maxMp <= addMp + mp) {
-      //회복 결과가 최대 mp값을 초과할 때
-      resultAddMp = max(0, maxMp - mp);
-    }else {
-      //일반적으로 회복할 때
-      resultAddMp = addMp;
-    }
     mp += resultAddMp;
     print('$name(은)는 기도하기를 $sec초 시전하여 MP $resultAddMp만큼 회복하였다. (현재 MP : $mp)');
 
