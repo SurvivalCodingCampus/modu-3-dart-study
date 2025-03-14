@@ -1,7 +1,7 @@
 class Cleric {
   final String name;
-  int? hp;
-  int? mp;
+  int hp;
+  int mp;
   static const int maxHp = 50;
   static const int maxMp = 10;
 
