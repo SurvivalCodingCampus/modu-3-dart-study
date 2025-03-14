@@ -41,7 +41,7 @@ class Cleric{
 
     //회복 되는 코드 추가하기
     if(mp < maxMp){
-      if((mp + recoveryValue == maxMp) || (mp + recoveryValue < maxMp)){
+      if((mp + recoveryValue <= maxMp) ){
         print("실제 회복량 ${recoveryValue}");
 
       }else{
