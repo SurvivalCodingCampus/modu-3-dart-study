@@ -14,7 +14,8 @@ class Cleric {
   void selfAid() {
     if (mp > 5) {
       mp -= 5;
-      print('셀프 에이드를 사용했습니다.\nMP 5 사용: \n남은 MP ${mp - 5} \nMax HP 까지 회복');
+      print('셀프 에이드를 사용했습니다.\nMP 5 사용: \n남은 MP $mp \nMax HP 까지 회복');
+      hp = maxHp;
     } else {
       print('셀프 에이드를 사용할 수 없습니다.\n남은 MP $mp');
     }
