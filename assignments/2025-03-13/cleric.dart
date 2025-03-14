@@ -14,7 +14,7 @@ class Cleric {
   }
 
   void selfAid() {
-    if (mp <= 5) {
+    if (mp < 5) {
       print('현재 MP는 $mp입니다. MP가 부족하여 자가 치유를 할 수 없습니다.');
     } else {
       mp -= 5;
