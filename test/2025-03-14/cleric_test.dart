@@ -6,8 +6,8 @@ void main() {
   const String testName = '아서스';
   const int testMaxHp = 50;
   const int testMaxMp = 10;
-  const int defaultHp = 50;
-  const int defaultMp = 10;
+  const int defaultHp = testMaxHp;
+  const int defaultMp = testMaxMp;
 
   test("Perfect Cleric Create", () {
     // given
