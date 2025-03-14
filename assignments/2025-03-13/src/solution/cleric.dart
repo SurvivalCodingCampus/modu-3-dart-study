@@ -10,6 +10,11 @@ class Cleric {
   Cleric(this.name); // 생성자. 이름 지정
 
   void selfAid() {
+    if (mp < 5) {
+      print("mp가 부족하여 hp를 회복할 수 없습니다..");
+      return;
+    }
+
     mp -= 5; // mp의 값을 5만큼 감소
     hp = maxHp; // hp의 값을 maxHp값으로 설정
   }
@@ -23,6 +28,7 @@ class Cleric {
 
     // mp값이 maxMp보다 클 경우 maxMp로 설정
     if (mp > maxMp) {
+      recoveryAmount = maxMp - mp;
       mp = maxMp;
     }
 
