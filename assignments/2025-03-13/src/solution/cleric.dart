@@ -35,10 +35,3 @@ class Cleric {
     return recoveryAmount;
   }
 }
-
-void main() {
-  String a = 'a';
-  String b = a;
-  b = 'b';
-  print(a);
-}
