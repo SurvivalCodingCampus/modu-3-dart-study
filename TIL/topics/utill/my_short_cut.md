@@ -21,6 +21,8 @@
 | Evaluate Expression 열기(디버깅 관련) | `Option + F8`         |
 |앞에 문자 무시하고 개행|Shift + Enter|
 |import 도움 단축|Alt + Enter|
+|커밋|Command + k|
+|해당 줄 그대로 복사|Command + D|
 
 
 
