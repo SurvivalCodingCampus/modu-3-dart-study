@@ -40,13 +40,13 @@ class Hero {
   // [static 메서드 추가] 돈을 모두 잃는 메서드
   static void loseAllMoney() {
     Hero.money = 0;
-    print('💰 모든 돈을 잃었다! 현재 돈: $Hero.money');
+    print('💰 모든 돈을 잃었다! 현재 돈: ${Hero.money}');
   }
 
   // [static 메서드 추가] 돈을 얻는 메서드
   static void earnMoney(int amount) {
     Hero.money += amount;
-    print('💰 $amount 골드 획득! 현재 돈: $Hero.money');
+    print('💰 $amount 골드 획득! 현재 돈: ${Hero.money}');
   }
 }
 
