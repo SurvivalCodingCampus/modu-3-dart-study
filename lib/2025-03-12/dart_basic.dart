@@ -20,6 +20,7 @@ void main() {
   final int num = 5; // 런타임 상수 // 사용할 때 메모리에 자리 잡음
   // num = 10; // 불가능
   // 상수가 많은게 좋음. 변수는 어쩔 수 없을때 쓰는거임. // 왜? 변수의 수가 증가할 수록 기하급수적으로 복잡성이 증가. 가능한 상호작용의 수가 엄청나게 늘어남.
+  pi + num;
 
   // /, ~/, %
   print(10 / 5); // 2.0
@@ -29,18 +30,19 @@ void main() {
   //나아중에
   //Object vs dynamic : 모든 값을 담을 수 있는 타입. 웬만하면 금지.
   Object o = 42; //Object : 컴파일 타임(실행전)에 타입이 결정됨.
-  Object oo = '한글';
-  Object ooo = true;
+  // Object oo = '한글';
+  // Object ooo = true;
 
   print(o.runtimeType);
   o = '한글';
 
-  dynamic d =
-      42; //dynamic : 런타임(실행할 때)시 타입이 결정됨. 사실 다트에 있어서는 안될놈. 근본없음. 일단 사용 금지.
+  //dynamic : 런타임(실행할 때)시 타입이 결정됨. 사실 다트에 있어서는 안될놈. 근본없음. 일단 사용 금지.
+  dynamic d = 42;
   dynamic dd = '한글';
   dynamic ddd = true;
 
   d = '한글';
+  d + dd + ddd; //....
 }
 
 // 함수
