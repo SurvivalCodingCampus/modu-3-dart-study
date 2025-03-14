@@ -1,7 +1,8 @@
 /* 무기 */
 class Sword {
   String name;
-  int damege;
+  int damage;
 
-  Sword({required this.name, required this.damege});
+  Sword({required this.name, required this.damage});
+
 }
