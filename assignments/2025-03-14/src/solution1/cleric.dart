@@ -2,15 +2,13 @@ import 'dart:math';
 
 class Cleric {
   String name;
-  int hp = maxHp;
-  int mp = maxMp;
-  static final int maxHp = 50;
-  static final int maxMp = 10;
-  // static const int maxHp = 50;
-  // static const int maxMp = 10;
+  int hp;
+  int mp;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   // 생성자
-  Cleric(this.name, {this.hp = 50, this.mp = 10});
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
     // 셀프 에이드 마나 소모량
