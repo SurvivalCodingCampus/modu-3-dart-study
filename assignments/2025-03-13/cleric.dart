@@ -45,10 +45,9 @@ class Cleric {
   int pray(int second) {
     final Random random = Random();
 
-    // 기도 시간에 따라 회복량 결정 (0 ~ 2 보정값 추가)
-    int recoveryAmount = second + random.nextInt(3); // 0~2 사이의 랜덤 값 추가
+    int recoveryAmount = second + random.nextInt(3); // 0~2 랜덤 값
 
-    // 최대 MP보다 회복량이 많지 않도록 제한
+    //            기도시간 + 램덤 값, 최대MP - 남은MP = 추가가능한 mp
     recoveryAmount = min(recoveryAmount, maxMp - mp);
 
     mp += recoveryAmount; // 실제 MP 회복
