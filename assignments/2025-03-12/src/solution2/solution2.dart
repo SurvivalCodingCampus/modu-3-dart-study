@@ -6,12 +6,17 @@ void main() {
 
 // 주어진 숫자가 소수인지 확인하는 함수를 작성하세요.
 bool isPrime(int number) {
-  int count = 0;
+  if(number < 2) {
+    return false;
+  }
+
+  bool isPrime = true;
+
   for (int i = 2; i < number; i++) {
     if (number % i == 0) {
-      count++;
+      isPrime = false;
+      break;
     }
   }
-  print(count);
-  return count > 0 ? false : true;
+  return isPrime;
 }
