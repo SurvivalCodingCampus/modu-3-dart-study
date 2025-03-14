@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/2025-03-13/turn_battler_game/statistics.dart';
+import 'statistics.dart';
 
 abstract class Character {
   final String name;
