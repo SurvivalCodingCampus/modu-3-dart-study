@@ -2,6 +2,93 @@
 
 
 
+### Library & imports 종류
+
+
+
+#### 라이브러리란?
+
+- Dart 코드의 재사용성과 모듈화를 위해 **라이브러리(Library)** 개념을 사용.
+
+```dart
+import 'dart:math';  // Dart의 기본 라이브러리
+import 'package:http/http.dart';  // 패키지 라이브러리
+import 'utils.dart';  // 로컬 파일
+```
+
+
+
+#### 라이브러리 종류
+
+##### 코어 라이브러리 (dart: prefix)
+
+- dart:core (자동 포함) → String, List, int 등 기본 기능 제공
+- dart:async → Future, Stream 지원
+- dart:io → 파일 및 네트워크 I/O 지원 (웹에서는 사용 불가)
+
+#### 패키지 라이브러리 (package: prefix)
+
+- package:를 사용해 **pub.dev**에서 제공하는 패키지를 가져올 수 있음.
+
+```dart
+import 'package:http/http.dart' as http;
+```
+
+
+
+#### 로컬 라이브러리 (relative path)
+
+```dart
+import 'utils.dart';  // 같은 폴더에 있는 utils.dart 파일 가져오기
+```
+
+
+
+
+
+#### import 옵션들
+
+##### **별칭 사용 (as)**
+
+```dart
+import 'package:math_expressions/math_expressions.dart' as math;
+math.Parser p = math.Parser();
+```
+
+##### 필요한 부분만 가져오기 (show)
+
+```dart
+import 'dart:math' show Random, pi;
+```
+
+##### 특정 부분 제외하고 가져오기 (hide)
+
+```dart
+import 'dart:math' hide sin, cos;
+```
+
+
+
+#### part와 part of (라이브러리 분할)
+
+- 한 라이브러리를 여러 파일로 나누기 위해 사용.
+- **일반적으로 import를 사용하고, part는 큰 라이브러리를 여러 파일로 나눌 때만 사용.**
+- main.dart:
+
+```dart
+part 'utils.dart';
+```
+
+- utils.dart:
+
+```dart
+part of 'main.dart';
+```
+
+
+
+
+
 ### map()
 
 - 컬렉션의 각 요소를 변환하여 새로운 컬렉션을 반환

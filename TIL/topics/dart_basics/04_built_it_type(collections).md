@@ -222,6 +222,14 @@ void main() {
 
 #### int
 
+
+
+##### Int는 몇바이트인가???
+
+- 공식적인 문서에 나오지 않음
+
+
+
 ##### Clamp
 
 - 만약 숫자가 lowerLimit보다 작으면, lowerLimit 값을 반환.
@@ -478,4 +486,34 @@ if (myMap.containsKey('apple')) {
 #### Set
 
 ##### 
+
+
+
+
+
+#### Runes
+
+문자열에서 유니코드 코드 포인트를 다룰 때 사용
+
+##### 문자의 유니코드 값 가져오기
+
+```dart
+void main() {
+  String emoji = '👋';  
+  print(emoji.runes); // (128075)
+}
+```
+
+
+
+##### 유니코드 값 → 문자열 변환
+
+```dart
+void main() {
+  Runes runes = Runes('\u{1F600}'); // 😀 (U+1F600)
+  String emoji = String.fromCharCodes(runes);
+  
+  print(emoji); // 😀
+}
+```
 

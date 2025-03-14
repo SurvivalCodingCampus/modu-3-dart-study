@@ -2,6 +2,57 @@
 
 
 
+## 네이밍 컨벤션
+
+
+
+### 변수 & 함수 → CamelCase
+
+```dart
+int itemCount = 10;
+String getUserName() { ... }
+```
+
+### 클래스 & enum → PascalCase
+
+```dart
+class UserProfile { ... }
+enum UserType { admin, guest, member }
+```
+
+### 상수 (const, final) → CamelCase (전역 상수는 UPPER_SNAKE_CASE 허용)
+
+```dart
+const int maxRetries = 3;
+final String appVersion = "1.0.0";
+const double PI = 3.1415; // 전역 상수일 경우
+```
+
+### 프라이빗 변수 & 함수 → CamelCase (앞에 _ 추가)
+
+```dart
+class User {
+  String _privateField = "secret";
+  void _privateMethod() { ... }
+}
+```
+
+### 파일 및 디렉토리 → snake_case.dart
+
+```dart
+// 파일 이름
+user_profile.dart  
+main_screen.dart  
+
+// 디렉토리 이름
+models/
+controllers/
+```
+
+
+
+
+
 ### final, const
 
 

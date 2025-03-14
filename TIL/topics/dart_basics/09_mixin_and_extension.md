@@ -1,5 +1,33 @@
 ### 믹스인 (Mixins)
 
+### Metadata
+
+코드에 대한 추가 정보
+
+```dart
+class Television {
+  @Deprecated('Use turnOn instead')
+  void activate() {
+    turnOn();
+  }
+  // ···
+}
+
+```
+
+
+
+### Todo
+
+```dart
+@Todo('Dash', 'Implement this function')
+void doSomething() {
+  print('Do something');
+}
+```
+
+
+
 #### MIxin vs Interface vs Abstract Class 비교
 
 ##### 1️⃣ 믹스인 (Mixin)**

@@ -20,6 +20,7 @@
 | 위로 블록 전체 지정, 괄호 전체 블록 | `Option + ↑`          |
 | Evaluate Expression 열기(디버깅 관련) | `Option + F8`         |
 |앞에 문자 무시하고 개행|Shift + Enter|
+|import 도움 단축|Alt + Enter|
 
 
 
