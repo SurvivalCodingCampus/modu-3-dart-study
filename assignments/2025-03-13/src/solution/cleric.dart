@@ -2,12 +2,12 @@ import 'dart:math';
 
 class Cleric {
   String name; // 이름
-  int hp = 50; // 공격력 50 초기화
-  final int maxHp = 50; // 최대 공격력 50 초기화
-  int mp = 10; // 마법력 10 초기화
-  final int maxMp = 10; // 최대 마법력 10 초기화
+  int hp;
+  int mp;
+  static const int maxHp = 50; // 최대 공격력 50 초기화
+  static const int maxMp = 10; // 최대 마법력 10 초기화
 
-  Cleric(this.name); // 생성자. 이름 지정
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp}); // 생성자. 이름 지정
 
   void selfAid() {
     if (mp < 5) {
@@ -34,4 +34,11 @@ class Cleric {
 
     return recoveryAmount;
   }
+}
+
+void main() {
+  String a = 'a';
+  String b = a;
+  b = 'b';
+  print(a);
 }
