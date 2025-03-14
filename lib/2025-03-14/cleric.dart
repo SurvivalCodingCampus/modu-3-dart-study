@@ -2,16 +2,27 @@ import 'dart:math';
 
 //class 설정
 class Cleric {
-  // maxHp, maxMp는 상수(final) 필드
-  final int maxHp = 50;
-  final int maxMp = 10;
+  // 기본매개변수 값으로 사용하려면 const 여야 함 final 을 쓰려면 기본값 제거 후
+  // hp,mp의 기본값을 null 로 두고  ?? 이용 maxHp, maxMp 적용하면 됨
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   String name;
   int hp = 50; // 초기치
   int mp = 10;
 
-  // maxHp, maxMp는 상수로 설정되어 있으므로 제외
-  Cleric(this.name, this.hp, this.mp);
+
+
+//Cleric(this.name, {int? hp, int? mp})
+  //: hp = hp ?? maxHp,   // ?? 널 병합
+  //   mp = mp ?? maxMp;
+
+
+  // final을 const 로 바꿔주면 생성자 내에서 hp, mp  max 값으로 변경 가능
+  Cleric(this.name, {int hp = maxHp, int mp = maxMp})
+      : hp = min(hp, maxHp),
+       mp = min(mp, maxMp);
+
 
   void selfAid() {
     //mp 값이 최소 5는 있어야 스킬을 사용할 수 있으므로 조건 설정
@@ -37,8 +48,8 @@ class Cleric {
     // mp = mpRecover + mp
       mp += mpRecover;
       print('$name가 기도를 통해 $mpRecover 마력을 회복했다.'); // 실제로 회복된 양
-      print('$name의 마력이 $mp가 되었다.'); // 현재 총 마력양
+      print('$name의 마력이 $mp가 되었다.'); // 현재 총 마력량
       return mpRecover;
     }
-  }
 
+  }
