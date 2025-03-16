@@ -68,8 +68,8 @@ class Hero {
 // }
 
 void main() {
-  Sword riceBag = Sword(name: '백만석', damege: 10);
-  Sword brush = Sword(name: '붓', damege: 10);
+  Sword riceBag = Sword(name: '백만석', damage: 10);
+  Sword brush = Sword(name: '붓', damage: 10);
 
   Hero hero1 = Hero(name: '홍길동', hp: 100);
   Hero hero2 = Hero(name: '춘향이', hp: 100, sword: riceBag);
