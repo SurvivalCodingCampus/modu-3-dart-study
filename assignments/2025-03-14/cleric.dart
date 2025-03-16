@@ -1,23 +1,19 @@
 import 'dart:math';
 
 class Cleric {
-  static final int maxHp = 50;
-  static final int maxMp = 10;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   String name;
 
   // 요구사항: 50hp, 10mp 기본 셋팅
-  int hp = 50;       //health points
-  int mp = 10;       //mana points
+  int hp = 50; //health points
+  int mp = 10; //mana points
 
-  Cleric(this.name, this.hp, this.mp) {
-
-    //print ('name: $name, hp: $hp, mp: $mp 성직자 생성');
-  }
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   //자기 응급처치기능.
   void selfAid() {
-
     // MP부족으로 회복 불가능
     if (mp < 5) {
       print('$name 은(는) mp 부족으로 체력 회복이 불가능 합니다.');
@@ -30,7 +26,6 @@ class Cleric {
       hp = maxHp;
       print('$name 은(는) 체력이 회복되었습니다.');
     }
-
   }
 
 
@@ -41,7 +36,6 @@ class Cleric {
   //리턴값은 실제로 회복된 mp양
 
   int pray(int timeToPrayInSec) {
-
     //기도한 시간을 기준으로 랜덤함수 이용 0~2포인트 보정
     int recoveryPoints = Random().nextInt(3);
     // 실제로 회복된 MP양
@@ -62,7 +56,7 @@ class Cleric {
       //실제 회복량 계산
       mpRecoveryAmount = mp + mpRecoveryAmount - maxMp;
       mp = maxMp;
-      print ('mp량이 최대치 ${maxMp} 를 초과하여 mp가 Max 값으로 재설정 되었습니다.');
+      print('mp량이 최대치 ${maxMp} 를 초과하여 mp가 Max 값으로 재설정 되었습니다.');
     } else {
       mp = mp + mpRecoveryAmount;
       print('총 $mpRecoveryAmount 만큼 회복하여 mp는 $mp 입니다.');
@@ -70,6 +64,5 @@ class Cleric {
 
     //print ('mp: $mp,recoveryPoints : $recoveryPoints, mpRecoveryAmount: $mpRecoveryAmount');
     return mpRecoveryAmount;
-
   }
 }
