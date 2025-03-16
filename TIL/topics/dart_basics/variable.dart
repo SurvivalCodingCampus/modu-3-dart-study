@@ -26,7 +26,7 @@ void main() {
   var d2 = 10.1;
   var b2 = true;
   var s2 = "홍길동";
-  // n1 = 10.5; // 오류남
+  // n2 = 10.5; // 오류남
   print('\n');
   print("* 타입 추론 (var)");
   print("정수 : ${n2.runtimeType}");
