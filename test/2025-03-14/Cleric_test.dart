@@ -1,5 +1,6 @@
-import 'package:modu_3_dart_study/2025-03-13/Cleric.dart';
+
 import 'package:test/test.dart';
+import '../../assignments/2025-03-14/Cleric.dart';
 
 void main() {
   test('Cleric selfAid() 테스트 : 회복 성공', () {
@@ -45,8 +46,7 @@ void main() {
     cleric.pray(1);
 
     // then(검증)
-    expect(cleric.mp,lessThan(10));
-    expect(cleric.mp, inInclusiveRange(5, 7) );
+    expect(cleric.mp, inInclusiveRange(6, 8) );
   });
 
   test('Cleric pray() 테스트 : 기도 시간 10일때', () {
