@@ -1,14 +1,15 @@
 import 'dart:math';
 
 class Cleric {
-  String name;
-  int HP = 50;
-  int MP = 10;
   final int maxHP = 50;
   final int maxMP = 10;
 
+  String name;
+  int HP = 50;
+  int MP = 10;
+
   //이름 받기
-  Cleric(this.name);
+  Cleric(this.name); // maxHP, maxMP는 상수로 설정되어 있으므로 제외
 
   //mp를 5 소비 후 자신의 HP를 최대 HP 까지 회복 가능
   void selfAid() {

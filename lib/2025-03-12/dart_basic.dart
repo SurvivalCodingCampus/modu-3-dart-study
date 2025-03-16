@@ -1,12 +1,9 @@
 void main() {
-  print('Hello World!');
+  // 올바른 사용법
+  int age = 15;
+  int add(int num1, int num2) {
+    return num1 + num2;
 
-var name = 'Voyager I';
-var year = 1977;
-var antennaDiameter = 3.7;
-var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];
-var image = {
-  'tags': ['saturn'],
-  'url': '//path/to/saturn.jpg',
-  };
+    print(철수의 나이는 )
+  }
 }
