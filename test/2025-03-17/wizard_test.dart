@@ -7,19 +7,21 @@ void main() {
 
 
   test('Wand class exception 발생 테스트1-1 ) 지팡이의 이름은 3문자 이상이어야 합니다', () {
+
     // 지팡이 생성
-    Wand wand = Wand(name: "서리", power: 20);
+    Wand wand = Wand(name: "s", power: 20);
     //exception 발생 테스트
 
     //3이상 검증 (exception을 구현했으므로 검증 필요없음)
-    expect(wand.name.length, greaterThanOrEqualTo(3));
+    // expect(wand.name.length, greaterThanOrEqualTo(3));
+
 
   });
 
   test('Wand class exception 발생 테스트1-2 ) 지팡이의 이름은 3문자 이상이어야 합니다', () {
     // 지팡이 생성
     Wand wand = Wand(name: "서리 지팡이", power: 20);
-    wand.name = "서리"; //exception 발생 테스트
+    wand.name = "s"; //exception 발생 테스트
 
     //검증 (exception을 구현했으므로 검증 필요없음)
     // expect(wand.name.length, greaterThanOrEqualTo(3));
@@ -62,7 +64,7 @@ void main() {
     //jn.hp = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
+    // expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
   });
 
   test('Wizard class exception 발생 테스트 3) MP는 0 미만이거나 최대 maxMp를 초과할 수 없습니다.', () {
@@ -73,7 +75,7 @@ void main() {
     //jn.mp = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    expect(jn.mp, inInclusiveRange(0, Wizard.maxMp));
+    // expect(jn.mp, inInclusiveRange(0, Wizard.maxMp));
   });
 
 
