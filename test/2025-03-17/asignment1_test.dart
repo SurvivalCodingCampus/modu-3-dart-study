@@ -32,6 +32,20 @@ void main() {
 
     //then
     expect(0, equals(wizard4.hp));
+    // 추가 검증: 이름 길이 검증
+    expect(wizard1.name.length >= 3, isTrue);
+    expect(goodWand.name.length >= 3, isTrue);
+
+    // 추가 검증: 지팡이 마력 범위 검증
+    expect(goodWand.power >= 0.5 && goodWand.power <= 100.0, isTrue);
+    expect(badWand.power >= 0.5 && badWand.power <= 100.0, isTrue);
+
+    // 추가 검증: MP 음수 불가 검증
+    wizard1.mp = 5;
+    expect(wizard1.mp >= 0, isTrue);
+
+    // 추가 검증: Wand null 불가 검증
+    expect(wizard4.wand, isNotNull);
   });
   test('person.age test', () {
     //given
