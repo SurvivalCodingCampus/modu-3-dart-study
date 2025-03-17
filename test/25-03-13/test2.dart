@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/25-03-13/cleric.dart';
+
 import 'package:test/test.dart';
 
 void main() {
