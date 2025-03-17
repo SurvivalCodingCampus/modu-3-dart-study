@@ -52,7 +52,7 @@ class Wizard {
 
   set wand(Wand? value) {
     if (_wand != null && value == null) {
-      throw Exception('마법사는 지팡이를 null로 설정할 수 없습니다');
+      throw Exception("마법사는 지팡이를 null로 설정할 수 없습니다");
     }
     _wand = value;
   }
@@ -60,23 +60,23 @@ class Wizard {
   // 예외 처리 함수
   void _validateName(String name) {
     if (name.length < 3) {
-      throw Exception('마법사 이름은 3자 이상이어야 합니다.');
+      throw Exception("마법사 이름은 3자 이상이어야 합니다.");
     }
   }
 
   void _validateHp(int hp) {
     if (hp < 0) {
-      throw Exception('HP는 0 이상이어야 합니다.');
+      throw Exception("HP는 0 이상이어야 합니다.");
     } else if (hp > maxHp) {
-      throw Exception('HP는 최대 $maxHp를 초과할 수 없습니다.');
+      throw Exception("HP는 최대 $maxHp를 초과할 수 없습니다.");
     }
   }
 
   void _validateMp(int mp) {
     if (mp < 0) {
-      throw Exception('MP는 0 이상이어야 합니다.');
+      throw Exception("MP는 0 이상이어야 합니다.");
     } else if (mp > maxMp) {
-      throw Exception('MP는 최대 $maxMp를 초과할 수 없습니다.');
+      throw Exception("MP는 최대 $maxMp를 초과할 수 없습니다.");
     }
   }
 }
