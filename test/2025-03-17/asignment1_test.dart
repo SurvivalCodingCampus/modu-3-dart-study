@@ -15,20 +15,40 @@ void main() {
     //given
     Wand goodWand = Wand(name: 'goodWand', power: 90.0);
     Wand badWand = Wand(name: 'badWand', power: 0.9);
-    // Wand impossibleWand1 = Wand(name: 'hi', power: 0.5);
-    // Wand impossibleWand2 = Wand(name: 'hiii', power: 0);
+
+    // 예외 테스트: 잘못된 이름 길이
+    expect(() => Wand(name: 'hi', power: 0.5), throwsException);
+
+    // 예외 테스트: 잘못된 마력 범위
+    expect(() => Wand(name: 'hiii', power: 0), throwsException);
 
     Wizard wizard1 = Wizard(name: 'wizard1', hp: 10, mp: 10);
-    // Wizard wizard2 = Wizard(name: 'wizard2', hp: 10, mp: -1);
-    // Wizard wizard3 = Wizard(name: 'w3', hp: 10, mp: 10);
     Wizard wizard4 = Wizard(name: 'wizard4', hp: 100, mp: 100, wand: goodWand);
     Wizard wizard5 = Wizard(name: 'wizard5', hp: 1000, mp: 1000, wand: badWand);
 
+    // 예외 테스트: 잘못된 MP 값
+    expect(() => Wizard(name: 'wizard2', hp: 10, mp: -1), throwsException);
+
+    // 예외 테스트: 잘못된 이름 길이
+    expect(() => Wizard(name: 'w3', hp: 10, mp: 10), throwsException);
+
     //when
-    // wizard4.wand = null;
+    expect(
+      () {
+        wizard4.wand = null;
+      },
+      throwsException,
+      reason: "지팡이는 null로 설정할 수 없어야 합니다",
+    );
     wizard4.hp = -10;
 
-    // wizard4.mp = -10;
+    expect(
+      () {
+        wizard4.mp = -10;
+      },
+      throwsException,
+      reason: "MP는 음수가 될 수 없어야 합니다",
+    );
 
     //then
     expect(0, equals(wizard4.hp));
