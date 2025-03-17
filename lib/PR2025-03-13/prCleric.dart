@@ -11,9 +11,13 @@ class Cleric {
 
   //mp를 5소모해 hp를 max로 만드는 메서드
   void selfAid() {
-    mp -= 5;
-    hp = maxHp;
-    print('HP 회복 완료');
+    // 5미만일때 selfAid를 실패함
+    if (mp >= 5) {
+      mp -= 5;
+      hp = maxHp;
+      print('HP가 가득 찼습니다.');
+    } else
+      print('MP가 부족합니다');
   }
 
   // second + 0~2의 마나를 회복, 단 최대 mp를 넘어선 안됨. 마나회복 메서드
