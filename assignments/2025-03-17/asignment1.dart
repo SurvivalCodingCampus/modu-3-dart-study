@@ -3,7 +3,7 @@ class Wand {
   double _power;
 
   Wand({required String name, required double power})
-    : _name = name.length > 2 ? name : throw Exception('이름은 3글자 이상이여야 합니다.'),
+    : _name = name.length >= 3 ? name : throw Exception('이름은 3글자 이상이여야 합니다.'),
       _power =
           (power >= 0.5 && power <= 100.0)
               ? power
@@ -14,7 +14,7 @@ class Wand {
   double get power => _power;
 
   set name(String value) {
-    if (value.length > 2) {
+    if (value.length >= 3) {
       _name = value;
     } else {
       throw Exception("이름은 3글자 이상이여야 합니다.");
@@ -36,7 +36,7 @@ class Wizard {
   int _mp;
   Wand? _wand;
   Wizard({required String name, required int hp, required int mp, Wand? wand})
-    : _name = (name.length > 2) ? name : throw Exception("이름은 3글자 이상이여야 합니다."),
+    : _name = (name.length >= 3) ? name : throw Exception("이름은 3글자 이상이여야 합니다."),
       _hp = (hp < 0) ? 0 : hp,
       _mp = (mp < 0) ? throw Exception('mp는 0이상이여야 합니다.') : mp,
       _wand = wand;
@@ -47,7 +47,7 @@ class Wizard {
   Wand? get wand => _wand;
 
   set name(String value) {
-    if (value.length > 2) {
+    if (value.length >= 3) {
       _name = value;
     } else {
       throw Exception("이름은 3글자 이상이여야 합니다.");
