@@ -15,15 +15,15 @@ void main() {
 
     expect(cleric.name, equals('아서스'));
     expect(cleric.hp, equals(35));
-    expect(cleric.mp, equals(10));
+    expect(cleric.mp, equals(Cleric.maxMp));
   });
 
   test('기본생성자 테스트3', () {
     Cleric cleric = Cleric('아서스');
 
     expect(cleric.name, equals('아서스'));
-    expect(cleric.hp, equals(50));
-    expect(cleric.mp, equals(10));
+    expect(cleric.mp, equals(Cleric.maxMp));
+    expect(cleric.hp, equals(Cleric.maxHp));
   });
 
   // test('네임드 생성자 withNameAndHp 테스트', () {
