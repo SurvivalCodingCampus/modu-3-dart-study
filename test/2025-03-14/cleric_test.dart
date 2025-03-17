@@ -2,7 +2,8 @@ import 'package:test/test.dart';
 import '../../assignments/2025-03-14/cleric.dart';
 
 void main() {
-  test('cleric Test A', () {
+  group('group name', () {
+    test('cleric Test A', () {
     // Givne(준비)
     final cleric = Cleric('아서스', hp: 40, mp: 5);
     // When(실행)
@@ -34,4 +35,6 @@ void main() {
     expect(cleric.hp, Cleric.maxHp);
     expect(cleric.mp, Cleric.maxMp);
   });
+  });
+  
 }
