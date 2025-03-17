@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-03-13/hero.dart';
 import 'package:test/test.dart';
+import '../../assignments/2025-03-13/hero.dart';
 
 void main() {
   test('Hero attack 테스트', () {
