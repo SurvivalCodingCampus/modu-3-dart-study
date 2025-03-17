@@ -10,7 +10,6 @@ class Person {
 }
 
 void main(List<String> args) {
-
   Person person = Person(name: '홍길동', birthYear: 2020);
   print(person.age);
 
