@@ -46,6 +46,7 @@ void main() {
 
     // then(검증)
     expect(cleric.mp,lessThan(10));
+    expect(cleric.mp, inInclusiveRange(5, 7) );
   });
 
   test('Cleric pray() 테스트 : 기도 시간 10일때', () {

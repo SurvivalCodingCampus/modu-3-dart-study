@@ -1,0 +1,102 @@
+📌 Dart 생성자 정리 (Dart 공식 문서 요약)
+1. 기본 생성자
+클래스에는 **기본 생성자(default constructor)**가 존재함.
+기본 생성자는 매개변수가 없으며, 클래스의 인스턴스를 생성함.
+생성자를 명시적으로 선언하지 않으면 자동으로 제공됨.
+dart
+복사
+편집
+class Person {} // 기본 생성자가 자동으로 생성됨.
+
+void main() {
+  var p = Person(); // 기본 생성자 호출 가능
+}
+2. 명명된(named) 생성자
+클래스에 여러 개의 생성자를 추가할 때 사용.
+ClassName.생성자이름 형태로 정의함.
+dart
+복사
+편집
+class Person {
+  String name;
+
+  // 기본 생성자
+  Person(this.name);
+
+  // 명명된 생성자
+  Person.anonymous() {
+    name = "Unknown";
+  }
+}
+
+void main() {
+  var p1 = Person("Alice");
+  var p2 = Person.anonymous(); // 명명된 생성자 호출
+}
+3. 초기화 리스트 (Initializer List)
+생성자가 본문 실행 전에 변수를 초기화하는 방법.
+:(콜론) 뒤에 초기화할 값을 지정함.
+dart
+복사
+편집
+class Point {
+  final int x;
+  final int y;
+
+  // 초기화 리스트 사용
+  Point(int a, int b) : x = a, y = b;
+}
+
+void main() {
+  var p = Point(3, 4);
+}
+4. const 생성자 (상수 생성자)
+불변(immutable) 객체를 만들 때 사용.
+클래스 내부의 모든 필드가 final이어야 함.
+dart
+복사
+편집
+class ImmutablePoint {
+  final int x;
+  final int y;
+
+  // 상수 생성자
+  const ImmutablePoint(this.x, this.y);
+}
+
+void main() {
+  var p1 = const ImmutablePoint(1, 2);
+  var p2 = const ImmutablePoint(1, 2);
+
+  print(identical(p1, p2)); // true (같은 객체를 공유)
+}
+5. 팩토리 생성자 (Factory Constructor)
+factory 키워드를 사용하여 새로운 인스턴스를 반환하거나 기존 인스턴스를 반환.
+싱글턴 패턴을 구현할 때 유용.
+dart
+복사
+편집
+class Singleton {
+  static final Singleton _instance = Singleton._internal();
+
+  factory Singleton() {
+    return _instance;
+  }
+
+  Singleton._internal(); // private 생성자
+}
+
+void main() {
+  var s1 = Singleton();
+  var s2 = Singleton();
+
+  print(identical(s1, s2)); // true (같은 객체 공유)
+}
+🚀 요약
+생성자 유형	설명
+기본 생성자	매개변수 없이 자동 생성됨.
+명명된 생성자	여러 생성자를 만들 때 사용.
+초기화 리스트	생성자 실행 전에 필드를 초기화.
+const 생성자	불변 객체를 생성.
+팩토리 생성자	인스턴스를 재사용하거나 특정 로직을 추가할 때 사용.
+✔ Dart에서는 다양한 생성자를 활용하여 더 유연한 객체 생성을 할 수 있음! 🚀
