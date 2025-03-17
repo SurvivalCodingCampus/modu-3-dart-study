@@ -12,8 +12,8 @@ void main() {
 
   //  ‘홍길동', ‘한석봉' 인 Person 인스턴스를 생성하고, List에 담기
   List<Person> person = [
-    Person(name: '홍길동', birthYear: 20),
-    Person(name: '한석봉', birthYear: 25)
+    Person(name: '홍길동', birthYear: 2000),
+    Person(name: '한석봉', birthYear: 2005)
   ];
 
   // List에 담긴 모든 Person 인스턴스의 이름을 표시하기

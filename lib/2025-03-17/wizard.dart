@@ -9,6 +9,8 @@ class Wizard {
   String get name => _name;
   int get hp => _hp;
   int get mp => _mp;
+  Wand get wand => _wand!;
+
 
   // 초기화 리스트를 통해 필드를 초기화. setter 호출
   Wizard({required String name, required int hp, required int mp, Wand? wand})
@@ -33,6 +35,7 @@ class Wizard {
     if (value.length < 3) {
       throw Exception('에러메세지 : 마법사의 이름은 3문자 이상이어야 합니다.');
     }
+    _name = value;
   }
 
   set mp(int value) {
@@ -40,12 +43,15 @@ class Wizard {
     if (value < 0) {
       throw Exception('에러메세지 : 마법사의 MP는 0 이상이어야 합니다.');
     }
+    _mp = value;
   }
 
   set hp(int value) {
     // 5번. 마법사의 HP가 음수가 되면 대신 0으로 설정함.
     if (value < 0) {
       _hp = 0;
+    } else {
+      _hp = value;
     }
   }
 }
