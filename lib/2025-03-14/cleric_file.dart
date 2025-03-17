@@ -9,8 +9,8 @@ class Cleric{
   // 연습문제 1
   String name;
   int? prayTime;
-  int? hp;
-  int? mp;
+  int hp;
+  int mp;
 
 
   //연습문제 2
