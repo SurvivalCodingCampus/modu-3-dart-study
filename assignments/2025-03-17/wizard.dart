@@ -15,11 +15,6 @@ class Wizard {
   Wand get wand => _wand;
 
   set wizardNameValidation(String name) {
-    if (name == null) {
-      print("Wizard의 이름은 null일 수 없습니다");
-      throw Exception("Wizard의 이름은 null일 수 없습니다");
-    }
-
     if (name.length < 3) {
       print("Wizard의 이름은 최소 3자 이상이여야 합니다");
       throw Exception("Wizard의 이름은 최소 3자 이상이여야 합니다");
@@ -30,7 +25,7 @@ class Wizard {
 
   set wizardHpValidation(int hp) {
     if (hp < 0) {
-      print("Wizard의 HP는 0보다 작을 수가 없습니다");
+      print("Wizard의 HP가 0보다 작아서 0으로 설정합니다");
       _hp = 0;
     } else {
       _hp = hp;
@@ -39,7 +34,6 @@ class Wizard {
 
   set wizardMpValidation(int mp) {
     if (mp <= 0) {
-      print("Wizard의 MP는 0보다 작을 수가 없습니다");
       throw Exception("Wizard의 MP는 0보다 작을 수가 없습니다");
     }
 
@@ -48,7 +42,6 @@ class Wizard {
 
   set wizardWandValidation(Wand wand) {
     if (wand == null) {
-      print("Wizard는 Wand를 필수로 가지고 있어야 합니다");
       throw Exception("Wizard는 Wand를 필수로 가지고 있어야 합니다");
     }
 

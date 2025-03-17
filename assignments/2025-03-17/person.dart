@@ -9,14 +9,20 @@ class Person {
 
   int get age => _age;
 
-  set calYearAge(int birthYear) {
+  set age(int value) {
+    _age = value;
+  }
+
+  void calculateAge() {
     _age = DateTime.now().year - birthYear;
-    print("$name 님의 연 나이는 $age세 입니다");
   }
 
   Person({required String name, required int birthYear}) {
     _name = name;
     _birthYear = birthYear;
-    calYearAge = birthYear;
+    {
+      calculateAge();
+    }
+    // calYearAge = birthYear;
   }
 }

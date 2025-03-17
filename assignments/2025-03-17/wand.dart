@@ -10,13 +10,13 @@ class Wand {
   double get power => _power;
 
   set wandNameValidation(String name) {
-    if (name == null) {
-      print("지팡이의 이름은 null일 수 없습니다");
-      throw Exception("지팡이의 이름은 null일 수 없습니다");
-    }
+    // if (name == null) {
+    //   print("지팡이의 이름은 null일 수 없습니다");
+    //   throw Exception("지팡이의 이름은 null일 수 없습니다");
+    // }
 
     if (name.length < 3) {
-      print("지팡이의 이름은 최소 3자 이상이여야 합니다");
+      // print("지팡이의 이름은 최소 3자 이상이여야 합니다");
       throw Exception("지팡이의 이름은 최소 3자 이상이여야 합니다");
     }
 
@@ -24,16 +24,12 @@ class Wand {
   }
 
   set wandPowerValidation(double power) {
-    if (power == null) {
-      print("지팡이의 마력은 null일 수 없습니다");
-      throw Exception("지팡이의 마력은 null일 수 없습니다");
-    }
+    // if (power == null) {
+    //   print("지팡이의 마력은 null일 수 없습니다");
+    //   throw Exception("지팡이의 마력은 null일 수 없습니다");
+    // }
 
     if (power < _wandMinPower) {
-      print(
-        "지팡이의 마력은 $_wandMinPower 보다 작을 수 "
-        "없습니다",
-      );
       throw Exception(
         "지팡이의 마력은 $_wandMinPower 보다 작을 수 "
         "없습니다",
@@ -41,10 +37,6 @@ class Wand {
     }
 
     if (power > _wandMaxPower) {
-      print(
-        "지팡이의 마력은 $_wandMaxPower 보다 클 수"
-        " 없습니다",
-      );
       throw Exception(
         "지팡이의 마력은 $_wandMaxPower 보다 클 수"
         " 없습니다",
