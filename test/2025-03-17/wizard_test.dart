@@ -8,36 +8,22 @@ void main() {
   group('마법사나 지팡이의 이름은 null 일 수 없고, 반드시 3문자 이상이어야 한다.',() {
     // 마법사와 지팡이 이름은 nullable 하지 않으므로 null 테스트 생략
     test('지팡이 이름은 3문자 이상이어야 한다.', () {
-      final Wand wand = Wand(name: '지팡', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wand(name: '지팡', power: 10), throwsException);
     });
     test('마법사 이름은 반드시 3문자 이상이어야 한다.', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법', hp: 10, mp: 10, wand: wand);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wizard(name: '마법', hp: 10, mp: 10, wand: wand), throwsException);
     });
     test('지팡이 이름은 3문자 이상이어야 한다.', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wand.name = 'a';
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wand.name = 'a', throwsException);
     });
     test('마법사 이름은 반드시 3문자 이상이어야 한다.', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
       final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wizard.name = 'a';
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wizard.name = 'a', throwsException);
     });
 
     test('이름 생성 성공', () {
@@ -54,36 +40,20 @@ void main() {
 
   group('지팡이의 마력은 0.5 이상 100.0 이하여야 한다.', (){
     test('지팡이의 마력은 0.5 이상이여야 한다.', () {
-      final Wand wand = Wand(name: '지팡이', power: 0.1);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wand(name: '지팡이', power: 0.1), throwsException);
     });
     test('지팡이의 마력은 100.0 이하여야 한다.', () {
-      final Wand wand = Wand(name: '지팡이', power: 1000);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wand(name: '지팡이', power: 1000), throwsException);
     });
     test('지팡이의 마력은 0.5 이상이여야 한다.', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wand.power = 0.1;
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wand.power = 0.1, throwsException);
     });
     test('지팡이의 마력은 100.0 이하여야 한다.', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wand.power = 500;
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wand.power = 500, throwsException);
     });
     test('지팡이 생성 성공', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
@@ -101,17 +71,10 @@ void main() {
       final Wand wand = Wand(name: '지팡이', power: 10);
       final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wizard.wand = null;
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wizard.wand = null, throwsException);
     });
     test('생성 시 null 일때', () {
-      final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wizard(name: '마법사', hp: 10, mp: 10), throwsException);
     });
     test('마법사 지팡이 생성 성공', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
@@ -127,17 +90,11 @@ void main() {
       final Wand wand = Wand(name: '지팡이', power: 10);
       final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: 10, wand: wand);
 
-      wizard.mp = -1;
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => wizard.mp = -1, throwsException);
     });
     test('MP가 음수인 채로 생성될 때', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
-      final Wizard wizard = Wizard(name: '마법사', hp: 10, mp: -1, wand: wand);
-
-      expect(wand, isA<Wand>());
-      expect(wizard, isA<Wizard>());
+      expect(() => Wizard(name: '마법사', hp: 10, mp: -1, wand: wand), throwsException);
     });
     test('마법사 MP 테스트 성공', () {
       final Wand wand = Wand(name: '지팡이', power: 10);
