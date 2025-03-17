@@ -53,7 +53,7 @@ void main() {
     //exception 발생 테스트
 
     //3이상 검증 (exception을 구현했으므로 검증 필요없음)
-    expect(wand.name.length, greaterThanOrEqualTo(3));
+    expect(jn.name.length, greaterThanOrEqualTo(3));
   });
 
   test('Wizard class exception 발생 테스트 2) HP는 0 미만이거나 최대 maxHp를 초과할 수 없습니다.', () {
@@ -61,10 +61,11 @@ void main() {
     Wizard jn = Wizard(name: '제이나');
     //exception 발생 테스트
     jn.hp = 1000;
-    //jn.hp = -100;
+    // jn.hp = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
     expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
+
   });
 
   test('Wizard class exception 발생 테스트 3) MP는 0 미만이거나 최대 maxMp를 초과할 수 없습니다.', () {
