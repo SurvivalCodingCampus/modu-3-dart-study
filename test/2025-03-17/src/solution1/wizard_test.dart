@@ -7,33 +7,24 @@ void main() {
     // given
     Wizard wizard = Wizard(name: '마법사', hp: 50, mp: 10);
 
-    // when
-    wizard.name = null;
-
     // then
-    expect(wizard.name, equals('마법사'));
+    expect(() => wizard.name = null, throwsException);
   });
 
   test('Wizard 테스트 - 이름을 3글자 미만으로 설정하는 경우', () {
     // given
     Wizard wizard = Wizard(name: '마법사', hp: 50, mp: 10);
 
-    // when
-    wizard.name = '마';
-
     // then
-    expect(wizard.name, equals('마'));
+    expect(() => wizard.name = '마', throwsException);
   });
 
   test('Wizard 테스트 - MP를 음수로 설정하는 경우', () {
     // given
     Wizard wizard = Wizard(name: '마법사', hp: 50, mp: 10);
 
-    // when
-    wizard.mp = -10;
-
     // then
-    expect(wizard.mp, equals(-10));
+    expect(() => wizard.mp = -10, throwsException);
   });
 
   test('Wizard 테스트 - HP를 음수로 설정하는 경우', () {

@@ -31,8 +31,12 @@ class Wizard {
   }
 
   set hp(int value) {
-    value < 0 ? _hp = 0 : _hp = value;
-    print('hp는 음수가 불가능하여 0으로 설정합니다');
+    if (value < 0) {
+      _hp = 0;
+      print('hp는 음수가 불가능하여 0으로 설정합니다');
+    } else {
+      _hp = value;
+    }
   }
 
   set mp(int value) {
@@ -40,6 +44,8 @@ class Wizard {
   }
 
   set wand(Wand? value) {
-    value == null ? throw ('지팡이가 생성된 이후에는 Null로 지정할 수 없습니다') : _wand = value;
+    value == null
+        ? throw Exception('지팡이가 생성된 이후에는 Null로 지정할 수 없습니다')
+        : _wand = value;
   }
 }
