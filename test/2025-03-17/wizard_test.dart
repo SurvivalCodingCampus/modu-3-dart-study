@@ -11,7 +11,7 @@ void main() {
   const double testPower = 95;
 
   group('마법사', () {
-    test('완벽한 마법사 생성', () {
+    test('완벽한 생성', () {
       // given
       Wizard wizard = Wizard(name: wizardName, hp: testHp, mp: testMp);
       wizard.wand = Wand(name: wandName, power: testPower);
@@ -27,20 +27,20 @@ void main() {
       expect(wizard.wand!.power, inInclusiveRange(0.0, 100.0));
     });
 
-    test('마법사 이름 에러', () {
+    test('이름 에러', () {
       Wizard wizard = Wizard(name: wizardName, hp: testHp, mp: testMp);
 
       expect(() => wizard.name = 'we', throwsA(isA<Exception>()));
       expect(() => wizard.name = null, throwsA(isA<Exception>()));
     });
 
-    test('마법사 mp 에러', () {
+    test('mp 에러', () {
       Wizard wizard = Wizard(name: wizardName, hp: testHp, mp: testMp);
 
       expect(() => wizard.mp = -1, throwsA(isA<Exception>()));
     });
 
-    test('마법사 hp 0 설정', () {
+    test('hp 0 설정', () {
       // given
       Wizard wizard = Wizard(name: wizardName, hp: testHp, mp: testMp);
 
@@ -51,7 +51,7 @@ void main() {
       expect(wizard.hp, equals(0));
     });
 
-    test('마법사 지팡이 null 에러', () {
+    test('지팡이 null 에러', () {
       Wizard wizard = Wizard(name: wizardName, hp: testHp, mp: testMp);
 
       expect(() => wizard.wand = null, throwsA(isA<Exception>()));
@@ -59,7 +59,7 @@ void main() {
   });
 
   group('지팡이', () {
-    test('완벽한 지팡이 생성', () {
+    test('완벽한 생성', () {
       // given
       Wand wand = Wand(name: wandName, power: testPower);
 
@@ -68,7 +68,7 @@ void main() {
       expect(wand.power, inInclusiveRange(0.0, 100.0));
     });
 
-    test('지팡이 이름 에러', () {
+    test('이름 에러', () {
       // given
       Wand wand = Wand(name: wandName, power: testPower);
 
@@ -76,7 +76,7 @@ void main() {
       expect(() => wand.name = null, throwsA(isA<Exception>()));
     });
 
-    test('지팡이 Power  에러', () {
+    test('Power  에러', () {
       // given
       Wand wand = Wand(name: wandName, power: testPower);
 
