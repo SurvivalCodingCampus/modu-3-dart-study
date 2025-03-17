@@ -2,6 +2,7 @@ import 'package:modu_3_dart_study/2025-03-13/cleric_file.dart';
 import 'package:test/test.dart';
 
 void main(){
+
   test("Cleric Given Test", () {
 
     //준비,실행
