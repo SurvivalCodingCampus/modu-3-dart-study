@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-13/solution1.dart';
+import '../../assignments/2025_03_13/solution1.dart';
 
 void main() {
   //연습 문제 2
