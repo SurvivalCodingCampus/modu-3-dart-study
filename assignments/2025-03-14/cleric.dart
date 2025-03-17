@@ -4,8 +4,8 @@ class Cleric {
   String name;
   int hp;
   int mp;
-  static const maxHp = 50;
-  static const maxMp = 10;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
