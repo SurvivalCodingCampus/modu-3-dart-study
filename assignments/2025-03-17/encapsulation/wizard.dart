@@ -16,8 +16,9 @@ class Wizard {
 
   int get hp => _hp;
   int get mp => _mp;
+  Wand? get wand => _wand;
 
-  set wand(Wand wand) => _wand = wand;
+  set setWand(Wand wand) => _wand = wand;
 
   set hp(int value) => _hp = value < 0 ? 0 : value;
   set mp(int value) => _mp = value < 0 ? 0 : value;
