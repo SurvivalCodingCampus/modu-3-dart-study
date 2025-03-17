@@ -10,6 +10,9 @@ class Wizard {
     this.name = name;
     this.hp = hp;
     this.mp = mp;
+    if (wand != null) {
+      this.wand = wand;
+    }
   }
 
   String get name => _name;
