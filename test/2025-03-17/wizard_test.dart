@@ -13,7 +13,7 @@ void main() {
     //exception 발생 테스트
 
     //3이상 검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(wand.name.length, greaterThanOrEqualTo(3));
+    expect(wand.name.length, greaterThanOrEqualTo(3));
 
 
   });
@@ -24,7 +24,7 @@ void main() {
     wand.name = "s"; //exception 발생 테스트
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(wand.name.length, greaterThanOrEqualTo(3));
+    expect(wand.name.length, greaterThanOrEqualTo(3));
   });
 
   test('Wand class exception 발생 테스트2-1 ) 지팡이의 마력은 0.5 이상 100.0 이하여야 합니다', () {
@@ -33,7 +33,7 @@ void main() {
     //exception 발생 테스트
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(wand.power, inInclusiveRange(0.5, 100.0));
+    expect(wand.power, inInclusiveRange(0.5, 100.0));
   });
 
   test('Wand class exception 발생 테스트2-2 ) 지팡이의 마력은 0.5 이상 100.0 이하여야 합니다', () {
@@ -43,7 +43,7 @@ void main() {
     wand.power = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(wand.power, inInclusiveRange(0.5, 100.0));
+    expect(wand.power, inInclusiveRange(0.5, 100.0));
   });
 
 
@@ -53,7 +53,7 @@ void main() {
     //exception 발생 테스트
 
     //3이상 검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(wand.name.length, greaterThanOrEqualTo(3));
+    expect(wand.name.length, greaterThanOrEqualTo(3));
   });
 
   test('Wizard class exception 발생 테스트 2) HP는 0 미만이거나 최대 maxHp를 초과할 수 없습니다.', () {
@@ -64,7 +64,7 @@ void main() {
     //jn.hp = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
+    expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
   });
 
   test('Wizard class exception 발생 테스트 3) MP는 0 미만이거나 최대 maxMp를 초과할 수 없습니다.', () {
@@ -75,7 +75,7 @@ void main() {
     //jn.mp = -100;
 
     //검증 (exception을 구현했으므로 검증 필요없음)
-    // expect(jn.mp, inInclusiveRange(0, Wizard.maxMp));
+    expect(jn.mp, inInclusiveRange(0, Wizard.maxMp));
   });
 
 
