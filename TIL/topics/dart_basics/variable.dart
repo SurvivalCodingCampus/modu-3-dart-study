@@ -7,10 +7,10 @@ void main() {
 
   // 변수값 확인
   print("* 변수값 확인");
-  print("정수 : ${n1}");
-  print("실수 : ${d1}");
-  print("부울 : ${b1}");
-  print("문자열 : ${s1}");
+  print("정수 : $n1");
+  print("실수 : $d1");
+  print("부울 : $b1");
+  print("문자열 : $s1");
 
   // 타입확인
   print('\n');
