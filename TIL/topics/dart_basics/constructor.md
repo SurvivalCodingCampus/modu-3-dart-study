@@ -42,7 +42,7 @@ class Hero {
 }
 
 void main() {
-  final hero1 = Hero('슈퍼맨', hp: 100);
-  final hero2 = Hero('베트맨', hp: 80, nickname: '박쥐남자');
+  final hero1 = Hero('슈퍼맨', 100);
+  final hero2 = Hero('베트맨', 80, nickname: '박쥐남자');
 }
 ```
