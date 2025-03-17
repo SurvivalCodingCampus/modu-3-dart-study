@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-03-17/src/solution/person.dart';
+import '../../../../assignments/2025-03-17/src/solution1/person.dart';
 
 void main() {
   test('Person 테스트', () {

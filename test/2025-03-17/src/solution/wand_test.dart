@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-03-17/src/solution/wand.dart';
+import '../../../../assignments/2025-03-17/src/solution1/wand.dart';
 
 void main() {
   test('Wand 테스트 - 0.5~100.0 이외의 값을 준 경우', () {
