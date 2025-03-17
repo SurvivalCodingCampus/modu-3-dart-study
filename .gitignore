@@ -180,7 +180,8 @@ fabric.properties
 TIL/00_raw/
 
 # practice folder
-lib/*
+# git update-index --assume-unchanged lib/
+lib/
 
 # template
 TIL/daily/PR_template.md
