@@ -27,7 +27,7 @@ hero2.hp = 200;
 
 
 
-### 
+
 
 ### didset과 비슷하게 구현할 때 get, set 활용
 
@@ -50,6 +50,277 @@ void main() {
 ```
 
 - 이 경우 기본값을 할당해야 한다. 프로퍼티가 Private일 경우 생성자에서 초기겂을 지정할 수 없다.
+
+
+
+## 객체지향의 프로그래밍의 4대 요소와 Dart에서의 구현
+
+예시를 잘 알아두자!
+
+### 1. 캡슐화(Encapsulation)
+
+- 개발자의 잘못된 접근에 대한 제어 방법을 제공
+- 현실세계와 동일하게 프로그래밍 하려는 제어 방법
+- 내용물을 보호막 안에 감싸는 개념
+  - 데이터 은닉, 기능 결합
+
+
+
+#### private
+
+- Named Parameters에는 언더바에 바로 초기값 넣을 수 없다.
+  - 초기화 리스트 사용
+- 동일 파일내에서만 가능
+
+
+
+#### getter, setter
+
+getter: 읽기 전용 프로퍼티
+
+```dart
+String get greeting => 'Hello, $_name!';
+```
+
+
+
+setter: 쓰기 전용 프로퍼티
+
+```dart
+set name(String value) {
+  if (value.isNotEmpty) {
+    _name = value;
+  }
+}
+```
+
+Dart에서는 모든 인스턴스 변수에 대해 암묵적인 getter와 setter가 자동으로 생성됨
+
+```dart
+class BankAccount {
+  double _balance = 0.0
+  
+  // getter 메서드
+  double get balance => _balance;
+  
+  // 입금 메서드
+  void deposit(double amount) {
+    if (amount > 0) {
+      _balance += amount;
+    }
+  }
+  
+  // 출금 메서드
+  bool withdraw(double amount) {
+    if (amount > 0 && _balance >= amount) {
+      _balance -= amount;
+      return true;
+    }
+    return false;
+  }
+}
+
+void main() {
+  var account = BankAccount();
+  account.deposit(1000);
+  print(account.balance);
+}
+```
+
+
+
+### 2. 상속(Inheritance)
+
+상속은 기존 클래스(부모 클래스)의 특성을 다른 클래스(자식 클래스)가 물려받아 재사용하고 확장할 수 있게 하는 메커니즘.
+
+```dart
+// 부모 클래스
+class Animal {
+  String name;
+  
+  Animal(this.name);
+  
+  void makeSound() {
+    print('Animal sound');
+  }
+  
+  void eat() {
+    print('$name is eating');
+  }
+}
+
+// 자식 클래스
+class Dog extends Animal {
+  String breed;
+  
+  // super로 부모 클래스 생성자 호출
+  Dog(String name, this.breed) : super(name);
+  
+  // 메서드 오버라이딩
+  @override
+  void makeSound() {
+    print('$name barks: Woof!');
+  }
+  
+  // 자식 클래스만의 새로운 메서드
+  void fetch() {
+    print('$name fetches the ball');
+  }
+}
+
+void main() {
+  var dog = Dog('Bobby', 'Golden Retriever');
+  dog.makeSound();  // Bobby barks: Woof!
+  dog.eat();        // Bobby is eating (상속받은 메서드)
+  dog.fetch();      // Bobby fetches the ball
+}
+```
+
+Dart에서는 `extends` 키워드로 상속을 구현합니다. 메서드 오버라이딩 시 `@override` 어노테이션을 사용합니다.
+
+### 3. 다형성(Polymorphism)
+
+다형성은 동일한 인터페이스나 메서드가 다양한 형태로 동작할 수 있게 하는 능력. 여러 하위 클래스가 같은 메서드를 다르게 구현할 수 있다.
+
+```dart
+// 부모 클래스 또는 인터페이스
+abstract class Shape {
+  double calculateArea();
+  
+  void printArea() {
+    print('Area: ${calculateArea()}');
+  }
+}
+
+class Circle extends Shape {
+  double radius;
+  
+  Circle(this.radius);
+  
+  @override
+  double calculateArea() {
+    return 3.14 * radius * radius;
+  }
+}
+
+class Rectangle extends Shape {
+  double width;
+  double height;
+  
+  Rectangle(this.width, this.height);
+  
+  @override
+  double calculateArea() {
+    return width * height;
+  }
+}
+
+void main() {
+  List<Shape> shapes = [
+    Circle(5),
+    Rectangle(4, 6)
+  ];
+  
+  // 동일한 메서드 호출이지만 각 객체 타입에 맞게 다르게 실행됨
+  for (var shape in shapes) {
+    shape.printArea();  // Circle: Area: 78.5, Rectangle: Area: 24.0
+  }
+}
+```
+
+
+
+### 4. 추상화(Abstraction)
+
+추상화는 복잡한 시스템에서 핵심적인 부분만을 추출하여 복잡성을 감추는 과정. Dart에서는 추상 클래스와 인터페이스를 통해 구현.
+
+```dart
+// 추상 클래스
+abstract class Vehicle {
+  // 추상 메서드 (구현 없음)
+  void start();
+  void stop();
+  
+  // 일반 메서드 (구현 있음)
+  void honk() {
+    print('Beep!');
+  }
+}
+
+// 인터페이스 역할을 하는 클래스
+class ElectricVehicle {
+  void charge() {
+    print('Charging...');
+  }
+}
+
+// 다중 인터페이스 구현
+class ElectricCar extends Vehicle implements ElectricVehicle {
+  @override
+  void start() {
+    print('Electric car starting silently...');
+  }
+  
+  @override
+  void stop() {
+    print('Electric car stopped');
+  }
+  
+  @override
+  void charge() {
+    print('Electric car charging at station');
+  }
+}
+
+void main() {
+  var tesla = ElectricCar();
+  tesla.start();   // Electric car starting silently...
+  tesla.honk();    // Beep!
+  tesla.charge();  // Electric car charging at station
+  tesla.stop();    // Electric car stopped
+}
+```
+
+Dart에서는 `abstract` 키워드로 추상 클래스를 정의합니다. 추상 클래스는 인스턴스화할 수 없고, 구현되지 않은 추상 메서드를 포함할 수 있습니다. Dart는 별도의 인터페이스 키워드가 없지만, 모든 클래스가 암시적으로 인터페이스 역할을 할 수 있습니다.
+
+### 추가 내용: Dart의 특수한 객체지향 기능
+
+Dart는 위 4가지 기본 요소 외에도 객체지향 프로그래밍을 강화하는 몇 가지 특수한 기능을 제공합니다:
+
+#### Mixins
+
+코드 재사용을 위한 강력한 방법으로, 클래스 간에 메서드와 속성을 공유할 수 있음.
+
+```dart
+mixin Logger {
+  void log(String message) {
+    print('LOG: $message');
+  }
+}
+
+class DataService with Logger {
+  void fetchData() {
+    log('Fetching data...');
+    // 데이터 가져오는 로직
+  }
+}
+```
+
+#### **확장 메서드(Extension methods)**
+
+기존 클래스에 새로운 기능을 추가할 수 있는 방법
+
+```dart
+extension StringExtension on String {
+  bool isValidEmail() {
+    return contains('@') && contains('.');
+  }
+}
+
+void main() {
+  print('test@example.com'.isValidEmail());  // true
+}
+```
 
 
 
@@ -128,6 +399,9 @@ class Cleric {
 - 길어지면(80자) 코드 정렬 시 각 파라미터별로 개행이된다.
 - 생성자를 통해서 기본값을 넣어야 한다. 무의미한 코드 방지
 - 생성자 오버로딩을 직접적으로 지원하지 않지만, 해당 생성자를 이용해서 오버로딩과 비슷한 효과를 낼 수 이싿.
+- Named Parameters에는 언더바에 바로 초기값 넣을 수 없다.
+  - 초기화 리스트 사용
+
 
 #### Optional 넣어 매개변수를 생략 가능
 
@@ -275,7 +549,27 @@ class Point {
 // 사용: var p = Point(3, 4); // distanceFromOrigin은 5가 됨
 ```
 
--  잘 안씀
+
+
+#### 생성사 본문도 같이 활용 가능
+
+```dart
+Wizard(String name, int hp, int mp, Wand? wand) :
+      _name = name,
+      _hp = max(0, hp),
+      _mp = mp,
+      _wand = wand {
+  if (name.length < 3) {
+    throw Exception('❎이름은 3자 이상이어야 합니다.');
+  }
+
+  if (mp < 0) {
+    throw Exception('❎마법사의 MP는 0 이상이어야 합니다.');
+  }
+}
+```
+
+
 
 
 
@@ -371,6 +665,7 @@ final currentTime = DateTime.now(); // 런타임에 계산되는 값 가능
 - 이 파일이 실행될 때 해당 위치에서 값이 결정
 - 초기화 방법: **선언 시점에** 반드시 초기화 필요
 - 메모리: 동일한 값은 메모리에 한번만 저장
+- **객체마다 다른 값을 가질 수 있는 필드**는 컴파일 시점에 그 값이 확정될 수 없기 때문에 `const`로 선언할 수 없다.
 - 사용 사례:
   - 절대 변경되지 않는 상수 값
   - 컴파일 시점에 알 수 있는 값

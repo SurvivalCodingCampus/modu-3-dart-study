@@ -11,18 +11,20 @@
 | Project 창에서 코드 파일 열기 |Enter             |
 | Project 창 숨기기/보이기 |Cmd + Shift + F12 |
 |파일, 디렉토리 영역으로 이동|Cmd + 1|
-| 최근에 사용한 프로젝트 오픈  | `Command + E`         |
+| 최근에 사용한 프로젝트 오픈  | `Cmd + E`      |
 | Show Context Action         | `Option + Enter`      |
 | 중괄호 전체 선택             | `Option + 방향키`     |
-| 첫 커서로 이동               | `Fn + Command + Shift + ←` |
-| 인덴트 자동 정렬             | `Option + Command + L` |
+| 첫 커서로 이동               | `Fn + Cmd + Shift + ←` |
+| 인덴트 자동 정렬             | `Option + Cmd + L` |
 | 다중 커서 추가               | `Shift + Option + 클릭` |
 | 위로 블록 전체 지정, 괄호 전체 블록 | `Option + ↑`          |
 | Evaluate Expression 열기(디버깅 관련) | `Option + F8`         |
 |앞에 문자 무시하고 개행|Shift + Enter|
 |import 도움 단축|Alt + Enter|
-|커밋|Command + k|
-|해당 줄 그대로 복사|Command + D|
+|커밋|Cmd + k|
+|해당 줄 그대로 복사|Cmd + D|
+|제너레이터|Cmd + N|
+|코드 펼치기, 접기|Cmd + .|
 
 
 

@@ -87,7 +87,13 @@ part of 'main.dart';
 
 
 
+### List<E>.unmodifiable
 
+- 모든 내용을 포함하는 변경 불가능한 목록을 만듭니다
+
+### moveNext()
+
+- Iterator 클래스의 메서드로, 반복자가 다음 요소로 이동할 수 있으면 true를 반환
 
 ### map()
 

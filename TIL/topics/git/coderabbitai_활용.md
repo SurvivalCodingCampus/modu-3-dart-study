@@ -2,6 +2,10 @@
 
 ## Coderabbitai 활용하기
 
+### 리뷰 다시 요청하기
+
+[@coderabbitai](https://github.com/coderabbitai) please review again
+
 ### 검토
 
 - `@coderabbitai review`새로운 변경 사항을 확인하기 위해 시작하세요

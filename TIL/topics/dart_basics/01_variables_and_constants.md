@@ -153,3 +153,33 @@ void main() {
 
 
 
+
+
+
+
+### Dynamic VS Object
+
+#### Dynamic
+
+- `dynamic`은 완전한 타입 검사를 우회하는 특별한 타입
+- 메서드나 속성의 존재를 컴파일타임에 확인하지 않음.
+
+#### Object
+
+- `Object`는 Dart의 모든 클래스의 최상위 타입
+- 컴파일 타임에 타입 체크가 이루어짐
+
+
+
+
+
+#### 프로퍼티
+
+- p는 프로퍼티, f는 필드.
+- 일반적으로 property는 getter, setter를 얘기함
+
+```dart
+String _name; // property, field, member
+int get name => _name // property
+```
+
