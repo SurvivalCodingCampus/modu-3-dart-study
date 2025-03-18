@@ -26,7 +26,7 @@ class Hero {
   set mp(int value) {
     if (value < minMp) {
       _mp = minMp;
-    } else if (value > maxHp) {
+    } else if (value > maxMp) {
       _mp = maxMp;
     } else {
       _mp = value;
