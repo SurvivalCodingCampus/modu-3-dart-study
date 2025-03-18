@@ -11,6 +11,7 @@ class Cleric {
   //이름은 필수, 나머지는 설정 가능
   Cleric(this.name, {this.hp = maxHp, this.mp = maxMp})
 
+
   //mp를 5 소비 후 자신의 HP를 최대 HP 까지 회복 가능
   void selfAid() {
     //mp가 5 이상인지 확인
