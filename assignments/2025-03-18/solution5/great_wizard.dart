@@ -11,10 +11,6 @@ class GreatWizard extends Wizard {
     super.wand,
   });
 
-  int getWizardMp() {
-    return mp;
-  }
-
   void superHeal(Hero hero) {
     if (mp < 50) {
       print('마나가 부족합니다');

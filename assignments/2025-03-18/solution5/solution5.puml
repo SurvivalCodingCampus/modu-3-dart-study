@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Wizard {
+    static const int wizardMaxMP = 100
+    String _name
+    int _hp
+    int _mp
+    Wand? _wand
+    void heal(Hero hero)
+}
+
+class GreatWizard extends Wizard {
+    void superHeal(Hero hero)
+}
+
+@enduml
