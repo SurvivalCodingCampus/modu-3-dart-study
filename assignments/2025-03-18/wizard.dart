@@ -1,9 +1,13 @@
-import 'package:modu_3_dart_study/2025-03-17/wand.dart';
+import '../../assignments/2025-03-18/hero.dart';
+import '../../assignments/2025-03-18/wand.dart';
+//import 'package:modu_3_dart_study/2025-03-18/hero.dart';
 
 class Wizard {
+  static const int startingMP = 100;
+
   String _name = '';
   int _hp = 0;
-  int _mp = 0;
+  int _mp = startingMP;
   Wand? _wand;
 
   //생성자
@@ -67,7 +71,8 @@ class Wizard {
     }
     hero.hp += 20; // hero의 hp 20 회복
     _mp -= 10;     // 자신의 mp 10 소모
-    print ('힐을 시전했습니다. 대상 HP: ${hero.hp}');
-  }
-}
+    print ('힐을 시전했습니다. 대상 HP: ${hero.hp} Mp: ${_mp}');
 
+  }
+
+}
