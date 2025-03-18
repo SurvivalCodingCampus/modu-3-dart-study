@@ -14,7 +14,7 @@ class Hero {
 
   void sleep() {
     hp = 100;
-    print('$name 은 잠을 자고 회복했다!')
+    print('$name 은 잠을 자고 회복했다!');
   }
 }
 

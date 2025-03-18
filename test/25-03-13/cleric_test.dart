@@ -1,11 +1,15 @@
 
-import 'package:modu_3_dart_study/25-03-13/cleric.dart';
+
 import 'package:test/test.dart';
+
+import '../../assignments/25-03-13/cleric.dart';
+
+
 
 void main() {
   test('Cleric Tset', () {
     //given
-    final cleric = Cleric('성자', 50 , 10)
+    final cleric = Cleric('성자', 50 , 10);
 
 
     // when (실행)

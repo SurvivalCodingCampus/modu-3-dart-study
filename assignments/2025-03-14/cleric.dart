@@ -12,7 +12,6 @@ class Cleric {
   int mp = 10;
 
 
-
 //Cleric(this.name, {int? hp, int? mp})
   //: hp = hp ?? maxHp,   // ?? 널 병합
   //   mp = mp ?? maxMp;
@@ -21,7 +20,7 @@ class Cleric {
   // final을 const 로 바꿔주면 생성자 내에서 hp, mp  max 값으로 변경 가능
   Cleric(this.name, {int hp = maxHp, int mp = maxMp})
       : hp = min(hp, maxHp),
-       mp = min(mp, maxMp);
+        mp = min(mp, maxMp);
 
 
   void selfAid() {
@@ -46,10 +45,11 @@ class Cleric {
       mpRecover = maxMp - mp;
     }
     // mp = mpRecover + mp
-      mp += mpRecover;
-      print('$name가 기도를 통해 $mpRecover 마력을 회복했다.'); // 실제로 회복된 양
-      print('$name의 마력이 $mp가 되었다.'); // 현재 총 마력량
-      return mpRecover;
-    }
-
+    mp += mpRecover;
+    print('$name가 기도를 통해 $mpRecover 마력을 회복했다.'); // 실제로 회복된 양
+    print('$name의 마력이 $mp가 되었다.'); // 현재 총 마력량
+    return mpRecover;
   }
+}
+
+

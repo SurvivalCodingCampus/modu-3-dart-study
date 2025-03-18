@@ -1,6 +1,8 @@
 import 'package:modu_3_dart_study/25-03-13/slime.dart';
 
 import 'hero.dart';
+import 'slime.dart';
+
 
 Hero hero = Hero('용사',100);
 
