@@ -15,7 +15,7 @@ class Slime {
 }
 
 class PoisonSlime extends Slime {
-  static const initialPoisonCount = 5;
+  static const initialPoisonCount = 5; // 처음 포이즌 카운트
   int poisonCount = initialPoisonCount;
 
   PoisonSlime(super.suffix);
@@ -28,9 +28,11 @@ class PoisonSlime extends Slime {
       return;
     }
     print("추가로, 독 포자를 살포했다!");
+
     final damage = (hero.hp / 5).toInt();
     hero.hp -= damage;
     print("$damage포인트의 데미지");
+
     poisonCount -= 1;
     if (hero.hp < 0) {
       print("${hero.name}가 사망했다.");
