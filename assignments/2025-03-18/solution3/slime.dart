@@ -1,0 +1,14 @@
+import 'package:modu_3_dart_study/2025-03-18/hero.dart';
+
+class Slime {
+  int hp = 50;
+  final String suffix;
+
+  Slime(this.suffix);
+
+  void attack({required Hero hero}) {
+    print('슬라임$suffix이/가 공격했다');
+    print('10의 데미지');
+    hero.hp -= 10;
+  }
+}
