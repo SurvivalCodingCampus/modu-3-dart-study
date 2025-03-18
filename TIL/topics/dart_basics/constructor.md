@@ -6,4 +6,4 @@
 
 ## 생성자 오버로딩
 
-- `named parameter`, `optional parameter`, `default parameter` 등을 통해서 하나의 생성자로 오버로딩을 할 수 있다.
+- `named parameter`, `optional positional parameter`, `default parameter` 등을 통해서 하나의 생성자로 오버로딩을 할 수 있다.
