@@ -41,11 +41,11 @@ class Wizard {
     _mp = value;
   }
 
-  //setter로 wand가 추가되었을때 변경이 되지 않도록 유효성 추가
   set wand(Wand? value) {
-    value == null
-        ? throw Exception('지팡이가 생성된 이후에는 Null로 지정할 수 없습니다')
-        : _wand = value;
+    if (value == null) {
+      throw Exception('지팡이가 생성된 이후에는 Null로 지정할 수 없습니다');
+    }
+    _wand = value;
   }
 
   Wizard({required String name, required int hp, required int mp, Wand? wand}) {
