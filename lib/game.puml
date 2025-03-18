@@ -1,0 +1,34 @@
+@startuml Game
+
+class Character
+
+class Hero extends Character
+
+class SuperHero extends Hero
+
+
+
+class ElectronicDevices
+
+class Phone extends ElectronicDevices
+
+class Iphone extends Phone
+
+
+
+class Machine
+
+class Car extends Machine
+
+class Audi extends Car
+
+
+class Book
+
+class Dictionary extends Book
+
+class LanguageDictionary extends Dictionary
+
+
+
+@enduml
