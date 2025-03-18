@@ -83,14 +83,6 @@ class CarRecommend {
     CarRecommend(brand: CarBrand.Kia, model: "Sportage", year: 2020, price: 2300000, mileage: 40000, options: []),
   ];
 
-  //차량 검색
-  // static List<CarRecommend> findMatchCars(int maxPrice, int minYear, int maxMileage, [List<CarOption>? options]) {
-  //   return carDatabase
-  //     .where((car) => _matchesBasicCriteria(car, maxPrice, minYear, maxMileage))
-  //     .map((car => _generateCarReport(car, desiredOptions)))
-  //     .toList();
-  //
-  // }
 
 
   static List<String> findMatchCars(int maxPrice, int minYear, int maxMileage, List<CarOption> desiredOptions) {
