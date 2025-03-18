@@ -7,33 +7,62 @@ void main() {
     test('올바른 Wand 객체', () {
       Wand wand = Wand(name: "자작나무", power: 50.0);
 
-      expect(wand.getName, equals('자작나무'));
-      expect(wand.getName.length, greaterThanOrEqualTo(3));
-      expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+      expect(wand.name, equals('자작나무'));
+      expect(wand.name.length, greaterThanOrEqualTo(3));
+      expect(wand.power, inInclusiveRange(50.0, 100.0));
     });
 
     test('Wand 이름이 3글자 미만이면 예외발생', () {
-      Wand wand = Wand(name: "물", power: 50.0);
+      // Wand wand = Wand(name: "물", power: 50.0);
 
-      expect(wand.getName, equals('물'));
-      expect(wand.getName.length, greaterThanOrEqualTo(3));
-      expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+      // expect(wand.getName, equals('물'));
+      // expect(wand.getName.length, greaterThanOrEqualTo(3));
+      // expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+      // expect(() => wand.getName == null, throwsException);
+      // expect(() => wand.getName.length < 3, throwsException);
+      // expect(() => Wand(name: "물", power: 50.0), throwsA(isA<Exception>()));
+      expect(
+        () => Wand(name: "물", power: 50.0),
+        throwsA(
+          predicate((e) => e.toString().contains("[지팡이] 3글자 이상의 이름을 사용해주세요.")),
+        ),
+      );
     });
 
     test('Wand 마력이 0.5 미만이면 예외 발생', () {
-      Wand wand = Wand(name: "도토리나무", power: 0.4);
+      // Wand wand = Wand(name: "도토리나무", power: 0.4);
 
-      expect(wand.getName, equals('도토리나무'));
-      expect(wand.getName.length, greaterThanOrEqualTo(3));
-      expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+      // expect(wand.getName, equals('도토리나무'));
+      // expect(wand.getName.length, greaterThanOrEqualTo(3));
+      // expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+
+      expect(
+        () => Wand(name: "도토리나무", power: 0.4),
+        throwsA(
+          predicate(
+            (e) =>
+                e.toString().contains("[지팡이]의 마력은 0.5 이상 100.0 이하로 설정해 주세요."),
+          ),
+        ),
+      );
     });
 
     test('Wand 마력이 100.0 초과이면 예외 발생', () {
-      Wand wand = Wand(name: "딱총나무", power: 100.1);
+      // Wand wand = Wand(name: "딱총나무", power: 100.1);
 
-      expect(wand.getName, equals('딱총나무'));
-      expect(wand.getName.length, greaterThanOrEqualTo(3));
-      expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+      // expect(wand.getName, equals('딱총나무'));
+      // expect(wand.getName.length, greaterThanOrEqualTo(3));
+      // expect(wand.getPower, inInclusiveRange(50.0, 100.0));
+
+      expect(
+        () => Wand(name: "딱총나무", power: 100.1),
+        throwsA(
+          predicate(
+            (e) =>
+                e.toString().contains("[지팡이]의 마력은 0.5 이상 100.0 이하로 설정해 주세요."),
+          ),
+        ),
+      );
     });
   });
 

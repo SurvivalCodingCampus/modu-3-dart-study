@@ -15,12 +15,12 @@ class Wand {
   }
 
   // getter
-  String get getName => _name;
-  double get getPower => _power;
+  String get name => _name;
+  double get power => _power;
 
   // setter
   // - 이름이 null 이 아니고 반드시  3 문자 이상
-  set setName(String name) {
+  set name(String name) {
     if (name == null || name.length < 3) {
       throw Exception("[지팡이] 3글자 이상의 이름을 사용해주세요.");
     }
@@ -28,7 +28,7 @@ class Wand {
   }
 
   // 지팡이의 마력은 0.5 이상 100.0 이하
-  set setPower(double power) {
+  set power(double power) {
     if (power < 0.5 || power > 100.0) {
       throw Exception("[지팡이]의 마력은  0.5 이상 100.0 이하로 설정해 주세요.");
     }
