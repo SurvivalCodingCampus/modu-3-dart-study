@@ -1,0 +1,18 @@
+@startuml
+
+scale 1
+
+class Wizard {
+    String name,
+    int hp,
+    Wand wand,
+}
+
+class GreatWizard extends Wizard {
+    int hp,
+    String name,
+    Wand wand,
+
+}
+
+@enduml

@@ -20,7 +20,7 @@ void main() {
   Wizard normalWizard = Wizard(
     name: wizardNormalName,
     hp: Random().nextInt(100),
-    mp: Random().nextInt(100),
+    // mp: Random().nextInt(100),
     wand: normalWand,
   );
 
@@ -29,7 +29,7 @@ void main() {
       () => (Wizard(
         name: wizardTwoLengthName,
         hp: Random().nextInt(100),
-        mp: Random().nextInt(100),
+        // mp: Random().nextInt(100),
         wand: normalWand,
       )),
       throwsA(isA<Exception>()),
@@ -42,7 +42,7 @@ void main() {
     Wizard hpZeroWizard = Wizard(
       name: wizardNormalName,
       hp: -1 * (random.nextInt(1) * 9 + 1),
-      mp: Random().nextInt(100),
+      // mp: Random().nextInt(100),
       wand: normalWand,
     );
 
@@ -54,7 +54,7 @@ void main() {
       () => (Wizard(
         name: wizardNormalName,
         hp: Random().nextInt(100),
-        mp: -1 * (random.nextInt(1) * 9 + 1),
+        // mp: -1 * (random.nextInt(1) * 9 + 1),
         wand: normalWand,
       )),
       throwsA(isA<Exception>()),
@@ -66,7 +66,7 @@ void main() {
       () => (Wizard(
         name: wizardNormalName,
         hp: Random().nextInt(100),
-        mp: -1 * (random.nextInt(1) * 9 + 1),
+        // mp: -1 * (random.nextInt(1) * 9 + 1),
         wand: errorWand,
       )),
       throwsA(isA<Exception>()),
