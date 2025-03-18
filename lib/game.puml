@@ -1,0 +1,20 @@
+@startuml
+
+scale 2
+
+class PoisonSlime extends Slime {
+    + int poisonCount
+}
+
+class Hero {
+    + String name
+    - int age
+
+    void attack(Slime slime)
+}
+
+class GreatWizard extends WizardModify {
+}
+
+class Wizard extends Hero
+@enduml
