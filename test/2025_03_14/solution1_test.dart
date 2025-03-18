@@ -1,7 +1,7 @@
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-14/solution1.dart';
+import '../../assignments/2025_03_14/solution1.dart';
 
 void main() {
   test('static 변수 사용', () {
