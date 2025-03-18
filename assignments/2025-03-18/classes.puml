@@ -1,0 +1,57 @@
+@startuml
+' Wizard 클래스는 Hero와 PoisonSlime과 관계를 맺고 있음
+class Hero {
+    - String name
+    - int hp
+    + Hero(String name, {int hp = 50})
+    + void attack()
+    + void run()
+    + void sleep()
+}
+
+class Wizard {
+    - String _name
+    - int _hp
+    - int _mp
+    - final int _maxMp
+    - Wand? _wand
+    + Wizard({required String name, int hp = 50, int mp = 100, int? maxMp, Wand? wand})
+    + void heal(Hero hero, {int healPt = 20})
+    + String name
+    + int hp
+    + int mp
+    + Wand? wand
+}
+
+class GreatWizard {
+    - static const int defaultMaxMp = 150
+    - static const int defaultSkillPtSuperHeal = 50
+    + GreatWizard(String name, {int? mp})
+    + void superHeal(Hero hero)
+}
+
+class PoisonSlime {
+    - int poisonCount
+    - static const int defaultPoisonCount = 5
+    + PoisonSlime(super.suffix)
+    + void attack(Hero hero)
+    + int poisonDamage(Hero hero)
+}
+
+class Wand {
+    - String _name
+    - double _power
+    + Wand({required String name, required double power})
+    + double power
+    + set power(double value)
+    + String name
+    + set name(String value)
+}
+
+' 관계 설정
+Hero --|> Wizard : "Hero는 Wizard와 관련됨"
+Wizard <|-- GreatWizard : "GreatWizard는 Wizard의 자식"
+Wizard o-- Wand : "Wizard는 Wand를 소유할 수 있음"
+PoisonSlime <|-- Slime : "PoisonSlime은 Slime을 상속"
+PoisonSlime --> Hero : "PoisonSlime은 Hero를 공격함"
+@enduml
