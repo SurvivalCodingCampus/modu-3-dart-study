@@ -1,18 +1,14 @@
 class Wizard {
-  String _name;
-  int _hp;
+  final String _name;
+  final int _hp;
   int _mp;
-  Wand? _wand;
+  final Wand? _wand;
 
-  Wizard({
-    required String name,
-    required int hp,
-    int? mp,
-    Wand? wand,
-  })  : _name = (name.length > 1) ? name : throw Exception("이름은 2글자 이상이어야 합니다."),
-        _hp = (hp < 0) ? 0 : hp,
-        _mp = mp ?? 100, // ✅ 기본값 100 설정
-        _wand = wand;
+  Wizard({required String name, required int hp, int? mp, Wand? wand})
+    : _name = (name.length > 1) ? name : throw Exception("이름은 2글자 이상이어야 합니다."),
+      _hp = (hp < 0) ? 0 : hp,
+      _mp = mp ?? 100, // ✅ 기본값 100 설정
+      _wand = wand;
 
   int get mp => _mp; // ✅ Getter 추가
 

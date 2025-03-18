@@ -158,11 +158,6 @@ class GreatWizard extends Wizard {
     super.wand,
   });
 
-  //이렇게하면 Wizard에서 mp에 100이 할당된 뒤에 다시 150을 할당하게됨.
-  // {
-  //   _mp = mp?? baseMp;
-  // }
-
   void superHeal({required Hero hero}) {
     if (_mp < 50) {
       print('마나가 부족합니다');

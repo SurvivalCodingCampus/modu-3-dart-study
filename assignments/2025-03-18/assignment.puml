@@ -1,0 +1,42 @@
+@startuml game
+
+scale 2
+
+class Hero{
+    
+    final String name;
+    int hp;
+
+    void attack(Slime slime) 
+
+}
+
+
+class Wizard{
+    final String _name;
+    int _hp;
+    int _mp;
+    Wand? _wand;
+
+    void heal({required Hero hero})
+}
+
+class GreatWizard extends Wizard{
+    static const int baseMp = 150;
+
+    void superHeal(Hero hero)
+}
+
+class Slime{
+    int hp;
+    final String suffix;
+
+    void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+    int poisonCount = 5;
+    
+    void attack(Hero hero)
+}
+@enduml
