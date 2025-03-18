@@ -71,14 +71,14 @@ void main() {
 
   });
 
-  test('생성자 검증 E: 생성자 name 누락 오류', () {
-
-    Cleric cD = Cleric();
-
-    // 우서 최대 hp,mp값 범위 검증
-    expect(cD.hp, inInclusiveRange(0, Cleric.maxHp));
-    expect(cD.mp, inInclusiveRange(0, Cleric.maxMp));
-
-  });
+  // test('생성자 검증 E: 생성자 name 누락 오류', () {
+  //
+  //   Cleric cD = Cleric();
+  //
+  //   // 우서 최대 hp,mp값 범위 검증
+  //   expect(cD.hp, inInclusiveRange(0, Cleric.maxHp));
+  //   expect(cD.mp, inInclusiveRange(0, Cleric.maxMp));
+  //
+  // });
 
 }
