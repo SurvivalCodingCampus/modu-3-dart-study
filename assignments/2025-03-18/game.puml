@@ -1,0 +1,35 @@
+@startuml
+scale 2
+
+class Wizard {
+  static const int defaultMp = 100;
+  static const int useHealMp = 10;
+  static const int healAmount = 20;
+  String _name = '';
+  int _hp = 0;
+  int _mp = Wizard.defaultMp;
+  Wand? _wand;
+}
+class Slime {
+  static const defaultDamage = 10;
+  static const int minHp = 0;
+  static const defaultHp = 50;
+  int _hp = Slime.defaultHp;
+  final String _suffix;
+}
+class PoisonSlime extends Slime {
+  static const int minPoisonCount = 0;
+  static const int defaultPoisonCount = 5;
+  int _poisonCount = PoisonSlime.defaultPoisonCount;
+}
+class Hero {
+  static const int minHp = 0;
+  static const int maxHp = 100;
+  final String _name;
+  int _hp;
+}
+class GreatWizard extends Wizard {
+  static const int greateWizardDefaultMp = 150;
+  static const int superHealUseMp = 50;
+}
+@enduml
