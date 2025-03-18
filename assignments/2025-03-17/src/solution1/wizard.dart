@@ -10,10 +10,10 @@ class Wizard {
 
   // 생성자
   Wizard({required String name, int hp = maxHp, int mp = maxMp, Wand? wand})
-      : _name = name,
-        _hp = hp,
-        _mp = mp,
-        _wand = wand {
+    : _name = name,
+      _hp = hp,
+      _mp = mp,
+      _wand = wand {
     _validateName(name);
     _validateHp(hp);
     _validateMp(mp);
@@ -32,7 +32,7 @@ class Wizard {
 
   set hp(int value) {
     if (value < 0) {
-      _hp = 0;  // 음수일 경우 0으로 설정
+      _hp = 0; // 음수일 경우 0으로 설정
     } else {
       _validateHp(value);
       _hp = value;

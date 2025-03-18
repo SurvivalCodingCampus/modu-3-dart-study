@@ -2,17 +2,12 @@ class Wand {
   String _name; // 이름
   double _power; // 마력
 
-  Wand({
-    required String name,
-    required double power})
-  : _name = name, _power = power {
-    if (name.length < 3) {
-      _validateName(name);
-    }
+  Wand({required String name, required double power})
+    : _name = name,
+      _power = power {
+    _validateName(name);
     _validatePower(power);
   }
-
-
 
   //------- Power setter & getter
   double get power => _power;
@@ -30,7 +25,6 @@ class Wand {
     _name = value;
   }
 
-
   // 예외 처리 함수
   void _validatePower(double power) {
     if (power < 0.5 || power > 100.0) {
@@ -43,6 +37,4 @@ class Wand {
       throw Exception('지팡이의 이름은 3문자 이상이어야 합니다');
     }
   }
-
-
 }

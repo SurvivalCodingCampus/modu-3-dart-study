@@ -66,15 +66,14 @@ void main() {
     // expect(wand.power, inInclusiveRange(0.5, 100.0));
 */
     expect(
-          () => wand.power = -100,
+      () => wand.power = -100,
       throwsException,
     ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
 
     expect(
-          () => wand.power = 1000,
+      () => wand.power = 1000,
       throwsException,
     ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
-
   });
 
   test('Wizard class exception 발생 테스트 1) 마법사 이름은 3자 이상이어야 합니다.', () {
@@ -88,10 +87,9 @@ void main() {
 */
 
     expect(
-          () => Wizard(name: "s"),
+      () => Wizard(name: "s"),
       throwsException,
     ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
-
   });
 
   test(
@@ -107,10 +105,9 @@ void main() {
     */
 
       expect(
-            () => jn.hp = 101,
+        () => jn.hp = 101,
         throwsException,
       ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
-
 
       //음수 입력시 0으로 변환되는 것을 위한 범위 검증
       expect(jn.hp, inInclusiveRange(0, Wizard.maxHp));
@@ -130,16 +127,14 @@ void main() {
     */
 
       expect(
-            () => jn.mp = -2,
+        () => jn.mp = -2,
         throwsException,
       ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
-
 
       expect(
-            () => jn.mp = 22,
+        () => jn.mp = 22,
         throwsException,
       ); // 의도대로 잘못된 값 입력한 경우 excetion이 발생했으므로 정상
-
 
       //그냥 해본 범위 검증
       expect(jn.mp, inInclusiveRange(0, Wizard.maxMp));
