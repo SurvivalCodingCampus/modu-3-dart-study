@@ -1,0 +1,33 @@
+@startuml
+
+' Hero 클래스
+class Hero {
+  - String name
+  - int hp
+  - Sword? sword
+  - static int money
+  + Hero(name: String, hp: int, sword: Sword?)
+  + void attack()
+  + void run()
+  + void sleep()
+  + static void loseAllMoney()
+  + static void earnMoney(amount: int)
+}
+
+' Sword 클래스
+class Sword {
+  - String name
+  - int damage
+  + Sword(name: String, damage: int)
+}
+
+' SuperHero 클래스
+class SuperHero {
+  + SuperHero(name: String, hp: int)
+}
+
+' 관계 정의
+Hero <|-- SuperHero
+Hero "1" *-- "1" Sword : 사용
+
+@enduml
