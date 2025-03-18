@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-14/class.dart';
+import '../2025-03-14/class.dart';
 
 import 'sword.dart';
 
@@ -15,17 +15,24 @@ void main() {
 class Hero {
   // 정적인 변수
   static int money = 100;
+  final int maxHp = 150;   // Greatwizard를 위해 생성
 
   String name; // non-nullable
-  int hp;
+  int _hp;
   Sword? sword; // nullable
 
   // named parameter
-  Hero({required this.name, required this.hp, this.sword});
+  Hero({required this.name, required int hp, this.sword}) : _hp = hp >= 0 ? hp : 0;
 
+  int get hp => _hp;
+
+  set hp(int value) {
+    _hp = value >= 0 ? value : 0;  // 음수일 경우 0으로 설정
+  }
+  
   // 메서드
   void attack() {
-    hp -= 5;
+    _hp -= 5;
     print(topLevelName);
   }
 
@@ -36,29 +43,7 @@ class Hero {
   }
 
   void sleep() {
-    hp = 100;
+    _hp = 100;
     print('$name 이 잠을잤다');
   }
-}
-
-// void main() {
-//   int i = 10;
-//   // 인스턴스 생성
-//   Hero hero = Hero('홍길동', 100);
-//   hero.attack();
-//
-//   print(hero.name);
-//
-//   hero.hp = 50;
-//
-//   print(hero.hp);
-//
-//   final Random random = Random();
-//   final int randomNumber = random.nextInt(10); // 0 ~ 9
-//   print(randomNumber);
-// }
-
-// 순수 함수
-int function1(int x, int y, int z, int a, int b, int c, int d, int e, int f) {
-  return x * 2;
 }

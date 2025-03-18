@@ -1,4 +1,4 @@
-import '../game/hero.dart';
+import '../2025-03-13/hero.dart';  // 한 단계 위로 올라가서 assignments 폴더에 접근
 
 void main() {
   String name1 = '홍길동';

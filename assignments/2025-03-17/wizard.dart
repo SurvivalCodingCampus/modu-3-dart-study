@@ -1,9 +1,10 @@
+import '../2025-03-13/hero.dart';
 import 'wand.dart';
 
 class Wizard {
   String _name;
   int _hp;
-  int _mp;
+  int _mp = 100;
   Wand? _wand;   // nullable
 
   // named parameter
@@ -13,6 +14,16 @@ class Wizard {
   int get hp => _hp;
   int get mp => _mp;
   Wand? get wand => _wand;
+
+  void heal(Hero hero) {
+    if (_mp < 10) {
+      print('마나가 부족합니다');
+      return;
+    }
+    hero.hp += 20;
+    mp -= 10;
+    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
+  }
 
   set name(String value) {
     if (value.length < 3) {
