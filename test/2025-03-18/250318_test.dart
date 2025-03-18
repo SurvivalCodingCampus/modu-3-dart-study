@@ -7,7 +7,7 @@ import '../../assignments/2025-03-18/solution5/great_wizard.dart';
 
 void main() {
   group('250318 - 연습문제3 포이즌 슬라임 테스트 ', () {
-    test('독 슬라임 생성자', () {
+    test('독 슬라임 - 공격시 영웅 HP가 maxHp일 때의 동작 테스트', () {
       // 준비
       String currentSuffix = 'x';
       PoisonSlime enemy = PoisonSlime(currentSuffix);
@@ -42,7 +42,7 @@ void main() {
       // FIXME: 유효성 검사에서 exception이 제대로 발생하는지
     });
 
-    test('독 슬라임 생성자', () {
+    test('독 슬라임 - 공격시 영웅 HP가 1일 때의 동작 테스트', () {
       // 준비
       String currentSuffix = 'x';
       PoisonSlime enemy = PoisonSlime(currentSuffix);

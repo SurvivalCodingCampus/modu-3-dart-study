@@ -52,6 +52,6 @@ class Wand {
 Hero --|> Wizard : "Hero는 Wizard와 관련됨"
 Wizard <|-- GreatWizard : "GreatWizard는 Wizard의 자식"
 Wizard o-- Wand : "Wizard는 Wand를 소유할 수 있음"
-PoisonSlime <|-- Slime : "PoisonSlime은 Slime을 상속"
+PoisonSlime --|> Slime : "PoisonSlime은 Slime을 상속"
 PoisonSlime --> Hero : "PoisonSlime은 Hero를 공격함"
 @enduml
