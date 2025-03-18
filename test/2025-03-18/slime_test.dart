@@ -24,5 +24,17 @@ void main() {
       // then
       expect(hero.hp, 72);
     });
+
+    test(("poisonCount is 0 test"), () {
+      // given
+      final hero = Hero("용사", Hero.maxHp);
+      poisonSlime.poisonCount = 0;
+
+      // when
+      poisonSlime.attack(hero);
+
+      // then
+      expect(hero.hp, 90);
+    });
   });
 }
