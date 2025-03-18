@@ -8,9 +8,8 @@ class Wizard {
   final int _healedHp = 20; // 힐량
   int mp = maxMp;
 
-
-  void heal(Hero hero){
-    if(mp < _usedMp){
+  void heal(Hero hero) {
+    if (mp < _usedMp) {
       print("마나가 부족합니다.");
       return;
     }
@@ -20,14 +19,14 @@ class Wizard {
   }
 }
 
-class GreatWizard extends Wizard{
+class GreatWizard extends Wizard {
   static const maxMp = 150; // 최대 마나
   @override
   int get _usedMp => 50; // 소모 마나
   @override
   int get _healedHp => Hero.maxHp; // 힐량
 
-  void superHeal(Hero hero){
+  void superHeal(Hero hero) {
     super.heal(hero);
   }
 }
