@@ -1,8 +1,24 @@
-// class Monday {
-//   static int money = 1000;
-//   int well = 500;
+// class Hero {
+//   static const String name;
+//   int power = 500;
+//
+//   Hero({required this.name, this.power});
 // }
 //
+// void main() {
+//   Hero hero = Hero();
+// }
+
+// class Hero {
+//   final String name;
+//
+//   Hero({required this.name});
+// }
+//
+// void main() {
+//   Hero hero1 = Hero(name: "Batman");
+// }
+
 // void main() {
 //   int age;
 //   age = 10;
@@ -18,4 +34,3 @@
 //   static int money = 1000; // static은 클래스의 하지만 이곳에 클래스는 없음 클래스 안에다 사용하는 문법임 static
 // }
 // 용어와 관련된 dart.dev를 찾아보기 단어정리를 해보기
-//
