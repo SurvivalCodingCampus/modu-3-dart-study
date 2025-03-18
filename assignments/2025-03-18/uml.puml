@@ -1,0 +1,56 @@
+@startuml
+
+class GreatWizard extends Wizard {
+  int mp = 150;
+
+  GreatWizard({required String name, required int hp}) : super(name,hp);
+
+  void superHeal(Hero hero){};
+}
+
+
+class Wizard {
+  String _name;
+  int _hp;
+  int _mp;
+  Wand? _wand;
+  Wizard(this._name, this._hp, {Wand? wand}): _mp = 100;
+  void heal(Hero hero) {};
+  String get name => _name;
+  set name(String value) {};
+  int get hp => _hp;
+  set hp(int value) {};
+  int get mp => _mp;
+  set mp(int value) {};
+  Wand? get wand => _wand;
+  set wand(Wand? value) {};
+}
+
+class Slime {
+  int hp = 50;
+  final String suffix;
+  Slime(this.suffix);
+  void attack(Hero hero) {}
+}
+
+class PoisonSlime extends Slime {
+  int _poisonCount;
+  PoisonSlime(super.suffix): _poisonCount = 5;
+  @override
+  void attack(Hero hero){};
+  get poisonCount => _poisonCount;
+  set poisonCount(value) {}
+}
+
+class Hero {
+  final int maxHP = 100;
+  String name;
+  int _hp;
+  Hero(this.name, this._hp);
+  void attack(String slime) {};
+  void run() {};
+  int get hp => _hp;
+  set hp(int value){}
+}
+
+@enduml
