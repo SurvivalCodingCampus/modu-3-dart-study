@@ -15,7 +15,7 @@ class Slime {
   Slime(this.suffix);
 
   void attack(Hero hero) {
-    print('슬라임$suffix이/가 공격했다');
+    print('슬라임 $suffix이/가 공격했다');
     print('10의 데미지');
     hero.hp -= 10;
   }
@@ -44,7 +44,7 @@ class PoisonSlime extends Slime {
       print('추가로, 독 포자를 살포했다!');
       int poisonDmg = (hero.hp * 4) ~/ 5;
       hero.hp -= poisonDmg;
-      print('$poisonDmg포인트의 데미지');
+      print('$poisonDmg포인트의 데미지!');
       poisonCount -= 1;
     }
   }
@@ -97,7 +97,7 @@ class Wizard {
   Wizard({required String name, required int hp, int? mp, Wand? wand})
     : _name = (name.length > 1) ? name : throw Exception("이름은 2글자 이상이여야 합니다."),
       _hp = (hp < 0) ? 0 : hp,
-      _mp = 100,
+      _mp = mp ?? 100,
       _wand = wand;
 
   void heal({required Hero hero}) {
@@ -151,9 +151,13 @@ class Wizard {
 class GreatWizard extends Wizard {
   static int baseMp = 150;
 
-  GreatWizard({required super.name, required super.hp, super.mp, super.wand}) {
-    _mp = baseMp;
-  }
+  GreatWizard({required super.name, required super.hp, int? mp, super.wand})
+    : super(mp: mp ?? baseMp);
+
+  //이렇게하면 Wizard에서 mp에 100이 할당된 뒤에 다시 150을 할당하게됨.
+  // {
+  //   _mp = mp?? baseMp;
+  // }
 
   void superHeal({required Hero hero}) {
     if (_mp < 50) {
