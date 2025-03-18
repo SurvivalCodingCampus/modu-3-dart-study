@@ -15,11 +15,11 @@ class Hero {
 
   set hp(int value) {
     if (value < minHp) {
-      _hp = 0;
+      _hp = minHp;
     }
 
     if (value > maxHp) {
-      _hp = 100;
+      _hp = maxHp;
     }
 
     _hp = value;
@@ -27,11 +27,11 @@ class Hero {
 
   set mp(int value) {
     if (value < minMp) {
-      _mp = 0;
+      _mp = minMp;
     }
 
     if (value > maxHp) {
-      _mp = 100;
+      _mp = maxMp;
     }
 
     _mp = value;

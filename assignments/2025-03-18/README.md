@@ -63,3 +63,48 @@ Dictionary <-- ElectronicDictionary
   - superHeal(hero: Hero) 용사의 hp를 전부 회복시키고 자신의 MP를 50 소모
   - mp가 부족하면 "마나가 부족합니다." 출력
   - 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+
+## 클래스 다이어그램
+
+```mermaid
+classDiagram
+
+class Hero {
+int maxHp$
+int maxMp$
+int minHp$
+int minMp$
+int _hp
+int _mp
+String name;
+hp() int
+mp() int
+hp(value) void
+mp(value) void
+}
+
+class Wizard {
+heal(target) void
+}
+
+class GreatWizard {
+int maxMp$
+superHeal(target) void
+}
+
+class Slime {
+int ap$
+String suffix
+attack(target) void
+}
+
+class PoisonSlime {
+int poisonCount;
+attack(target) void
+}
+
+Hero <-- Wizard
+Wizard <-- GreatWizard
+
+Slime <-- PoisonSlime
+```
