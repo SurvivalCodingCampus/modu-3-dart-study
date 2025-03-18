@@ -9,18 +9,13 @@ class Wizard {
   String get name => _name;
   int get hp => _hp;
   int get mp => _mp;
-  Wand get wand => _wand!;
-
 
   // 초기화 리스트를 통해 필드를 초기화. setter 호출
   Wizard({required String name, required int hp, required int mp, Wand? wand})
-    : _name =
-          name.length < 3
-              ? throw Exception('에러메세지 : 마법사의 이름은 3문자 이상이어야 합니다.')
-              : name,
-      _hp = hp < 0 ? 0 : hp,
-      _mp = mp < 0 ? throw Exception('에러메세지 : 마법사의 MP는 0 이상이어야 합니다.') : mp,
-      _wand = wand ?? (throw Exception('에러메세지 : 마법사의 지팡이는 null일 수 없습니다.'));
+    : _name = name,
+      _hp = hp,
+      _mp = mp,
+      _wand = wand;
 
   set wand(Wand? value) {
     // 3번. 마법사의 지팡이는 null일 수 없음.

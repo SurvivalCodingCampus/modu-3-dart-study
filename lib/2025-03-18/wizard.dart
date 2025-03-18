@@ -1,6 +1,8 @@
-import 'package:modu_3_dart_study/2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/2025-03-18/wand.dart';
+import 'package:modu_3_dart_study/2025-03-18/hero.dart';
 
 class Wizard {
+  static const wizardMaxMP = 100;
   String _name;
   int _hp;
   int _mp;
@@ -9,13 +11,24 @@ class Wizard {
   String get name => _name;
   int get hp => _hp;
   int get mp => _mp;
+  Wand? get wand => _wand;
 
   // 초기화 리스트를 통해 필드를 초기화. setter 호출
-  Wizard({required String name, required int hp, required int mp, Wand? wand})
+  Wizard({required String name, required int hp, int mp = wizardMaxMP, Wand? wand})
     : _name = name,
       _hp = hp,
       _mp = mp,
       _wand = wand;
+
+  void heal(Hero hero) {
+    if (_mp < 10) {
+      print('마나가 부족합니다');
+    } else {
+      _mp -= 10;
+      hero.hp += 20;
+      print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
+    }
+  }
 
   set wand(Wand? value) {
     // 3번. 마법사의 지팡이는 null일 수 없음.
