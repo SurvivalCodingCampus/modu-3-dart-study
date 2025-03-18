@@ -89,6 +89,7 @@ heal(target) void
 
 class GreatWizard {
 int maxMp$
+int _mp
 superHeal(target) void
 }
 

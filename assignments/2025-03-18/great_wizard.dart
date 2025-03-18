@@ -20,8 +20,8 @@ class GreatWizard extends Wizard {
   @override
   set mp(int value) {
     if (value < Hero.minMp) {
-      _mp = 0;
-    } else if (value > GreatWizard.maxMp) {
+      _mp = Hero.minMp;
+    } else if (value > maxMp) {
       _mp = maxMp;
     } else {
       _mp = value;
