@@ -1,0 +1,87 @@
+@startuml
+
+' Hero 클래스
+class Hero {
+  - String name
+  - int hp
+  - Sword? sword
+  - static int mp
+  + Hero(name: String, hp: int, sword: Sword?)
+  + void attack()
+  + void run()
+  + void sleep()
+}
+
+' Sword 클래스
+class Sword {
+  - String name
+  - int damage
+  + Sword(name: String, damage: int)
+}
+
+' Slime 클래스
+class Slime {
+  + int hp
+  + Slime(suffix: int)
+  + void attack(hero: Hero)
+}
+
+' PoisonSlime 클래스
+class PoisonSlime {
+  + int _poisonCount
+  + PoisonSlime(suffix: int)
+}
+
+
+class Wizard {
+  - String _name
+  - int _hp
+  - Wand? _wand
+  - int _mp
+  + Wizard(name: String, hp: int, mp: int = 100, wand: Wand?)
+  + String name
+  + int hp
+  + int mp
+  + Wand? wand
+  + void name(String name)
+  + void hp(int hp)
+  + void mp(int mp)
+  + void wand(Wand? wand)
+  + void heal(hero: Hero)
+}
+
+' Wand 클래스
+class Wand {
+  - String _name
+  - double _power
+  + Wand(name: String, power: double)
+  + String name
+  + double power
+  + void name(String name)
+  + void power(double power)
+}
+
+
+' GreatWizard 클래스
+class GreatWizard {
+  - String _name
+  - int _hp
+  - Wand? _wand
+  - int _mp
+  + Wizard(name: String, hp: int, mp: int, wand: Wand?)
+  + void superHeal(hero: Hero)
+}
+
+' 관계 정의
+
+Hero "1" *-- "1" Sword : 소유
+Hero "1" *-- "*" Slime : 공격
+Slime <|-- PoisonSlime : 상속
+GreatWizard -|> Wizard : 상속
+Wizard "1" *-- "1" Wand : 소유
+Wizard "1" *-- "*" Hero : 힐 대상
+GreatWizard "1" *-- "1" Wand : 소유
+GreatWizard "1" *-- "*" Hero : 힐 대상
+
+
+@enduml
