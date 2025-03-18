@@ -11,9 +11,9 @@ class GreatWizard extends Wizard {
   void superHeal(Hero target) {
     const int mpCost = 50;
 
-    if (mp >= mpCost) {
+    if (_mp >= mpCost) {
       target.hp = Hero.maxHp;
-      mp -= mpCost;
+      _mp -= mpCost;
     }
   }
 
@@ -21,10 +21,13 @@ class GreatWizard extends Wizard {
   set mp(int value) {
     if (value < Hero.minMp) {
       _mp = 0;
-    } else if (value > maxMp) {
+    } else if (value > GreatWizard.maxMp) {
       _mp = maxMp;
     } else {
       _mp = value;
     }
   }
+
+  @override
+  int get mp => _mp;
 }
