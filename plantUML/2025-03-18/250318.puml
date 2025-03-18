@@ -1,0 +1,45 @@
+@startuml
+
+scale 1
+
+class Wizard {
+  final maxMp = 100; // 최대 Mp
+  final int _usedMp = 10; // 소모 마나
+  final int _healedHp = 20; // 힐량
+  int mp = maxMp;
+
+  void heal(Hero hero)
+}
+
+class GreatWizard extends Wizard {
+  @override
+  int get maxMp => 150; // 최대 마나
+  @override
+  int get _usedMp => 50; // 소모 마나
+  @override
+  int get _healedHp => Hero.maxHp; // 힐량
+
+  void superHeal(Hero hero)
+}
+
+class Slime {
+  static const maxHp = 50;
+  final String suffix;
+  int hp = maxHp;
+
+  Slime(this.suffix);
+
+  void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+  static const initialPoisonCount = 5;
+  int poisonCount = initialPoisonCount;
+
+  PoisonSlime(super.suffix);
+
+  @override
+  void attack(Hero hero)
+}
+
+@enduml
