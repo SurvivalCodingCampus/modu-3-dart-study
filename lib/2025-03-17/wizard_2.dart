@@ -73,7 +73,6 @@ class Wizard {
 
   set hp(int value) {
     if (value < 0) {
-    } else {
     }
   }
 }
