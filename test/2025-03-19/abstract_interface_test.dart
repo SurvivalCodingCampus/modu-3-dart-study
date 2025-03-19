@@ -31,6 +31,8 @@ void main() {
     );
 
     //when
+    print(book.weight);
+    print(computer.weight);
     book.weight = newBookWeight;
     computer.weight = newComWeight;
 
