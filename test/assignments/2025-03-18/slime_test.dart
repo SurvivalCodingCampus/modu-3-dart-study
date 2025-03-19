@@ -1,8 +1,8 @@
+import 'package:modu_3_dart_study/2025-03-18/hero.dart';
+import 'package:modu_3_dart_study/2025-03-18/poison_slime.dart'
+    show PoisonSlime;
+import 'package:modu_3_dart_study/2025-03-18/slime.dart';
 import 'package:test/test.dart';
-
-import '../../../assignments/2025-03-18/hero.dart';
-import '../../../assignments/2025-03-18/poison_slime.dart';
-import '../../../assignments/2025-03-18/slime.dart';
 
 void main() {
   group('[Slime]', () {

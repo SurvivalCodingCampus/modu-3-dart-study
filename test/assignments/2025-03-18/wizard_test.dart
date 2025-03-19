@@ -1,9 +1,8 @@
+import 'package:modu_3_dart_study/2025-03-18/great_wizard.dart';
+import 'package:modu_3_dart_study/2025-03-18/hero.dart';
+import 'package:modu_3_dart_study/2025-03-18/wizard.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-
-import '../../../assignments/2025-03-18/great_wizard.dart';
-import '../../../assignments/2025-03-18/hero.dart';
-import '../../../assignments/2025-03-18/wizard.dart';
 
 void main() {
   group('[Wizard]', () {
