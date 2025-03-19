@@ -1,13 +1,13 @@
 import 'tangible_asset.dart';
 
 class Computer extends TangibleAsset {
-  String isbn;
+  String makerName;
 
   Computer(
-    super._weight, {
+    super.weight, {
     required super.name,
     required super.price,
     required super.color,
-    required this.isbn,
+    required this.makerName,
   });
 }

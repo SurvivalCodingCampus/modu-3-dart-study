@@ -1,5 +1,6 @@
 import 'intangible_asset.dart';
 
 class Patent extends IntangibleAsset {
-  Patent({required super.name, required super.price});
+  String owner;
+  Patent({required super.name, required super.price, required this.owner});
 }

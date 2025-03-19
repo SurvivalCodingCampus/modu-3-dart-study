@@ -9,12 +9,10 @@ abstract class Asset {
   Asset({required this.name, required this.price});
 }
 
-abstract class IntangibleAsset extends Asset {
-  IntangibleAsset({required super.name, required super.price});
-}
+abstract class IntangibleAsset extends Asset {}
 
 class Patent extends IntangibleAsset {
-  Patent({required super.name, required super.price});
+  String owner;
 }
 
 interface Thing {
@@ -31,37 +29,14 @@ abstract class TangibleAsset extends Asset implements Thing {
 
   @override
   set weight(double value);
-
-  TangibleAsset(
-    this._weight, {
-    required super.name,
-    required super.price,
-    required this.color,
-  });
 }
 
 class Computer extends TangibleAsset {
   String isbn;
-
-  Computer(
-    super._weight, {
-    required super.name,
-    required super.price,
-    required super.color,
-    required this.isbn,
-  });
 }
 
 class Book extends TangibleAsset {
   String makerName;
-
-  Book(
-    super._weight, {
-    required super.name,
-    required super.price,
-    required super.color,
-    required this.makerName,
-  });
 }
 
 @enduml

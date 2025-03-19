@@ -1,13 +1,13 @@
 import 'tangible_asset.dart';
 
 class Book extends TangibleAsset {
-  String makerName;
+  String isbn;
 
   Book(
-    super._weight, {
+    super.weight,{
     required super.name,
     required super.price,
     required super.color,
-    required this.makerName,
+    required this.isbn,
   });
 }

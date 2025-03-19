@@ -6,20 +6,20 @@ void main() {
     final name = "맥";
     final price = 4000000;
     final color = "검정색";
-    final isbn = "SN1234567890";
+    final makerName = "애플";
     final computer = Computer(
       10,
       name: name,
       price: price,
       color: color,
-      isbn: isbn,
+      makerName: makerName,
     );
     test("생성자 테스트", () {
       expect(computer, isA<Computer>());
-      expect(computer.name, computer.name);
-      expect(computer.price, computer.price);
-      expect(computer.color, computer.color);
-      expect(computer.isbn, computer.isbn);
+      expect(computer.name, equals(name));
+      expect(computer.price, equals(price));
+      expect(computer.color, equals(color));
+      expect(computer.makerName, equals(makerName));
     });
 
     test("weight setter/getter error 테스트", () {

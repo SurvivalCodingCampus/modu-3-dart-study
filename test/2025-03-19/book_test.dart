@@ -6,20 +6,20 @@ void main() {
     final name = "그리고 아무도 없었다";
     final price = 25000;
     final color = "빨간색";
-    final makerName = "애거서 크리스티";
+    final isbn = "1231231231";
     final book = Book(
       10,
       name: name,
       price: price,
       color: color,
-      makerName: makerName,
+      isbn: isbn,
     );
     test("생성자 테스트", () {
       expect(book, isA<Book>());
-      expect(book.name, book.name);
-      expect(book.price, book.price);
-      expect(book.color, book.color);
-      expect(book.makerName, book.makerName);
+      expect(book.name, equals(name));
+      expect(book.price, equals(price));
+      expect(book.color, equals(color));
+      expect(book.isbn, equals(isbn));
     });
 
     test("weight setter/getter error 테스트", () {
