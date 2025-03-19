@@ -23,9 +23,12 @@ class Slime {
   + void attack(hero: Hero)
 }
 
-class PoisonSlime {
-  + int _poisonCount
+
+class PoisonSlime extends Slime {
+ - int _poisonCount
   + PoisonSlime(suffix: int)
+  + @override
+  + void attack(hero: Hero)
 }
 
 
