@@ -1,32 +1,28 @@
 @startuml
 
-' Hero 클래스
 class Hero {
   - String name
   - int hp
   - Sword? sword
-  - static int mp
+  - int mp
   + Hero(name: String, hp: int, sword: Sword?)
   + void attack()
   + void run()
   + void sleep()
 }
 
-' Sword 클래스
 class Sword {
   - String name
   - int damage
   + Sword(name: String, damage: int)
 }
 
-' Slime 클래스
 class Slime {
   + int hp
   + Slime(suffix: int)
   + void attack(hero: Hero)
 }
 
-' PoisonSlime 클래스
 class PoisonSlime {
   + int _poisonCount
   + PoisonSlime(suffix: int)
@@ -50,7 +46,6 @@ class Wizard {
   + void heal(hero: Hero)
 }
 
-' Wand 클래스
 class Wand {
   - String _name
   - double _power
@@ -62,7 +57,6 @@ class Wand {
 }
 
 
-' GreatWizard 클래스
 class GreatWizard {
   - String _name
   - int _hp
