@@ -7,13 +7,7 @@ void main() {
     final price = 25000;
     final color = "빨간색";
     final isbn = "1231231231";
-    final book = Book(
-      10,
-      name: name,
-      price: price,
-      color: color,
-      isbn: isbn,
-    );
+    final book = Book(10, name: name, price: price, color: color, isbn: isbn);
     test("생성자 테스트", () {
       expect(book, isA<Book>());
       expect(book.name, equals(name));

@@ -10,10 +10,10 @@ abstract class TangibleAsset extends Asset implements Thing {
 
   @override
   set weight(double value) {
-    if(value < 0){
+    if (value < 0) {
       throw Exception("유형자산의 무게는 0보다 커야합니다.");
     }
-     _weight = value;
+    _weight = value;
   }
 
   TangibleAsset(

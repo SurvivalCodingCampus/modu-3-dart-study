@@ -4,7 +4,7 @@ class Book extends TangibleAsset {
   String isbn;
 
   Book(
-    super.weight,{
+    super.weight, {
     required super.name,
     required super.price,
     required super.color,
