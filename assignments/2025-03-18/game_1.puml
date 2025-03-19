@@ -1,0 +1,15 @@
+@startuml
+
+scale 1
+
+class Slime {
+  final String suffix
+}
+
+class PoisonSlime extends Slime {
+    PoisonSlime(super.suffix)
+}
+
+
+
+@enduml

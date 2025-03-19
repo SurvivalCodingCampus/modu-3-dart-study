@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 class Wizard {
   late String _name;
   late int _hp;
-  late int _mp;
+  int _mp = 100;
   late Wand _wand;
 
   String get name => _name;
@@ -37,15 +37,6 @@ class Wizard {
     }
   }
 
-  set wizardMpValidation(int mp) {
-    if (mp <= 0) {
-      print("Wizard의 MP는 0보다 작을 수가 없습니다");
-      throw Exception("Wizard의 MP는 0보다 작을 수가 없습니다");
-    }
-
-    _mp = mp;
-  }
-
   set wizardWandValidation(Wand wand) {
     if (wand == null) {
       print("Wizard는 Wand를 필수로 가지고 있어야 합니다");
@@ -58,11 +49,11 @@ class Wizard {
   Wizard({
     required String name,
     required int hp,
-    required int mp,
+    // required int mp,
     required Wand wand,
   }) {
     wizardNameValidation = name;
-    wizardMpValidation = mp;
+    // wizardMpValidation = mp;
     wizardHpValidation = hp;
     wizardWandValidation = wand;
   }
