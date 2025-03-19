@@ -5,11 +5,18 @@ abstract interface class Thing {
 abstract class Asset {}
 
 class TangibleAsset extends Asset implements Thing {
+  double _weight = 0;
+  String name;
+  int price;
+  String color;
+
+  TangibleAsset(this.name, this.price, this.color);
+
   @override
   set weight(double value) {
     if (value < 0) return;
 
-    weight = value;
+    _weight = value;
 
     print("무게는 $value 입니다");
   }

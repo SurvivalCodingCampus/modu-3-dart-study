@@ -13,6 +13,7 @@ class TangibleAsset extends Asset implements Thing {
     int price;
     String color;
     {abstract}double get weight
+    {abstract}set weight(double value)
 }
 
 class IntangibleAsset extends Asset {
