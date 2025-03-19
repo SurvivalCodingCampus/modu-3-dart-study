@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 
 import '../../../../assignments/2025-03-19/src/solution/asset.dart';
-import '../../../../assignments/2025-03-19/src/solution/book.dart';
 import '../../../../assignments/2025-03-19/src/solution/computer.dart';
 import '../../../../assignments/2025-03-19/src/solution/tangible_asset.dart';
 
@@ -23,7 +22,7 @@ void main() {
 
   test('Computer 생성 성공', () {
     // then
-    expect(computer, isA<Book>());
+    expect(computer, isA<Computer>());
     expect(computer, isA<TangibleAsset>());
     expect(computer, isA<Asset>());
     expect(computer.makerName, equals(makerName));

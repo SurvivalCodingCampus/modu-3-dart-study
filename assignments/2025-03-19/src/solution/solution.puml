@@ -26,3 +26,5 @@ class Book extends TangibleAsset {
 class Computer extends TangibleAsset {
     String makerName;
 }
+
+@enduml
