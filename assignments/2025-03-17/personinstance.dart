@@ -6,9 +6,12 @@ void main() {
   //제네릭 없이도 가능하긴 함.
 
   List <Person> people = [
+    //생성자로 클래스의 인스턴스 생성 cf. Person(this.name, this.birthYear)
+    // 인스턴스 생성 후 List 로 묶음
     Person('홍길동', 2005),
     Person('한석봉', 2003),
   ];
+  // people 안에 있는 person 을 반복 하는데, print 는 person,name만
   for (var person in people) {
     print('people에 있는 사람 이름은 ${person.name}');
   }

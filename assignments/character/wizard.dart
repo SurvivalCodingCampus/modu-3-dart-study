@@ -1,3 +1,5 @@
+import 'hero.dart';
+
 class Wand {
   String _name;
   //power d은 0.5 <= 마력 <= 100.0
@@ -34,14 +36,17 @@ class Wizard {
   // hp 가 음수가 되는 상황에서  0이 설정 되도록 한다.
   String _name;
   int _hp = 100;
-  int _mp = 50;
+  int _mp = 100;
   Wand? _wand;
 
   Wizard(this._name, int hp, int mp, {Wand? wand}) {
     name = _name;
     this.hp = hp;
     this.mp = mp;
-    _wand = wand;
+
+    if (wand != null) {
+      this.wand = wand;
+    }
   }
 
     // 이름은 null 이 아니고 3자 이상 이다.
@@ -64,7 +69,8 @@ class Wizard {
 
     set hp(int value) {
       if (value < 0) {
-        this.hp = 0;
+        _hp = 0;
+        return;
       } else {
         _hp = value;
       }
@@ -80,6 +86,16 @@ class Wizard {
     }
     Wand? get wand => _wand;
 
+    void heal(Hero hero) {
+     if( mp >= 10) {
+       mp -= 10;
+       hero.hp += 20;
+       print('힐을 시전했습니다. 대상 HP: ${hero.hp} 남은 MP: $mp');
+     } else {
+       print('마나가 부족합니다.');
+     }
+    }
+
   }
 
 
@@ -91,6 +107,10 @@ void main() {
 
   Wizard wizard2 = Wizard('Roan', 0, 50);
   print( '${wizard2.name} 의 hp : ${wizard2.hp}, mp : ${wizard2.mp}, Wand : ${wizard2.wand?.name }');
+
+  Hero hero = Hero('용사', 100);
+  Wizard wizard3 =Wizard('마법사', 100, 100);
+  wizard3.heal(hero);
 }
 
 

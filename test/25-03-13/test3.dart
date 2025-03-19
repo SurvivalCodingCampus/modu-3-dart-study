@@ -1,5 +1,6 @@
-import 'package:modu_3_dart_study/25-03-13/cleric.dart';
 import 'package:test/test.dart';
+
+import '../../assignments/character/cleric.dart';
 
 void main() {
   test('Cleric pray Test', () {
@@ -7,10 +8,10 @@ void main() {
     // given
     final cleric = Cleric('성직자', 50, 1);
 
-       // when
+    // when
     final restoredMp = cleric.pray(value);
 
-        // then
+    // then
     expect(restoredMp, greaterThanOrEqualTo(0));
     expect(restoredMp, lessThanOrEqualTo(3));
     expect(cleric.mp, equals(10 + restoredMp));
