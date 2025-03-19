@@ -60,13 +60,10 @@ class Wand {
 }
 
 
-class GreatWizard {
-  - String _name
-  - int _hp
-  - Wand? _wand
-  - int _mp
-  + Wizard(name: String, hp: int, mp: int, wand: Wand?)
-  + void superHeal(hero: Hero)
+
+class GreatWizard extends Wizard {
+ + GreatWizard(name: String, hp: int, mp: int, wand: Wand?) : super(name, hp, mp, wand)
+ + void superHeal(hero: Hero)
 }
 
 ' 관계 정의
