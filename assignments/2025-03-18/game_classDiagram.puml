@@ -1,0 +1,121 @@
+@startuml
+
+Hero "1" o-- "many" Sword
+Wizard "1" o-- "many" Wand
+
+
+PoisonSlime --> Hero : attack
+SuperHero --> Slime : attack
+Hero --> Slime : attack
+Slime --> Hero : attack
+Wizard --> Hero : heal
+GreatWizard --> Hero : superHeal
+
+class Wizard {
+  -String _name
+  -int _hp
+  -int _mp
+  -Wand _wand
+
+  +static const int startingMP = 100
+
+  +Wizard(String name, int hp, Wand wand, int mp)
+
+  +set name(String value)
+  +String get name()
+  +set wand(Wand? value)
+  +Wand get wand()
+  +set hp(int value)
+  +int get hp()
+  +set mp(int value)
+  +int get mp()
+
+  +void heal(Hero hero)
+
+}
+
+class GreatWizard extends Wizard {
+  +static const int increasedMP = 150
+
+  +GreatWizard(String name, int hp, Wand wand})
+
+  +void superHeal(Hero hero)
+}
+
+
+class Hero {
+  -static const _fullHp = 999
+
+  +String name
+  +int hp
+  +Sword sword
+
+  +Hero(String name, int hp, Sword sword)
+
+  +static get fullHp()
+
+  +void attack(Slime slime)
+  +void run()
+
+
+}
+
+class Sword {
+  +String name
+  +int damage
+
+  +Sword(String name, int damage)
+}
+
+class SuperHero extends Hero {
+  -bool _isFlying;
+
+  +SuperHero(String name, int hp)
+
+  +bool isFlying()
+  +bool get isFlying()
+  +set isFlying(bool value)
+
+  +void attack (Slime slime)
+}
+
+class Slime {
+  +int hp;
+  +final String suffix
+  +static final int slimeAttackPoint = 10
+
+  +Slime (this.suffix)
+
+  +void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+
+  +static const defaultPoisonCount = 5
+  +int poisonCount
+
+  +PoisonSlime(String suffix)
+
+  +void attack(Hero hero)
+}
+
+class Wand {
+  -String _name
+  -double _power
+
+  +static const double minPower = 0.5
+  +static const double maxPower = 100.0
+
+  +Wand(String name, double power)
+
+  +set power(double value)
+  +double get power()
+  +set name(String value)
+  +String get name()
+
+}
+
+
+
+
+@enduml
