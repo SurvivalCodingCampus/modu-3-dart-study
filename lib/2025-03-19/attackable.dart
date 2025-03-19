@@ -6,6 +6,5 @@ abstract interface class Speakable {
 }
 
 abstract interface class Attackable {
-  int get demage; //프로터티도 메서드의 일종
   void attack(Slime slime);
 }
