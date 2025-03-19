@@ -1,4 +1,6 @@
 abstract interface class Thing {
+  double get weight;
+
   set weight(double value);
 }
 
@@ -13,6 +15,9 @@ class TangibleAsset extends Asset implements Thing {
   TangibleAsset(this.name, this.price, this.color);
 
   @override
+  // TODO: implement weight
+  double get weight => _weight;
+
   set weight(double value) {
     if (value < 0) return;
 

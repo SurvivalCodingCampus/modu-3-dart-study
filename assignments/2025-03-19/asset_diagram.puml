@@ -1,6 +1,7 @@
 @startuml
 
 interface Thing {
+    double get weight;
     set weight(double value);
 }
 
