@@ -10,11 +10,17 @@ void main() {
     test("Wizard 생성자에서 이름 유효성 검사 테스트", () {
       final wand = Wand("마력의 지팡이", 50);
       Wizard wizard = Wizard("마", 100, 100, wand);
+
+      expect(wand, isA<Wand>());
+      expect(wizard, isA<Wizard>());
     });
 
     test("Wizard 생성자에서 mp 유효성 검사 테스트", () {
       final wand = Wand("마력의 지팡이", 50);
       Wizard wizard = Wizard("마법사", 100, -1, wand);
+
+      expect(wand, isA<Wand>());
+      expect(wizard, isA<Wizard>());
     });
 
     test("Wizard 생성자에서 hp 검사 테스트", () {

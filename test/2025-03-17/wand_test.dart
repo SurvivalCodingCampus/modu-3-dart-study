@@ -1,4 +1,5 @@
 import 'package:test/scaffolding.dart';
+import 'package:test/test.dart';
 
 import '../../assignments/2025-03-17/wand.dart';
 
@@ -7,10 +8,14 @@ void main() {
   group("Wand 생성자 유효성 검사 테스트", () {
     test("Wand 생성자에서 이름 유효성 검사 테스트", () {
       Wand wand = Wand("마", 20);
+
+      expect(wand, isA<Wand>());
     });
 
     test("Wand 생성자에서 마력 유효성 검사 테스트", () {
       Wand wand = Wand("마력의 지팡이", 0.1);
+
+      expect(wand, isA<Wand>());
     });
   });
 
