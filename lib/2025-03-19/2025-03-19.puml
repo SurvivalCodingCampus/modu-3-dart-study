@@ -44,7 +44,7 @@ class Software {
 ' 관계 설정
 Assets <|-- IntangibleAsset
 Assets <|-- TangibleAsset
-TangibleAsset --|> Thing
+TangibleAsset ..|> Thing
 Book --|> TangibleAsset
 Computer --|> TangibleAsset
 Software --|> IntangibleAsset
