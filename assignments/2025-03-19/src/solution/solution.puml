@@ -1,0 +1,28 @@
+@startuml solution
+
+scale 1
+
+abstract class Asset {
+    String name;
+    int price;
+}
+
+interface Thing {
+    double get weight();
+    set weight(double value);
+}
+
+abstract class TangibleAsset extends Asset implements Thing{
+    String color;
+    double _weight;
+}
+
+abstract class IntangibleAsset extends Asset {}
+
+class Book extends TangibleAsset {
+    String isbn;
+}
+
+class Computer extends TangibleAsset {
+    String makerName;
+}

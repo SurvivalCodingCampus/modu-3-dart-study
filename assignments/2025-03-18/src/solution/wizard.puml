@@ -1,0 +1,16 @@
+@startuml Wizard
+
+scale 1
+
+class Wizard {
+    String _name;
+    int _hp;
+    int _mp = 100;
+    Wand? wand;
+
+    void heal({required Hero hero});
+}
+
+class GreatWizard extends Wizard{
+    void superHeal({required Hero hero});
+}
