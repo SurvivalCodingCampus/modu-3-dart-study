@@ -9,12 +9,23 @@ abstract class Assets {
 }
 
 abstract class IntangibleAsset extends Assets {
-  IntangibleAsset({required super.name, required super.price, required super.parent});
+  IntangibleAsset({
+    required super.name,
+    required super.price,
+    required super.parent,
+  });
 }
-
 
 abstract class TangibleAsset extends Assets implements Thing {
   String color;
-  @override double weight;
-  TangibleAsset({required super.name, required super.price, required super.parent, required this.color, required this.weight});
+  @override
+  double weight;
+
+  TangibleAsset({
+    required super.name,
+    required super.price,
+    required super.parent,
+    required this.color,
+    required this.weight,
+  });
 }
