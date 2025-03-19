@@ -1,0 +1,34 @@
+@startuml
+class Hero {
+  String name;
+  int _age;
+
+  void attack(Slime slime)
+}
+
+class SuperHero extends Hero {
+}
+
+class Wizard {
+    String name;
+    int hp;
+    int mp;
+
+    void heal(Hero hero)
+}
+
+class Slime {
+  + int hp = 50
+  + String suffix
+  + Slime(String suffix)
+  + void attack(Hero hero)
+}
+
+class PoisonSlime {
+  + int poisonCount = 5
+  + PoisonSlime(String suffix)
+  + void attack(Hero hero)
+}
+
+Slime <|-- PoisonSlime
+@enduml

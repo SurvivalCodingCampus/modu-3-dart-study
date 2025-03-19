@@ -2,7 +2,9 @@ class Wand {
   String _name; // 이름
   double _power; //마력
 
-  Wand({required this._name, required this._power});
+  Wand({required String name, required double power})
+      : _name = name,
+        _power = power;
 
   // getter
   String get name => _name;
@@ -11,17 +13,15 @@ class Wand {
 
   // setter
   set name(String name) {
-    if (name.length <= 3) {
-      throw Exception('이름이 너무 짧습니다.');
+    if (name.length < 3) {
+      throw Exception('이름은 3글자 이상이어야 합니다.');
     }
     _name = name;
   }
 
   set power(double power) {
-    if (power < 0.5) {
-      throw Exception('0.5 ~ 100 의 마력을 부여하십시오.');
-    }
-    if (power > 100) {
+    //논리 연산자 || (A or B 참일 경우), && (A and B 둘다 참일 경우)
+    if (power < 0.5 || power > 100) {
       throw Exception('0.5 ~ 100 의 마력을 부여하십시오.');
     }
     _power = power;
@@ -34,8 +34,10 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
+  // this._name  수정 필요
   Wizard(
-      {required this._name, required this._hp, required this._mp, this._wand});
+      {required String name, required int hp, required int mp})
+      : _name = name, _hp = hp, _mp = mp;
 
   // getter
   String get name => _name;
@@ -48,7 +50,7 @@ class Wizard {
 
   // setter
   set name(String name) {
-    if (name.length <= 3) {
+    if (name.length < 3) {
       throw Exception('이름이 너무 짧습니다.');
     }
     _name = name;
@@ -69,10 +71,8 @@ class Wizard {
   }
 
   set wand(Wand? wand) {
-    if (wand != null) {
-      if (wand == null) {
-        throw Exception('wand를 버릴 수 없습니다.');
-      }
+    if (wand == null) {
+      throw Exception('wand를 버릴 수 없습니다.');
     }
     _wand = wand;
   }

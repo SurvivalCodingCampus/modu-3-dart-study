@@ -3,7 +3,7 @@ void main() {
     '홍길동': 20,
     '한석봉': 25
   };
-  for (final ageMap in ageMap.entries) {
-    print('${ageMap.key}의 나이는 ${ageMap.value}살');
-  };
+  for (final e in ageMap.entries) {
+    print('${e.key}의 나이는 ${e.value}살');
+  }
 }
