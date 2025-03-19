@@ -1,0 +1,31 @@
+@startuml
+
+class Slime{
+String suffix
+void attack(Hero hero)
+}
+
+class PoisionSlime extends Slime{
+  PoisionSlime(super.suffix);
+
+  int poisonCount = 5;
+   void attack(Hero hero)
+}
+
+
+class Wizard{
+  String _name = '';
+  int _hp = 0;
+  int _mp = 100;
+  int initialMp = 100;
+  void heal(Hero hero)
+}
+
+class GreatWizard extends Wizard{
+
+  int mp = 150;
+  void superHeal(Hero hero)
+}
+
+
+@enduml

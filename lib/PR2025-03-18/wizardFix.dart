@@ -1,20 +1,11 @@
-import 'package:modu_3_dart_study/PR2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/PR2025-03-18/hero.dart';
 
 class Wizard {
-  String _name = "";
+  String _name = '';
   int _hp = 0;
-  int _mp = 0;
-  Wand? _wand;
+  int _mp = 100;
+  int initialMp = 100;
 
-  String get name => _name;
-
-  int get hp => _hp;
-
-  int get mp => _mp;
-
-  Wand? get wand => _wand;
-
-  //setter로 이름 유효성 추가
   set name(String value) {
     if (value.length < 3) {
       throw Exception("이름이 너무 짧습니다.");
@@ -22,7 +13,12 @@ class Wizard {
     _name = value;
   }
 
-  //setter로 hp 유효성 추가
+  String get name => _name;
+
+  int get hp => _hp;
+
+  int get mp => _mp;
+
   set hp(int value) {
     if (value < 0) {
       _hp = 0;
@@ -41,17 +37,20 @@ class Wizard {
     _mp = value;
   }
 
-  set wand(Wand? value) {
-    if (value == null) {
-      throw Exception('지팡이가 생성된 이후에는 Null로 지정할 수 없습니다');
-    }
-    _wand = value;
+  void heal(Hero hero) {
+    if (mp >= 10) {
+      mp -= 10;
+      hero.hp += 20;
+      print('힐을 시전했습니다. ${hero.name}의 HP : ${hero.hp}');
+    } else
+      print('마나가 부족합니다');
   }
 
-  Wizard({required String name, required int hp, required int mp, Wand? wand}) {
+  Wizard({required String name, required int hp, int? mp}) {
     this.name = name;
     this.hp = hp;
-    this.mp = mp;
-    this.wand = wand;
+    if (mp == null) {
+      this.mp = initialMp;
+    }
   }
 }

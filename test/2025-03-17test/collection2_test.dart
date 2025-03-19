@@ -23,7 +23,7 @@ void main() {
       //given(준비)
       //when(실행)
       //then(검증)
-      expect(student[1].values.first, equals("힌석봉"));
+      expect(student[1].values.first, equals("한석봉"));
     });
   });
 }

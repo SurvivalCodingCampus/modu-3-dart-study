@@ -1,25 +1,28 @@
-void main() {
-  // List<String> people = ['현수', '민수'];
-  //
-  // for (int i = 0; i < people.length; i++) {
-  //   print(people[i]);
-  // }
-  // print('-----------');
-  // for (final name in people) {
-  //   print(name);
-  // }
-  // print('-----------');
-  // people.forEach((name) {
-  //   print(name);
-  // });
+class Wand {
+  String _name = "";
 
-  Map<String, dynamic> gildong = {'name': '홍길동', 'age': 20};
-  final name = gildong['name']; // dynamic타입
-  //final String name = gildong['name']; // 강제 타입 캐스팅
-  final name2 = gildong['name'] as String; // 강제 타입 캐스팅
+  double _power = 0;
 
-  gildong.entries.forEach((element) {
-    print(element.key);
-    print(element.value);
-  });
+  Wand({required String name, required double power}) {
+    this.name = name; //  setter 호출 (유효성 검사 실행)
+    this.power = power; //  setter 호출 (유효성 검사 실행)
+  }
+
+  String get name => _name;
+
+  set name(String value) {
+    if (value.length < 3) {
+      throw Exception("이름이 너무 짧습니다.");
+    }
+    _name = value;
+  }
+
+  double get power => _power;
+
+  set power(double value) {
+    if (value < 0.5 || value > 100) {
+      throw Exception("파워는 0.5이상 100이하여야 합니다.");
+    }
+    _power = value;
+  }
 }
