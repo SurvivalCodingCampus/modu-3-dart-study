@@ -1,5 +1,11 @@
 import 'package:modu_3_dart_study/2025-03-18/inheritance.dart';
 
+void main(List<String> args) {
+  print(24.2.round());
+  print(24.5.round());
+  print(24.9.round());
+}
+
 abstract interface class Human {
   void speak();
 }
@@ -7,8 +13,6 @@ abstract interface class Human {
 abstract interface class Attackable {
   void attack(Slime slime);
 }
-
-
 
 class Book extends TangibleAsset {
   String isbn;
@@ -33,8 +37,7 @@ abstract class Asset {
   int price;
   double _weight;
 
-  Asset(this.name, this.price, double weight) : 
-    _weight = weight;
+  Asset(this.name, this.price, double weight) : _weight = weight;
 }
 
 abstract class TangibleAsset extends Asset implements Thing {
