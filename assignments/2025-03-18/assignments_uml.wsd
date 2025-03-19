@@ -70,8 +70,6 @@ class GreatWizard extends Wizard {
 
 Hero "1" *-- "1" Sword : 소유
 Hero "1" *-- "*" Slime : 공격
-Slime <|-- PoisonSlime : 상속
-GreatWizard -|> Wizard : 상속
 Wizard "1" *-- "1" Wand : 소유
 Wizard "1" *-- "*" Hero : 힐 대상
 GreatWizard "1" *-- "1" Wand : 소유
