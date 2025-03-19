@@ -27,13 +27,13 @@ class IntangibleAsset extends Asset {}
 class Computer extends TangibleAsset {
   String makerName;
 
-  Computer(this.makerName);
+  Computer(this.makerName, super.name, super.price, super.color);
 }
 
 class Book extends TangibleAsset {
   String isbn;
 
-  Book(this.isbn);
+  Book(this.isbn, super.name, super.price, super.color);
 }
 
 class Patent extends IntangibleAsset {}
