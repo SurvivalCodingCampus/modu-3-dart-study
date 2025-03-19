@@ -1,0 +1,44 @@
+@startuml
+
+class Wizard {
+  - String _name
+  - int _hp
+  - int _mp
+  - Wand? _wand
+  + String name
+  + int hp
+  + int mp
+  + Wand? wand
+  + heal(hero: Hero)
+}
+
+class GreatWizard {
+  - static const hasNoMpMsg: String
+  - static const maxMp: int
+  - static const superHealCost: int
+  + superHeal(hero: Hero)
+}
+
+class Hero {
+  - final String name
+  - int _hp
+  + int hp
+}
+
+class Slime {
+  - final String suffix
+  - int hp
+  + attack(hero: Hero)
+}
+
+class PoisonSlime {
+  - static const poisonMsg: String
+  - static const hasNoPoisonMsg: String
+  - int poisonCount
+  + attack(hero: Hero)
+}
+
+Wizard <|-- GreatWizard
+Slime <|-- PoisonSlime
+
+@enduml

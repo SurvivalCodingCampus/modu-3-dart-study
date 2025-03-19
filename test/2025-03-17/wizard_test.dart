@@ -8,7 +8,7 @@ void main() {
     test('이름은 3자 이상 되어야 한다.', () {
       const name = 'Han';
 
-      final han = Wizard(name, 0, 0);
+      final han = Wizard(name, 0);
       expect(han.name.length, greaterThanOrEqualTo(3));
     });
 
@@ -18,30 +18,12 @@ void main() {
       Wizard wizard;
 
       expect(() {
-        wizard = Wizard(name, 0, 0);
+        wizard = Wizard(name, 0);
       } , throwsA((e) => e is CustomException && e.message == TaskException.invalidName.message));
     });
 
-    test('MP는 0 이상 되어야 한다.', () {
-      const mp = 0;
-
-      final han = Wizard('Han', 0, mp);
-
-      expect(han.mp, greaterThanOrEqualTo(0));
-    });
-
-    test('유효하지 않은 MP에 대한 메세지가 똑같아야 한다. ', () {
-      const mp = -100;
-
-      Wizard wizard;
-
-      expect(() {
-        wizard = Wizard('foo', 0, mp);
-      } , throwsA((e) => e is CustomException && e.message == TaskException.invalidMp.message));
-    });
-
     test('HP는 음수가 되는 상황에서는 0으로 되어야 한다.', () {
-      final han = Wizard('Han', 100, 0);
+      final han = Wizard('Han', 100);
 
       han.hp -= 150;
 

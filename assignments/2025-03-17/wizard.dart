@@ -1,8 +1,16 @@
 import 'task_exception.dart';
 import 'wand.dart';
+import '../2025-03-18/hero.dart';
 import 'dart:math';
 
 class Wizard {
+  static const healMpCost = 10;
+  static const healAmount = 20;
+  static const noMpMsg = '마나가 부족합니다';
+  static const maxMp = 100;
+
+  static casingHealMsg(int hp) => '힐을 시전했습니다. 대상 HP: $hp';
+
   String _name;
   int _hp;
   int _mp;
@@ -31,17 +39,29 @@ class Wizard {
   Wand? get wand => _wand;
 
   set wand(Wand? value) {
-    _validateWand(value);
-    _wand = value;
+    if (value == null) {
+      throw TaskException.invalidWand;
+    } else {
+      _wand = value;
+    }
   }
 
-  Wizard(String name, int hp, int mp, {Wand? wand})
+  Wizard(String name, int hp, {int mp = maxMp, Wand? wand})
     : _name = name,
       _hp = max(0, hp),
       _mp = mp,
       _wand = wand {
     _validateName(name);
-    _validateMp(mp);
+  }
+
+  void heal(Hero hero) {
+    if (mp < healMpCost) {
+      print(noMpMsg);
+    } else {
+      hero.receiveHealing(healAmount);
+      mp -= healMpCost;
+      print(casingHealMsg(hero.hp));
+    }
   }
 
   void _validateName(String name) {
@@ -54,13 +74,6 @@ class Wizard {
     if (mp < 0) {
       throw TaskException.invalidMp;
     }
-  }
-
-  void _validateWand(Wand? wand) {
-    if (wand == null) {
-      throw TaskException.invalidWand;
-    }
-    this.wand = wand;
   }
 }
 

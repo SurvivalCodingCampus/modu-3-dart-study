@@ -25,6 +25,8 @@
 |해당 줄 그대로 복사|Cmd + D|
 |제너레이터|Cmd + N|
 |코드 펼치기, 접기|Cmd + .|
+|Debug Mode Run|option + D|
+|Debug Resume|option + cmd + R|
 
 
 
