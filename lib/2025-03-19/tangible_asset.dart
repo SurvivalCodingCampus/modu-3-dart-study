@@ -1,6 +1,6 @@
 abstract class TangibleAsset {
   String name;
-  String price;
+  int price;
   String color;
 
   TangibleAsset({required this.name, required this.price, required this.color});
@@ -9,21 +9,13 @@ abstract class TangibleAsset {
 class Book extends TangibleAsset {
   String isbn;
 
-  Book({
-    required super.name,
-    required super.price,
-    required super.color,
-    required this.isbn,
-  });
+  Book(this.isbn, String name, int price, String color)
+    : super(name: name, price: price, color: color);
 }
 
 class Computer extends TangibleAsset {
   String makerName;
 
-  Computer({
-    required super.name,
-    required super.price,
-    required super.color,
-    required this.makerName,
-  });
+  Computer(this.makerName, String name, int price, String color)
+    : super(name: name, price: price, color: color);
 }
