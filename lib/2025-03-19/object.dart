@@ -6,7 +6,7 @@ class Book extends TangibleAsset {
   Book({
     required super.name,
     required super.price,
-    required super.parent,
+    required super.patent,
     required super.color,
     required this.isbn,
     required super.weight,
@@ -19,7 +19,7 @@ class Computer extends TangibleAsset {
   Computer({
     required super.name,
     required super.price,
-    required super.parent,
+    required super.patent,
     required super.color,
     required this.makerName,
     required super.weight,
@@ -33,7 +33,7 @@ class Software extends IntangibleAsset {
   Software({
     required super.name,
     required super.price,
-    required super.parent,
+    required super.patent,
     required this.platform,
     required this.store,
   });
