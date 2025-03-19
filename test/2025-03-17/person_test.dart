@@ -1,6 +1,6 @@
+import 'package:modu_3_dart_study/2025-03-17/src/solution1/person.dart';
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-17/src/solution1/person.dart';
 
 void main() {
   //콜렉션 연습문제 1번

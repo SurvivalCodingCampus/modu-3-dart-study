@@ -34,6 +34,7 @@ class Wizard {
     _validateName(name);
     _validateHp(hp);
     _validateMp(mp);
+
   }
 
   //------- Skills
@@ -49,7 +50,6 @@ class Wizard {
 
     // 체력 회복
     hero.hp = resultHp;
-
 
     // 마나 감소 (음수값 유효성 검사)
     int resultMp = mp - defaultSkillPtHeal;

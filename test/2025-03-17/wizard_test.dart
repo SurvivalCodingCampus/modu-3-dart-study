@@ -1,7 +1,8 @@
+import 'package:modu_3_dart_study/2025-03-17/src/solution1/wand.dart';
+import 'package:modu_3_dart_study/2025-03-17/src/solution1/wizard.dart';
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-17/src/solution1/wand.dart';
-import '../../assignments/2025-03-17/src/solution1/wizard.dart';
+
 
 void main() {
   test('Wand class exception 발생 테스트1-1 ) 지팡이의 이름은 3문자 이상이어야 합니다', () {
