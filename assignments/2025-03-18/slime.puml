@@ -1,0 +1,30 @@
+@startuml
+
+class Hero {
+  String name
+  int hp
+}
+
+class Slime {
+  int _hp = 50
+  final String _suffix
+  +Slime(String suffix)
+  +int get hp()
+  +set hp(int value)
+  +String get suffix()
+  +void attack(Hero hero)
+}
+
+class PoisonSlime {
+  int _poisonCount = 5
+  +PoisonSlime(String suffix)
+  +int get poisonCount()
+  +set poisonCount(int value)
+  +void attack(Hero hero)
+}
+
+Slime <|-- PoisonSlime
+Slime --> Hero : attacks
+PoisonSlime --> Hero : attacks with poison
+
+@enduml

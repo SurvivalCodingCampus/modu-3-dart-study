@@ -1,0 +1,43 @@
+@startuml
+
+class Hero {
+  String name
+  int hp
+  int maxHp
+}
+
+class Wand {
+  String name
+  double power
+}
+
+class Wizard {
+  String _name
+  int _hp
+  int _mp = 100
+  Wand? _wand
+
+  +Wizard(String name, int hp, int mp)
+  +String get name()
+  +int get hp()
+  +int get mp()
+  +Wand? get wand()
+  +void heal(Hero hero)
+  +set name(String value)
+  +set hp(int value)
+  +set mp(int value)
+  +set wand(Wand? wand)
+  +set wandpower(double value)
+}
+
+class GreatWizard {
+  +GreatWizard(String name)
+  +void superHeal(Hero hero)
+}
+
+Wizard <|-- GreatWizard
+Wizard --> Hero : heals
+GreatWizard --> Hero : superHeals
+Wizard --> Wand : uses
+
+@enduml
