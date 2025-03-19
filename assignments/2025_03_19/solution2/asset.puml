@@ -1,0 +1,15 @@
+@startuml Asset
+
+class Asset
+
+class TangibleAsset extends Asset
+
+class IntangibleAsset extends Asset
+
+class Computer extends TangibleAsset
+
+class Book extends TangibleAsset
+
+class Patent extends IntangibleAsset
+
+@enduml
