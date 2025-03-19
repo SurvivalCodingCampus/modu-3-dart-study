@@ -13,7 +13,7 @@ interface Thing {
 abstract class TangibleAsset extends Asset implements Thing {
     + String color
     - double _weight
-    + double get Weight()
+    + double get weight()
     + set weight(double weight)
 }
 
