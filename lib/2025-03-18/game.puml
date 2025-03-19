@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Slime {
+    int hp = 50
+    final String suffix
+    void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+    int poisonCount = 5;
+}
+
+class Wizard {
+    static const int wizardMaxMP = 100
+    String _name
+    int _hp
+    int _mp
+    Wand? _wand
+    void heal(Hero hero)
+}
+
+class GreatWizard extends Wizard {
+    void superHeal(Hero hero)
+}
+
+class Hero {
+    static const heroMaxHP = 100;
+    final String name;
+    int hp;
+}
+
+@enduml

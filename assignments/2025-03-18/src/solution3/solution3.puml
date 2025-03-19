@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Slime {
+    int hp = 50
+    final String suffix
+    void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+    int poisonCount = 5;
+}
+
+@enduml
