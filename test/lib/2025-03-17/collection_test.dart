@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/2025-03-17/collection/person.dart';
 import 'package:test/test.dart';
-
-import '../../../assignments/2025-03-17/collection/person.dart';
 
 void main() {
   test('이름이 홍길동, 한석봉인 Person 인스턴스를 생성하고 List에 담아 모두 출력해야한다.', () {

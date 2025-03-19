@@ -1,8 +1,7 @@
+import 'package:modu_3_dart_study/2025-03-17/encapsulation/person.dart';
+import 'package:modu_3_dart_study/2025-03-17/encapsulation/wand.dart';
+import 'package:modu_3_dart_study/2025-03-17/encapsulation/wizard.dart';
 import 'package:test/test.dart';
-
-import '../../../assignments/2025-03-17/encapsulation/person.dart';
-import '../../../assignments/2025-03-17/encapsulation/wand.dart';
-import '../../../assignments/2025-03-17/encapsulation/wizard.dart';
 
 void main() {
   group('[Wizard]', () {
