@@ -38,14 +38,14 @@ class Wizard {
   - Wand? _wand
   - int _mp
   + Wizard(name: String, hp: int, mp: int = 100, wand: Wand?)
-  + String name
-  + int hp
-  + int mp
-  + Wand? wand
-  + void name(String name)
-  + void hp(int hp)
-  + void mp(int mp)
-  + void wand(Wand? wand)
+  + String get name => _name
+  + set name(String value) => _name = value
+  + int get hp => _hp
+  + set hp(int value) => _hp = value
+  + int get mp => _mp
+  + set mp(int value) => _mp = value
+  + Wand? get wand => _wand
+  + set wand(Wand? value) => _wand = value
   + void heal(hero: Hero)
 }
 
