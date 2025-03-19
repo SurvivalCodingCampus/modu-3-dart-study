@@ -1,0 +1,67 @@
+@startuml asset
+
+scale 1
+
+abstract class Asset {
+  String name;
+  int price;
+
+  Asset({required this.name, required this.price});
+}
+
+abstract class IntangibleAsset extends Asset {
+  IntangibleAsset({required super.name, required super.price});
+}
+
+class Patent extends IntangibleAsset {
+  Patent({required super.name, required super.price});
+}
+
+interface Thing {
+  {abstract} double get weight;
+  {abstract} set weight(double value);
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+  double _weight;
+  String color;
+
+  @override
+  double get weight => _weight;
+
+  @override
+  set weight(double value);
+
+  TangibleAsset(
+    this._weight, {
+    required super.name,
+    required super.price,
+    required this.color,
+  });
+}
+
+class Computer extends TangibleAsset {
+  String isbn;
+
+  Computer(
+    super._weight, {
+    required super.name,
+    required super.price,
+    required super.color,
+    required this.isbn,
+  });
+}
+
+class Book extends TangibleAsset {
+  String makerName;
+
+  Book(
+    super._weight, {
+    required super.name,
+    required super.price,
+    required super.color,
+    required this.makerName,
+  });
+}
+
+@enduml

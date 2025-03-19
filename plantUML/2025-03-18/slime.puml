@@ -1,0 +1,25 @@
+@startuml slime
+
+scale 1
+
+class Slime {
+  static const maxHp = 50;
+  final String suffix;
+  int hp = maxHp;
+
+  Slime(this.suffix);
+
+  void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+  static const initialPoisonCount = 5;
+  int poisonCount = initialPoisonCount;
+
+  PoisonSlime(super.suffix);
+
+  @override
+  void attack(Hero hero)
+}
+
+@enduml
