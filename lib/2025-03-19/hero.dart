@@ -41,7 +41,4 @@ class Hero implements Attackable {
     hp = 100;
     print('[회복]$name(용사)이/가 잠자서 HP가 $hp로 회복이 되었다.');
   }
-
-  @override
-  int get demage => throw UnimplementedError();
 }
