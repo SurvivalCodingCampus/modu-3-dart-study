@@ -2,13 +2,14 @@ import '../solution3/hero.dart';
 import 'wand.dart';
 
 class Wizard {
-  static const wMaxMp = 100;
+  static const maxMp = 100;
+  final int useMp = 10;
   String _name;
   int _hp;
   int _mp;
   Wand? _wand;
 
-  Wizard({required String name, required int hp, int mp = wMaxMp, Wand? wand})
+  Wizard({required String name, required int hp, int mp = maxMp, Wand? wand})
     : _name = name,
       _hp = hp,
       _mp = mp,
@@ -50,11 +51,11 @@ class Wizard {
     _mp = value;
   }
 
-  void heal({required Hero hero}) {
+  void heal(Hero hero) {
     if (mp < 10) {
       print('마나가 부족합니다.');
     }
-    mp -= 10;
+    mp -= useMp;
     hero.hp += 20;
 
     print('힐을 시전했습니다. ${hero.name} HP : ${hero.hp}');
