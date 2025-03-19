@@ -1,0 +1,12 @@
+@startuml
+
+scale 2
+
+class Hero{
+    String name;
+    int _age;
+
+    void attack(Slime slime)
+}
+
+@enduml
