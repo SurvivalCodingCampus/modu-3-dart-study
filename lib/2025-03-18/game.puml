@@ -1,0 +1,42 @@
+@startuml
+
+class Hero {
+    - int hp
+    - int mp
+    - String name
+    + attack(Slime target)
+}
+
+class Slime {
+    - String name
+    + attack(Hero target)
+}
+
+class PoisonSlime {
+    + poisonAttack(Hero target)
+}
+
+class Wizard {
+    - int hp
+    - int mp
+    - String name
+    + heal(Hero target)
+}
+
+class GreatWizard {
+    + superHeal(Hero target)
+}
+
+'PoisonSlime --|> Slime
+'GreatWizard --|> Wizard
+Slime <|-- PoisonSlime
+Wizard <|-- GreatWizard
+
+
+'Hero --> Slime : attack
+'Slime --> Hero : attack
+'PoisonSlime --> Hero : poisonAttack
+'Wizard --> Hero : heal
+'GreatWizard --> Hero : superHeal
+
+@enduml
