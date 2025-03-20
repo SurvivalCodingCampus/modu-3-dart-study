@@ -83,8 +83,9 @@ class Hatchery extends Structure implements Zerg, Regenerable {
 
 class Drone extends Combatent implements Zerg, Regenerable, Collectible {
     void regen(){}
+}
 
-    class Zealot extends Combatent implements Protoss, Bionic, Treatable { 
+class Zealot extends Combatent implements Protoss, Bionic, Treatable { 
     void regen(){}
 }
 

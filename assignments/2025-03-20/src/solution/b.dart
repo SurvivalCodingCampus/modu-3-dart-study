@@ -15,19 +15,3 @@ class B extends Y {
     print('Bc');
   }
 }
-
-abstract class Character {
-  String name;
-
-  Character({required this.name});
-}
-
-class Hero extends Character {
-  Hero({required super.name});
-
-  void attack() {}
-}
-
-void main() {
-  Hero hero = Hero(name: '캐릭터');
-}
