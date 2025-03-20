@@ -1,4 +1,3 @@
-import 'dart:math';
 
 // PascalCase
 class Hero {

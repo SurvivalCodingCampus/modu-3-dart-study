@@ -1,9 +1,9 @@
+import 'package:modu_3_dart_study/2025-03-18/core/hero.dart';
+import 'package:modu_3_dart_study/2025-03-18/solution3/poison_slime.dart';
+import 'package:modu_3_dart_study/2025-03-18/solution4/wizard.dart';
+import 'package:modu_3_dart_study/2025-03-18/solution5/great_wizard.dart';
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-18/core/hero.dart';
-import '../../assignments/2025-03-18/solution3/poison_slime.dart';
-import '../../assignments/2025-03-18/solution4/wizard.dart';
-import '../../assignments/2025-03-18/solution5/great_wizard.dart';
 
 void main() {
   group('250318 - 연습문제3 포이즌 슬라임 테스트 ', () {

@@ -1,0 +1,52 @@
+@startuml
+
+' 인터페이스 정의
+interface Thing {
+  + double weight
+  + void setWeight(double weight)
+}
+
+' 추상 클래스 정의
+abstract class Assets {
+  + String name
+  + int price
+  + String parent
+}
+
+abstract class IntangibleAsset {
+  + String name
+  + int price
+  + String parent
+}
+
+abstract class TangibleAsset {
+  + String name
+  + int price
+  + String parent
+  + String color
+  + double weight
+}
+
+' 클래스 정의
+class Book {
+  + String isbn
+}
+
+class Computer {
+  + String makerName
+}
+
+class Software {
+  + String platform
+  + String store
+}
+
+' 관계 설정
+Assets <|-- IntangibleAsset
+Assets <|-- TangibleAsset
+TangibleAsset ..|> Thing
+Book --|> TangibleAsset
+Computer --|> TangibleAsset
+Software --|> IntangibleAsset
+
+@enduml
