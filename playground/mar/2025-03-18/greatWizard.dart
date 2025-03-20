@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-17/wizard2.dart';
+import '../../../lib/mar/2025-03-17/wizard2.dart';
 
 import 'hero.dart';
 

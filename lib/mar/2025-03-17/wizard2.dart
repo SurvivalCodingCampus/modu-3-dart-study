@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-17/staff.dart';
+import 'staff.dart';
 
 import 'hero2.dart';
 

@@ -1,0 +1,81 @@
+@startuml
+
+' 📌 추상 클래스 - 자동차(Car)
+abstract class Car {
+    + CarBrand brand
+    + String model
+    + int year
+    + int price
+    + List<CarOption> options
+    + void describe()
+}
+
+' 📌 클래스 - 중고차(UsedCar)
+class UsedCar extends Car {
+    + int mileage
+    + double calculateDepreciation()
+}
+
+' 📌 클래스 - 신차(NewCar)
+class NewCar extends Car {
+    + int warrantyPeriod
+}
+
+' 📌 클래스 - 차량 옵션(CarOption)
+enum CarOption {
+    Navigation,
+    Sunroof,
+    LeatherSeats,
+    BackupCamera,
+    HeatedSeats,
+    Bluetooth,
+    AndroidAuto,
+    AllWheelDrive,
+    Tinting
+}
+
+' 📌 클래스 - 자동차 브랜드(CarBrand)
+enum CarBrand {
+    Hyundai,
+    Toyota,
+    Honda,
+    BMW,
+    Mercedes,
+    Ford,
+    Chevrolet,
+    Tesla,
+    Nissan,
+    Kia
+}
+
+' 📌 클래스 - 옵션 관리(CarOptionManager)
+class CarOptionManager {
+    + void addOptionIfPossible(Car car, CarOption option)
+    + void removeOptionIfExists(Car car, CarOption option)
+}
+
+' 📌 클래스 - 자동차 추천 시스템(CarRecommender)
+class CarRecommender {
+    + List<Car> findMatchCars(int maxPrice,
+    int minYear,
+    int maxMileage,
+    List<CarOption> desiredOptions)
+}
+
+' 📌 클래스 - 유지비 계산기(CarMaintenanceCalculator)
+class CarMaintenanceCalculator {
+    + double calculateYearlyCost(Car car)
+}
+
+' 관계 설정
+Car <|-- UsedCar
+Car <|-- NewCar
+
+CarOptionManager <|.. CarOption
+CarOptionManager <|.. Car
+
+CarRecommender <|.. Car
+
+CarMaintenanceCalculator <|.. Car
+
+@enduml

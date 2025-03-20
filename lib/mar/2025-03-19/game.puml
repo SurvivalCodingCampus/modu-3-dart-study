@@ -1,0 +1,47 @@
+@startuml
+
+interface Thing {
+    {abstract} +getWeight()
+    {abstract} +void setWeight(double value)
+}
+
+abstract class Asset {
+    + String name
+    + int price
+}
+
+abstract class IntangibleAsset {
+    + String owner
+    + String registrationNumber
+}
+
+
+abstract class TangibleAsset {
+    + String color
+    - double _weight
+}
+
+
+class Patent {
+
+}
+
+class Book {
+    + String isbn
+}
+
+
+class Computer {
+    + String makerName
+}
+
+TangibleAsset <|-- Book
+TangibleAsset <|--  Computer
+
+IntangibleAsset <|--  Patent
+
+Asset <|-- TangibleAsset
+Asset <|--  IntangibleAsset
+
+Thing <|-- TangibleAsset
+@enduml

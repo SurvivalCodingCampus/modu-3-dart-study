@@ -1,8 +1,8 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-import '../../assignments/2025-03-18/hero.dart';
-import '../../assignments/2025-03-18/poisonSlime.dart';
+import '../../../playground/mar/2025-03-18/hero.dart';
+import '../../../playground/mar/2025-03-18/poisonSlime.dart';
 
 void main() {
   group(('SuperHero test'), () {

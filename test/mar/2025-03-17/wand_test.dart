@@ -1,6 +1,6 @@
 
 import 'package:test/test.dart';
-import '../../assignments/2025-03-17/wand.dart';
+import '../../../playground/mar/2025-03-17/wand.dart';
 
 void main() {
   test('Wand Test', () {

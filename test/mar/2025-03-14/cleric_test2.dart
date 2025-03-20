@@ -1,5 +1,5 @@
 
-import 'package:modu_3_dart_study/2025-03-14/cleric2.dart';
+import '../../../lib/mar/2025-03-14/cleric2.dart';
 import 'package:test/test.dart';
 
 

@@ -1,9 +1,9 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-import '../../assignments/2025-03-18/greatWizard.dart';
-import '../../assignments/2025-03-18/hero.dart';
-import '../../assignments/2025-03-18/wizard.dart';
+import '../../../playground/mar/2025-03-18/greatWizard.dart';
+import '../../../playground/mar/2025-03-18/hero.dart';
+import '../../../playground/mar/2025-03-18/wizard.dart';
 
 void main() {
   group('magician', () {
