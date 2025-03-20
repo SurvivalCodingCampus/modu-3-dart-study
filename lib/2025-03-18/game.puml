@@ -1,5 +1,16 @@
 @startuml
-class Hero {
+
+scale 1.5
+
+interface Attackable {
+    {abstract} void attack(Slime slime)
+}
+
+abstract class Character {
+    void run()
+}
+
+class Hero extends Character implements Attackable, Movable {
   String name;
   int _age;
 
