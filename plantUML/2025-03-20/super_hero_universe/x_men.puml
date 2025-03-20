@@ -1,0 +1,42 @@
+@startuml superHeroUniverse
+
+scale 1
+' --- XMen --- 
+
+abstract class HeroUniverse {
+    int hp;
+}
+
+abstract class XMen extends HeroUniverse {
+    int recovery;
+    int maxHp;
+
+    void autoHealed() {}
+}
+
+abstract class XMenHero extends XMen implements Atttackable, Movable {
+    int EnergyPoint;
+}
+
+abstract class EnhancedXMenHero extends XMenHero implements IsEnhancedAble {}
+
+abstract class XMenFacility extends XMen {}
+
+abstract class EnhancedXMenFacility extends XMenFacility {}
+
+class Wolverine extends EnhancedXMenHero {}
+
+class Beast extends EnhancedXMenHero {}
+
+' --- interface ---
+interface Atttackable {
+    void attack(HeroUniverse heroUniverse);
+}
+
+interface Movable {
+    void move(int x, int y);
+}
+
+interface IsEnhancedAble {}
+
+@enduml

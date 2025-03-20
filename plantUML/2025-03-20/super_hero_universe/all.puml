@@ -1,0 +1,120 @@
+@startuml superHeroUniverse
+
+scale 1
+' --- DC --- 
+
+abstract class HeroUniverse {
+    int hp;
+}
+
+abstract class DC extends HeroUniverse {
+    int MaxShield;
+    int shield;
+
+    void autoShieldRecovery();
+}
+
+abstract class DCHero extends DC implements Atttackable, Movable {
+    int EnergyPoint;
+}
+
+abstract class HumanDCHero extends DCHero implements IsEnhancedAble {}
+
+abstract class EnhancedDCHero extends DCHero implements IsEnhancedAble {}
+
+abstract class TechDCHero extends DCHero implements IsRepairedAble {}
+
+abstract class DCFacility extends DC {}
+
+abstract class HumanDCFacility extends DCFacility {}
+
+abstract class EnhancedDCFacility extends DCFacility {}
+
+abstract class TechDCFacility extends DCFacility {}
+
+class Superman extends HumanDCHero {}
+
+class Cyborg extends TechDCHero {}
+
+' --- Marvel --- 
+
+abstract class Marvel extends HeroUniverse {}
+
+abstract class MarvelHero extends Marvel implements Atttackable, Movable {
+    int EnergyPoint;
+}
+
+abstract class HumanMarvelHero extends MarvelHero implements IsEnhancedAble {}
+
+abstract class EnhancedMarvelHero extends MarvelHero implements IsEnhancedAble {}
+
+abstract class TechMarvelHero extends MarvelHero implements IsRepairedAble {}
+
+
+abstract class MarvelFacility extends Marvel {}
+
+abstract class HumanFacility extends MarvelFacility {}
+
+abstract class EnhancedFacility extends MarvelFacility {}
+
+abstract class TechFacility extends MarvelFacility {}
+
+
+
+class Hawkeye extends HumanMarvelHero {}
+
+class BlackWidow extends HumanMarvelHero implements EnhanceAble {}
+
+class Jarvis extends TechMarvelHero implements IsEnhancedAble, RepairAble {
+    void collectInfomation() {};
+}
+
+class IronMan extends TechMarvelHero {}
+
+class WarMachine extends TechMarvelHero {}
+
+' --- XMen --- 
+
+abstract class XMen extends HeroUniverse {
+    int recovery;
+    int maxHp;
+
+    void autoHealed() {}
+}
+
+abstract class XMenHero extends XMen implements Atttackable, Movable, IsEnhancedAble {
+    int EnergyPoint;
+}
+
+abstract class EnhancedXMenHero extends XMenHero implements IsEnhancedAble {}
+
+abstract class XMenFacility extends XMen {}
+
+abstract class EnhancedXMenFacility extends XMenFacility {}
+
+class Wolverine extends EnhancedXMenHero {}
+
+class Beast extends EnhancedXMenHero {}
+
+' --- interface ---
+interface Atttackable {
+    void attack(HeroUniverse heroUniverse);
+}
+
+interface Movable {
+    void move(int x, int y);
+}
+
+interface IsEnhancedAble {}
+
+interface IsRepairedAble {}
+
+interface EnhanceAble {
+    void enhance(IsEnhancedAble unit);
+}
+
+interface RepairAble {
+    void repair(IsEnhancedAble unit);
+}
+
+@enduml
