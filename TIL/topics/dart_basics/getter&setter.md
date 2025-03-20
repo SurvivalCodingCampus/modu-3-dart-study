@@ -68,3 +68,17 @@ class Wand {
   }
 }
 ```
+
+getter활용법
+
+```dart
+double get weight;
+
+set weight(double weight);
+
+//혹은
+double get right => left + width;
+
+set right(double value) => left = value - width;
+
+```

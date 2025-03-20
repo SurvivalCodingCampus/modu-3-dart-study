@@ -12,25 +12,28 @@ void main() {
       expect(wizard.name, equals('견습마법사'));
     });
     test('Wizard hp 생성 확인 test', () {
+      int initialHp = 10;
       //given
-      final wizard = Wizard(name: '견습마법사', hp: 10);
+      final wizard = Wizard(name: '견습마법사', hp: initialHp);
       //when
       //then
-      expect(wizard.hp, equals(10));
+      expect(wizard.hp, equals(initialHp));
     });
     test('Wizard mp지정 안하면 initialMp 할당 확인 test', () {
+      int initialMp = 100;
       //given
       final wizard = Wizard(name: '견습마법사', hp: 10);
       //when
       //then
-      expect(wizard.mp, equals(100));
+      expect(wizard.mp, equals(initialMp));
     });
     test('Wizard mp지정시 mp 확인 test', () {
+      int initialMp = 100;
       //given
-      final wizard = Wizard(name: '견습마법사', hp: 10);
+      final wizard = Wizard(name: '견습마법사', hp: 10, mp: initialMp);
       //when
       //then
-      expect(wizard.mp, equals(100));
+      expect(wizard.mp, equals(initialMp));
     });
   });
   group('Hero 생성 Test', () {
