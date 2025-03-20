@@ -1,6 +1,10 @@
 @startuml
-scale 3
-class Hero {
+
+abstract class Character {
+        void run()
+        {abstract} void attack((Slime slime)
+}
+class  Hero extends Character {
     +String name;
     -int age;
 

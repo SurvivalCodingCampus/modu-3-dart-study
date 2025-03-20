@@ -8,7 +8,7 @@ void main() {
   group('GreatWizard test', () {
     test('SuperHeal test', () {
       //given
-      final greatwizard = GreatWizard('마법사', 100, mp: 150);
+      final greatwizard = GreatWizard('마법사', 100);
       final hero = Hero('용사', 100);
 
       //when

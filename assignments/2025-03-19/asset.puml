@@ -1,0 +1,27 @@
+@startuml
+abstract class Asset{
+name, createdDate,
+manageDepart,description
+{abstract}int calculateTax();
+}
+
+abstract class TangibleAsset extends Asset  implements Thing{
+price, color, purchaseDate
+}
+class Computer extends TangibleAsset{
+makerName
+}
+class Book extends TangibleAsset{
+isbn
+}
+abstract class IntangibleAsset extends Asset{
+
+}
+
+class Patent extends IntangibleAsset{
+}
+
+interface Thing{
+-weight
+}
+@enduml
