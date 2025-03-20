@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+TangibleAsset <|-- Book
+TangibleAsset <|-- Computer
+
+abstract class TangibleAsset{
+String name
+int price
+String color
+double weight
+void look()
+void learn()
+}
+
+class Book {
+
+String isbn
+void read()
+}
+
+
+class Computer {
+
+String makeName
+void calculation()
+}
+
+
+@enduml

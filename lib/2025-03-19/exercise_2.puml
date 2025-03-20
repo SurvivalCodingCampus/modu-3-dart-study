@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Asset {
+String name
+int price
+String color
+
+void look()
+
+}
+
+
+Asset <|-- TangibleAsset
+Asset <|-- IntangibleAsset
+
+abstract class TangibleAsset{
+double size
+void learn()
+
+}
+
+abstract class IntangibleAsset{
+String company
+
+void tax()
+
+}
+
+TangibleAsset <|-- Book
+TangibleAsset <|-- Computer
+IntangibleAsset <|-- Patent
+
+
+
+class Book {
+
+String isbn
+
+void read()
+}
+
+
+class Computer {
+
+String makeName
+
+void calculation()
+
+}
+
+class Patent {
+
+String license
+
+void register()
+}
+
+@enduml
