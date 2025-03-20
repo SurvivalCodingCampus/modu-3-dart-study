@@ -1,102 +1,124 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class Structure {
-    int hp;
-    int cost;
-    int? shield;
+title Starcraft Unit Class Diagram
+ 
+interface Healable{
+ {abstract} void healable();
 }
-
-abstract class Unit implements Movable {
-    int hp;
-    int cost;
-    int defence;
-    int? damage; // 메딕은 제외
-    int? shield; // 프로토스만
+interface Repairable{
+  {abstract} void repairable();
 }
-
-class Marine extends Unit implements Terran, Bionic, Attackable, IsHealable {
-    void attack();
-    void move();
-}
-
-class Medic extends Unit implements Terran, Bionic, Healable, IsHealable {
-    void move();
-    void heal(Unit unit);
-}
-
-class Scv extends Unit implements Terran, Mechanic, IsHealable, IsRepairable, Harvestable, Attackable, Repairable {
-    void harvest();
-    void repairMachine();
-}
-
-class Vulture extends Unit implements Terran, Mechanic, IsRepairable, Attackable {
-    void move();
-    void attack();
-}
-
-class Tank extends Unit implements Terran, Attackable, Mechanic, IsRepairable {
-    void move();
-    void attack();
-}
-
-class Zergling extends Unit implements Zerg, Attackable, IsHealable, Bionic, AutoRecovable {
-    void move();
-    void attack();
-    void naturalRecovery();
-}
-
-class Hydra extends Unit implements Zerg, Attackable, IsHealable, Bionic, AutoRecovable {
-    void move();
-    void attack();
-    void naturalRecovery();
-}
-
-class Zealot extends Unit implements Protoss, Attackable, IsHealable, AutoRecovable {
-    void move();
-    void attack();
-    void naturalRecovery();
-}
-
-class Dragun extends Unit implements Protoss, Attackable, Mechanic, AutoRecovable {
-    void move();
-    void attack();
-    void naturalRecovery();
-}
-
-interface Terran {}
-interface Zerg {}
-interface Protoss {}
-
-interface Bionic {}
-interface Mechanic {}
-
-interface Attackable {
-    {abstract} void attack();
-}
-
-interface Movable {
-    {abstract} void move();
-}
-
-interface Healable {
-    {abstract} void heal(Unit unit);
-}
-
-interface IsHealable {}
-
-interface Repairable {
-    {abstract} void repairable();
-}
-
-interface IsRepairable {}
-
 interface Harvestable {
-    {abstract} void harvest();
+  {abstract} void harvestable();
 }
 
+' 치료를 받음이 가능한
+interface IsHealable
+
+' 수리를 받을 수 있는
+interface IsRepairable
+
+' 움직임이 가능한
+interface Movable {
+  {abstract}void move();
+}
+' 공격이 가능한
+interface Attackable{
+  {abstract}void attack();
+}
+
+' 자동회복이 가능한
 interface AutoRecovable {
-    {abstract} void autoRecovable();
+  {abstract}void autoRecover();
+}
+
+' 유닛 종류
+' 생물
+interface Bionic implements IsHealable
+' 기계
+interface IsRepairableMechanic implements IsRepairable, Attackable
+interface Mechanic
+
+interface Zerg implements AutoRecovable
+interface Protoss implements AutoRecovable
+
+abstract class TerranUnit extends Unit implements Movable
+abstract class ZergUnit extends Unit implements Movable, Attackable, Zerg
+abstract class ZergStructure extends Structure implements Zerg
+abstract class ProtossUnit extends Unit implements Movable, Attackable, Protoss
+abstract class ProtossStructure extends Structure implements Protoss
+
+' 건물
+' 다른 종족도 건물이 있으니까
+abstract class Structure{
+  {abstract} int hp;
+  {abstract} int cost;
+  {abstract} int? shield;
+}
+
+' 유닛
+abstract class Unit{
+  int hp;
+  int cost;
+  ' Medic 제외
+  int? damage;
+  int? shield;
+}
+
+' 테란 유닛
+class Marine extends TerranUnit implements Bionic, Attackable{
+  void move();
+  void attack();
+}
+' 간호사
+class Medic extends TerranUnit implements Bionic, Healable{
+  void move();
+  void healable();
+  void IsHealable();
+}
+'  사람이 타고 있는 일꾼
+class SCV extends TerranUnit implements IsRepairableMechanic, IsHealable, Repairable, Harvestable{
+  void move();
+  void IsHealable();
+  void attack();
+  void repairable();
+  void IsRepairable();
+  void harvestable();
+}
+class Tank extends TerranUnit implements IsRepairableMechanic{
+  void move();
+  void attack();
+}
+class Vulture extends TerranUnit implements IsRepairableMechanic{
+  void move();
+  void attack();
+}
+
+' 저그 유닛
+class Hydra extends ZergUnit implements Bionic{
+  void move();
+  void attack();
+  void autoRecover();
+}
+class Zergling extends ZergUnit implements Bionic{
+  void move();
+  void attack();
+  void autoRecover();
+}
+
+' 프로토스 유닛
+class Zealot extends ProtossUnit implements Bionic{
+  int shield
+  void attack();
+  void move();
+  void autoRecover();
+}
+class Dragun extends ProtossUnit implements Mechanic{
+  int shield
+  void attack();
+  void move();
+  void autoRecover();
 }
 
 @enduml
