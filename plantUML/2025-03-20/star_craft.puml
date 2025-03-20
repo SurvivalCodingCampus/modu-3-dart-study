@@ -1,0 +1,48 @@
+@startuml starcraft
+
+scale 1
+
+' 추후 공격받을 객체를 위해 최상위 객체 설정
+abstract Object {
+    int hp;
+}
+
+interface Unit extends Object {
+    void attack();
+}
+
+interface Structure extends Object {}
+
+abstract class Bionic implements Unit, Structure {}
+
+abstract class Mechanic implements Unit, Structure {}
+
+
+' -- 테란 --
+class Marin extends Bionic {}
+
+class Medic extends Bionic {
+    @override
+    void attack(){};
+}
+
+class Tank extends Mechanic {}
+
+class Vulture extends Mechanic {}
+
+class Scv extends Mechanic {
+}
+
+class Terran {
+    Margin margin,
+    Medic medic,
+    Tank tank,
+    Vulture vulture,
+    Scv scv,
+}
+
+' -- 저그 --
+class Zerg {}
+
+class Zergling extends Unit {}
+@enduml
