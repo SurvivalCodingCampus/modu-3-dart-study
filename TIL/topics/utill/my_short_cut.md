@@ -137,3 +137,15 @@
 
 
 
+
+
+## Android Studio 확장 팁
+
+### Dart Class Tools
+
+- class 관련 자동 코드 작성
+
+### 폴더 리팩토링 시 import 경로를 같이 바꾸는 방법
+
+- VS code에서 바꾸면 깔끔하게 바뀐다.
+  - refactor 활용

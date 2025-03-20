@@ -179,9 +179,8 @@ fabric.properties
 # raw folder
 TIL/00_raw/
 
-# practice folder
-# git update-index --assume-unchanged lib/
-lib/
-
 # template
 TIL/daily/PR_template.md
+
+# playground
+playground/

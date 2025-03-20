@@ -20,5 +20,3 @@ class GreatWizard extends Wizard {
     }
   }
 }
-
-main() {}

@@ -4,7 +4,7 @@
 
 
 
-##### Label(레이블) - 특정 루프 이름 지정
+### Label(레이블) - 특정 루프 이름 지정
 
 ```dart
 outerLoop: // 레이블 이름 지정
@@ -23,7 +23,7 @@ for (final word in words) {
 
 
 
-##### for문에서 조건 주의점
+### for문에서 조건 주의점
 
 이 경우 5만 건너뛰는게 아니라 **조건에 안맞으면** 루프 종료
 
@@ -37,7 +37,7 @@ for (int i = 0; i < 100 && i != 5; i++) {
 
 
 
-##### for문의 또다른 사용법
+### for문의 또다른 사용법
 
 변수 선언쪽에 여러 변수를 선언할 수 있다.
 
@@ -51,4 +51,23 @@ for (int i = 0, j = s.length - 1; i < j; i++, j--) {
 
 
 
-### 분기 (Branching)
+### Switch Case 활용
+
+```dart
+double depreAndAmort() {
+    final currentDate = DateTime.now();
+    final differentDays = currentDate.difference(createdDate).inDays;
+
+    switch (differentDays) {
+      case <= 30:
+        return price * 0.8;
+      case < 90:
+        return price * 0.7;
+      default:
+        return price * 0.5;
+    }
+  }
+```
+
+[여러문법 확인해보기](https://github.com/dart-lang/language/issues/1660)
+

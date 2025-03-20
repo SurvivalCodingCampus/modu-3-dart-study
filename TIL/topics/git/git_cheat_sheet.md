@@ -15,6 +15,16 @@
 
 
 
+#### unstage
+
+```shell
+git restore --staged main.dart # 특정 파일만 unstage
+git restore --staged .         # 현재 staged된 전체 파일 unstage
+git reset HEAD                 # 현재 브랜치 기준으로 모두 unstage
+```
+
+
+
 ### GitHub 시작하기
 
 `git push -u(또는 --set-upstream) origin master` : 로컬 레포지토리의 내용을 처음으로 리모트 레포지토리에 올릴 때 사용합니다.

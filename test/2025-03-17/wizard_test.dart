@@ -1,6 +1,6 @@
-import '../../assignments/2025-03-17/task_exception.dart';
-import '../../assignments/2025-03-17/wizard.dart';
-import '../../assignments/2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/2025-03-17/task_exception.dart';
+import 'package:modu_3_dart_study/2025-03-17/wizard.dart';
+import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:test/test.dart';
 
 void main() {
