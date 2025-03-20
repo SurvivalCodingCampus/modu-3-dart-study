@@ -1,0 +1,60 @@
+@startuml
+
+'자산 추상 클래스
+abstract class Asset {
+  + String name
+  + int price
+
+  + Asset(name, price)
+}
+
+'사물의 무게를 가져오는 인터페이스
+interface Thing {
+  set weight(double value)
+  double get weight()
+}
+
+'유형 자산 추상클래스
+abstract class TangibleAsset extends Asset implements Thing {
+  + String color
+  - double _weight
+
+  + TangibleAsset(name, price, color, weight)
+
+  + set weight(double value)
+  + double get weight()
+}
+
+
+'무형 자산 추상클래스
+abstract class IntangibleAsset extends Asset {
+  + String owner
+
+  + IntangibleAsset(name, price, owner)
+}
+
+class Book extends TangibleAsset {
+  + String isbn;
+
+  + Book(name, price, color, weight, isbn)
+}
+
+class Computer extends TangibleAsset {
+  + String makerName
+
+  + Computer(name, price, color, weight, makerName)
+
+}
+
+'무형 자산 - 특허권 (특허권의 독점권, 특허 보호기간(년))
+class Patent extends IntangibleAsset {
+  + bool exclusiveRight;
+  + int patentDurationYears;
+
+  + Patent(name, price, owner, exclusiveRight, patentDurationYears)
+}
+
+
+
+
+@enduml
