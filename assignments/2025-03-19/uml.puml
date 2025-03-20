@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Book extends TangibleAsset {
+    String isbn;
+}
+
+class Computer extends TangibleAsset {
+    String makerName;
+}
+
+abstract class Asset {
+    String name;
+    int price;
+}
+
+interface Thing {
+    double get weight();
+    set weight(double value);
+}
+
+abstract class TangibleAsset extends Asset implements Thing{
+    String color;
+    double _weight;
+}
+
+@enduml
