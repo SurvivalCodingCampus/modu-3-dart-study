@@ -1,0 +1,57 @@
+@startuml
+abstract class Protoss {
+}
+
+abstract class Unit extends Protoss implements Attackable, Shieldable {
+
+    + String name
+    + int healthPoint
+
+
+}
+
+interface Shieldable implements RegenerateShieldable {
+  + void shield(Unit attack)
+}
+
+interface RegenerateShieldable {
+  + regenerateShield()
+}
+
+
+interface Attackable {
+  + void attack(Unit attack)
+}
+
+abstract class Structure extends Protoss implements Shieldable{
+}
+
+abstract class Bionic extends Unit {
+
+}
+
+class Zealot extends Bionic {
+
+}
+
+abstract class Mechanic extends Unit {
+}
+
+class Dragun extends Mechanic {
+
+}
+
+
+class Medic extends Bionic implements Healable {
+    + @override void attack(Unit attack)
+
+
+}
+
+interface Healable {
+    + void heal(Bionic unit)
+    + void repair(Scv scv)
+}
+
+
+@enduml

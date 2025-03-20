@@ -1,0 +1,46 @@
+@startuml
+
+abstract class Zerg {
+}
+
+abstract class Unit extends Zerg implements Attackable {
+
+    + String name
+    + int healthPoint
+
+
+}
+
+interface Attackable {
+  + void attack(Unit attack)
+}
+
+abstract class Structure extends Zerg{
+}
+
+abstract class Bionic extends Unit {
+
+}
+
+
+class Zergling extends Bionic {
+
+}
+
+class Hydra extends Bionic {
+
+}
+
+class Medic extends Bionic implements Healable {
+    + @override void attack(Unit attack)
+
+
+}
+
+interface Healable {
+    + void heal(Bionic unit)
+    + void repair(Scv scv)
+}
+
+
+@enduml
