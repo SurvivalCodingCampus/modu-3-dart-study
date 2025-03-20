@@ -13,10 +13,14 @@ interface Harvestable {
 }
 
 ' 치료를 받음이 가능한
-interface IsHealable
+interface IsHealable {
+    {abstract}void isHealable();
+}
 
 ' 수리를 받을 수 있는
-interface IsRepairable
+interface IsRepairable {
+    {abstract}void isRepairable();
+}
 
 ' 움직임이 가능한
 interface Movable {
@@ -74,12 +78,12 @@ class Marine extends TerranUnit implements Bionic, Attackable{
 class Medic extends TerranUnit implements Bionic, Healable{
   void move();
   void healable();
-  void IsHealable();
+  void isHealable();
 }
 '  사람이 타고 있는 일꾼
 class SCV extends TerranUnit implements IsRepairableMechanic, IsHealable, Repairable, Harvestable{
   void move();
-  void IsHealable();
+  void isHealable();
   void attack();
   void repairable();
   void IsRepairable();
