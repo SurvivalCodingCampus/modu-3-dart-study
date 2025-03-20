@@ -1,0 +1,51 @@
+@startuml
+
+abstract class Asset {
+  - String name;
+  - DateTime createdDate;
+  - String manageDepart;
+  - String description;
+  + calculateTax();
+  + transact();
+  + dispose();
+}
+
+interface Thing {
+  + weight;
+}
+
+abstract TangibleAsset extends Asset implements Thing {
+  + int price;
+  + String color;
+  + DateTime purchaseDate;
+  + double salvageValue;
+
+  + calculateDepreciation();
+  + dispose();
+  + transact();
+}
+
+class Book extends TangibleAsset {
+  + String isbn;
+  + double weight;
+  + int calculateTax();
+}
+
+class Computer extends TangibleAsset {
+  + String makerName;
+  + double weight
+
+  + int calculateTax();
+}
+
+abstract class IntangibleAsset extends Asset {
+    + dispose();
+    + transact();
+}
+
+class patent extends IntangibleAsset {
+    + String patentNumber;
+    + calculateTax();
+}
+
+@enduml
