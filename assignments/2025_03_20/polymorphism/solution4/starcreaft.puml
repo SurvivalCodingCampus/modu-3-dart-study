@@ -1,6 +1,7 @@
 @startuml Starcraft
-title Starcraft Unit Class Diagram
 
+title Starcraft Unit Class Diagram
+ 
 interface Healable{
  {abstract} void healable();
 }
@@ -35,20 +36,16 @@ interface AutoRecovable {
 ' 생물
 interface Bionic implements IsHealable
 ' 기계
-interface Mechanic implements IsRepairable, Attackable
+interface IsRepairableMechanic implements IsRepairable, Attackable
+interface Mechanic
 
 interface Zerg implements AutoRecovable
-
 interface Protoss implements AutoRecovable
 
 abstract class TerranUnit extends Unit implements Movable
-
 abstract class ZergUnit extends Unit implements Movable, Attackable, Zerg
-
 abstract class ZergStructure extends Structure implements Zerg
-
-abstract class ProtossUnit extends Unit implements AutoRecovable, Movable, Protoss
-
+abstract class ProtossUnit extends Unit implements Movable, Attackable, Protoss
 abstract class ProtossStructure extends Structure implements Protoss
 
 ' 건물
@@ -80,7 +77,7 @@ class Medic extends TerranUnit implements Bionic, Healable{
   void IsHealable();
 }
 '  사람이 타고 있는 일꾼
-class SCV extends TerranUnit implements Mechanic, IsHealable, Repairable, Harvestable{
+class SCV extends TerranUnit implements IsRepairableMechanic, IsHealable, Repairable, Harvestable{
   void move();
   void IsHealable();
   void attack();
@@ -88,11 +85,11 @@ class SCV extends TerranUnit implements Mechanic, IsHealable, Repairable, Harves
   void IsRepairable();
   void harvestable();
 }
-class Tank extends TerranUnit implements Mechanic{
+class Tank extends TerranUnit implements IsRepairableMechanic{
   void move();
   void attack();
 }
-class Vulture extends TerranUnit implements Mechanic{
+class Vulture extends TerranUnit implements IsRepairableMechanic{
   void move();
   void attack();
 }
@@ -116,7 +113,7 @@ class Zealot extends ProtossUnit implements Bionic{
   void move();
   void autoRecover();
 }
-class Dragun extends ProtossUnit implements Mechanic {
+class Dragun extends ProtossUnit implements Mechanic{
   int shield
   void attack();
   void move();
