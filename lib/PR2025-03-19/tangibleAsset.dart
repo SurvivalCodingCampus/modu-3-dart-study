@@ -1,6 +1,5 @@
 import 'package:modu_3_dart_study/PR2025-03-19/asset.dart';
 import 'package:modu_3_dart_study/PR2025-03-19/thing.dart';
-import 'computer.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {
   String name;
@@ -8,6 +7,7 @@ abstract class TangibleAsset extends Asset implements Thing {
   String color;
 
   //Thing에서는 public으로 weight를 처리하지만 실제 저장소인 TangibleAsset에서는 private를 사용해 캡슐화
+  //생성자에서 weight를 선언 안하기때문에 값 초기화
   double _weight = 0;
 
   // Thing을 implements햇기 때문에 weight의 getter를 오버라이딩

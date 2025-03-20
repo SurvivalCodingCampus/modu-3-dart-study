@@ -14,7 +14,7 @@ abstract class Asset{
    String makerName;
   }
 
-  abstract class Thing {
+  abstract  class Thing {
     double weight;
   }
 
@@ -26,4 +26,5 @@ abstract class TangibleAsset extends Asset implements Thing {
   void printWeight() {};
   void printSale(){}
 }
+
 @enduml

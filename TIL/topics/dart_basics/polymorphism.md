@@ -1,0 +1,58 @@
+### 다형성(Polymorphism)
+
+- 다양한 형태로 보는 형질
+- 상속과 인터페이스로 주로 구현
+- 코드재사용성, 유연성 높여줌
+- implements사용 (즉 override 사용)
+- 선언을 상위개념, 인스턴스 생성을 하위 개념( ex : Character character = Hero('홍길동);)
+
+Class를 Interface로 선언 가능
+
+switch 문으로 타입 체크 가능
+
+```dart
+abstract class Monster {
+  void run() {
+    print('뚜벅뚜벅');
+  }
+}
+
+class Slime extends Monster {
+  final String suffix;
+
+//슬라임 이름
+  Slime(this.suffix);
+
+//상위인 Monster클래스에서 run메서드를 오버라이딩함
+  @override
+  void run() {
+    print('slime $suffix 가 도망쳤다');
+  }
+
+  @override
+  void print() {
+    print('hello');
+  }
+}
+
+void main() {
+  Slime slime = Slime('A');
+//여기서 Slime으로 설정했기때문에, 즉 monster의 실체는 Slime이라
+//Monster는 추상클래스라 객체화 불가, 객체화란 아래처럼 클래스로 선언하는것
+  Monster monster = Slime('B');
+//둘다 오버라이드 된 slime의 run으로 결과 출력됨.
+  slime.run();
+//이 경우 실행이 안됨. 왜냐하면 Slime으로 객체를 만들지만 변수의 타입은 Monster이기때문에
+//Monster에는 print메서드가 없어서 출력이 안됨
+  monster.print();
+  slime.print();
+  monster.run();
+}
+```
+
+코드 해석
+✔ Monster가 추상 클래스라 직접 객체화할 수 없지만, 하위 클래스인 Slime의 인스턴스를 대입하는 것은 가능하다.
+✔ Monster monster = Slime('B');처럼 하면 변수의 타입은 Monster이지만, 실제 객체는 Slime이므로 Slime의 run()이 실행된다.
+✔ 오버라이딩된 메서드는 실제 객체 타입(Slime)의 메서드가 호출된다.
+✔ Monster monster = Slime('B'); 여기서 만약 Monster클래스에 없는 메서드는 monster로 출력할 수 없다.
+

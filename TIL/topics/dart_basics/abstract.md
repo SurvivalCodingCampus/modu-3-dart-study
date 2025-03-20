@@ -59,7 +59,7 @@ class Hero implements Attackable, Movable {
 
   //Attackable이란 추상클래스에 attack이란 메서드가 있고 그걸 다시한번 재정의
   @override
-  void attack(Hero hero) {
+  void attack(Slime slime) {
     print('공격');
   }
 
