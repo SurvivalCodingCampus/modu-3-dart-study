@@ -1,0 +1,50 @@
+@startuml
+interface AttackAble {
+{abstract} void attack(HeroUniverse obj)
+}
+interface MoveAble{
+{abstract} void move(int x, int y)
+}
+interface IsHealAble{}
+abstract class HeroUniverse{
+int hp
+int mp
+}
+
+abstract class DC extends HeroUniverse {
+double sheildAmount
+void restoreSheild()
+}
+
+abstract class Hero extends DC implements AttackAble, MoveAble {
+int energyPoint
+}
+
+abstract class Human extends Hero implements IsHealAble {
+}
+
+abstract class Enhanced extends Hero implements IsHealAble {
+}
+
+abstract class Tech extends Hero {
+
+}
+
+abstract class Facility extends DC {
+}
+
+abstract class HumanFacility extends Facility {
+}
+
+abstract class EnhancedFacility extends Facility {
+}
+
+abstract class TechFacility extends Facility {
+}
+
+class Superman extends Human {
+}
+
+class Cyborg extends Tech {
+}
+@enduml
