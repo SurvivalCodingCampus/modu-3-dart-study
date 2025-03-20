@@ -1,0 +1,47 @@
+@startuml game
+
+scale 1.2
+
+class Book extends TangibleAsset {
+    String name;
+    int price;
+    double _weight;
+    String color;
+    String isbn;
+
+  
+}
+
+class Computer extends TangibleAsset {
+    String name;
+    int price;
+    double _weight;
+    String color;
+  String makerName;
+
+  
+}
+
+interface Thing {
+  {abstract} double get weight;
+  {abstract} set weight(double value);
+}
+
+abstract class Asset {
+  {abstract} String name;
+  {abstract} int price;
+  
+
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+  {abstract} String color;
+  {abstract} double _weight;
+
+  double get weight;
+
+  set weight(double value);
+  
+}
+
+@enduml
