@@ -8,12 +8,12 @@ class GreatWizard extends Wizard {
     : super(name: name, hp: hp, mp: mp, wand: wand);
 
   void superHeal(Hero hero) {
-    if (this.mp < 50) {
+    if (mp < 50) {
       print("마나가 부족합니다");
       return;
     }
 
-    this.mp -= 50;
+    mp -= 50;
     hero.hp = Hero.maxHp;
 
     print("슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}");

@@ -45,7 +45,7 @@ class PoisonSlime extends Slime {
       print("추가로, 독 포자를 살포했다!");
       int damage = (hero.hp / 5).toInt();
 
-      hero.attack(damage);
+      hero.receiveDamage(damage);
       _poisonCount--;
     }
   }

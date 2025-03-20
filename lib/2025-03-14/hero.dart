@@ -33,7 +33,7 @@ class Hero {
   /* 3) 클래스에 생성자는 무조건 한개 이상 */
   // -------------------------* 메서드 *-------------------------
   // [attack] 공격 받았을 시, hp 5씩 줄어드는 함수
-  void attack(int demage) {
+  void receiveDamage(int demage) {
     print('$demage 의 데미지');
     hp -= demage;
     if (hp <= 0) {
