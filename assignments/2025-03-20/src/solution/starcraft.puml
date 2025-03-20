@@ -1,0 +1,105 @@
+@startuml starcraft
+
+scale 1
+
+
+abstract class Unit {
+    int hp;
+    int mp;
+    int shield;
+}
+
+abstract class Combatent extends Unit implements Groupable, Moveable {
+    int ap;
+
+    void attack(Unit unit);
+    void move();
+    void group(List<Moveable> units);
+}
+
+abstract class NonCombatent extends Unit implements Groupable, Moveable {
+    void move();
+    void group(List<Moveable> units);
+}
+
+abstract class Structure extends Unit {}
+
+interface Groupable {
+    {abstract} void group(List<Moveable> units);
+}
+
+interface Moveable {}
+
+interface Bionic {}
+
+interface Mechanic {}
+
+interface Terran {}
+
+interface Zerg implements Bionic{}
+
+interface Protoss implements Regenerable{}
+
+interface Treatable {}
+
+interface Collectable {
+    void collect(Mineral mineral);
+}
+
+interface Repairable {}
+
+class Marine extends Combatent implements Terran, Treatable, Bionic {}
+
+class Medic extends NonCombatent implements Terran, Treatable, Bionic {
+    void heal();
+}
+
+class Vulture extends Combatent implements Terran, Mechanic, Repairable {}
+
+class Tank extends Combatent implements Terran, Mechanic, Repairable {}
+
+class Scv extends Combatent implements Terran, Mechanic, Collectable, Treatable, Repairable{
+    void collect(Mineral mineral);
+    void repair(Mechanic unit);
+}
+
+class CommandCenter extends Structure implements Terran {}
+
+interface Regenerable {
+    {abstract} void regen();
+}
+
+class Zergling extends Combatent implements Zerg, Regenerable  {
+    void regen(){}
+}
+
+class Hydra extends Combatent implements Zerg, Regenerable {
+    void regen(){}
+}
+
+class Hatchery extends Structure implements Zerg, Regenerable {
+    void regen(){}
+}
+
+class Drone extends Combatent implements Zerg, Regenerable, Collectible {
+    void regen(){}
+
+    class Zealot extends Combatent implements Protoss, Bionic, Treatable { 
+    void regen(){}
+}
+
+class Dragun extends Combatent implements Protoss,  Mechanic {
+    void regen(){}
+}
+
+class Probe extends Combatent implements Protoss, Bionic, Treatable, Collectible {
+    void regen(){}
+    void collect(Mineral mineral){}
+}
+
+class Nexus extends Structure implements Protoss {
+    void regen(){}
+}
+   
+
+@enduml
