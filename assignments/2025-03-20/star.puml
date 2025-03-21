@@ -1,0 +1,107 @@
+@startuml star
+
+title Refined Starcraft OOP UML
+
+' 유닛 추상 클래스
+abstract class Unit {
+  - int hp
+  - int cost
+  - UnitType type  ' BIONIC or MECHANIC
+  + void move()
+  + void attack(Unit target)
+  ...
+}
+
+enum UnitType {
+  BIONIC
+  MECHANIC
+}
+
+' 테란 유닛, 종족별 추상화
+abstract class TerranUnit extends Unit {
+  .. Terran common logic ..
+}
+
+class Marine extends TerranUnit {
+  + Marine()
+  + attack(Unit target)
+}
+
+class Medic extends TerranUnit {
+  + Medic()
+  + heal(Unit target)
+  + canHeal(Unit target) : boolean ' SCV도 예외
+}
+
+class SCV extends TerranUnit {
+  + SCV()
+  + harvest()
+  + repair(Unit mechUnit)
+}
+
+class Vulture extends TerranUnit {
+  + Vulture()
+}
+
+class Tank extends TerranUnit {
+  + Tank()
+}
+
+
+abstract class ZergUnit extends Unit {
+  .. override or add autoRecover logic ..
+  + autoRecover()
+}
+
+class Zergling extends ZergUnit {
+  + Zergling()
+  + autoRecover()
+}
+
+class Hydra extends ZergUnit {
+  + Hydra()
+  + autoRecover()
+}
+
+abstract class ProtossUnit extends Unit {
+  - int shield
+  + rechargeShield()
+  .. Protoss common logic ..
+}
+
+class Zealot extends ProtossUnit {
+  + Zealot()
+  ' type = BIONIC => can be healed by Medic
+}
+
+class Dragun extends ProtossUnit {
+  + Dragun()
+  ' type = MECHANIC => can be repaired maybe
+}
+
+' 건물
+abstract class Structure {
+  - int hp
+  + build()
+  ...
+}
+
+class ZergStructure extends Structure {
+  + autoRecover()
+}
+
+class ProtossStructure extends Structure {
+  - int shield
+  + rechargeShield()
+}
+
+' 유닛 그룹화
+class UnitGroup {
+  - List<Unit> units
+  + addUnit(Unit u)
+  + removeUnit(Unit u)
+  + moveAll(location)
+  + attackAll(target)
+}
+
+@enduml

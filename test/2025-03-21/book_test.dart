@@ -49,7 +49,9 @@ void main() {
     List<Book> bookList = [book1, book2, book3];
 
     //when
+    print('정렬하기 전 : $bookList');
     bookList.sort();
+    print('정렬한 후 : $bookList');
 
     //then
     expect(bookList, equals([book3, book2, book1]));
@@ -69,3 +71,5 @@ void main() {
     expect(book1, equals(book2));
   });
 }
+
+// 오늘 과제한게 어제 풀리퀘스트로 들어가버려서 주석만 추가

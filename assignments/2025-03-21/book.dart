@@ -19,7 +19,9 @@ class Book implements Comparable {
     return identical(this, other) ||
         (other is Book &&
             title == other.title &&
-            publishDate == other.publishDate);
+            publishDate.year == other.publishDate.year &&
+            publishDate.month == other.publishDate.month &&
+            publishDate.day == other.publishDate.day);
   }
 
   @override
@@ -32,6 +34,8 @@ class Book implements Comparable {
 
   @override
   String toString() {
-    return 'Book title : $title, publishDate : $publishDate';
+    return 'Book title : $title';
   }
 }
+
+// 오늘 과제한게 어제 풀리퀘스트로 들어가버려서 주석만 추가
