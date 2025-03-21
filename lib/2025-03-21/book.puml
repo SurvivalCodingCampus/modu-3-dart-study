@@ -1,0 +1,23 @@
+@startuml
+interface Comparable {
+  + int compareTo(Object other)
+}
+
+class Book implements Comparable {
+  - String title
+  - DateTime publishDate
+  - String comment
+  + Book(title: String, comment: String, publishDate: DateTime)
+ ' + bool operator ==(Object other)
+ ' + int get hashCode
+ ' + int compareTo(Book other)
+  + Book copyWith(title: String?, publishDate: DateTime?, comment: String?)
+}
+
+Book ..|> Comparable
+
+ ' 오버라이드 된 메서드들
+Book : + bool operator ==(Object other)
+Book : + int get hashCode
+Book : + int compareTo(Book other)
+@enduml
