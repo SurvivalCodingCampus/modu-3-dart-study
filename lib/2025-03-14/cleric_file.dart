@@ -16,11 +16,11 @@ class Cleric{
   //연습문제 2
   void selfAid(){
 
-    if (maxHp > hp! && mp! >= 5) {
-      mp = mp! - 5;
+    if (maxHp > hp && mp >= 5) {
+      mp = mp - 5;
       hp = maxHp;
     }else{
-      if (mp! < 5) {
+      if (mp < 5) {
         print("MP가 부족하여 selfAid를 사용할 수 없습니다");
       } else {
         print("이미 HP는 전부 회복 되었습니다");
@@ -44,14 +44,14 @@ class Cleric{
     print("회복량 $recoveryValue");
 
     //회복 되는 코드 추가하기
-    if (mp! < maxMp) {
-      if (mp! + recoveryValue <= maxMp) {
-        print("실제 회복량 ${recoveryValue}");
+    if (mp < maxMp) {
+      if (mp + recoveryValue <= maxMp) {
+        print("실제 회복량 $recoveryValue");
       } else {
-        print("실제 회복량 ${maxMp - mp!}");
-        recoveryValue = maxMp - mp!;
+        print("실제 회복량 ${maxMp - mp}");
+        recoveryValue = maxMp - mp;
       }
-      mp = mp! + recoveryValue; // 회복코드
+      mp = mp + recoveryValue; // 회복코드
       return recoveryValue; // 회복량 리턴 코드
     }
 

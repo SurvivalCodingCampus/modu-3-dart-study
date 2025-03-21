@@ -1,4 +1,3 @@
-import 'dart:math';
 
 class Hero {
   String name;

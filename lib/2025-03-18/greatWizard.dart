@@ -1,8 +1,8 @@
-import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:modu_3_dart_study/2025-03-17/wizard.dart';
 import 'package:modu_3_dart_study/2025-03-18/hero.dart';
 
 class GreatWizard extends Wizard {
+  @override
   int mp;
 
   GreatWizard({

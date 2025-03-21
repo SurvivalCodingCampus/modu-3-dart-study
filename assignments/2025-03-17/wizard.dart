@@ -41,10 +41,6 @@ class Wizard {
   }
 
   set wizardWandValidation(Wand wand) {
-    if (wand == null) {
-      throw Exception("Wizard는 Wand를 필수로 가지고 있어야 합니다");
-    }
-
     _wand = wand;
   }
 
