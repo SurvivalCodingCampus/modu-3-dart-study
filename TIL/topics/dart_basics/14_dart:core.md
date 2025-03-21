@@ -251,3 +251,13 @@ print(n.truncate());  // -3 (버림)
 print(n.toInt());     // -3 (버림)
 ```
 
+
+
+
+
+### runtypeType
+
+- `runtimeType`은 Dart 언어에서 모든 객체가 가지고 있는 속성(property)으로, **해당 객체의 실제 타입**을 런타임에 반환합니다.
+
+
+

@@ -1,0 +1,59 @@
+@startuml
+
+skinparam ranksep 120
+
+'게임 오브젝트
+abstract class GameObject {
+    int hp
+}
+
+' 프로토스 계층구조
+together {
+abstract class Protoss extends GameObject implements Barrier
+
+abstract class ProtossUnit extends Protoss implements Moveable
+
+abstract class ProtossStructure extends Protoss
+}
+
+
+' 프로토스 유닛
+together {
+class Zealot extends ProtossUnit implements Behealed, Bionic, Attackable
+
+class Dragun extends ProtossUnit implements Mechanic, Attackable
+}
+
+' 인터페이스
+interface SelfHealable {
+    void selfHeal()
+}
+
+interface Barrier implements SelfHealable {
+    int barrier
+}
+
+interface Attackable implements Groupable {
+    void attack()
+}
+
+interface Behealed { }
+
+interface Bionic implements BeRefaired { }
+
+interface Mechanic { }
+
+interface BeRefaired { }
+
+interface Moveable implements Groupable {
+    void move()
+}
+
+interface Groupable { }
+
+GameObject -[hidden]-> Protoss
+GameObject -[hidden]-> SelfHealable
+Protoss -[hidden]-> ProtossUnit
+Protoss -[hidden]-> ProtossStructure
+
+@enduml

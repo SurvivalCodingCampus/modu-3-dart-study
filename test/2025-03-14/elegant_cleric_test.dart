@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-14/elegant_cleric.dart';
+import '../../assignment/2025-03-14/elegant_cleric.dart';
 import 'package:test/test.dart';
 
 void main() {

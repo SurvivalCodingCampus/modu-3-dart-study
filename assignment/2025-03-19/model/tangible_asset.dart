@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-19/index.dart';
+import '../index.dart';
 
 // 유형 자산
 abstract class TangibleAsset extends Asset implements Thing {

@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-17/person.dart';
+import '../../assignment/2025-03-17/person.dart';
 import 'package:test/test.dart';
 
 void main() {

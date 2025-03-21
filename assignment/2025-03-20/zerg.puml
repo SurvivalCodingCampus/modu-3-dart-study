@@ -1,0 +1,46 @@
+@startuml
+
+skinparam ranksep 120
+
+'게임 오브젝트
+abstract class GameObject {
+    int hp
+}
+
+' 저그 계층구조
+abstract class Zerg extends GameObject implements SelfHealable, Bionic
+
+abstract class ZergUnit extends Zerg implements Moveable
+
+abstract class ZergStructure extends Zerg implements Bionic
+
+' 저그 유닛
+class Zergling extends ZergUnit implements Behealed, Attackable
+
+class Hydra extends ZergUnit implements Behealed, Attackable
+
+' 인터페이스
+interface SelfHealable {
+    void selfHeal()
+}
+
+interface Attackable implements Groupable {
+    void attack()
+}
+
+interface Behealed { }
+
+interface Bionic { }
+
+interface Moveable implements Groupable {
+    void move()
+}
+
+interface Groupable { }
+
+GameObject -[hidden]-> Zerg
+GameObject -[hidden]-> Bionic
+Zerg -[hidden]-> ZergUnit
+Zerg -[hidden]-> ZergStructure
+
+@enduml

@@ -1,15 +1,15 @@
-import 'package:modu_3_dart_study/2025-03-19/index.dart';
+import '../index.dart';
 
-// 책
-class Book extends TangibleAsset {
-  static const double taxRate = 0.11;
+// 컴퓨터
+class Computer extends TangibleAsset {
+  static const double taxRate = 0.15;
 
-  // 책 관리 코드
-  String isbn;
+  // 출판사 이름
+  String makerName;
   double _weight;
 
-  Book({
-    required this.isbn,
+  Computer({
+    required this.makerName,
     required double weight,
     required int price,
     required String color,
@@ -50,13 +50,11 @@ class Book extends TangibleAsset {
 
     switch (differentDays) {
       case <= 30:
-        return price * 0.9;
-      case < 90:
         return price * 0.8;
-      default:
+      case < 90:
         return price * 0.7;
+      default:
+        return price * 0.5;
     }
   }
 }
-
-main() {}

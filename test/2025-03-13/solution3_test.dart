@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-13/solution3.dart';
+import '../../assignment/2025-03-13/solution3.dart';
 import 'package:test/test.dart';
 
 void main() {
