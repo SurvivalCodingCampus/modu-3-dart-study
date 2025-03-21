@@ -23,13 +23,13 @@ void main() {
     final Book oldBook = Book(title: 'A', comment: 'A', publishDate: before);
     final Book newBook = Book(title: 'B', comment: 'B', publishDate: after);
 
-    List<Book> books = [newBook, oldBook];
+    List<Book> books = [oldBook, oldBook];
 
     // When
     books.sort();
 
     // Then
-    expect(books, [oldBook, newBook]);
+    expect(books, [newBook, oldBook]);
   });
   test('Book의 copyWith() 메서드는 새로운 인스턴스를 반환하지만 동일한 속성을 가져야하고, 참조값은 달라야한다.', () {
     // Given
