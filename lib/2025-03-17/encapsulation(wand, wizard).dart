@@ -34,7 +34,6 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
-  // this._name  수정 필요
   Wizard(
       {required String name, required int hp, required int mp})
       : _name = name, _hp = hp, _mp = mp;

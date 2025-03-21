@@ -3,10 +3,9 @@ import '../2025-03-12/hero.dart';
 
 
 class Wizard2 extends Wizard {
-  Wizard2 ({required String name, required int hp})
-  : super(name : name, hp : hp, mp : 100);
+  Wizard2 ({required super.name, required super.hp})
+  : super(mp : 100);
 
-  @override
   void heal(Hero hero){
     if(mp < 10) {
       print("마나가 부족합니다.");

@@ -1,0 +1,141 @@
+```
+@startuml
+
+
+interface SelfHealable {
+    void selfHeal
+}
+
+interface Healable {
+    void heal(Behealed)
+}
+
+interface Repairable {
+    void repair
+}
+
+
+interface Harvestable {
+    void harvestGas
+    void harvestMinerals
+}
+
+interface Attackable {
+    void attack
+}
+
+interface Productable {
+    void product
+}
+
+interface Behealed {
+
+}
+
+interface Barrier {
+
+}
+
+
+interface Bionic {
+
+}
+
+interface groupable{
+}
+
+interface Mechanic implements groupable {
+
+}
+
+interface Movealbe implements groupable {
+
+}
+
+
+
+'게임 오브젝트
+abstract class GameObject {
+    +hp : int
+}
+
+
+'종족
+'abstract class Zerg  implements SelfHealable, Bionic {
+'    +hp : int
+'}
+'
+'abstract class Terran {
+'    +hp : int
+'}
+'
+'
+'abstract class Protoss implements Barrier {
+'    +hp : int
+'    +mp : int
+'}
+abstract class Zerg extends GameObject implements SelfHealable, Bionic {
+
+}
+
+abstract class Terran  extends GameObject{
+
+}
+
+
+abstract class Protoss extends GameObject implements Barrier {
+    +barrier : int
+}
+
+
+
+' 건물, 유닛
+
+abstract class TerranUnit extends Terran implements Movealbe
+
+abstract class TerranStructure extends Terran
+
+
+abstract class ZergUnit extends Zerg implements Movealbe
+
+abstract class ZergStructrue extends Zerg
+
+abstract class ProtossUnit extends Protoss implements Movealbe
+
+abstract class ProtossStructure extends Protoss
+
+
+
+
+' 테란 유닛
+class Marine extends TerranUnit implements Attackable, Bionic, Behealed
+
+
+class Medic extends TerranUnit implements Healable, Bionic, Behealed {
+    void healScv
+
+}
+class Tank extends TerranUnit implements Attackable, Mechanic
+
+
+class vulture extends TerranUnit implements Attackable, Mechanic
+
+
+class Scv extends TerranUnit implements Harvestable, Repairable, Mechanic, Behealed
+
+
+' 저그 유닛
+class Zergling extends ZergUnit implements Behealed, Attackable
+
+class Hydra extends ZergUnit implements Behealed, Attackable
+
+
+' 토스 유닛
+class Zealot extends ProtossUnit implements Behealed, Bionic, Attackable
+
+class Dragun extends ProtossUnit implements Behealed, Mechanic, Attackable
+
+
+@enduml
+
+```

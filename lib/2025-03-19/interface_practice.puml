@@ -1,26 +1,26 @@
 @startuml
-' Thing 인터페이스
+' Thing 인터페이스 (추상 인터페이스 클래스)
 interface Thing {
-  {abstract} double get weight
-  {abstract} set weight(double w)
+  double get weight
+  set weight(double w)
 }
 
 ' Asset 추상 클래스
 abstract class Asset {
-  + name : String
-  + price : int
+  - name : String
+  - price : int
   + Asset(name: String, price: int)
 }
 
 ' IntangibleAsset 추상 클래스 (Asset 상속)
 abstract class IntangibleAsset extends Asset {
-  + owner : String
+  - owner : String
   + IntangibleAsset(name: String, price: int, owner: String)
 }
 
 ' TangibleAsset 추상 클래스 (Asset 상속, Thing 구현)
 abstract class TangibleAsset extends Asset implements Thing {
-  + color : String
+  - color : String
   - _weight : double
   + TangibleAsset(name: String, price: int, color: String, weight: double)
   + get weight() : double
@@ -29,19 +29,19 @@ abstract class TangibleAsset extends Asset implements Thing {
 
 ' Patent 클래스 (IntangibleAsset 상속)
 class Patent extends IntangibleAsset {
-  + patentNumber : String
+  - patentNumber : String
   + Patent(name: String, price: int, owner: String, patentNumber: String)
 }
 
 ' Book 클래스 (TangibleAsset 상속)
 class Book extends TangibleAsset {
-  + isbn : String
+  - isbn : String
   + Book(name: String, price: int, color: String, weight: double, isbn: String)
 }
 
 ' Computer 클래스 (TangibleAsset 상속)
 class Computer extends TangibleAsset {
-  + makerName : String
+  - makerName : String
   + Computer(name: String, price: int, color: String, weight: double, makerName: String)
 }
 
