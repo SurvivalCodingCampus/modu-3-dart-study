@@ -74,7 +74,7 @@ abstract class ProtossStructure extends Protoss
 class Zealot extends ProtossUnit implements Bionic {
     + void attack()
 }
-class Dragoon extends ProtossUnit implements Mechanic {
+class Dragun extends ProtossUnit implements Mechanic {
     + void attack()
 }
 

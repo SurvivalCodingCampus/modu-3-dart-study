@@ -1,8 +1,7 @@
-
 import 'package:test/test.dart';
 
 void main() {
-  test('Cleric Test', () {
+  test('Test 구현 뼈대', () {
     int value = 10;
 
     print('Testing value: $value');
