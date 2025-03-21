@@ -1,6 +1,5 @@
 import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:modu_3_dart_study/2025-03-18/hero.dart';
-import 'package:modu_3_dart_study/2025-03-18/poisonSlime.dart';
 
 class Wizard {
   late String _name;
@@ -46,10 +45,6 @@ class Wizard {
   // }
 
   set wizardWandValidation(Wand wand) {
-    if (wand == null) {
-      throw Exception("Wizard는 Wand를 필수로 가지고 있어야 합니다");
-    }
-
     _wand = wand;
   }
 

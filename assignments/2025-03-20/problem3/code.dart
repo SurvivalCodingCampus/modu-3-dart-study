@@ -9,7 +9,7 @@ void main() {
   yList.add(ya);
   yList.add(yb);
 
-  yList.forEach((e) {
+  for (var e in yList) {
     e.b();
-  });
+  }
 }
