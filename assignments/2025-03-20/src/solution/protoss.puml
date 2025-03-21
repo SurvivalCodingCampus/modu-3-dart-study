@@ -1,0 +1,66 @@
+@startuml starcraft
+
+scale 1
+
+
+abstract class Unit {
+    int hp;
+    int mp;
+    int shield;
+}
+
+abstract class Combatent extends Unit implements Groupable, Moveable {
+    int ap;
+
+    void attack(Unit unit);
+    void move();
+    void group(List<Moveable> units){}
+}
+
+abstract class NonCombatent extends Unit implements Groupable, Moveable {
+    void move();
+    void group(List<Moveable> units){}
+}
+
+abstract class Structure extends Unit {}
+
+interface Groupable {
+    {abstract} void group(List<Moveable> units);
+}
+
+interface Moveable {}
+
+interface Bionic {}
+
+interface Mechanic {}
+
+interface Protoss implements Regenerable{}
+
+interface Treatable {}
+
+interface Collectible {
+    {abstract} void collect(Mineral mineral);
+}
+
+interface Regenerable {
+    {abstract} void regen();
+}
+
+class Zealot extends Combatent implements Protoss, Bionic, Treatable { 
+    void regen(){}
+}
+
+class Dragun extends Combatent implements Protoss,  Mechanic {
+    void regen(){}
+}
+
+class Probe extends Combatent implements Protoss, Bionic, Treatable, Collectible {
+    void regen(){}
+    void collect(Mineral mineral){}
+}
+
+class Nexus extends Structure implements Protoss {
+    void regen(){}
+}
+
+@enduml

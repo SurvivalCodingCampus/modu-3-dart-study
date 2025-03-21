@@ -3,6 +3,7 @@ import 'tangible_asset.dart';
 
 class Book extends TangibleAsset {
   String isbn;
+  int page = 100;
 
   Book({
     required super.name,
