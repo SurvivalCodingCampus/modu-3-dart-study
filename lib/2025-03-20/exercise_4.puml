@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+abstract class StarCraft {
+     + static int mineral
+     + static void produceUnit(TerranUnit unit);
+ }
+
+ abstract class Terran extends StarCraft {
+
+ }
+ abstract class TerranUnit extends Terran implements Attackable {
+
+     + String name
+     + int healthPoint
+ }
+ interface Bionic {
+ }
+ interface Mechanic {
+ }
+ abstract class TerranStructure extends Terran {
+ }
+ interface Attackable {
+   + void attack(Unit attack)
+ }
+
+ '------테란최종유닛
+ class Marine extends TerranUnit implements Bionic {
+ }
+ class Tank extends TerranUnit implements Mechanic {
+ }
+ class Vulture extends TerranUnit implements Mechanic {
+ }
+ class Medic extends TerranUnit implements Bionic, Healable {
+     + @override void attack(Unit attack)
+     + void heal(Bionic unit) - except ZergStructure
+     + void repair(Scv scv)
+ }
+ interface Healable {
+
+ }
+
+ class Scv extends TerranUnit implements Mechanic {
+     void collect()
+     void fixmecha(Mechanic unit)
+ }
+
+
+
+
+
+
+
+
+@enduml

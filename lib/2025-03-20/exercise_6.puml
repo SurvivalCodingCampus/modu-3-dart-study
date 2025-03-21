@@ -1,0 +1,25 @@
+@startuml
+
+abstract class Protoss extends StarCraft implements Shieldable{
+}
+abstract class ProtossUnit extends Protoss implements Attackable {
+
+    + String name
+    + int healthPoint
+}
+abstract class ProtossStructure extends Protoss {
+}
+interface Regeneratedable {
+  + regenerate()
+}
+interface Shieldable implements Regeneratedable {
+  + void shield(Unit attack)
+}
+'------프로토스최종유닛
+class Zealot extends ProtossUnit implements Bionic {
+
+}
+class Dragun extends ProtossUnit implements Mechanic {
+
+}
+@enduml

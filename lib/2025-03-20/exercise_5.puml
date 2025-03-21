@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+abstract class Zerg extends StarCraft implements Regeneratedable{
+}
+abstract class ZergUnit extends Zerg implements Attackable {
+
+    + String name
+    + int healthPoint
+}
+abstract class ZergStructure extends Zerg implements Bionic {
+}
+'------저그최종유닛
+class Zergling extends ZergUnit implements Bionic {
+}
+
+class Hydra extends ZergUnit implements Bionic {
+}
+
+
+
+
+
+
+
+
+
+
+@enduml
