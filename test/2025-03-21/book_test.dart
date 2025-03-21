@@ -49,7 +49,9 @@ void main() {
     List<Book> bookList = [book1, book2, book3];
 
     //when
+    print('정렬하기 전 : $bookList');
     bookList.sort();
+    print('정렬한 후 : $bookList');
 
     //then
     expect(bookList, equals([book3, book2, book1]));
