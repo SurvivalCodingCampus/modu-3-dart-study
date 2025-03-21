@@ -1,0 +1,92 @@
+@startuml
+top to bottom direction
+
+together {
+    interface Mechanic
+    interface Bionic
+}
+
+abstract class StarCraft {
+    + static int mineral
+    + static void produceUnit(Object unit);
+}
+
+interface Attackable {
+    + void attack(Object Unit)
+}
+interface Regeneratedable {
+    + void autoRegenerate()
+}
+
+abstract class Terran implements Attackable {
+}
+
+abstract class TerranUnit extends Terran {
+    + String name
+    + int healthPoint
+    + int attackPower
+}
+abstract class TerranStructure extends Terran {
+}
+
+'------테란 유닛
+class Tank extends TerranUnit implements Mechanic {
+    + void @attack(Object unit)
+}
+class Vulture extends TerranUnit implements Mechanic {
+    void @attack(Object unit)
+}
+class Scv extends TerranUnit implements Mechanic {
+    + void gatherMineral()
+    + void fixmecha(Mechanic unit)
+    + void @attack(Object unit)
+}
+class Marine extends TerranUnit implements Bionic {
+    void @attack(Object unit)
+}
+class Medic extends TerranUnit implements Bionic {
+    + void heal(Bionic unit) - except ZergStructure
+    + void repair(Scv scv)
+    + void @attack(Object unit) - noAttackMode
+}
+
+'------저그
+abstract class Zerg implements Regeneratedable, Attackable {
+}
+abstract class ZergUnit extends Zerg {
+    + String name
+    + int healthPoint
+    + int attackPower
+}
+abstract class ZergStructure extends Zerg implements Bionic {
+}
+
+'------저그 유닛
+class Zergling extends ZergUnit implements Bionic {
+    + void @attack(Object unit)
+}
+class Hydra extends ZergUnit implements Bionic {
+    + void @attack(Object unit)
+}
+
+'------프로토스
+abstract class Protoss implements Regeneratedable, Attackable {
+    + int shieldPoint;
+    + void shield()
+}
+abstract class ProtossUnit extends Protoss {
+    + String name
+    + int healthPoint
+    + int attackPower
+}
+abstract class ProtossStructure extends Protoss {
+}
+
+'------프로토스 유닛
+class Dragun extends ProtossUnit implements Mechanic {
+    void @attack(Object unit)
+}
+class Zealot extends ProtossUnit implements Bionic {
+    void @attack(Object unit)
+}
+@enduml
