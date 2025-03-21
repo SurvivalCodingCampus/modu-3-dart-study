@@ -9,5 +9,11 @@ class Hero {
   void attack(Slime slime) {}
   void run() {}
 
+
+  @override
+  String toString() {
+    return 'Hero{name: $name}';
+  }
+
   Hero({required this.name, this.hp = heroMaxHP});
 }
