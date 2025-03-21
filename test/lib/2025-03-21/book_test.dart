@@ -31,24 +31,21 @@ void main() {
     // Then
     expect(books, [oldBook, newBook]);
   });
-  test(
-    'Book의 copyWith() 메서드는 새로운 인스턴스를 반환하고, 동일한 속성을 가져야하지만 불변 객체이므로 참조값은 달라야한다.',
-    () {
-      // Given
-      final Book bookA = Book(
-        title: 'A',
-        comment: 'A',
-        publishDate: DateTime.now(),
-      );
+  test('Book의 copyWith() 메서드는 새로운 인스턴스를 반환하지만 동일한 속성을 가져야하고, 참조값은 달라야한다.', () {
+    // Given
+    final Book bookA = Book(
+      title: 'A',
+      comment: 'A',
+      publishDate: DateTime.now(),
+    );
 
-      // When
-      Book bookB = bookA.copyWith();
+    // When
+    Book bookB = bookA.copyWith();
 
-      // Then
-      expect(bookA, isNot(same(bookB)));
-      expect(bookA.title, equals(bookB.title));
-      expect(bookA.comment, equals(bookB.comment));
-      expect(bookA.publishDate, equals(bookB.publishDate));
-    },
-  );
+    // Then
+    expect(bookA, isNot(same(bookB)));
+    expect(bookA.title, equals(bookB.title));
+    expect(bookA.comment, equals(bookB.comment));
+    expect(bookA.publishDate, equals(bookB.publishDate));
+  });
 }
