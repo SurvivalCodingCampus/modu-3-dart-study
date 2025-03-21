@@ -1,0 +1,133 @@
+```
+@startuml
+'https://plantuml.com/class-diagram
+scale 0.7
+
+class Zealot extends ProtossBioUnit{
+void attack()
+}
+class HighTemplar extends ProtossBioUnit {
+int MP
+void magicAttack()
+}
+class DarkTemplar extends ProtossBioUnit{
+void attack()
+}
+class Probe extends ProtossMachineUnit{
+int mineralAmount
+getMineral()
+}
+class Dragun extends ProtossMachineUnit{
+attack()
+}
+abstract class ProtossBioUnit extends ProtossUnit implements IHealable {
+    void medicHeal(int amount)
+}
+
+abstract class ProtossMachineUnit extends ProtossUnit{
+
+}
+
+abstract class ProtossUnit extends Protoss implements IBarrier{
+    int Power
+}
+
+abstract class ProtossStructure extends Protoss implements IBarrier{
+    void makeBuilding()
+    ProtossUnit makeUnit()
+}
+
+interface IBarrier{
+    barrierRecover()
+}
+
+abstract Protoss extends StarCraft {
+    int barrier
+}
+
+class Zergling extends ZergBioUnit{}
+class Hydra extends ZergBioUnit{}
+class Drone extends ZergBioUnit{
+    int mineralAmount
+    getMineral()
+}
+class Mutal extends ZergBioUnit {}
+class Sculzi extends ZergBioUnit { }
+
+abstract class ZergBioUnit extends ZergUnit implements IHealable{}
+
+
+abstract class ZergUnit extends Zerg{
+    int Power
+    void attack()
+}
+
+abstract class ZergStructure extends Zerg{
+    ZergUnit makeUnit()
+    void makeBuilding()
+}
+
+abstract class Zerg extends StarCraft {
+autoHeal()
+}
+
+abstract class Terran extends StarCraft {
+
+}
+
+abstract class TerranUnit extends Terran { }
+
+abstract class TerranStructure extends Terran {
+    TerranUnit makeUnit()
+    void makeBuilding()
+}
+
+abstract class TerranBioUnit extends TerranUnit implements IHealable { }
+
+abstract class TerranMachineUnit extends TerranUnit { }
+
+class Marine extends TerranBioUnit {
+    void attack()
+}
+
+interface IHealer{
+void restoration(IHealable target)
+}
+class Medic extends TerranBioUnit implements IHealer{
+    int mp
+    void restoration(IHealable target)
+}
+
+class SCV extends TerranMachineUnit implements IHealable {
+    void getMineral()
+    void repair(TerranMachineUnit unit)
+}
+
+class Tank extends TerranMachineUnit {
+    void attack()
+}
+
+class Vulture extends TerranMachineUnit {
+    void useSkill()
+}
+
+interface IHealable {
+    void medicHeal(int amount)
+}
+
+abstract class StarCraft{
+    int HP
+    int useMineral
+    chooseTribe()
+    unitGrouping(int number)
+    groupAttack()
+    groupMove()
+}
+
+class Barracks extends TerranStructure { }
+
+class Factory extends TerranStructure { }
+
+@enduml
+
+```
