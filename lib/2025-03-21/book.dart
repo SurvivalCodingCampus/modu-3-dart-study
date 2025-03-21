@@ -12,12 +12,13 @@ class Book implements Comparable<Book>{
   // 동등성 비교 규칙 재정의
   @override
   bool operator ==(Object other) {
-    // 얕거나 해시코드 동일하면 그냥 같게
+    // 얕거나 해시코드 동일하면 같음
     if (identical(this, other)) return true;
 
     return other is Book &&
         other.title == title &&
-        other.publishDate == publishDate;
+        other.publishDate == publishDate &&
+        other.runtimeType == runtimeType;
   }
 
   @override
