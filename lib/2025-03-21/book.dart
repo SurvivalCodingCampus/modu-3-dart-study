@@ -8,6 +8,7 @@ class Book implements Comparable<Book> {
 
   @override
   bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     if (other is Book) {
       final bool sameYear = publishDate.year == other.publishDate.year;
       final bool sameMonth = publishDate.month == other.publishDate.month;
