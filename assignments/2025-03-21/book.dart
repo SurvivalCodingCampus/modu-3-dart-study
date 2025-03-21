@@ -14,10 +14,11 @@ class Book {
       identical(this, other) ||
       other is Book &&
           runtimeType == other.runtimeType &&
+          title == other.title &&
           publishDate == other.publishDate;
 
   @override
-  int get hashCode => publishDate.hashCode;
+  int get hashCode => title.hashCode ^ publishDate.hashCode;
 
   Book copyWith({String? title, DateTime? publishDate, String? comment}) {
     return Book(
