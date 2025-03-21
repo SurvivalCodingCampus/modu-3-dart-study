@@ -1,0 +1,36 @@
+@startuml
+
+
+
+interface Harvestable {
+    void harvestGas
+    void harvestMinerals
+}
+
+interface Attackable {
+    void attack
+}
+
+interface SelfHealable {
+    void selfHeal
+}
+
+
+interface Bionic {
+
+}
+
+abstract class Zerg implements SelfHealable, Bionic
+
+abstract class ZergUnit extends Zerg
+
+abstract class ZergStructrue extends Zerg
+
+class Zergling extends ZergBionicUnit
+
+class Hydra extends ZergBionicUnit
+
+
+
+
+@enduml

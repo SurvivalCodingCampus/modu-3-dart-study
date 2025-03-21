@@ -1,0 +1,99 @@
+@startuml
+
+'게임 오브젝트
+abstract class GameObject {
+    +hp : int
+}
+
+together {
+abstract class Zerg extends GameObject implements SelfHealable, Bionic
+
+abstract class Terran extends GameObject
+
+abstract class Protoss extends GameObject implements Barrier {
+    +barrier : int
+}
+}
+
+' 건물, 유닛
+together {
+abstract class TerranUnit extends Terran implements Moveable
+
+abstract class TerranStructure extends Terran
+
+abstract class ZergUnit extends Zerg implements Moveable
+
+abstract class ZergStructure extends Zerg
+
+abstract class ProtossUnit extends Protoss implements Moveable
+
+abstract class ProtossStructure extends Protoss
+}
+
+' 테란 유닛
+together {
+class Marine extends TerranUnit implements Attackable, Bionic, Behealed
+
+class Medic extends TerranUnit implements Healable, Bionic, Behealed
+
+class Tank extends TerranUnit implements Attackable, Mechanic
+
+class Vulture extends TerranUnit implements Attackable, Mechanic
+
+class Scv extends TerranUnit implements Harvestable, Repairable, Mechanic, Behealed
+}
+
+' 저그 유닛
+together {
+class Zergling extends ZergUnit implements Behealed, Attackable
+
+class Hydra extends ZergUnit implements Behealed, Attackable
+}
+
+' 토스 유닛
+together {
+class Zealot extends ProtossUnit implements Behealed, Bionic, Attackable
+
+class Dragun extends ProtossUnit implements Behealed, Mechanic, Attackable
+}
+
+together {
+interface SelfHealable {
+    void selfHeal()
+}
+
+interface Healable {
+    void heal(Behealed)
+}
+
+interface Repairable {
+    void repair()
+}
+
+interface Harvestable {
+    void harvestGas()
+    void harvestMinerals()
+}
+
+interface Attackable implements Groupable {
+    void attack()
+}
+
+interface Productable {
+    void produce()
+}
+
+interface Behealed { }
+
+interface Barrier { }
+
+interface Bionic { }
+
+interface Mechanic { }
+
+interface Moveable implements Groupable { }
+
+interface Groupable { }
+}
+
+@enduml

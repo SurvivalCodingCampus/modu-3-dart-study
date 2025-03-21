@@ -10,13 +10,13 @@ abstract class Asset {
     + int price
 }
 
-abstract class IntangibleAsset {
+abstract class IntangibleAsset  {
     + String owner
     + String registrationNumber
 }
 
 
-abstract class TangibleAsset {
+abstract class TangibleAsset implements Thing{
     + String color
     - double _weight
 }
@@ -43,5 +43,5 @@ IntangibleAsset <|--  Patent
 Asset <|-- TangibleAsset
 Asset <|--  IntangibleAsset
 
-Thing <|-- TangibleAsset
+
 @enduml
