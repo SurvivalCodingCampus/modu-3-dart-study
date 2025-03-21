@@ -12,4 +12,6 @@ class SuperHero extends Hero {
   void run() {
     print('$name 이 뛴다');
   }
+
+
 }

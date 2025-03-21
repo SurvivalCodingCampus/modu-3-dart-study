@@ -23,4 +23,24 @@ class Hero {
   void run() {
     print(' $name run');
   }
+
+  @override
+  String toString() {
+    return '내가 만든 히어로';
+  }
+
+  // 자동완성 가능  Generate
+  @override
+  bool operator ==(Object other) {
+    if (identical((this), other)) {
+      return true;
+    }
+    if (this.runtimeType != other.runtimeType) {
+      return false;
+    }
+    return name == (other as Hero).name;
+  }
+
+  @override
+  int get hashCode => name.hashCode;
 }
