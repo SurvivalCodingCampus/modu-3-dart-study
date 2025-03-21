@@ -23,7 +23,7 @@ void main() {
     final Book oldBook = Book(title: 'A', comment: 'A', publishDate: before);
     final Book newBook = Book(title: 'B', comment: 'B', publishDate: after);
 
-    List<Book> books = [oldBook, oldBook];
+    List<Book> books = [oldBook, newBook];
 
     // When
     books.sort();

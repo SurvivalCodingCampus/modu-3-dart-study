@@ -27,7 +27,7 @@ class Book implements Comparable<Book> {
   @override
   int compareTo(Book other) {
     int dateComparison = publishDate.compareTo(other.publishDate);
-    if (dateComparison != 0) return dateComparison;
+    if (dateComparison != 0) return dateComparison == -1 ? 1 : -1;
     return title.compareTo(other.title);
   }
 
