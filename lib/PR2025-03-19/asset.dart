@@ -1,5 +1,3 @@
-import 'package:modu_3_dart_study/PR2025-03-19/tangibleAsset.dart';
-
 abstract class Asset {
   int amount;
 
