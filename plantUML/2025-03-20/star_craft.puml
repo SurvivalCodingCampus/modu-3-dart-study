@@ -7,42 +7,47 @@ abstract Object {
     int hp;
 }
 
-interface Unit extends Object {
-    void attack();
+' SCV가 캐는 광물 자원
+class Mineral{}
+
+abstract class Unit extends Object implements Bionic, Mechanic {
+    void attack(Object object);
 }
 
-interface Structure extends Object {}
+abstract class Structure implements Bionic, Mechanic {}
 
-abstract class Bionic implements Unit, Structure {}
+interface Bionic {}
 
-abstract class Mechanic implements Unit, Structure {}
+interface Mechanic {}
 
 
 ' -- 테란 --
-class Marin extends Bionic {}
+class Terran implements Unit, Structure {
+    
+}
 
-class Medic extends Bionic {
+class Marin extends Terran {}
+
+class Medic extends Terran {
     @override
     void attack(){};
 }
 
-class Tank extends Mechanic {}
+class Tank extends Terran {}
 
-class Vulture extends Mechanic {}
+class Vulture extends Terran {}
 
-class Scv extends Mechanic {
-}
-
-class Terran {
-    Margin margin,
-    Medic medic,
-    Tank tank,
-    Vulture vulture,
-    Scv scv,
+class Scv extends Terran {
+    void collectMineral(Mineral mineral)
 }
 
 ' -- 저그 --
-class Zerg {}
+class Zerg implements Unit{}
 
-class Zergling extends Unit {}
+class Zergling{}
+
+class Hydra{}
+
+' -- 프로토스 --
+class Protoss {}
 @enduml

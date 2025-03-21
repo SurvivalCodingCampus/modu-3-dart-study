@@ -1,0 +1,52 @@
+@startuml superHeroUniverse
+
+scale 1
+' --- DC --- 
+
+abstract class HeroUniverse {
+    int hp;
+}
+
+abstract class DC extends HeroUniverse {
+    int MaxShield;
+    int shield;
+
+    void autoShieldRecovery();
+}
+
+abstract class DCHero extends DC implements Atttackable, Movable {
+    int EnergyPoint;
+}
+
+abstract class HumanDCHero extends DCHero implements IsEnhancedAble {}
+
+abstract class EnhancedDCHero extends DCHero implements IsEnhancedAble {}
+
+abstract class TechDCHero extends DCHero implements IsRepairedAble {}
+
+abstract class DCFacility extends DC {}
+
+abstract class HumanDCFacility extends DCFacility {}
+
+abstract class EnhancedDCFacility extends DCFacility {}
+
+abstract class TechDCFacility extends DCFacility {}
+
+class Superman extends HumanDCHero {}
+
+class Cyborg extends TechDCHero {}
+
+' --- interface ---
+interface Atttackable {
+    void attack(HeroUniverse heroUniverse);
+}
+
+interface Movable {
+    void move(int x, int y);
+}
+
+interface IsEnhancedAble {}
+
+interface IsRepairedAble {}
+
+@enduml

@@ -1,0 +1,67 @@
+@startuml superHeroUniverse
+
+scale 1
+' --- Marvel --- 
+
+abstract class HeroUniverse {
+    int hp;
+}
+
+abstract class Marvel extends HeroUniverse {}
+
+abstract class MarvelHero extends Marvel implements Atttackable, Movable {
+    int EnergyPoint;
+}
+
+abstract class HumanMarvelHero extends MarvelHero implements IsEnhancedAble {}
+
+abstract class EnhancedMarvelHero extends MarvelHero implements IsEnhancedAble {}
+
+abstract class TechMarvelHero extends MarvelHero implements IsRepairedAble {}
+
+
+abstract class MarvelFacility extends Marvel {}
+
+abstract class HumanFacility extends MarvelFacility {}
+
+abstract class EnhancedFacility extends MarvelFacility {}
+
+abstract class TechFacility extends MarvelFacility {}
+
+
+
+class Hawkeye extends HumanMarvelHero {}
+
+class BlackWidow extends HumanMarvelHero implements EnhanceAble {}
+
+class Jarvis extends TechMarvelHero implements IsEnhancedAble, RepairAble {
+    void collectInfomation() {};
+}
+
+class IronMan extends TechMarvelHero {}
+
+class WarMachine extends TechMarvelHero {}
+
+
+' --- interface ---
+interface Atttackable {
+    void attack(HeroUniverse heroUniverse);
+}
+
+interface Movable {
+    void move(int x, int y);
+}
+
+interface IsEnhancedAble {}
+
+interface IsRepairedAble {}
+
+interface EnhanceAble {
+    void enhance(IsEnhancedAble unit);
+}
+
+interface RepairAble {
+    void repair(IsEnhancedAble unit);
+}
+
+@enduml
