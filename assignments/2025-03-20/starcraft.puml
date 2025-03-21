@@ -1,0 +1,160 @@
+' @startuml starcraft
+
+' scale 1.5
+
+' abstract class Structure {
+'     {abstract} int hp;
+'     {abstract} int cost;
+'     {abstract} int? shield;
+    
+' }
+
+' abstract class Unit implements Movable {
+'     {abstract} int hp;
+'     {abstract} int cost;
+'     {abstract} int? damage;
+'     {abstract} int? shield;
+' }
+
+' class Marine extends Unit implements Bionic, Attackable, IsHealable, Terran {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void attack();
+'     void move();
+
+' }
+
+' class Medic extends Unit implements Bionic, Healable, IsHealable, Terran {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void move();
+'     void heal(Unit unit);
+' }
+
+' class Scv extends Unit implements Mechanic, Terran, IsHealable, IsRepairable, Harvestable, Attackable, Repairable {
+'     int hp;
+'     int defence;
+'     int cost;
+'     isHealable = true;
+
+'     void harvest();
+'     void repairMachine();
+
+' }
+
+' class Vulture extends Unit implements Mechanic, Terran, IsRepairable, Attackable {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void move();
+'     void attack();
+
+' }
+
+' class Tank extends Unit implements Attackable, Terran, Mechanic, IsRepairable {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void move();
+'     void attack();
+' }
+
+' class Zergling extends Unit implements Attackable, Zerg, IsHealable, Bionic, AutoRecovable {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void move();
+'     void attack();
+'     void naturalRecovery();
+' }
+
+' class Hydra extends Unit implements Attackable, Zerg, IsHealable, Bionic, AutoRecovable {
+'     int hp;
+'     int defence;
+'     int cost;
+
+'     void move();
+'     void attack();
+'     void naturalRecovery();
+' }
+
+
+' class Zealot extends Unit implements Attackable, Protoss, IsHealable, AutoRecovable {
+'     int hp;
+'     int defence;
+'     int cost;
+'     int shield;
+
+'     void move();
+'     void attack();
+'     void naturalRecovery();
+' }
+
+' class Dragun extends Unit implements Attackable, Protoss, Mechanic, AutoRecovable {
+'     int hp;
+'     int defence;
+'     int cost;
+'     int shield;
+
+'     void move();
+'     void attack();
+'     void naturalRecovery();
+' }
+
+
+
+' interface Attackable {
+'     {abstract} void attack();
+' }
+
+' interface Movable {
+'     {abstract} void move();
+' }
+
+' interface Healable {
+'     {abstract} void heal(Unit unit);
+' }
+
+' interface IsHealable {}
+
+' interface Repairable {
+'     {abstract} void repairable();
+' }
+
+' interface IsRepairable {}
+
+' interface Harvestable {
+'     {abstract} void harvest();
+' }
+
+' interface AutoRecovable {
+'     {abstract} void autoRecovable();
+' }
+
+' interface Bionic {
+
+' }
+
+' interface Mechanic {
+
+' }
+
+
+' interface Terran {
+    
+' }
+' interface Zerg {
+    
+' }
+' interface Protoss {
+    
+' }
+
+' @enduml
