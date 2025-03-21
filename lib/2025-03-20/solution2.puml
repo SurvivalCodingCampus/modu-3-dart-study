@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface X {
+    {abstract} void a()
+}
+
+abstract class Y implements X {
+    {abstract} void b()
+}
+
+class A extends Y {
+    void a()
+    void b()
+    void c()
+}
+
+class B extends Y {
+    void a()
+    void b()
+    void c()
+}
+
+@enduml
+
+X obj = A()
