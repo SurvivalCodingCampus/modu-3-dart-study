@@ -1,0 +1,64 @@
+@startuml
+scale 0.7
+
+abstract class Protoss extends StarCraft {
+    int barrier
+}
+
+interface IBarrier {
+    void barrierRecover()
+}
+
+abstract class ProtossUnit extends Protoss implements IBarrier {
+    int Power
+}
+
+abstract class ProtossStructure extends Protoss implements IBarrier {
+    void makeBuilding()
+    ProtossUnit makeUnit()
+}
+
+abstract class ProtossBioUnit extends ProtossUnit implements IHealable {
+    void medicHeal(int amount)
+}
+
+abstract class ProtossMachineUnit extends ProtossUnit {}
+
+class Zealot extends ProtossBioUnit {
+    void attack()
+}
+
+class HighTemplar extends ProtossBioUnit {
+    int MP
+    void magicAttack()
+}
+
+class DarkTemplar extends ProtossBioUnit {
+    void attack()
+}
+
+class Probe extends ProtossMachineUnit {
+    int mineralAmount
+    getMineral()
+    void attack()
+
+}
+
+class Dragun extends ProtossMachineUnit {
+    void attack()
+}
+
+interface IHealable {
+    void medicHeal(int amount)
+}
+
+abstract class StarCraft {
+    int HP
+    int useMineral
+    chooseTribe()
+    unitGrouping(int number)
+    groupAttack()
+    groupMove()
+}
+
+@enduml
