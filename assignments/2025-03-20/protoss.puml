@@ -1,0 +1,26 @@
+@startuml
+abstract class Protoss implements Shielder,  Attackable  {
+    + void shield()
+}
+abstract class ProtossUnit extends Protoss {
+
+    + String name
+    + int healthPoint
+}
+abstract class ProtossStructure extends Protoss {
+}
+interface Regeneratedable {
+  + regenerate()
+}
+
+interface Shielder extends Regeneratedable{
+void shield()
+}
+'------프로토스최종유닛
+class Zealot extends ProtossUnit implements Bionic {
+    + void attack()
+}
+class Dragun extends ProtossUnit implements Mechanic {
+    + void attack()
+}
+@enduml

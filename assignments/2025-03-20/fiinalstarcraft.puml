@@ -1,0 +1,100 @@
+@startuml
+
+abstract class StarCraft{
+    + static int mineral
+    + static void produceUnit(TerranUnit unit);
+
+}
+abstract class Terran  implements Attackable {
+     + String name
+     + int healthPoint
+}
+
+'interface baseUnit {
+'}
+
+abstract class TerranUnit extends Terran {
+
+}
+interface Bionic {
+}
+interface Mechanic {
+}
+abstract class TerranStructure extends Terran {
+}
+interface Attackable {
+
+}
+
+'------테란최종유닛
+class Marine extends TerranUnit implements Bionic {
++ void attack()
+}
+class Tank extends TerranUnit implements Mechanic {
+    + void attack()
+}
+class Vulture extends TerranUnit implements Mechanic {
+    + void attack()
+}
+class Medic extends TerranUnit implements Bionic {
+        + void heal(Bionic unit) - except ZergStructure
+        + void repair(Scv scv)
+}
+
+
+class Scv extends TerranUnit implements Mechanic {
+    + void collectMineral()
+    + void fixmecha(Mechanic unit)
+    + void attack()
+}
+
+
+'------저그
+
+
+abstract class Zerg implements Regeneratedable, Attackable {
+     + String name
+     + int healthPoint
+}
+abstract class ZergUnit extends Zerg {
+
+}
+abstract class ZergStructure extends Zerg implements Bionic {
+}
+'------저그최종유닛
+class Zergling extends ZergUnit implements Bionic {
+    + void attack()
+}
+
+class Hydra extends ZergUnit implements Bionic {
+    + void attack()
+}
+
+'------프로토스
+
+abstract class Protoss implements Shielder, Attackable  {
+    + String name
+    + int healthPoint
+}
+abstract class ProtossUnit extends Protoss {
+
+
+}
+abstract class ProtossStructure extends Protoss {
+}
+interface Regeneratedable {
+  + regenerate()
+}
+
+interface Shielder implements Regeneratedable{
+void shield()
+}
+
+'------프로토스최종유닛
+class Zealot extends ProtossUnit implements Bionic {
+    + void attack()
+}
+class Dragun extends ProtossUnit implements Mechanic {
+    + void attack()
+}
+@enduml

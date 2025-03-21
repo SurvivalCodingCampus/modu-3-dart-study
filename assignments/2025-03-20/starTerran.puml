@@ -1,0 +1,35 @@
+@startuml
+abstract class Terran  implements Attackable {
+}
+abstract class TerranUnit extends Terran {
+
+    + String name
+    + int healthPoint
+}
+
+class Marine extends TerranUnit implements Bionic {
++ void attack()
+}
+class Tank extends TerranUnit implements Mechanic {
+    + void attack()
+}
+class Vulture extends TerranUnit implements Mechanic {
+    + void attack()
+}
+class Medic extends TerranUnit implements Bionic {
+        + void heal(Bionic unit) - except ZergStructure
+        + void repair(Scv scv)
+}
+
+
+class Scv extends TerranUnit implements Mechanic {
+    + void collectMineral()
+    + void fixmecha(Mechanic unit)
+    + void attack()
+}
+abstract class TerranStructure extends Terran {
+}
+interface Attackable {
+
+}
+@enduml
