@@ -5,6 +5,7 @@ import '../../assignments/2025-03-21/book.dart';
 void main() {
   const String bookTitle = 'Iscream';
   const String bookComment = 'very Fun';
+  const String otherBookComment = 'very Fun2';
   final DateTime testDate = DateTime(
     DateTime.now().year,
     DateTime.now().month,
@@ -62,6 +63,20 @@ void main() {
       // then
       expect(bookList[0], equals(book));
       expect(bookList[1], equals(book2));
+    });
+
+    test('책 비교', () {
+      // given
+      Book book = Book(
+        title: bookTitle,
+        publishDate: DateTime.now(),
+        comment: bookComment,
+      );
+
+      Book book2 = Book(title: bookTitle, comment: otherBookComment);
+
+      // then
+      expect(book == book2, equals(true));
     });
 
     test('책 리스트 역정렬', () {
