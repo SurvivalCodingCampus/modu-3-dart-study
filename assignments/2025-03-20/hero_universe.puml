@@ -1,0 +1,123 @@
+@startuml
+interface AttackAble {
+{abstract} void attack(HeroUniverse obj)
+}
+interface MoveAble{
+{abstract} void move(int x, int y)
+}
+interface HealAble{
+void targetHeal(IsHealAble target)
+}
+interface IsHealAble{}
+interface RepairAble{
+void targetRepair(IsRepairAble target)
+}
+interface IsRepairAble{}
+abstract class HeroUniverse{
+int hp
+int mp
+}
+abstract class Marvel extends HeroUniverse {
+}
+
+abstract class MarvelHero extends Marvel implements AttackAble, MoveAble {
+int energyPoint
+}
+
+abstract class MarvelHuman extends MarvelHero implements IsHealAble {
+}
+
+abstract class MarvelEnhanced extends MarvelHero implements IsHealAble {
+}
+
+abstract class MarvelTech extends MarvelHero implements IsRepairAble {
+}
+
+abstract class MarvelFacility extends Marvel {
+}
+
+abstract class MarvelHumanFacility extends MarvelFacility {
+}
+
+abstract class MarvelEnhancedFacility extends MarvelFacility {
+}
+
+abstract class TechFacility extends MarvelFacility {
+}
+
+class Hawkeye extends MarvelHuman {
+}
+class BlackWidow extends MarvelHuman implements HealAble {
+}
+
+class IronMan extends MarvelTech {
+}
+class Warmachine extends MarvelTech {
+}
+class Jarvis extends MarvelTech implements IsHealAble, RepairAble {
+void collectInformation(HeroUniverse target)
+}
+
+abstract class Xmen extends HeroUniverse {
+double healingFactorAmount
+void healingFactor()
+}
+
+abstract class XmenHero extends Xmen implements AttackAble, MoveAble {
+int energyPoint
+}
+
+
+abstract class XmenEnhanced extends XmenHero implements IsHealAble {
+
+}
+
+
+abstract class XmenFacility extends Xmen {
+}
+
+abstract class XmenEnhancedFacility extends XmenFacility {
+}
+
+class Wolverine extends XmenEnhanced {
+}
+class Beast extends XmenEnhanced {
+}
+
+abstract class DC extends HeroUniverse {
+double sheildAmount
+void restoreSheild()
+}
+
+abstract class DCHero extends DC implements AttackAble, MoveAble {
+int energyPoint
+}
+
+abstract class DCHuman extends DCHero implements IsHealAble {
+}
+
+abstract class DCEnhanced extends DCHero implements IsHealAble {
+}
+
+abstract class DCTech extends DCHero implements IsRepairAble {
+
+}
+
+abstract class DCFacility extends DC {
+}
+
+abstract class DCHumanFacility extends DCFacility {
+}
+
+abstract class DCEnhancedFacility extends DCFacility {
+}
+
+abstract class DCTechFacility extends DCFacility {
+}
+
+class Superman extends DCHuman {
+}
+
+class Cyborg extends DCTech {
+}
+@enduml
