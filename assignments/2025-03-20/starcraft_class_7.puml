@@ -1,0 +1,29 @@
+@startuml
+
+interface Groupable {
+    + void commandMove()
+    + void commandAttack()
+}
+
+class TerranUnitGroup implements Groupable  {
+    List<TerranUnit> TerranUnit
+    + void addUnit(TerranUnit unit)
+    + void removeUnit(TerranUnit unit)
+
+}
+
+class ZergUnitGroup implements Groupable {
+    List<ZergUnit> ZergUnit
+    + void addUnit(ZergUnit unit)
+    + void removeUnit(ZergUnit unit)
+
+}
+
+class ProtossUnitGroup implements Groupable {
+L      ist<ProtossUnit> ProtossUnit
+    + void addUnit(ProtossUnit unit)
+    + void removeUnit(ProtossUnit unit)
+
+}
+
+@enduml
