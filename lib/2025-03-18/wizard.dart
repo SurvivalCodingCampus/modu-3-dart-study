@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-18/hero.dart';
+import 'package:modu_3_dart_study/game/hero.dart';
 
 void main() {
   Wand wand = Wand(name: '지팡이', power: 99.9);
