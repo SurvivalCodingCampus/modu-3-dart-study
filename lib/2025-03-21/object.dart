@@ -32,8 +32,8 @@ class Person implements Comparable {
         other.address == address;
   }
 
-  // @override
-  // int get hashCode => name.hashCode ^ age.hashCode ^ address.hashCode; // 이름과 나이를 합쳐서 번호를 만든다.
+  @override
+  int get hashCode => name.hashCode ^ age.hashCode ^ address.hashCode; // 이름과 나이를 합쳐서 번호를 만든다.
 
   @override
   String toString() => 'Person(name: $name, age: $age, address: $address)';
