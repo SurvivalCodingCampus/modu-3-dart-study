@@ -2,25 +2,25 @@ import 'package:intl/intl.dart';
 
 class Book implements Comparable<Book> {
   String title;
-  DateTime publishDate;
+  DateTime _publishDate;
   String comment;
 
   Book({required this.title, required this.comment, DateTime? publishDate})
-    : publishDate = publishDate ?? DateTime.now();
+    : _publishDate = publishDate ?? DateTime.now();
 
   Book copyWith({String? title, DateTime? publishDate, String? comment}) {
     return Book(
       title: title ?? this.title,
-      publishDate: publishDate ?? this.publishDate,
+      publishDate: publishDate ?? this._publishDate,
       comment: comment ?? this.comment,
     );
   }
 
-  String get formattedDate => DateFormat('yyyy-MM-dd').format(publishDate);
+  String get publishDate => DateFormat('yyyy-MM-dd').format(_publishDate);
 
   @override
   int compareTo(Book other) {
-    return publishDate.compareTo(other.publishDate);
+    return _publishDate.compareTo(other._publishDate);
   }
 
   @override
@@ -37,7 +37,7 @@ class Book implements Comparable<Book> {
 
   @override
   String toString() =>
-      'Book(title: $title, publishDate: $formattedDate, comment: $comment)';
+      'Book(title: $title, publishDate: $publishDate, comment: $comment)';
 }
 
 void main() {
