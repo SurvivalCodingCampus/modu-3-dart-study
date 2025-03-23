@@ -46,7 +46,7 @@ void main() {
     test('toString() 검증', () {
       expect(
         book1.toString(),
-        'Book(title: 생존코딩1, publishDate: ${book1.publishDate}, comment: Dart)',
+        'Book(title: 생존코딩2, publishDate: ${book1.publishDate}, comment: flutter)',
       );
     });
 
