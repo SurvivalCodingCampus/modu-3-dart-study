@@ -51,7 +51,8 @@ void main() {
     });
 
     test('최신순 정렬', () {
-      bookList.sort((a, b) => b.publishDate.compareTo(a.publishDate));
+      // bookList.sort((a, b) => b.publishDate.compareTo(a.publishDate));
+      bookList.sort();
 
       List<Book> expectedOrder = [book3, book4, book1, book2];
       expect(bookList, expectedOrder);
