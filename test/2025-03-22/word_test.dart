@@ -9,6 +9,14 @@ void main() {
   const int consonantIndex = 0;
 
   group('모음 자음 : ', () {
+    test('단어 완벽 생성', () {
+      // given
+      Word word = Word(testWord);
+
+      // then
+      expect(word, isInstanceOf<Word>());
+      expect(word.word, testWord);
+    });
     test('모음 성공', () {
       // given
       Word word = Word(testWord);

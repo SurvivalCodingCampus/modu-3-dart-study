@@ -6,6 +6,33 @@ import '../../assignments/2025-03-22/strong_box.dart';
 void main() {
   const String strongBoxInner = 'treasure';
   group('키 박스 : ', () {
+    test('완벽 생성', () {
+      // given
+      StrongBox<String> padlockStrongBox = StrongBox(keyType: KeyType.padlock);
+      padlockStrongBox.put(strongBoxInner);
+
+      // when
+      expect(padlockStrongBox, isA<StrongBox>());
+      expect(
+        padlockStrongBox.data,
+        isNull,
+        reason: '충분한 시도를 하지 않았기 때문에 Null 이다.',
+      );
+      expect(padlockStrongBox.keyType, KeyType.padlock);
+    });
+    test('data 없이 생성', () {
+      // given
+      StrongBox<String> padlockStrongBox = StrongBox(keyType: KeyType.padlock);
+
+      // when
+      expect(padlockStrongBox, isA<StrongBox>());
+      expect(
+        padlockStrongBox.data,
+        isNull,
+        reason: '충분한 시도를 하지 않았기 때문에 Null 이다.',
+      );
+      expect(padlockStrongBox.keyType, KeyType.padlock);
+    });
     test('패드 락 테스트', () {
       // given
       StrongBox<String> padlockStrongBox = StrongBox(keyType: KeyType.padlock);
