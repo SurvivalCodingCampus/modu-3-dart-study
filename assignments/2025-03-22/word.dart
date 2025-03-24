@@ -10,7 +10,7 @@ class Word {
       throw ArgumentError('$i의 값이 단어의 범위를 벗어났습니다.', 'i');
     }
 
-    String char = word.substring(i, i + 1);
+    String char = word.substring(i, i + 1).toLowerCase();
     return [
       Vowel.a.mean,
       Vowel.e.mean,
