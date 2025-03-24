@@ -64,7 +64,7 @@ void main() {
       expect(strongBox.get(), isNull);
     });
     test('dial 사용횟수에 도달하면 StrongBox의 인스턴스를 반환한다.', () {
-      final StrongBox strongBox = StrongBox(keyType: KeyType.button);
+      final StrongBox strongBox = StrongBox(keyType: KeyType.dial);
       final int a = 1;
 
       strongBox.put(a);
