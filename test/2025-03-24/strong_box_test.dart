@@ -10,22 +10,31 @@ void main() {
   final stringAfterValue = '2번';
   final doubleInitialValue = 1.1;
   final doubleAfterValue = 2.2;
-  final listIntInitialValue = [1,2];
-  final listIntAfterValue = [1,2,3];
+  final listIntInitialValue = [1, 2];
+  final listIntAfterValue = [1, 2, 3];
   final strongBox1 = StrongBox<int>(intInitialValue, keyType: KeyType.padlock);
-  final strongBox2 = StrongBox<String>(stringInitialValue, keyType: KeyType.button);
-  final strongBox3 = StrongBox<double>(doubleInitialValue, keyType: KeyType.dial);
-  final strongBox4 = StrongBox<List<int>>(listIntInitialValue, keyType: KeyType.finger);
-  group("금고 test", (){
-    test("count 값 테스트", (){
-      expect(strongBox1.count, StrongBox.padlockCount);
-      expect(strongBox2.count, StrongBox.buttonCount);
-      expect(strongBox3.count, StrongBox.dialCount);
-      expect(strongBox4.count, StrongBox.fingerCount);
+  final strongBox2 = StrongBox<String>(
+    stringInitialValue,
+    keyType: KeyType.button,
+  );
+  final strongBox3 = StrongBox<double>(
+    doubleInitialValue,
+    keyType: KeyType.dial,
+  );
+  final strongBox4 = StrongBox<List<int>>(
+    listIntInitialValue,
+    keyType: KeyType.finger,
+  );
+  group("금고 test", () {
+    test("count 값 테스트", () {
+      expect(strongBox1.count, equals(strongBox1.keyType.maxCount));
+      expect(strongBox2.count, equals(strongBox2.keyType.maxCount));
+      expect(strongBox3.count, equals(strongBox3.keyType.maxCount));
+      expect(strongBox4.count, equals(strongBox4.keyType.maxCount));
     });
 
-    test("int type get/put & padlock 함수 테스트", (){
-      for(int i=0; i<StrongBox.padlockCount - 1; i++){
+    test("int type get/put & padlock 함수 테스트", () {
+      for (int i = 1; i < strongBox1.keyType.maxCount; i++) {
         strongBox1.get;
       }
       expect(strongBox1.get, null);
@@ -36,8 +45,8 @@ void main() {
       expect(strongBox1.get, intAfterValue);
     });
 
-    test("int type get/put & button 함수 테스트", (){
-      for(int i=0; i<StrongBox.buttonCount - 1; i++){
+    test("int type get/put & button 함수 테스트", () {
+      for (int i = 1; i < strongBox2.keyType.maxCount; i++) {
         strongBox2.get;
       }
 
@@ -49,11 +58,11 @@ void main() {
       expect(strongBox2.get, stringAfterValue);
     });
 
-    test("double type get/put & dial 함수 테스트", (){
-      for(int i=0; i<StrongBox.dialCount - 1; i++){
+    test("double type get/put & dial 함수 테스트", () {
+      for (int i = 1; i < strongBox3.keyType.maxCount; i++) {
         strongBox3.get;
       }
-      
+
       expect(strongBox3.get, null);
       expect(strongBox3.get, doubleInitialValue);
 
@@ -62,8 +71,8 @@ void main() {
       expect(strongBox3.get, doubleAfterValue);
     });
 
-    test("List<int> type get/put & finger 함수 테스트", (){
-      for(int i=0; i<StrongBox.fingerCount - 1; i++){
+    test("List<int> type get/put & finger 함수 테스트", () {
+      for (int i = 1; i < strongBox4.keyType.maxCount; i++) {
         strongBox4.get;
       }
 
