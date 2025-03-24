@@ -1,0 +1,62 @@
+@startuml
+scale 0.7
+
+abstract class Terran extends StarCraft {}
+
+abstract class TerranUnit extends Terran {}
+
+abstract class TerranStructure extends Terran {
+    TerranUnit makeUnit()
+    void makeBuilding()
+}
+
+abstract class TerranBioUnit extends TerranUnit implements IHealable {}
+
+abstract class TerranMachineUnit extends TerranUnit {}
+
+class Marine extends TerranBioUnit {
+    void attack()
+}
+
+interface IHealer {
+    void restoration(IHealable target)
+}
+
+class Medic extends TerranBioUnit implements IHealer {
+    int mp
+    void restoration(IHealable target)
+}
+
+class SCV extends TerranMachineUnit implements IHealable {
+    void getMineral()
+    void repair(TerranMachineUnit unit)
+    void attack()
+
+}
+
+class Tank extends TerranMachineUnit {
+    void attack()
+}
+
+class Vulture extends TerranMachineUnit {
+    void attack()
+}
+
+class Barracks extends TerranStructure {}
+
+class Factory extends TerranStructure {}
+
+interface IHealable {
+    void medicHeal(int amount)
+}
+
+abstract class StarCraft {
+    int HP
+    int useMineral
+    chooseTribe()
+    unitGrouping(int number)
+    groupAttack()
+    groupMove()
+}
+
+@enduml
