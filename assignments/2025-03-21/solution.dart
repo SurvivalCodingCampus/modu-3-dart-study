@@ -20,7 +20,7 @@ class Book implements Comparable<Book> {
 
   @override
   int compareTo(Book other) {
-    return _publishDate.compareTo(other._publishDate);
+    return other.publishDate.compareTo(publishDate);
   }
 
   @override
