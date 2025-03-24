@@ -24,6 +24,10 @@ class Book implements Comparable<Book> {
   }
 
   Book copyWith({String? title, DateTime? publishDate, String? comment}) {
-    return Book(title: title ?? this.title, comment: comment ?? this.comment);
+    return Book(
+      title: title ?? this.title,
+      comment: comment ?? this.comment,
+      publishDate: publishDate ?? this.publishDate,
+    );
   }
 }

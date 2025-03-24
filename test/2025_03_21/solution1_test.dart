@@ -20,7 +20,7 @@ void main() {
     test('copyWith() 메서드', () {
       Book book3 = book1.copyWith();
 
-      expect(book1 == book3, isFalse);
+      expect(book1 == book3, isTrue);
       print(book3);
     });
   });
