@@ -13,10 +13,20 @@ void main() {
       Book(title: "운수좋은날", comment: "재밌음", publishDate: DateTime(2025, 3, 22)),
       Book(title: "가시고기", comment: "재밌음", publishDate: DateTime(2021)),
     ];
+
     test('book == 함수 테스트', () {
       expect(books[0] == books[3], true);
       expect(books[0] == books[4], false);
       expect(books[0] == books[5], false);
+    });
+
+    test('book hashcode 함수 테스트', () {
+      final bookSet = {
+        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,1)),
+        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,1,3,5)),
+        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,2)),
+      };
+      expect(bookSet.length, 2);
     });
 
     test('book sort 함수 테스트', () {
