@@ -40,11 +40,7 @@ void main() {
       expect(byPublishDate.first, equals(book2));
     });
     test('오름차순 정렬 확인', () {
-      final book2 = Book(
-        title: '인어공주',
-        comment: '고전작',
-        publishDate: DateTime(2020, 01, 18),
-      );
+      final book2 = Book(title: '인어공주', comment: '고전작');
       final books = [book1, book2];
       final byPublishDate =
           books.toList()
