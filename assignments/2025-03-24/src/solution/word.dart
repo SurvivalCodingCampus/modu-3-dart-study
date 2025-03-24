@@ -2,23 +2,29 @@
 class Word {
   String word;
   Word(this.word);
-  final validLetter = RegExp(r"^[a-zA-Z]*$");
+  static const vowels = 'aeiou';
+  final alphabetRegex = RegExp(r"^[a-zA-Z]*$");
 
   bool isVowel(int i) {
-    if (!validLetter.hasMatch(word[i])) {
-      print('알파벳이 아닙니다!');
-      return false;
+    if (!isAlphabet(i)) {
+      throw FormatException('알파벳이 아닙니다: ${word[i]}');
     }
 
-    return 'aeiou'.contains(word.toLowerCase().substring(i, i + 1));
+    return vowels.contains(word[i].toLowerCase());
   }
 
   bool isConsonant(int i) {
-    if (!validLetter.hasMatch(word[i])) {
-      print('알파벳이 아닙니다!');
-      return false;
+    if (!isAlphabet(i)) {
+      throw FormatException('알파벳이 아닙니다: ${word[i]}');
     }
-    return !'aeiou'.contains(word.toLowerCase().substring(i, i + 1));
+    return !isVowel(i);
+  }
+
+  bool isAlphabet(int i) {
+    if (i < 0 || i >= word.length) {
+      throw RangeError('인덱스가 범위를 벗어났습니다: $i');
+    }
+    return alphabetRegex.hasMatch(word[i]);
   }
 }
 

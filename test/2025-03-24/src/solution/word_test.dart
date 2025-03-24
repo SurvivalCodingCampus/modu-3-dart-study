@@ -47,8 +47,8 @@ void main() {
       word.word = 'h12lo';
       // then
       expect(word.isConsonant(0), true);
-      expect(word.isConsonant(1), false);
-      expect(word.isVowel(1), false);
+      expect(() => word.isConsonant(1), throwsA(isA<FormatException>()));
+      expect(() => word.isVowel(1), throwsA(isA<FormatException>()));
       expect(word.isVowel(4), true);
     });
   });
