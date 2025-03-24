@@ -87,7 +87,7 @@ interface Regeneratedable {
 }
 
 interface Shielder implements Regeneratedable{
-void shield()
++ void shield()
 }
 
 '------프로토스최종유닛
