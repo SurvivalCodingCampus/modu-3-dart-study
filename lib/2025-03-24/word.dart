@@ -8,7 +8,7 @@ class Word {
   bool isVowel(int i) {
     if (i >= word.length) {
       throw ArgumentError(
-        'word.length는 ${word.length}입니다. 인자 i는 word의 길이를 넘을 수 없습니다.',
+        'word.length는 ${word.length}입니다. 인자 i는 word의 길이보다 작아야합니다.',
       );
     }
 
