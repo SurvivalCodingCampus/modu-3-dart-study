@@ -1,4 +1,3 @@
-
 import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:modu_3_dart_study/2025-03-18/poisonSlime.dart';
 import 'package:modu_3_dart_study/2025-03-18/slime.dart';
@@ -119,6 +118,7 @@ void main() {
       PoisonSlime poisonSlime = PoisonSlime("포이즌 슬라임");
 
       //객체가 생성이 되었나
+      expect(poisonSlime, isNotNull);
       expect(poisonSlime, isNotNull);
 
       //poisonCount가 5로 설정되었는지
