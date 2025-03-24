@@ -142,7 +142,9 @@ void main() {
 
 - 많은 이점 중 복사 붙여넣기의 문제점을 해결한 것이 상속
 - 상속이라는 단어는 약간 애매하다. 일상적 의미와의 차이와 방향성의 오해
-- **다중상속은 Dart에서 금지**
+- **다중상속은 Dart에서 금지**\
+- **Class 상속은 기능의 확장**
+- **손흥민을 찍어낼 수 없다.**
 
 ```dart
 // 부모 클래스
@@ -216,57 +218,214 @@ Dart에서는 `extends` 키워드로 상속을 구현한다. 메서드 오버라
 
 ### 3. 다형성(Polymorphism)
 
-다형성은 동일한 인터페이스나 메서드가 다양한 형태로 동작할 수 있게 하는 능력. 여러 하위 클래스가 같은 메서드를 다르게 구현할 수 있다.
+- 어떤 것을 이렇게도 부를 수 있고, 저렇게도 부를 수 있는 것
+- 핸들이 있고, 오른 페달이 액셀, 왼쪽이 브레이크인 것 = 차, 그랜저, 버스 …
+  **세부적인 부분 부분은 다르지만, 어쨌든 대충 보면 그냥 차다**
+- 비슷한 얘들끼리 묶는 느낌
+
+
+
+#### Switch case 문 - 타입 확인하기
 
 ```dart
-// 부모 클래스 또는 인터페이스
-abstract class Shape {
-  double calculateArea();
-  
-  void printArea() {
-    print('Area: ${calculateArea()}');
+final Drawable drawable = elements[i];
+
+switch (drawable) {
+    case Rectangle():
+        print('사각형이 선택됨');
+        break;
+    case House():
+        print('집이 선택됨');
+        break;
+    case Dog():
+        print('강아지가 선택됨');
+        break;
+}
+
+drawable.draw(); // 다형성: 실제 타입의 draw() 메서드 호출
+```
+
+
+
+#### 알쏭달쏭 다형성 문제
+
+```dart
+abstract class Monster {
+  void run() {
+    print('몬스터빔');
   }
 }
 
-class Circle extends Shape {
-  double radius;
-  
-  Circle(this.radius);
-  
+class Slime extends Monster {
+  int hp = 50;
+  final String suffix;
+
+  Slime(this.suffix);
+
   @override
-  double calculateArea() {
-    return 3.14 * radius * radius;
+  void run() {
+    print('슬라임$suffix가 도망간다.');
   }
 }
 
-class Rectangle extends Shape {
-  double width;
-  double height;
-  
-  Rectangle(this.width, this.height);
-  
-  @override
-  double calculateArea() {
-    return width * height;
-  }
+void main(List<String> arguments) {
+  Slime slime = Slime('A');
+  Monster monster = Slime('B');
+  slime.run();
+  monster.run();
 }
+
+// 슬라임A가 도망간다.
+// 슬라임B가 도망간다.
+```
+
+- 타입 명시보다 실체가 중요하다.
+- `@override` 를 했기 때문에 `slime.run()`이 실행된다
+
+
+
+
+
+#### Dart의 `is`와 `as` 키워드
+
+##### `is` 연산자
+
+```dart
+class Animal {}
+class Dog extends Animal {}
+class Cat extends Animal {}
 
 void main() {
-  List<Shape> shapes = [
-    Circle(5),
-    Rectangle(4, 6)
-  ];
+  // 상속 관계 체크
+  Dog dog = Dog();
+  Cat cat = Cat();
   
-  // 동일한 메서드 호출이지만 각 객체 타입에 맞게 다르게 실행됨
-  for (var shape in shapes) {
-    shape.printArea();  // Circle: Area: 78.5, Rectangle: Area: 24.0
+  print(dog is Animal);    // true (Dog는 Animal의 하위 클래스)
+  print(cat is Animal);    // true (Cat은 Animal의 하위 클래스)
+  print(dog is Cat);       // false (Dog는 Cat이 아님)
+}
+```
+
+##### `as` 연산자
+
+- 형변환(타입 캐스팅)에 사용
+
+```dart
+void main() {
+  // 업캐스팅 (하위 클래스 -> 상위 클래스)
+  Dog dog = Dog();
+  Animal animal = dog as Animal; // Dog를 Animal로 캐스팅
+  animal.makeSound();           // "멍멍!" 출력
+  
+  // 다운캐스팅 (상위 클래스 -> 하위 클래스)
+  Animal someAnimal = Dog();
+  Dog someDog = someAnimal as Dog; // 가능: someAnimal은 실제로 Dog 객체
+  someDog.fetch();                // "공 가져오기!" 출력
+  
+  // 잘못된 캐스팅
+  try {
+    Animal anotherAnimal = Cat();
+    Dog anotherDog = anotherAnimal as Dog; // 예외 발생: Cat은 Dog로 캐스팅할 수 없음
+  } catch (e) {
+    print('캐스팅 오류: $e');
   }
+  
+  // is와 as를 함께 사용한 안전한 캐스팅
+  Animal thirdAnimal = Cat();
+  if (thirdAnimal is Dog) {
+    (thirdAnimal as Dog).fetch(); // is 검사를 통과했으므로 안전하게 캐스팅 가능
+  } else {
+    print('이 동물은 개가 아닙니다!');  // 이 부분이 실행됨
+  }
+}
+
+class Animal {
+  void makeSound() {
+    print('동물 소리!');
+  }
+}
+
+class Dog extends Animal {
+  @override
+  void makeSound() {
+    print('멍멍!');
+  }
+  
+  void fetch() {
+    print('공 가져오기!');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  void makeSound() {
+    print('야옹!');
+  }
+  
+  void climb() {
+    print('나무 오르기!');
+  }
+}
+```
+
+##### is와 as의 차이점
+
+**is는 실체! 실제로 구현된 인스턴스를 판단!!**
+
+1. **목적**:
+   - `is`: 객체가 특정 타입인지 확인 (타입 체크)
+   - `as`: 객체를 다른 타입으로 변환 (타입 캐스팅)
+2. **반환 값**:
+   - `is`: 불리언 값 (true/false)
+   - `as`: 캐스팅된 객체
+3. **안전성**:
+   - `is`: 항상 안전함 (단순 체크)
+   - `as`: 부적절한 캐스팅 시 예외 발생 가능
+
+
+
+##### 안전한 캐스팅 패턴
+
+안전한 다운캐스팅을 위해 `is`와 `as`를 함께 사용하는 패턴:
+
+```dart
+if (object is TargetType) {
+  // 이미 타입 체크를 했으므로 안전
+  TargetType castedObject = object as TargetType;
+  // 또는 Dart에서는 스마트 캐스트 기능이 있어 다음과 같이 작성 가능
+  object.targetTypeMethod();  // object가 이미 TargetType으로 취급됨
 }
 ```
 
 
 
+
+
 ### 4. 추상화(Abstraction)
+
+#### 추상클래스(abstract) - extend만 쓰자
+
+- 상세 부분이 **일부 미정의 된** 클래스
+- 상속의 재료로 사용되는 클래스
+- 추상클래스로 하면 override가 강제된다
+- 추상클래스는 인스턴스화가 안된다.
+- 다이어그램에서 이택릭체는 추상클래스를 의미
+
+
+
+#### 인터페이스(interface) - implements 만 쓰자
+
+- 같은 인터페이스를 구현한 클래스들은 공통 메소드를 구현하고 있음을 보장
+- 완전 독립적인 여러 클래스가 동일한 인터페이스 구현해야 할 때 적합
+- 모든 메서드가 추상메소드여야 한다
+- 필드를 가지지 않는다.
+  - 하지만 Property도 메소드의 일종이니 들어갈 수 있다.
+- interface 키워드는 Dart 3.0에 추가되었음
+- 여러개의 기능을 가질 수 있는거지 ~~다중 상속~~이라는 표현은 약간 어색
+
+
+
+
 
 추상화는 복잡한 시스템에서 핵심적인 부분만을 추출하여 복잡성을 감추는 과정. Dart에서는 추상 클래스와 인터페이스를 통해 구현.
 
@@ -319,7 +478,7 @@ void main() {
 
 Dart에서는 `abstract` 키워드로 추상 클래스를 정의합니다. 추상 클래스는 인스턴스화할 수 없고, 구현되지 않은 추상 메서드를 포함할 수 있습니다. Dart는 별도의 인터페이스 키워드가 없지만, 모든 클래스가 암시적으로 인터페이스 역할을 할 수 있습니다.
 
-### 추가 내용: Dart의 특수한 객체지향 기능
+#### 추가 내용: Dart의 특수한 객체지향 기능
 
 Dart는 위 4가지 기본 요소 외에도 객체지향 프로그래밍을 강화하는 몇 가지 특수한 기능을 제공합니다:
 
@@ -677,34 +836,6 @@ class Person {
 
 
 
-
-
-
-
-## 추상클래스와 인터페이스(abstract class interface)
-
-### 추상클래스(abstract) - extend만 쓰자
-
-- 상세 부분이 **일부 미정의 된** 클래스
-- 상속의 재료로 사용되는 클래스
-- 추상클래스로 하면 override가 강제된다
-- 추상클래스는 인스턴스화가 안된다.
-- 다이어그램에서 이택릭체는 추상클래스를 의미
-
-
-
-### 인터페이스(interface) - implements 만 쓰자
-
-- 같은 인터페이스를 구현한 클래스들은 공통 메소드를 구현하고 있음을 보장
-- 완전 독립적인 여러 클래스가 동일한 인터페이스 구현해야 할 때 적합
-- 모든 메서드가 추상메소드여야 한다
-- 필드를 가지지 않는다.
-  - 하지만 Property도 메소드의 일종이니 들어갈 수 있다.
-- interface 키워드는 Dart 3.0에 추가되었음
-- 여러개의 기능을 가질 수 있는거지 ~~다중 상속~~이라는 표현은 약간 어색
-
-
-
 ## 클래스를 설계할 때
 
 - 완벽하지 않다면 설계할때는 Bottom-Up이 편하다.
@@ -754,6 +885,10 @@ const List<int> numbers = [1, 2, 3]; // 리스트도 const 가능
 const currentTime = DateTime.now(); // 오류: 컴파일 타임에 값을 알 수 없음
 // 컴파일 시의 시간을 담을 수 없으므로 사용 불가. 실행은 지금이 아니라 내일도 할 수 있음
 ```
+
+- final, const 사용하면 사실상 클래스 안에서 get 프로퍼티를 구현한 것과 같다.
+
+
 
 ### static
 
@@ -806,188 +941,6 @@ const currentTime = DateTime.now(); // 오류: 컴파일 타임에 값을 알 �
 
 - 메모리에 자리잡은 상태
 - new 키워드를 사용하여 클래스로부터 인스턴스를 생성. Dart에서 new 키워드는 생략 가능
-
-
-
-## 다형성(polymorphism)
-
-- 어떤 것을 이렇게도 부를 수 있고, 저렇게도 부를 수 있는 것
-- 핸들이 있고, 오른 페달이 액셀, 왼쪽이 브레이크인 것 = 차, 그랜저, 버스 …
-  **세부적인 부분 부분은 다르지만, 어쨌든 대충 보면 그냥 차다**
-- 비슷한 얘들끼리 묶는 느낌
-
-
-
-### Switch case 문 - 타입 확인하기
-
-```dart
-final Drawable drawable = elements[i];
-
-switch (drawable) {
-    case Rectangle():
-        print('사각형이 선택됨');
-        break;
-    case House():
-        print('집이 선택됨');
-        break;
-    case Dog():
-        print('강아지가 선택됨');
-        break;
-}
-
-drawable.draw(); // 다형성: 실제 타입의 draw() 메서드 호출
-```
-
-
-
-### 알쏭달쏭 다형성 문제
-
-```dart
-abstract class Monster {
-  void run() {
-    print('몬스터빔');
-  }
-}
-
-class Slime extends Monster {
-  int hp = 50;
-  final String suffix;
-
-  Slime(this.suffix);
-
-  @override
-  void run() {
-    print('슬라임$suffix가 도망간다.');
-  }
-}
-
-void main(List<String> arguments) {
-  Slime slime = Slime('A');
-  Monster monster = Slime('B');
-  slime.run();
-  monster.run();
-}
-
-// 슬라임A가 도망간다.
-// 슬라임B가 도망간다.
-```
-
-- 타입 명시보다 실체가 중요하다.
-- `@override` 를 했기 때문에 `slime.run()`이 실행된다
-
-
-
-
-
-### Dart의 `is`와 `as` 키워드
-
-#### `is` 연산자
-
-```dart
-class Animal {}
-class Dog extends Animal {}
-class Cat extends Animal {}
-
-void main() {
-  // 상속 관계 체크
-  Dog dog = Dog();
-  Cat cat = Cat();
-  
-  print(dog is Animal);    // true (Dog는 Animal의 하위 클래스)
-  print(cat is Animal);    // true (Cat은 Animal의 하위 클래스)
-  print(dog is Cat);       // false (Dog는 Cat이 아님)
-}
-```
-
-#### `as` 연산자
-
-- 형변환(타입 캐스팅)에 사용
-
-```dart
-void main() {
-  // 업캐스팅 (하위 클래스 -> 상위 클래스)
-  Dog dog = Dog();
-  Animal animal = dog as Animal; // Dog를 Animal로 캐스팅
-  animal.makeSound();           // "멍멍!" 출력
-  
-  // 다운캐스팅 (상위 클래스 -> 하위 클래스)
-  Animal someAnimal = Dog();
-  Dog someDog = someAnimal as Dog; // 가능: someAnimal은 실제로 Dog 객체
-  someDog.fetch();                // "공 가져오기!" 출력
-  
-  // 잘못된 캐스팅
-  try {
-    Animal anotherAnimal = Cat();
-    Dog anotherDog = anotherAnimal as Dog; // 예외 발생: Cat은 Dog로 캐스팅할 수 없음
-  } catch (e) {
-    print('캐스팅 오류: $e');
-  }
-  
-  // is와 as를 함께 사용한 안전한 캐스팅
-  Animal thirdAnimal = Cat();
-  if (thirdAnimal is Dog) {
-    (thirdAnimal as Dog).fetch(); // is 검사를 통과했으므로 안전하게 캐스팅 가능
-  } else {
-    print('이 동물은 개가 아닙니다!');  // 이 부분이 실행됨
-  }
-}
-
-class Animal {
-  void makeSound() {
-    print('동물 소리!');
-  }
-}
-
-class Dog extends Animal {
-  @override
-  void makeSound() {
-    print('멍멍!');
-  }
-  
-  void fetch() {
-    print('공 가져오기!');
-  }
-}
-
-class Cat extends Animal {
-  @override
-  void makeSound() {
-    print('야옹!');
-  }
-  
-  void climb() {
-    print('나무 오르기!');
-  }
-}
-```
-
-#### is와 as의 차이점
-
-1. **목적**:
-   - `is`: 객체가 특정 타입인지 확인 (타입 체크)
-   - `as`: 객체를 다른 타입으로 변환 (타입 캐스팅)
-2. **반환 값**:
-   - `is`: 불리언 값 (true/false)
-   - `as`: 캐스팅된 객체
-3. **안전성**:
-   - `is`: 항상 안전함 (단순 체크)
-   - `as`: 부적절한 캐스팅 시 예외 발생 가능
-
-
-
-#### 안전한 캐스팅 패턴
-
-안전한 다운캐스팅을 위해 `is`와 `as`를 함께 사용하는 패턴:
-
-```dart
-if (object is TargetType) {
-  // 이미 타입 체크를 했으므로 안전
-  TargetType castedObject = object as TargetType;
-  // 또는 Dart에서는 스마트 캐스트 기능이 있어 다음과 같이 작성 가능
-  object.targetTypeMethod();  // object가 이미 TargetType으로 취급됨
-}
-```
-
 
 
 
@@ -1064,7 +1017,7 @@ if (object is TargetType) {
 
 
 
-## 실제 코드 예시로 보는 차이점
+### 실제 코드 예시로 보는 차이점
 
 ```dart
 class User {
@@ -1115,6 +1068,170 @@ void main() {
 ```
 
 
+
+## 인스턴스 기본 조작
+
+### ==
+
+`external bool operator ==(Object other);`
+
+- 동등성 비교시 사용 됨
+
+### identical
+  - 실제로 메모리 주소가 같은지(두 객체 참조가 동일한지) 알아보는 내장 함수
+
+
+
+### Hashcode
+
+#### Hashcode 로직 안에서 XOR 사용하는 이유
+
+숫자 연산에서 가장 빠른게 비트 연산이기 때문
+
+
+
+
+
+### Class 상속은 기능의 확장
+
+### 손흥민을 찍어낼 수 없다.
+
+
+
+### Sort()
+
+- **dart는 원본을 재정렬하여 반환한다**
+- 카스케이드 연산자를 사용해서 반환 가능하지만 반환만 할 뿐이지원본과 똑같음
+  - 원본이 훼손 안하게끔 [Collection](https://pub.dev/packages/collection) 라이브러리 활용
+
+### CompareTo()
+
+- Comparator 함수
+
+  - ```dart
+    Comparator<T> = int Function(T a, Tb)
+    ```
+
+  - 비교하는 규칙을 정하는 함수
+
+- 내가 만든 class의 경우 sort에서 런타임에러가 나는데 그 이유는 **Comparable이 구현이 안돼서**
+
+- 그렇지만 내가 만든 class의 경우 규칙이 상황마다 달라지기 때문에 규칙을 정해두지는 않는 편이다.
+
+#### 이렇게도 활용 가능
+
+```dart
+// 오름차순의 반대인 내림차순
+names.sort((a, b) => a.compareTo(b) * -1);
+```
+
+
+
+### 얕은 복사와 깊은복사
+
+#### 깊은 복사
+
+- 객체의 참조값만 복사하여 원본과 복사본이 같은 메모리 주소를 가리키는 복사 방식
+- String, int 등 원시타입은 깊은복사
+
+#### 얕은 복사
+
+- 객체의 모든 값과 내부 객체까지 완전히 새로운 메모리에 복사하여 원본과 복사본이 서로 독립적인 복사 방식
+
+
+
+## 알쏭달쏭 얕은 복사, 깊은 복사 예시
+
+### 중첩리스트에서 복사
+
+```dart
+// 중첩 리스트에서의 복사
+List<List<int>> nested = [[1, 2], [3, 4]];
+
+// 이건 깊은 복사일까 얕은 복사일까?
+List<List<int>> copy1 = List.from(nested);
+copy1[0][0] = 99;
+print(nested);  // [[99, 2], [3, 4]] - 내부 리스트는 얕은 복사됨!
+
+// 진짜 깊은 복사
+List<List<int>> copy2 = nested.map((list) => List.from(list)).toList();
+copy2[0][0] = 77;
+print(nested);  // [[99, 2], [3, 4]] - 원본 변경 안됨
+print(copy2);   // [[77, 2], [3, 4]]
+```
+
+
+
+### 얕은 복사, 깊은 복사, hashCode
+
+```dart
+class Address {
+  String street;
+
+  Address(this.street);
+}
+
+class Person {
+  String name;
+  final int age;
+  final Address address;
+  List<String> hobbies;
+
+  Person({required this.name, required this.age, required this.address, required this.hobbies});
+
+  Person copyWith({String? name, int? age, Address? address, List<String>? hobbies}) {
+    return Person(
+      name: name ?? this.name,
+      age: age ?? this.age,
+      address: address ?? this.address,
+      hobbies: hobbies ?? this.hobbies,
+    );
+  }
+
+  Person deepCopy() {
+    return Person(
+      name: name,
+      age: age,
+      address: Address(address.street), // 새 Address 인스턴스
+      hobbies: List.from(hobbies), // 리스트 깊은 복사
+    );
+  }
+}
+
+
+void main() {
+  final person1 = Person(name: '김', age: 10, address: Address('오산시'), hobbies: []);
+  final person2 = person1.copyWith(address: Address('오산시'), hobbies: []);
+
+  print(identical(person1, person2)); // false - 다른 인스턴스
+  print(identical(person1.address, person2.address)); // false - 다른 인스턴스
+
+  person1.address.street = '서울시';
+  print(person2.address.street); // 오산시 - 다른 인스턴스
+
+  person1.name = '박';
+  print(person2.name); // 김 - 다른 인스턴스
+
+  print([person1.hashCode, person2.hashCode]); // 해시 코드 다름 - 다른 인스턴스
+  print(person1 == person2); // false - 다른 인스턴스
+  print(identical(person1, person2)); // false - 주소 값 다름
+
+  print('------------------');
+
+  final person3 = Person(name: '천', age: 20, address: Address('강원시'), hobbies: ['sing', 'read']);
+  final person4 = person3.copyWith(name: '안'); // 얕은 복사
+  final person5 = person3.deepCopy();
+
+  print(identical(person3.address, person4.address)); // true - ‼️ Address는 같은 객체 사용, 인스턴스 새로 생성 등 유의
+  print(identical(person3.address.street, person4.address.street)); // true - ‼️ Address는 같은 객체 사용, 인스턴스 새로 생성 등 유의
+
+
+  person3.hobbies.add('talk');
+  print(person4.hobbies.length); // 3 - ‼️ 원본 변경이 리스트에 영향
+  print(person5.hobbies.length); // 2 - deepCopy는 원본에 영향 안받음
+}
+
+```
 
 
 

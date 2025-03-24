@@ -31,20 +31,22 @@
 
 ### 프로젝트 관리 및 도구 관련 단축키
 
-| 기능 설명                             | 단축키              |
-| ------------------------------------- | ------------------- |
-| Project 창 열기                       | `Cmd + 1`           |
-| Project 창에서 코드 파일 열기         | `Enter`             |
-| Project 창 숨기기/보이기              | `Cmd + Shift + F12` |
-| 파일, 디렉토리 영역으로 이동          | `Cmd + 1`           |
-| 최근에 사용한 프로젝트 오픈           | `Cmd + E`           |
-| Evaluate Expression 열기(디버깅 관련) | `Option + F8`       |
-| 커밋                                  | `Cmd + K`           |
-| 제너레이터                            | `Cmd + N`           |
-| Debug Mode Run                        | `Option + D`        |
-| Debug Resume                          | `Option + Cmd + R`  |
-| 최근 파일 목록 보이기                 | cmd + e             |
-| Run 콘솔 올리기 내리기                | Cmd + 4             |
+| 기능 설명                             | 단축키               |
+| ------------------------------------- | -------------------- |
+| Project 창 열기                       | `Cmd + 1`            |
+| Project 창에서 코드 파일 열기         | `Enter`              |
+| Project 창 숨기기/보이기              | `Cmd + Shift + F12`  |
+| 파일, 디렉토리 영역으로 이동          | `Cmd + 1`            |
+| 최근에 사용한 프로젝트 오픈           | `Cmd + E`            |
+| Evaluate Expression 열기(디버깅 관련) | `Option + F8`        |
+| 커밋                                  | `Cmd + K`            |
+| 제너레이터                            | `Cmd + N`            |
+| Debug Mode Run                        | `Option + D`         |
+| Debug Resume                          | `Option + Cmd + R`   |
+| 최근 파일 목록 보이기                 | cmd + e              |
+| Run 콘솔 올리기 내리기                | Cmd + 4              |
+| Structure 확인                        | Cmd + 7 or cmd + f12 |
+| 상속 계층                             | control + h          |
 
 
 
