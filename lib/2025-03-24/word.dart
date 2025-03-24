@@ -17,7 +17,8 @@ class Word {
     // 알파벳 유효성 검사 (정규표현식에 사용하는 RegExp 함수를 이용)
     // https://api.dart.dev/stable/dart-core/RegExp-class.html
     if (!RegExp(r'^[a-zA-Z]$').hasMatch(char)) {
-      return throw ArgumentError("이 문자열의 $i index 알파벳이 아니기 때문에 모음 여부를 검사할 수 없음");
+      throw ArgumentError("이 문자열의 $i index 알파벳이 아니기 때문에 모음 여부를 검사할 수 없음");
+      // return false;
     }
     // 모음인지 확인
     return vowels.contains(char.toLowerCase());

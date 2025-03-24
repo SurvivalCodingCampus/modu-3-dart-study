@@ -39,9 +39,11 @@ void main() {
 
       final word = Word(testWord);
 
-      // 지정된 숫자 인덱스에서 예외가 발생해야 함
+      // 지정된 숫자 인덱스에서 예외가 발생해야 함 // 또는 false
       expect(() => word.isVowel(numberIndexes[numberIndex]), throwsArgumentError);
+      // expect(() => word.isVowel(numberIndexes[numberIndex]), isFalse);
       expect(() => word.isConsonant(numberIndexes[numberIndex]), throwsArgumentError);
+      // expect(() => word.isConsonant(numberIndexes[numberIndex]), isFalse);
     });
   });
 }
