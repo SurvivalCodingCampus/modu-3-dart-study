@@ -93,7 +93,7 @@ void main() {
       expect(buttonStrongBox.data, isNull);
     });
 
-    test('다이얼 실패 테스트', () {
+    test('다이얼 테스트', () {
       // given
       StrongBox<String> dialStrongBox = StrongBox(keyType: KeyType.dial);
       dialStrongBox.put(strongBoxInner);
@@ -108,7 +108,7 @@ void main() {
       expect(dialStrongBox.data, equals(strongBoxInner));
     });
 
-    test('다이얼 테스트', () {
+    test('다이얼 실패 테스트', () {
       // given
       StrongBox<String> dialStrongBox = StrongBox(keyType: KeyType.dial);
       dialStrongBox.put(strongBoxInner);
