@@ -6,25 +6,25 @@ void main() {
   final book1 = Book(
     title: 'Dart Programming',
     comment: 'Dart 언어 기초와 실습',
-    publishDate: DateTime(2022, 7, 10),
+    year: 2022, month: 7, day:10,
   );
 
   final book2 = Book(
     title: 'Dart & Flutter 개발 실전',
     comment: 'Dart와 Flutter를 활용한 개발 실습서',
-    publishDate: DateTime(2023, 3, 5),
+    year: 2023, month: 3, day: 5,
   );
 
   final book3 = Book(
     title: 'Flutter & Dart로 배우는 모바일 앱 개발',
     comment: 'Flutter와 Dart로 앱 개발을 배우는 책',
-    publishDate: DateTime(2021, 8, 15),
+    year: 2021, month: 8, day: 15,
   );
 
   final book4 = Book(
     title: 'Dart Programming',
     comment: 'Dart 언어 기초와 실습 (재발간)',
-    publishDate: DateTime(2022, 7, 10),
+    year: 2022, month: 7, day: 10,
   );
 
   // Group()으로 테스트 그룹화

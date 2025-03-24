@@ -1,4 +1,4 @@
-class Book implements Comparable<Book>{
+class Book implements Comparable<Book> {
   String title;
   DateTime publishDate;
   String comment;
@@ -6,8 +6,14 @@ class Book implements Comparable<Book>{
   Book({
     required this.title,
     required this.comment,
-    DateTime? publishDate,
-  }) : publishDate = publishDate ?? DateTime.now();
+    int? year,
+    int? month,
+    int? day,
+  }) : publishDate = DateTime(
+         year ?? DateTime.now().year,
+         month ?? DateTime.now().month,
+         day ?? DateTime.now().day,
+       );
 
   // 동등성 비교 규칙 재정의
   @override
@@ -27,20 +33,24 @@ class Book implements Comparable<Book>{
   // Comparable 오버라이드하여 출간일을 최신 기준으로 정렬
   @override
   int compareTo(Book other) {
-    return other.publishDate.compareTo(publishDate);  // 내림차순으로 비교
+    return other.publishDate.compareTo(publishDate); // 내림차순으로 비교
   }
 
   // 복사
   Book copyWith({
     String? title,
-    DateTime? publishDate,
+    int? year, // year만 받도록 변경
+    int? month, // month만 받도록 변경
+    int? day, // day만 받도록 변경
     String? comment,
   }) {
     return Book(
       title: title ?? this.title,
       comment: comment ?? this.comment,
-      publishDate: publishDate ?? this.publishDate,
+      // publishDate는 년, 월, 일만으로 새로 생성
+      year: year ?? publishDate.year,
+      month: month ?? publishDate.month,
+      day: day ?? publishDate.day,
     );
   }
-
 }
