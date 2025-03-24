@@ -1,0 +1,33 @@
+@startuml
+
+' StrongBox 클래스
+class StrongBox<T> {
+  - T? _item
+  - KeyType key
+  - int attempts = 0
+  + StrongBox(key: KeyType)
+  + put(item: T): void
+  + get(): T?
+}
+
+' KeyType 열거형
+enum KeyType {
+  padlock(1024)
+  button(10000)
+  dial(30000)
+  finger(1000000)
+  + maxAttempts: int
+}
+
+' Word 클래스
+class Word {
+  - String word
+  + Word(word: String)
+  + isVowel(i: int): bool
+  + isConsonant(i: int): bool
+}
+
+' 관계 정의
+StrongBox --> KeyType : uses
+
+@enduml
