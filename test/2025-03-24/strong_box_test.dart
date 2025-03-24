@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-22/strong_box.dart';
+import 'package:modu_3_dart_study/2025-03-24/strong_box.dart';
 import 'package:modu_3_dart_study/modu_3_dart_study.dart';
 import 'package:test/test.dart';
 
@@ -10,7 +10,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.padlockMaxCount - 2; i++) {
+      for (int i = 0; i < KeyType.padlock.max - 2; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isNull);
@@ -21,7 +21,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.padlockMaxCount - 1; i++) {
+      for (int i = 0; i < KeyType.padlock.max - 1; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isA<int>());
@@ -34,7 +34,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.buttonMaxCount - 2; i++) {
+      for (int i = 0; i < KeyType.button.max - 2; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isNull);
@@ -45,7 +45,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.buttonMaxCount - 1; i++) {
+      for (int i = 0; i < KeyType.button.max - 1; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isA<int>());
@@ -58,7 +58,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.dialMaxCount - 2; i++) {
+      for (int i = 0; i < KeyType.dial.max - 2; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isNull);
@@ -69,7 +69,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.dialMaxCount - 1; i++) {
+      for (int i = 0; i < KeyType.dial.max - 1; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isA<int>());
@@ -82,7 +82,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.fingerMaxCount - 2; i++) {
+      for (int i = 0; i < KeyType.finger.max - 2; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isNull);
@@ -93,7 +93,7 @@ void main() {
 
       strongBox.put(a);
 
-      for (int i = 0; i < StrongBox.fingerMaxCount - 1; i++) {
+      for (int i = 0; i < KeyType.finger.max - 1; i++) {
         strongBox.get();
       }
       expect(strongBox.get(), isA<int>());
