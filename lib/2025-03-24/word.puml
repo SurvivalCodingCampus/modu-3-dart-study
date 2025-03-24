@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Word {
+  String word
+  bool isVowel(int i)
+  bool isConsonant(int i)
+}
+
+
+@enduml
