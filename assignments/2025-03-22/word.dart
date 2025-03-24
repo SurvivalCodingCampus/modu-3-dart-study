@@ -6,6 +6,10 @@ class Word {
   Word(this.word);
 
   bool isVowel(int i) {
+    if (i > word.length || i < 0) {
+      throw ArgumentError('$i의 값이 단어의 범위를 벗어났습니다.', 'RangeError');
+    }
+
     return word.substring(i, i + 1) == Vowel.a.mean ||
         word.substring(i, i + 1) == Vowel.e.mean ||
         word.substring(i, i + 1) == Vowel.i.mean ||
