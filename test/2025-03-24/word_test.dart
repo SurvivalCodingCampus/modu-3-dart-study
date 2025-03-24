@@ -29,6 +29,13 @@ void main() {
       for (int i = 6; i < testString.length; i++) {
         expect(word.isConsonant(i), isFalse);
       }
-    },);
+    });
+
+    test('범위를 벗어난 인덱스를 입력했을때 테스트', () {
+      String testString = 'hello';
+      Word word = Word(testString);
+      expect(() => word.isVowel(-1), throwsA(isA<Exception>()));
+      expect(() => word.isVowel(testString.length), throwsA(isA<Exception>()));
+    });
   });
 }

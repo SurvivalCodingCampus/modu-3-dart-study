@@ -4,13 +4,14 @@ class Word {
   Word(this.word);
 
   bool isVowel(int i) {
-    if (i >= word.length) {
-      print('word의 길이보다 큰 수를 넣을 수 없습니다.');
-      return false;
+    if (i >= word.length || i < 0) {
+      throw Exception(
+        '해당 인덱스에 해당하는 문자가 없습니다. 0 이상, ${word.length} 미만의 숫자를 입력해주세요',
+      );
     }
     const List<String> vowels = ['a', 'e', 'i', 'u', 'o'];
     for (final vowel in vowels) {
-      if (word[i] == vowel || word[i] == vowel.toUpperCase()) {
+      if (word[i].toLowerCase() == vowel) {
         return true;
       }
     }
@@ -19,10 +20,6 @@ class Word {
   }
 
   bool isConsonant(int i) {
-    if (i >= word.length) {
-      return isVowel(i);
-    } else {
-      return !isVowel(i);
-    }
+    return !isVowel(i);
   }
 }
