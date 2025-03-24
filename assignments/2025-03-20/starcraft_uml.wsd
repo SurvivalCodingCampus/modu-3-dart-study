@@ -1,6 +1,6 @@
 title Starcraft Unit Class Diagram
 
-
+'====== 인터페이스 =======
 interface Healable{
  {abstract} void healable();
 }
@@ -35,12 +35,15 @@ interface AutoRecovable {
 ' 생물
 interface Bionic implements IsHealable
 ' 기계 
-interface IsRepairableMechanic implements IsRepairable, Attackable
 interface Mechanic 
+interface IsRepairableMechanic implements IsRepairable, Attackable
+
 
 interface Zerg implements AutoRecovable
 interface Protoss implements AutoRecovable
 
+
+' ======== 추상클래스 ===========
 abstract class TerranUnit extends Unit implements Movable
 abstract class ZergUnit extends Unit implements Movable, Attackable, Zerg
 abstract class ZergStructure extends Structure implements Zerg 
