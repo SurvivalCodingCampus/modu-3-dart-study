@@ -1,20 +1,17 @@
 @startuml
 interface Comparable {
-  + int compareTo(Object other)
 }
 
-class Book implements Comparable {
+@startuml
+class Book implements Comparable<Book> {
   - String title
   - DateTime publishDate
   - String comment
-  + Book(title: String, comment: String, publishDate: DateTime)
- ' + bool operator ==(Object other)
- ' + int get hashCode
- ' + int compareTo(Book other)
-  + Book copyWith(title: String?, publishDate: DateTime?, comment: String?)
+  + Book(title: String, comment: String, year: int, month: int, day: int)
+  + copyWith(title: String?, year: int?, month: int?, day: int?, comment: String?): Book
 }
 
-Book ..|> Comparable
+Book -|> Comparable : implements
 
  ' 오버라이드 된 메서드들
 Book : + bool operator ==(Object other)
