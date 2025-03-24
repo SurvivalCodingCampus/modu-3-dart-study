@@ -22,9 +22,21 @@ void main() {
 
     test('book hashcode 함수 테스트', () {
       final bookSet = {
-        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,1)),
-        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,1,3,5)),
-        Book(title: 'title', comment: 'comment', publishDate: DateTime(2000,1,2)),
+        Book(
+          title: 'title',
+          comment: 'comment',
+          publishDate: DateTime(2000, 1, 1),
+        ),
+        Book(
+          title: 'title',
+          comment: 'comment',
+          publishDate: DateTime(2000, 1, 1, 3, 5),
+        ),
+        Book(
+          title: 'title',
+          comment: 'comment',
+          publishDate: DateTime(2000, 1, 2),
+        ),
       };
       expect(bookSet.length, 2);
     });
@@ -44,7 +56,7 @@ void main() {
     test('book copywith 함수 테스트', () {
       final bookTitle = "책책책";
       final bookComment = "내용내용내용";
-      final book1 = books[0].copywith(title: bookTitle, comment: bookComment);
+      final book1 = books[0].copyWith(title: bookTitle, comment: bookComment);
 
       expect(book1.title, bookTitle);
       expect(book1.comment, bookComment);

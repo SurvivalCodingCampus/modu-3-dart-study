@@ -6,7 +6,7 @@ class Book implements Comparable<Book> {
   Book({required this.title, required this.comment, DateTime? publishDate})
     : publishDate = publishDate ?? DateTime.now();
 
-  Book copywith({String? title, DateTime? publishDate, String? comment}) {
+  Book copyWith({String? title, DateTime? publishDate, String? comment}) {
     return Book(
       title: title ?? this.title,
       comment: comment ?? this.comment,
@@ -21,7 +21,10 @@ class Book implements Comparable<Book> {
 
   @override
   int get hashCode {
-    return title.hashCode ^ publishDate.year.hashCode ^ publishDate.month.hashCode ^ publishDate.day.hashCode;
+    return title.hashCode ^
+        publishDate.year.hashCode ^
+        publishDate.month.hashCode ^
+        publishDate.day.hashCode;
   }
 
   @override
