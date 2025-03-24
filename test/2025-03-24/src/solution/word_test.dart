@@ -42,5 +42,14 @@ void main() {
       expect(word.isConsonant(1), false);
       expect(word.isConsonant(4), false);
     });
+
+    test('숫자인 경우', () {
+      word.word = 'h12lo';
+      // then
+      expect(word.isConsonant(0), true);
+      expect(word.isConsonant(1), false);
+      expect(word.isVowel(1), false);
+      expect(word.isVowel(4), true);
+    });
   });
 }
