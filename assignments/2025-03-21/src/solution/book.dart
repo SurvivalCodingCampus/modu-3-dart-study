@@ -21,7 +21,10 @@ class Book implements Comparable<Book> {
         other is Book &&
             runtimeType == other.runtimeType &&
             title == other.title &&
-            publishDate == other.publishDate; // title과 publishDate가 일치하면 동등
+            publishDate.year == other.publishDate.year &&
+            publishDate.month == other.publishDate.month &&
+            publishDate.day ==
+                other.publishDate.day; // title과 publishDate가 일치하면 동등
   }
 
   @override
@@ -48,7 +51,7 @@ void main() {
   Book book1 = Book(
     title: 'title',
     comment: 'comment',
-    publishDate: DateTime(2025, 3, 20),
+    publishDate: DateTime(2025, 3, 21, 16, 30),
   );
   Book book2 = Book(
     title: 'title',
