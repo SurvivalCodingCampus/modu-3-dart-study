@@ -18,6 +18,7 @@ class TangibleAsset extends Asset implements Thing {
   // TODO: implement weight
   double get weight => _weight;
 
+  @override
   set weight(double value) {
     if (value < 0) return;
 

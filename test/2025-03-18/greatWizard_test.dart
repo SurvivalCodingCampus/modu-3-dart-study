@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:modu_3_dart_study/2025-03-18/poisonSlime.dart';

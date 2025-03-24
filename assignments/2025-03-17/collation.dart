@@ -1,7 +1,7 @@
 void main() {
-  personList.forEach((items) {
+  for (var items in personList) {
     print("${items["name"]}의 나이는 ${items["age"]}살");
-  });
+  }
 }
 
 List<Map<String, dynamic>> personList = [
