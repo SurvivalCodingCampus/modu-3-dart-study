@@ -1,14 +1,17 @@
-enum KeyType { padlock, button, dial, finger }
+enum KeyType {
+  padlock(1024),
+  button(10_000),
+  dial(30_000),
+  finger(1_000_000);
+
+  final int max;
+  const KeyType(this.max);
+}
 
 class StrongBox<E> {
   E? _data;
-  int count = 0;
+  int _count = 0;
   final KeyType keyType;
-
-  static const padlockMaxCount = 1024;
-  static const buttonMaxCount = 10000;
-  static const dialMaxCount = 30000;
-  static const fingerMaxCount = 1000000;
 
   StrongBox({required this.keyType});
 
@@ -17,22 +20,22 @@ class StrongBox<E> {
   }
 
   E? get() {
-    count++;
+    _count++;
     switch (keyType) {
       case KeyType.padlock:
-        if (count < padlockMaxCount) {
+        if (_count < KeyType.padlock.max) {
           return null;
         }
       case KeyType.button:
-        if (count < buttonMaxCount) {
+        if (_count < KeyType.button.max) {
           return null;
         }
       case KeyType.dial:
-        if (count < dialMaxCount) {
+        if (_count < KeyType.dial.max) {
           return null;
         }
       case KeyType.finger:
-        if (count < fingerMaxCount) {
+        if (_count < KeyType.finger.max) {
           return null;
         }
     }
