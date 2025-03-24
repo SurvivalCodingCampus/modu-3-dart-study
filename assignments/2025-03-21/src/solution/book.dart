@@ -10,7 +10,7 @@ class Book implements Comparable<Book> {
   Book copyWith({String? title, DateTime? publishDate, String? comment}) {
     return Book(
       title: title ?? this.title,
-      publishDate: this.publishDate,
+      publishDate: publishDate ?? this.publishDate,
       comment: comment ?? this.comment,
     );
   }
@@ -26,6 +26,14 @@ class Book implements Comparable<Book> {
             publishDate.day ==
                 other.publishDate.day; // title과 publishDate가 일치하면 동등
   }
+
+  @override
+  // TODO: implement hashCode
+  int get hashCode =>
+      title.hashCode ^
+      publishDate.year.hashCode ^
+      publishDate.month.hashCode ^
+      publishDate.day.hashCode;
 
   @override
   int compareTo(Book other) {
