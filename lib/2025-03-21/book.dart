@@ -24,7 +24,12 @@ class Book {
       other is Book &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          _publishDate == other._publishDate;
+          _publishDate.year == other._publishDate.year &&
+          _publishDate.month == other._publishDate.month &&
+          _publishDate.day == other._publishDate.day
+        ;
+
+
 
   @override
   int get hashCode => title.hashCode ^ _publishDate.hashCode;
