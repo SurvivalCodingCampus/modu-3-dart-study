@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 class Book implements Comparable<Book> {
   String title;
-  DateTime _publishDate;
+  final DateTime _publishDate;
   String comment;
 
   Book({required this.title, required this.comment, DateTime? publishDate})
@@ -11,7 +11,7 @@ class Book implements Comparable<Book> {
   Book copyWith({String? title, DateTime? publishDate, String? comment}) {
     return Book(
       title: title ?? this.title,
-      publishDate: publishDate ?? this._publishDate,
+      publishDate: publishDate ?? _publishDate,
       comment: comment ?? this.comment,
     );
   }
