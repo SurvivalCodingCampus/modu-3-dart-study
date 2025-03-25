@@ -37,7 +37,7 @@ class DefaultFileOperations implements FileOperations {
 
       print("파일 저장에 성공 하였습니다");
     } catch (e) {
-      print("$e 파일 저장에 성공하지 못하였습니다");
+      print("$e 파일 저장에 실패했습니다");
     }
   }
 }

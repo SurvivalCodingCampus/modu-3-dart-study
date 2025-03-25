@@ -39,7 +39,7 @@ void infoWriteFile({
 }) {
   final file = File("$savePath/$fileName.txt");
 
-  if (File(savePath).existsSync()) {
+  if (!Directory(savePath).existsSync()) {
     print("$savePath 가 올바르지 않습니다");
 
     return;
@@ -49,9 +49,19 @@ void infoWriteFile({
 }
 
 Map<String, dynamic> readFileJson({required String saveFilePath}) {
-  File file = File(saveFilePath);
-  String content = file.readAsStringSync();
-  return jsonDecode(content);
+  try {
+    File file = File(saveFilePath);
+    if (!file.existsSync()) {
+      print("파일이 존재하지 않습니다: $saveFilePath");
+      return {};
+    }
+    String content = file.readAsStringSync();
+    return jsonDecode(content);
+  } catch (e) {
+    print("파일 읽기 오류: $e");
+    return {};
+    // TODO
+  }
 }
 
 void main() {
@@ -73,9 +83,20 @@ void main() {
     fileContent: departMentInfoString,
   );
 
-  Department department2 = Department.fromJson(
-    readFileJson(saveFilePath: "lib/2025-03-25/solution3/company.txt"),
-  );
+  try {
+    Map<String, dynamic> jsonData = readFileJson(
+      saveFilePath: "lib/2025-03-25/solution3/company.txt",
+    );
+    if (jsonData.isEmpty) {
+      print("파일을 읽을 수 없거나 내용이 없습니다.");
+      return;
+    }
+    Department department2 = Department.fromJson(jsonData);
+    print(department2.name);
+    print(department2.leader);
+  } catch (e) {
+    print("부서 정보 생성 오류: $e");
+  }
 
   print(department2.name);
   print(department2.leader);
