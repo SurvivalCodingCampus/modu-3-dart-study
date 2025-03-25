@@ -11,8 +11,7 @@ class Word {
       throw RangeError("유효하지 않는 인덱스: $i. 입력할 수 있는 값은 (0-${word.length - 1}) 사이");
     }
 
-
-    String char = word[i];
+    final String char = word[i];
 
     // 알파벳 유효성 검사 (정규표현식에 사용하는 RegExp 함수를 이용)
     // https://api.dart.dev/stable/dart-core/RegExp-class.html

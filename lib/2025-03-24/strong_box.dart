@@ -14,17 +14,20 @@ enum KeyType {
 class StrongBox<T> {
   T? _item;
   KeyType key;
-  int attempts = 0; // 사용 카운트
+  int _attempts = 0; // 사용 카운트
+
+  int get attempts => _attempts;
 
   StrongBox(this.key);
 
   void put(T item) {
+    _attempts = 0;
     _item = item;
   }
 
   T? get() {
-    if (attempts < key.maxAttempts) {
-      attempts++;
+    if (_attempts < key.maxAttempts) {
+      _attempts++;
       return _item;
     } else {
       return null;
