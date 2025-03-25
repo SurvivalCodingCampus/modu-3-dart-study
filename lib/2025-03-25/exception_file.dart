@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 void main(List<String> args) {
   final numString = '10.5';
@@ -17,15 +16,12 @@ void main(List<String> args) {
     print(e);
   }
 
-  Hero hero = Hero('name');
+  
   
   
 }
 
-class Hero {
-  String name;
-  Hero(this.name);
-}
+
 
 class DefaultFileOperations {}
 
