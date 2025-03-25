@@ -29,5 +29,7 @@ void main() {
   print(identical(person1, person4)); // false
 
   person1.address.street = '수원시';
-  print(person2.address.street); // 얕은 복사가 맞음 -> address값 복사해왔지 address을 복사한게 아님
+  print(person1.address.street); // 얕은 복사가 맞음 -> address값 복사해왔지 address을 복사한게 아님
+  print(person1);
+  print(person4);
 }

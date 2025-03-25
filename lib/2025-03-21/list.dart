@@ -28,7 +28,7 @@ void main() {
   print(numbers);
   numbers.sort((a, b) => b.compareTo(a)); // 내림차순
   print(numbers);
-  // nt, double, String 등의 타입은 Comparable을 이미 구현되어 있음
+  // int, double, String 등의 타입은 Comparable을 이미 구현되어 있음
 
   final persons = <Person>[];
   final p1 = Person(age: 18, name: '애순', address: Address('서울시'));

@@ -16,11 +16,12 @@ class Book implements Comparable<Book> {
     );
   }
 
-  String get publishDate => DateFormat('yyyy-MM-dd').format(_publishDate);
+  DateTime get publishDate => _publishDate;
+  String get formatPublishDate => DateFormat('yyyy-MM-dd').format(_publishDate);
 
   @override
   int compareTo(Book other) {
-    return other.publishDate.compareTo(publishDate);
+    return other.formatPublishDate.compareTo(formatPublishDate);
   }
 
   @override
@@ -29,15 +30,15 @@ class Book implements Comparable<Book> {
 
     return other is Book &&
         other.title == title &&
-        other.publishDate == publishDate;
+        other.formatPublishDate == formatPublishDate;
   }
 
   @override
-  int get hashCode => title.hashCode ^ publishDate.hashCode;
+  int get hashCode => title.hashCode ^ formatPublishDate.hashCode;
 
   @override
   String toString() =>
-      'Book(title: $title, publishDate: $publishDate, comment: $comment)';
+      'Book(title: $title, publishDate: $formatPublishDate, comment: $comment)';
 }
 
 void main() {
