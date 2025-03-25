@@ -77,4 +77,17 @@ void main() {
   books.sort();
   print(books);
   print(book1 == book2);
+
+  final str1 = 'hello';
+  final str2 = 'hello';
+
+  final str3 = String.fromCharCodes('hello'.codeUnits);
+
+  print(identical(str1, str3));
+
+  const String str4 =
+      'hel'
+      'lo';
+
+  print(identical(str1, str4));
 }
