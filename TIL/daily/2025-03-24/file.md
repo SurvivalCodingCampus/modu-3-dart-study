@@ -18,7 +18,7 @@ void main() {
       '/Users/jilong/Desktop/workspace/flutter_modu/lib/2025-03-25'; 
   // 파일 저장 경로를 지정
   
-  final File myFile = File('$$ filePath/my_file.txt'); 
+  final File myFile = File('$filePath/my_file.txt'); 
   // File 클래스 사용해 파일 인스턴스 생성
   
   // 1. 내용 덮어쓰기
