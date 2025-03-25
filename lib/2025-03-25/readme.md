@@ -15,14 +15,6 @@ print(num);
 예외가 발생하면 0으로 처리
 
 
-
-## 정리
-| 연습문제 번호 | 제목     | 설명                            | 코드                                                     |
-|----------------|----------|---------------------------------|----------------------------------------------------------|
-| 1              | 예외 발생 | 주어진 코드를 실행하여 runtime error 발생 | ```dart final numString = '10.5'; int num = int.parse(numString); print(num); ``` |
-| 2              | 예외 처리 | try-catch 문을 사용하여 예외 처리, 예외 발생 시 0으로 처리 | ```dart try { final numString = '10.5'; int num = int.parse(numString); print(num); } catch (e) { print(0); } ``` |
-
-
 # 파일 조작
 ## 연습문제 1 -  파일 복사 클래스 작성
 파일을 복사하는 DefaultFileOperations 클래스를 작성하시오
@@ -38,11 +30,6 @@ abstract interface class FileOperations {
 }
 ```
 원본 파일 경로와 복사할 파일 경로는 프로그램 실행시 파라미터로 전달되는 것으로 하고, 버퍼링이나 에러 처리는 안 해도 된다.
-
-## 정리
-| 연습문제 번호 | 제목       | 설명                                         | 코드                                                       |
-|----------------|------------|--------------------------------------------|------------------------------------------------------------|
-| 1              | 파일 복사   | `FileOperations` 클래스를 작성하여 파일 복사 기능 구현 | ```dart abstract interface class FileOperations { void copy(String sourcePath, String targetPath); } ``` |
 
 
 # 여러가지 데이터 형식
@@ -67,7 +54,3 @@ class Department {
 직렬화를 위해 위의 2개 클래스를 일부 수정하시오.
 (배운 내용으로 역직렬화 진행)
 
-## 정리
-| 연습문제 번호 | 제목                 | 설명                                          | 코드                                                                 |
-|----------------|----------------------|---------------------------------------------|----------------------------------------------------------------------|
-| 1              | 사원 및 부서 클래스   | `Employee` 클래스와 `Department` 클래스 작성 후 직렬화하여 파일에 저장 | ```dart class Employee { String name; int age; Employee(this.name, this.age); } class Department { String name; Employee leader; Department(this.name, this.leader); } ``` |
