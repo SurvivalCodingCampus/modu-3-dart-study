@@ -6,7 +6,6 @@ class DefaultFileOperations implements FileOperations {
   void copy(String sourcePath, String targetPath) {
     if(checkFile(sourcePath)) {
       final file = File(sourcePath);
-      final as = File(sourcePath).open(mode: FileMode.)
       final copyFile = file.copySync(targetPath);
 
       //final copyFile1 = file.copy(targetPath);
