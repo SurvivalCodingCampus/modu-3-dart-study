@@ -34,6 +34,14 @@ void main() {
       try {
         final File company = File(jsonFileName);
 
+        // 파일이 없으면 테스트를 위해 생성
+        if (!company.existsSync()) {
+          Employee employee = Employee(employeeName, employeeInt);
+          Department department = Department(departmentName, employee);
+          final String content = jsonEncode(department.toJson());
+          company.writeAsStringSync(content);
+        }
+
         final String companyString = company.readAsStringSync();
         final Map<String, dynamic> companyJson = jsonDecode(companyString);
 
@@ -43,6 +51,11 @@ void main() {
         expect(department.name, departmentName);
         expect(department.leader.name, employeeName);
         expect(department.leader.age, employeeInt);
+
+        // 테스트 완료 후 파일 정리
+        if (company.existsSync()) {
+          company.deleteSync();
+        }
       } on PathNotFoundException {
         throw ArgumentError('그런 파일 없수다.');
       } catch (e) {
