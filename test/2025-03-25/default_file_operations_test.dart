@@ -14,7 +14,7 @@ void main() {
       expect(File(targetFileName).existsSync(), isTrue);
     });
 
-    test('파일명이 잘못되었을 때', () {
+    test('파일명이 잘못되었을 때 (PathNotFoundException)', () {
       sourceFileName = 'wrongFileName.txt';
 
       expect(
