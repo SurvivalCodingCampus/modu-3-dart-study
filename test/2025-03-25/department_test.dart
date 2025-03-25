@@ -20,10 +20,8 @@ void main() {
 
     test("직렬화 후 파일에 작성 test", () {
       expect(
-        () => fileOperation.writeToFile(
-          sourcePath,
-          '${jsonEncode(jsonData)}\n',
-        ),
+        () =>
+            fileOperation.writeToFile(sourcePath, '${jsonEncode(jsonData)}\n'),
         returnsNormally,
       );
     });

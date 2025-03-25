@@ -17,6 +17,6 @@ class Department {
 
   @override
   String toString() {
-    return 'department name: $departmentName,\nleader : ${leader.toString()}';
+    return 'department name: $departmentName,\nleader employee : ${leader.toString()}';
   }
 }
