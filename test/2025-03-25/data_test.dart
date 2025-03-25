@@ -17,10 +17,10 @@ void main() {
     });
     test('fromJson 테스트', () {
       File file = File(targetPath);
-      String json = file.readAsStringSync();
-      Map<String, dynamic> jsonMap = jsonDecode(json);
-
-      Department newDepartment = Department.fromJson(jsonMap);
+      String content = file.readAsStringSync();
+      Map<String, dynamic> json = jsonDecode(content);
+      Department newDepartment = Department.fromJson(json);
+      
       expect(employee.name == newDepartment.leader.name, isTrue);
       expect(employee.age == newDepartment.leader.age, isTrue);
       expect(department.name == newDepartment.name, isTrue);
