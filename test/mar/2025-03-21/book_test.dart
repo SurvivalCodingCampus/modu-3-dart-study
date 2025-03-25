@@ -22,7 +22,7 @@ void main() {
   });
 
   // Book 인스턴스를 담고 있는 컬렉션에 대해 sort() 를 수행하여 출간일이 신상 순서대로 정렬한다
-  test('책이란', () {
+  test('책이란2', () {
     Book book = Book(title: '해리포터', comment: '마돌');
     Book book2 = Book(title: '해리포터', comment: '비방');
     Book book3 = Book(
@@ -53,10 +53,10 @@ void main() {
 
     List<Book> hp = <Book>[book, book2, book3, book4, book5, book6, book7];
 
-    final sortedHp = hp.sorted(
-      (a, b) => b.publishDate.compareTo(a.publishDate),
-    );
-
+    // final sortedHp = hp.sorted(
+    //   (a, b) => b.publishDate.compareTo(a.publishDate),
+    // );
+    final sortedHp = hp.sorted();
     // Book 인스턴스를 담고 있는 컬렉션에 대해 sort() 를 수행하여 출간일이 신상 순서대로 정렬한다
     expect(
       sortedHp,
@@ -72,7 +72,7 @@ void main() {
     );
   });
   //copyWith() 메서드를 제공한다
-  test('책이란', () {
+  test('책이란3', () {
     Book book = Book(
       title: '해리포터',
       comment: '마돌',
