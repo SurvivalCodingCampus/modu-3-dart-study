@@ -19,6 +19,19 @@ class Employee {
   Map<String, dynamic> toJson() {
     return {'name': name, 'age': age};
   }
+
+  Employee.fromJson(Map<String, dynamic> json)
+    : name = json['name'],
+      age = json['age'];
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is Employee && name == other.name && age == other.age);
+  }
+
+  @override
+  int get hashCode => Object.hash(name, age);
 }
 
 class Department {
@@ -30,4 +43,17 @@ class Department {
   Map<String, dynamic> toJson() {
     return {'name': name, 'leader': leader.toJson()};
   }
+
+  Department.fromJson(Map<String, dynamic> json)
+    : name = json['name'],
+      leader = Employee.fromJson(json['leader']);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is Department && name == other.name && leader == other.leader);
+  }
+
+  @override
+  int get hashCode => Object.hash(name, leader);
 }
