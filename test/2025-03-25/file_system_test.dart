@@ -17,13 +17,9 @@ void main() {
       final String originalContent;
 
       // when
-      try {
-        fileSystem.copy(originalFileName, copyFileName);
-        originalContent = File(originalFileName).readAsStringSync();
-        copyContent = File(copyFileName).readAsStringSync();
-      } on PathNotFoundException {
-        throw ArgumentError('파일이 해당 경로에 없습니다.');
-      }
+      fileSystem.copy(originalFileName, copyFileName);
+      originalContent = File(originalFileName).readAsStringSync();
+      copyContent = File(copyFileName).readAsStringSync();
 
       // then
       expect(File(copyFileName).existsSync(), isTrue);

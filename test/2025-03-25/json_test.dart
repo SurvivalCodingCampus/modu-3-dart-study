@@ -24,8 +24,10 @@ void main() {
 
         expect(company.existsSync(), isTrue);
         expect(company.readAsStringSync(), content);
+      } on FileSystemException catch (e) {
+        throw ArgumentError('파일 작성 중 오류 발생: ${e.message}');
       } catch (e) {
-        print('일단 에러');
+        print('예상치 못한 오류: $e');
       }
     });
     test('from Json', () {
