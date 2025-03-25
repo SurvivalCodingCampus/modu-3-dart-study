@@ -6,12 +6,12 @@ age  프로퍼티를 통해 나이를 제공하지만, 임의로 수정은 불�
  */
 
 class Person {
-  final String name ;
-  final int birthYear ;
+  final String name;
+  final int birthYear;
 
   Person(this.name, this.birthYear);
 
-  int get age{
+  int get age {
     final now = DateTime.now().year;
     return now - birthYear;
   }
@@ -20,9 +20,5 @@ class Person {
 void main() {
   Person person = Person("Shin Chan", 1994);
 
-  print("이름:  ${person.name}, 출생연도 : ${person.birthYear}, 나이 ${person.age}") ;
-
- }
-
-
-
+  print("이름:  ${person.name}, 출생연도 : ${person.birthYear}, 나이 ${person.age}");
+}

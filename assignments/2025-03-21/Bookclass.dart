@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 
 class Book {
-  String title;
+  final String title;
   final DateTime publishDate;
   final String comment;
 
