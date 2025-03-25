@@ -12,18 +12,20 @@ enum KeyType {
 class StrongBox<S> {
   S? _data;
   KeyType keyType;
-  int tryCount = 0;
+  int _tryCount = 0;
+
+  int get tryCount => _tryCount;
 
   void put(S data) {
     _data = data;
   }
 
   S? get() {
-    if (tryCount < keyType.maxCounts) {
-      tryCount++;
+    if (_tryCount < keyType.maxCounts) {
+      _tryCount++;
       return null;
     } else {
-      print('금고가 열렸습니다. $_data를 가져가십시오. 시도횟수 : $tryCount');
+      print('금고가 열렸습니다. $_data를 가져가십시오. 시도횟수 : $_tryCount');
       return _data;
     }
   }
