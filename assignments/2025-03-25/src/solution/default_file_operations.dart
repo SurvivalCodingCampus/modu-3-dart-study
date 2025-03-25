@@ -7,8 +7,7 @@ abstract interface class FileOperations {
 class DefaultFileOperations implements FileOperations {
   @override
   void copy(String sourcePath, String targetPath) {
-    final String path =
-        '/Users/heojunho/modu-3-dart-study/assignments/2025-03-25/src/solution';
+    final String path = 'assignments/2025-03-25/src/solution';
     final sourceFile = File('$path/$sourcePath');
     final targetFile = File('$path/$targetPath');
 

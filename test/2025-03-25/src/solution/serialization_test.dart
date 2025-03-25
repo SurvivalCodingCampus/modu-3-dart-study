@@ -37,7 +37,7 @@ void main() {
       });
     });
 
-    group('Employee', () {
+    group('Department', () {
       test('생성', () {
         expect(department, isA<Department>());
         expect(department.name, depart);
