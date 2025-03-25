@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-19/book.dart';
-import '../../assignments/2025-03-19/computer.dart';
+import '../../../assignments/2025-03/2025-03-19/book.dart';
+import '../../../assignments/2025-03/2025-03-19/computer.dart';
 
 void main() {
   String bookName = '생존코딩';

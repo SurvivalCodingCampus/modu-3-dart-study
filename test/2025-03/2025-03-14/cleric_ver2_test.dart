@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-14/cleric_ver2.dart';
+import '../../../assignments/2025-03/2025-03-14/cleric_ver2.dart';
 
 void main() {
   test('클레릭 생성자 테스트', () {

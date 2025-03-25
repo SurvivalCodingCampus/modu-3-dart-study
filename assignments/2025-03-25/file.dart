@@ -17,11 +17,11 @@ class DefaultFileOperations implements FileOperations {
   void copy(String sourcePath, String targetPath) {
     try {
       final sourceFile = File(sourcePath);
+      File copiedFile = sourceFile.copySync(targetPath);
+      print('복사 완료. 저장된 경로 : ${copiedFile.path}');
       if (!sourceFile.existsSync()) {
         throw ArgumentError('SourcePath가 유효하지 않습니다.');
       }
-      File copiedFile = sourceFile.copySync(targetPath);
-      print('복사 완료. 저장된 경로 : ${copiedFile.path}');
     } catch (e) {
       throw ArgumentError('TargetPath가 유효하지 않습니다.');
     }
