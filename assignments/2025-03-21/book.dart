@@ -25,7 +25,11 @@ class Book implements Comparable {
   }
 
   @override
-  int get hashCode => title.hashCode ^ publishDate.hashCode;
+  int get hashCode =>
+      title.hashCode ^
+      publishDate.year.hashCode ^
+      publishDate.month.hashCode ^
+      publishDate.day.hashCode;
 
   @override
   int compareTo(other) {
