@@ -4,6 +4,15 @@
 
 
 
+
+
+### GC (Garbage Collection) 
+
+- 메모리를 정리
+- 인스턴스 생성은 비용이 많이 드는 행위인것 처럼 메모리 해제도 비용이 많다.
+
+
+
 ### 메모리 구조
 
 ### ![img](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUf3X4Uw4Z2c9MTc5SLD15cJprWesudqlXFbvBcdTBMFO1snw_g0GwaWrCndWgEv2XWMQHNIGcRvNwlCP1Rof1CnOnmJHAOssXZVhjLwtals-4PVNRJ8NdU3PXSAWdjlhjsWOlxSu8RxZXYyvx5In0-R5u-1Yt4=s2048?key=Zf3qadHpSF3riBjukIVZcQ)
@@ -1076,6 +1085,7 @@ void main() {
 `external bool operator ==(Object other);`
 
 - 동등성 비교시 사용 됨
+- Comparable 인터페이스를 구현하는것과 다르다
 
 ### identical
   - 실제로 메모리 주소가 같은지(두 객체 참조가 동일한지) 알아보는 내장 함수
@@ -1088,7 +1098,9 @@ void main() {
 
 숫자 연산에서 가장 빠른게 비트 연산이기 때문
 
+#### `Object.hash`
 
+- 해시 알고리즘을 가지고 무작위 해시값을 만들어줌
 
 
 

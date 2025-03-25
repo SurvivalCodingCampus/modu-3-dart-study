@@ -1,8 +1,18 @@
 
 
-### 내장 타입 (Built-in Types)
+# 내장 타입 (Built-in Types)
 
-#### 타입 비교시 
+### Accessor, Mutator
+
+#### Accessor
+
+- toUpperCase() 와 같이 원본을 놔두로 리턴함
+
+#### Mutator
+
+- sort와 같이 원본에 접근해서 바꿈
+
+### 타입 비교시 
 
 ```dart
 int number1 = 1;
@@ -13,9 +23,65 @@ print(number is! int); //false, 반대로 나옴
 
 
 
-#### String
+## String
 
-###### ASCII 값을 통해 알파벳 변환
+### String interpolation
+
+- 문자열 포맷팅
+
+### String에서 +연산자가 느린이유
+
+  - String 인스턴스는 **불변객체(immutable)**
+  - '오' + '준석' -> 여기서 인스턴스는 3개. 인스턴스가 많아지만 느려진다.
+  - for문 안에서 `'$name$i'` 이것도 결합될때마다 새로운 인스턴스가 생성이 됨.
+    - **새로운 인스턴스 생성은 비용이 많이 드는 행위**
+
+### StringBuffer
+
+- String을 비용 적게 추가하는 방법
+
+```dart
+// 빈 StringBuffer 생성
+final buffer = StringBuffer();
+
+// 문자열 추가
+buffer.write('Hello');
+buffer.write(' ');
+buffer.write('World');
+```
+
+- Dart는 싱글스레드 언어로 런타임 에러 신경안써도 됨
+
+### String 알쏭달쏭 메모리 참조 값
+
+```dart
+  String str1 = 'hello';
+  String str2 = 'hello';
+  print(identical(str1, str2)); // true - String pool에 있는 메모리를 재활용
+
+  int int1 = 1;
+  int int2 = 1;
+  print(identical(int1, int2)); // true
+
+  double double1 = 1.0;
+  double double2 = 1.0;
+  print(identical(double1, double2)); // true
+  print(identical(str1, String.fromCharCodes('a'.codeUnits))); // false - 위에는 코드를 돌리기 전에 메모리에 올라갈 것을 알고 있는 상태, 이건 런타임 상수이므로 힙 메모리에 들어간다.
+
+  String str4 = 'hel' + 'lo';
+  print(identical(str1, str4)); // false - + 이것도 런타임에 결정, (언어마다 다름)컴파일러가 최적화를 하냐 안하냐에 따라 다를 수 있다.
+  const String str5 = 'hel' + 'lo';
+  print(identical(str1, str5)); // true - const, 컴파일 타임에 하기 때문에
+
+  String str6 = 'hel';
+  String str7 = 'lo';
+  print(identical(str1, '$str6$str7')); // false - 런타임에 결정
+  print(identical(str1, getLo())); // false - 함수 호출은 컴파일에 분석되고 런타임에 실행
+```
+
+
+
+### ASCII 값을 통해 알파벳 변환
 
 
 
@@ -34,7 +100,7 @@ void main() {
 
 
 
-###### StringBuffer
+### StringBuffer
 
 일반 String은 불변(immutable)이어서 문자열을 수정할 때마다 새로운 문자열 객체가 생성되지만, StringBuffer는 가변(mutable)이어서 문자열을 수정할 때 새로운 객체를 만들지 않습니다.
 
@@ -59,7 +125,7 @@ String result = buffer.toString(); // 최종 변환
 
 
 
-###### codeUnits
+### codeUnits
 
 ```dart
 String text = "Hello";
@@ -70,7 +136,7 @@ List<int> codes = text.codeUnits; // [72, 101, 108, 108, 111]
 - 각 문자의 유니코드 값을 얻을 수 있음
 - 유니코드의 기본 평면(BMP, 0x0000 ~ 0xFFFF) 문자들을 처리할 때 유용
 
-###### String.fromCharCodes
+### String.fromCharCodes
 
 ```dart
 List<int> codes = [72, 101, 108, 108, 111];
@@ -86,7 +152,7 @@ String partial = String.fromCharCodes(codes, 1, 4); // "ell"
 
 
 
-##### startsWith
+### startsWith
 
 
 
@@ -96,7 +162,7 @@ String partial = String.fromCharCodes(codes, 1, 4); // "ell"
 
 
 
-##### 문자열 포맷팅
+### 문자열 포맷팅
 
 ```dart
   print('${str}??!');
@@ -104,7 +170,7 @@ String partial = String.fromCharCodes(codes, 1, 4); // "ell"
 
 
 
-##### runes
+### runes
 
 이 문자열의 유니코드 코드 포인트의 Iterable
 
@@ -115,7 +181,7 @@ String partial = String.fromCharCodes(codes, 1, 4); // "ell"
 
 
 
-##### reversed
+### reversed
 
 ```dart
 'asd'.split('').reversed.toList().join();
@@ -125,7 +191,7 @@ String partial = String.fromCharCodes(codes, 1, 4); // "ell"
 
 
 
-##### 숫자를 판별하는 방법
+### 숫자를 판별하는 방법
 
 ```dart
 s.codeUnitAt(0) >= 48 && s.codeUnitAt(0) <= 57;
@@ -133,7 +199,7 @@ s.codeUnitAt(0) >= 48 && s.codeUnitAt(0) <= 57;
 
 
 
-##### 첫 번째 일치하는 인덱스 반환
+### 첫 번째 일치하는 인덱스 반환
 
 ```dart
 const string = 'Dartisans';
@@ -142,7 +208,7 @@ print(string. indexOf('art')); // 1
 
 
 
-##### 하위 문자열 반환
+### 하위 문자열 반환
 
 ⭐️end 인덱싱 주의
 
@@ -154,11 +220,11 @@ var resultB = string.substring(1, 3); // 'ar'
 
 
 
-##### 정규표현식 Regex
+### 정규표현식 Regex
 
 
 
-###### 문자열에서 정규 표현식 매칭
+#### 문자열에서 정규 표현식 매칭
 
 ```dart
 void main() {
@@ -183,7 +249,7 @@ void main() {
 }
 ```
 
-###### 문자열 변환
+#### 문자열 변환
 
 정규 표현식을 사용하여 문자열을 변환할 수도 있습니다.
 
@@ -202,9 +268,9 @@ void main() {
 
 
 
-#### Double
+## Double
 
-##### 올림 내림 반올림
+### 올림 내림 반올림
 
 ```dart
 // 소수점 아래부분은 버려짐
@@ -220,17 +286,17 @@ void main() {
 (12.3).ceil();
 ```
 
-#### int
+## int
 
 
 
-##### Int는 몇바이트인가???
+### Int는 몇바이트인가???
 
 - 공식적인 문서에 나오지 않음
 
 
 
-##### Clamp
+### Clamp
 
 - 만약 숫자가 lowerLimit보다 작으면, lowerLimit 값을 반환.
 - 만약 숫자가 upperLimit보다 크면, upperLimit 값을 반환.
@@ -243,7 +309,7 @@ foo.clamp(0, 15);
 
 
 
-##### int.max, min
+### int.max, min
 
 1. **-1**: 이 숫자는 이진법으로 `1111...1111` (64비트 모두 1)로 표현됩니다. 이는 부호 있는 정수에서 모든 비트가 1로 설정된 경우를 의미하며, 값은 -1입니다.
 2. **<<**: 이 연산자는 좌측 시프트 연산자입니다. 정수를 지정된 비트 수만큼 왼쪽으로 이동시킵니다. 이동하는 동안 비어 있는 비트는 0으로 채워집니다.
@@ -261,7 +327,7 @@ print('Min int: $min'); // 출력: Min int: -9223372036854775808
 
 
 
-##### int -> List
+### int -> List
 
 ```dart
 List<int> digits = number.toString().split('').map(int.parse).toList();
@@ -272,11 +338,11 @@ print(digits); // [1, 2]
 
 
 
-#### List
+## List
 
 
 
-##### Array와 List 차이
+### Array와 List 차이
 
 
 
@@ -293,7 +359,7 @@ print(digits); // [1, 2]
 
 
 
-##### List.from, List.of 차이 정리
+### List.from, List.of 차이 정리
 
 | **비교 항목**                       | List.of(iterable)                       | List.from(iterable)                      |
 | ----------------------------------- | --------------------------------------- | ---------------------------------------- |
@@ -328,7 +394,7 @@ print(digits); // [1, 2]
 
 
 
-##### List.filled(26, 0)
+### List.filled(26, 0)
 
 원하는 숫자로 리스트 채워넣기
 
@@ -356,7 +422,7 @@ void main() {
 
 
 
-##### List -> int
+### List -> int
 
 ```dart
 void main() {
@@ -379,7 +445,7 @@ void main() {
 
 
 
-###### 2차원 생성시 주의!!
+#### 2차원 생성시 주의!!
 
 ```dart
 List<List<int>> result = List.filled(matrix.length, List.filled(matrix.length, 0));
@@ -389,9 +455,9 @@ List<List<int>> result = List.filled(matrix.length, List.filled(matrix.length, 0
 
 
 
-##### toSet
+### toSet
 
-##### List<E>.generate
+### List<E>.generate
 
 반복해서 리스트 원소 만들기
 
@@ -401,7 +467,7 @@ List.generate(nums.length, (_) => [0]).expand((x) => x).toList();
 List<int> indices = List.generate(3, (i) => i); // [0, 1, 2]
 ```
 
-##### 마지막 원소까지 슬라이싱
+### 마지막 원소까지 슬라이싱
 
 ```dart
 // 두 번째 원소부터 마지막 원소까지 슬라이싱 
@@ -410,7 +476,7 @@ List<int> sliced = numbers.sublist(1);
 
 
 
-##### 중첩 리스트 펼치기
+### 중첩 리스트 펼치기
 
 ```dart
 void main() {
@@ -426,7 +492,7 @@ void main() {
 
 
 
-##### 다른 리스트 모두 추가
+### 다른 리스트 모두 추가
 
 ```dart
 void main() {
@@ -461,13 +527,13 @@ void main() {
 
 
 
-#### Map
+## Map
 
-##### Map - value를 dynamic으로 해야 하는 이유
+### Map - value를 dynamic으로 해야 하는 이유
 
 - 다양한 타입의 값을 하나의 맵에 저장해야 하고, 런타임에 타입이 결정
 
-##### 맵 기본값 설정
+### 맵 기본값 설정
 
 ```dart
 // 키 "apple"이 존재하지 않으면 기본값 1을 설정 
@@ -478,13 +544,13 @@ myMap.putIfAbsent("apple", () => 1);
 
 
 
-##### entries
+### entries
 
 map을 iterable하게 만들기
 
 
 
-##### containKey
+### containKey
 
 키가 존재하는지 확인
 
@@ -504,7 +570,7 @@ if (myMap.containsKey('apple')) {
 
 
 
-#### Set
+## Set
 
 - Dart에서는 Set도 순서가 있는걸로 만들어놨다.
 - Set도 iterator도 돌릴 수 있다.
@@ -513,11 +579,11 @@ if (myMap.containsKey('apple')) {
 
 
 
-#### Runes
+### Runes
 
 문자열에서 유니코드 코드 포인트를 다룰 때 사용
 
-##### 문자의 유니코드 값 가져오기
+### 문자의 유니코드 값 가져오기
 
 ```dart
 void main() {
@@ -528,7 +594,7 @@ void main() {
 
 
 
-##### 유니코드 값 → 문자열 변환
+### 유니코드 값 → 문자열 변환
 
 ```dart
 void main() {
