@@ -6,9 +6,10 @@ void main() {
   try {
     num = int.parse(numString);
   } catch (e) {
-    print(e);
+    num = 0;
+    print('$e -> exception이 발생하여 num을 0으로 초기화');
   }
-  num = 0;
+
 
   print('num = $num');
 }
