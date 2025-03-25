@@ -44,7 +44,6 @@ class DefaultFileOperations implements FileOperations {
 
       // 2-2. 동일한 파일이름이 확인후 다른 이름의 파일 만들기  (중복 방지)
       int counter = 1;
-      print(File(copyFilePath).existsSync());
       while (File(copyFilePath).existsSync()) {
         copyFileNameAndExension.clear();
 
