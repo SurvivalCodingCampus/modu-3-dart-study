@@ -6,9 +6,9 @@ void main() {
   group('copyFile만들기', () {
     test('정상적인 파일복사 ', () {
       final String sourcePath =
-          '/Users/jilong/Desktop/workspace/flutter_modu/lib/2025-03-25/file.dart';
+          Directory.current.path + '/lib/2025-03-25/file.dart';
       final String targetPath =
-          '/Users/jilong/Desktop/workspace/flutter_modu/assignments/2025-03-25';
+          Directory.current.path + '/lib/2025-03-25';
 
       expect(() => dfo.copy(sourcePath, targetPath), returnsNormally);
     });
