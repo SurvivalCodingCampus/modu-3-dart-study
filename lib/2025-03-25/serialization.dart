@@ -23,7 +23,7 @@ class User {
 
 void main() {
   const filePath =
-      '/Users/jilong/Desktop/workspace/flutter_modu /lib/2025-03-25';
+      '/Users/jilong/Desktop/workspace/flutter_modu/lib/2025-03-25';
 
   /* 
     직렬화 

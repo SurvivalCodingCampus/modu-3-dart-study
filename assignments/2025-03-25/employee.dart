@@ -22,7 +22,7 @@ class Employee {
 
 void main() {
   final String filePath =
-      '/Users/jilong/Desktop/workspace/flutter_modu /assignments/2025-03-25';
+      '/Users/jilong/Desktop/workspace/flutter_modu/assignments/2025-03-25';
 
   final Employee hongGilDong = Employee('홍길동', 41);
   final Department hongGilDongDepartment = Department('총무부', hongGilDong);
