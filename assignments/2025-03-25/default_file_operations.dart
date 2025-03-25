@@ -14,8 +14,21 @@ class DefaultFileOperations implements FileOperations {
       final List<String> sourcePathList = sourcePath.split('/');
 
       final String originFilePath = sourcePathList[sourcePathList.length - 1];
-      final String originFileName = originFilePath.split('.')[0];
-      final String originFileExtension = originFilePath.split('.')[1];
+      // final String originFileName = originFilePath.split('.')[0];
+      // final String originFileExtension = originFilePath.split('.')[1];
+      final int lastDotIndex = originFilePath.lastIndexOf('.');
+      String originFileName;
+      String originFileExtension;
+
+      if (lastDotIndex != -1) {
+        // 점(.)이 있는 경우
+        originFileName = originFilePath.substring(0, lastDotIndex); 
+        originFileExtension = originFilePath.substring(lastDotIndex + 1); 
+      } else {
+        // 점(.)이 없는 경우
+        originFileName = originFilePath; 
+        originFileExtension = '.txt'; 
+      }
 
       // print('파일명 : $originFileName, 확장자: $originFileExtension');
       // 1-2 복사 대상의 내용 읽어오기
