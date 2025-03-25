@@ -22,7 +22,19 @@ class DefaultFileOperations implements FileOperations {
     //writeAsStringSync : 파일에 해당 내용을 쓴다.
 
     try {
+      //소스파일이 존재하는지 확인
+      if (!sourceFile.existsSync()) {
+        return;
+      }
+
+      //디렉토리가 있는지 존재하는지 확인
+      final targetDir = Directory(copyFile.parent.path);
+      if (!targetDir.existsSync()) {
+        targetDir.createSync(recursive: true);
+      }
+
       copyFile.writeAsStringSync(sourceFile.readAsStringSync());
+
       print("파일 저장에 성공 하였습니다");
     } catch (e) {
       print("$e 파일 저장에 성공하지 못하였습니다");
