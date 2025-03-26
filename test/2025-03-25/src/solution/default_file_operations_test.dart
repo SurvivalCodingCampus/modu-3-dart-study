@@ -15,6 +15,7 @@ void main() {
     // 파일 복사 기능 호출
     final fileOperations = DefaultFileOperations();
     fileOperations.copy(originalPath, copyPath);
+
     // 내용 비교
     final copiedFile = File(copyPath);
     expect(originalFile.readAsStringSync(), copiedFile.readAsStringSync());

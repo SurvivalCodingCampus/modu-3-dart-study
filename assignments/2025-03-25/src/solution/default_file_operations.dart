@@ -7,9 +7,8 @@ abstract interface class FileOperations {
 class DefaultFileOperations implements FileOperations {
   @override
   void copy(String sourcePath, String targetPath) {
-    final String path = 'assignments/2025-03-25/src/solution';
-    final sourceFile = File('$path/$sourcePath');
-    final targetFile = File('$path/$targetPath');
+    final sourceFile = File(sourcePath);
+    final targetFile = File(targetPath);
 
     final contents = sourceFile.readAsStringSync();
 
@@ -20,8 +19,10 @@ class DefaultFileOperations implements FileOperations {
 void main() {
   final defaultFileOperations = DefaultFileOperations();
 
-  String sourcePath = 'exception.dart';
-  String targetPath = 'exception_copy.dart';
+  final String path = 'assignments/2025-03-25/src/solution';
+
+  String sourcePath = '$path/exception.dart';
+  String targetPath = '$path/exception_copy.dart';
 
   defaultFileOperations.copy(sourcePath, targetPath);
 }
