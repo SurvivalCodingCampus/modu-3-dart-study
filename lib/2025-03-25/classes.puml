@@ -1,0 +1,33 @@
+@startuml
+
+interface FileOperations {
+  +copy(sourcePath: String, targetPath: String): void
+}
+
+class DefaultFileOperations {
+  +copy(sourcePath: String, targetPath: String): void
+  +static error(message: String, reason: String): void
+}
+
+FileOperations <|.. DefaultFileOperations
+
+class Employee {
+  -name: String
+  -age: int
+  +toJson(): Map<String, dynamic>
+  +fromJson(json: Map<String, dynamic>)
+}
+
+class Department {
+  -name: String
+  -leader: Employee
+  +toJson(): Map<String, dynamic>
+  +fromJson(json: Map<String, dynamic>)
+  +serializeToFile(filename: String): void
+  +deserializeFromFile(filename: String): Department
+}
+
+Department --> Employee     : has-a
+Department ..> DefaultFileOperations : uses static
+
+@enduml
