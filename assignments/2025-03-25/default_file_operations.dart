@@ -60,8 +60,14 @@ class DefaultFileOperations implements FileOperations {
       final File copyFile = File(copyFilePath);
       // 2-4. 복사 대상에 파일 넣기
       copyFile.writeAsBytesSync(originFileContent);
-    } on PathNotFoundException {
+    } on PathNotFoundException catch (e) {
+      print('오류 메시지: ${e.message}');
+      print('문제 경로: ${e.path}');
       throw ArgumentError('[ArgumentError] 파일 경로를 확인해 주세요');
+    } on FileSystemException catch (e) {
+      print('파일 작업 중 문제가 발생했습니다:');
+      print('오류 메시지: ${e.message}');
+      print('문제 경로: ${e.path}');
     }
   }
 }
