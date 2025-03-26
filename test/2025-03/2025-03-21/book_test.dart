@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-21/book.dart';
+import '../../../assignments/2025-03/2025-03-21/book.dart';
 
 void main() {
   test('제목과 출간일이 같으면 같은책!', () {

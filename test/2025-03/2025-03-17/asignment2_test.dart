@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-17/asignment2.dart';
+import '../../../assignments/2025-03/2025-03-17/asignment2.dart';
 
 void main() {
   test('컬렉션 응용 테스트', () {

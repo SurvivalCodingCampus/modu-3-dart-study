@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-18/inheritance_assignment.dart';
+import '../../../assignments/2025-03/2025-03-18/inheritance_assignment.dart';
 
 void main() {
   // 이 클래스를 이용해, 다음 사양을 따르는 PoisonSlime 클래스를 작성하시오

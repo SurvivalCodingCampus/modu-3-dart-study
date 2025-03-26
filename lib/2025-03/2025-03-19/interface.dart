@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-18/inheritance.dart';
+import 'package:modu_3_dart_study/2025-03/2025-03-18/inheritance.dart';
 
 void main(List<String> args) {
   print(24.2.round());

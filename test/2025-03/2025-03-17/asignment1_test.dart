@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-17/asignment1.dart';
+import '../../../assignments/2025-03/2025-03-17/asignment1.dart';
 
 void main() {
   test("wizard, wand test", () {
