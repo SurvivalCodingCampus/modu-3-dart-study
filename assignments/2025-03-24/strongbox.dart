@@ -6,9 +6,10 @@
 class StrongBox<E> {
   E? _keytype;
 
-  StrongBox({required E keytype});
+  StrongBox({required E keytype}) : _keytype = keytype;
+
   void put(E keytype) {
-    _keytype = keytype;
+    keytype = keytype;
   }
 
   E? get() {

@@ -6,7 +6,7 @@ enum KeyType { padlock, button, dial, finger }
 class StrongBox<E> {
   E? _key;
   final KeyType keyType;
-  int count = 0;
+  int _count = 0;
 
   StrongBox({required this.keyType});
 
@@ -28,9 +28,9 @@ class StrongBox<E> {
   }
 
   E? get() {
-    count++;
+    _count++;
     int keyCount = maxKeyCount();
-    if (count < keyCount) {
+    if (_count < keyCount) {
       return null;
     } else {
       print('잠금이 해제되었습니다.');
