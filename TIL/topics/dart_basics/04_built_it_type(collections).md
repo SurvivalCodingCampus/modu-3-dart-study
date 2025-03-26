@@ -270,6 +270,14 @@ void main() {
 
 ## Double
 
+
+
+### double.parse('1,1');
+
+- 문자열을 double로 변환. 원시타입에 보통 parse를 제공한다.
+
+# 
+
 ### 올림 내림 반올림
 
 ```dart

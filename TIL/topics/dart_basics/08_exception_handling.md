@@ -2,6 +2,109 @@
 
 
 
+## 예외(Exception)
+
+- 실행시에 예외상황이 발생할 가능성이 있는 것을 예측하여, 사전에 예외 처리가 되도록 할 필요가 있음
+
+### 예외적인 상황들
+
+- 메모리 부족, 파일 못찾음, 네트워크 통신 불가 등
+
+### try-catch-finally 알쏭달쏭 상황
+
+```dart
+  int num;
+  try {
+    num = 1;
+    print('try 블록 실행');
+  } catch (e) {
+    num = 1;
+    print('예외 발생: $e');
+  } finally {
+    print('finally 블록은 항상 실행됨');
+    print(num);
+  }
+// try 블록에서 예외가 발생하면 num = 1 할당이 실행되지 않을 수 있습니다.
+// 예외가 발생했을 때 catch 블록에서 num = 1을 실행합니다.
+// 하지만 코드 분석 시점에서는 try 블록에서 어떤 종류의 예외가 발생할지 알 수 없습니다.
+// 중요한 문제: 만약 발생한 예외 타입이 catch (e)에서 처리되지 않는 다른 타입이라면, catch 블록의 num = 1도 실행되지 않습니다.
+```
+
+
+
+### rethrow
+
+- 에러 처리를 미룸
+
+- `rethrow`: 원래 예외의 스택 트레이스를 보존하여 실제 예외 발생 위치를 정확히 알 수 있음
+- `throw e`: 현재 위치에서 새 스택 트레이스가 시작되어 원래 예외 발생 위치 정보가 손실됨
+
+#### 예시 코드
+
+```dart
+void main() {
+  try {
+    firstFunction();
+  } catch (e, stackTrace) {
+    print('메인에서 예외 처리');
+    print('예외: $e');
+    print('스택 트레이스:\n$stackTrace');
+  }
+}
+
+void firstFunction() {
+  try {
+    secondFunction();
+  } catch (e) {
+    print('firstFunction에서 예외 포착');
+    
+    // 방법 1: rethrow (원래 스택 트레이스 보존)
+    rethrow;
+    
+    // 방법 2: throw e (새 스택 트레이스 생성 - 원래 위치 정보 손실)
+    // throw e;
+  }
+}
+
+void secondFunction() {
+  // 실제 예외 발생 위치
+  throw Exception('두 번째 함수에서 문제 발생!');
+}
+/*
+firstFunction에서 예외 포착
+메인에서 예외 처리
+예외: Exception: 두 번째 함수에서 문제 발생!
+스택 트레이스:
+#0      secondFunction (file:///Users/okstring/Documents/flutter/modu-3-dart-study/assignment/2025-03-25/num_solution.dart:27:3)
+#1      firstFunction (file:///Users/okstring/Documents/flutter/modu-3-dart-study/assignment/2025-03-25/num_solution.dart:13:5)
+#2      main (file:///Users/okstring/Documents/flutter/modu-3-dart-study/assignment/2025-03-25/num_solution.dart:3:5)
+...
+*/
+```
+
+#### 결과 차이
+
+- `rethrow` 사용 시: 스택 트레이스에 `secondFunction()`에서 예외가 시작됐다는 정보가 포함됨
+- `throw e` 사용 시: 스택 트레이스는 `firstFunction()`에서 예외가 시작된 것처럼 보임
+
+디버깅할 때 `rethrow`를 사용하면 예외의 근본 원인을 더 쉽게 찾을 수 있습니다.
+
+### on
+
+```dart
+try {
+  someError2();
+} on FormatException { // 해당 Exception만 예외처리
+  print('FormatException이 발생했습니다.');
+}
+```
+
+
+
+### Exception에 의미부여하면
+
+- Exception에 의미부여가 잘 되어있으면 앱의 완성도에 크게 적용 가능하다.
+
 
 
 ## Dart에서 assert, exception, error 사용 가이드

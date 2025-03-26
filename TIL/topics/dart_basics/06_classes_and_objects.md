@@ -1247,3 +1247,40 @@ void main() {
 
 
 
+## 직렬화(Serialization), 역직렬화
+
+- 데이터 구조나 객체 상태를 저장하고 나중에 재구성할 수 있는 포맷으로 변환하는 과정
+- 클래스 내부의 필드에 다른 클래스가 있다면 **모두 직렬화 처리**를 해줘야 함
+- 직렬화: 클래스 -> Json
+
+![스크린샷 2025-03-25 오전 11 42 45](https://gist.github.com/user-attachments/assets/7ed7b0a8-74b9-42dc-b11e-5ad9684a1980)
+
+
+
+### 객체를 -> Json String 형태로 직렬화 하는 과정
+
+```dart
+final User user = User(name: '홍길동', email: 'aaa@bbb.com');
+
+// 객체 -> Map(Json)
+Map<String, dynamic> json = user.toJson(); // ⭐️toJson() 네이밍 암묵적인 룰 꼭 지키기
+
+// Map(Json) -> String
+String jsonString = jsonEncode(json);
+```
+
+
+
+### String 형태의 Json을 역직렬화를 하여 -> 객체로 변환하는 과정
+
+```dart
+// 서버에서 받은 값
+final String jsonString = '{"name": "John Smith","email": "john@example.com"}';
+
+// JsonString -> Map
+final Map<String, dynamic> json = jsonDecode(jsonString);
+
+// Map -> 객체
+final User user = User.fromJson(json); // ⭐️fromJson() 네이밍 암묵적인 룰 꼭 지키기
+```
+

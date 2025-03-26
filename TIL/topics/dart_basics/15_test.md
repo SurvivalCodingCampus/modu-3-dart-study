@@ -27,7 +27,9 @@ void main() {
 
 
 
+### returnNormally
 
+- void함수 활용 시
 
 ### throwsException
 

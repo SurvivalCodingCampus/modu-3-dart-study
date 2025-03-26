@@ -1,7 +1,7 @@
 import 'index.dart';
 
 class Word {
-  static final Set<String> vowels = <String>{
+  static const Set<String> vowels = <String>{
     'a',
     'e',
     'i',

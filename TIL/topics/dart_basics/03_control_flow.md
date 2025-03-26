@@ -4,6 +4,17 @@
 
 
 
+### for문 무한루프
+
+```dart
+for(;;) {
+	print('Hello World');
+}
+// 무한루프
+```
+
+
+
 ### Label(레이블) - 특정 루프 이름 지정
 
 ```dart
