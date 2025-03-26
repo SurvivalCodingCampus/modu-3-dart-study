@@ -26,7 +26,7 @@ class CollectionChartData {
   }
 
   CollectionChartData.fromJson(Map<String, dynamic> json)
-    : collectionName = json['collectionName'],
+    : collectionName = json['collectionName'] ?? '',
       collectionSalePrice =
           (json['collectionSalePrice'] as List<dynamic>?)
               ?.map((e) => SalePrice.fromJson(e))

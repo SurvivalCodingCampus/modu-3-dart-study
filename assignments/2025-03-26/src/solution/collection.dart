@@ -15,7 +15,10 @@ class Collection {
 
   Collection.fromJson(Map<String, dynamic> json)
     : collectionChartDataList =
-          (json['collectionChartDataList'] as List)
-              .map((e) => CollectionChartData.fromJson(e))
-              .toList();
+          json.containsKey('collectionChartDataList')
+              ? (json['collectionChartDataList'] as List<dynamic>?)
+                      ?.map((e) => CollectionChartData.fromJson(e))
+                      .toList() ??
+                  []
+              : [];
 }

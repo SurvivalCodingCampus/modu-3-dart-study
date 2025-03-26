@@ -9,13 +9,21 @@ class SalePrice {
   Map<String, dynamic> toJson() {
     return {
       'price': price,
-      'cvtDatetime': DateFormat('yyyy-MM-ddThh:mm:ss').format(cvtDateTime),
+      'cvtDatetime': DateFormat('yyyy-MM-ddTHH:mm:ss').format(cvtDateTime),
     };
   }
 
   SalePrice.fromJson(Map<String, dynamic> json)
-    : price = json['price'],
-      cvtDateTime = DateTime.parse(json['cvtDatetime']);
+    : price =
+          json['price'] is double
+              ? json['price']
+              : (json['price'] is int
+                  ? (json['price'] as int).toDouble()
+                  : 0.0),
+      cvtDateTime =
+          json.containsKey('cvtDatetime')
+              ? DateTime.tryParse(json['cvtDatetime']) ?? DateTime.now()
+              : DateTime.now();
 
   @override
   String toString() {

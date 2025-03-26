@@ -28,7 +28,8 @@ void main() {
     transactions
         .where((e) => e.year == 2011)
         .toList()
-        .sortedBy((data) => data.value),
+        .sortedBy((data) => data.value)
+        .map((e) => e.trader.name),
   );
 
   // 2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
@@ -38,13 +39,15 @@ void main() {
   print(
     transactions
         .where((e) => e.trader.city == "Cambridge")
+        .map((e) => e.trader.name)
+        .toSet()
         .toList()
-        .sortedBy((data) => data.trader.name),
+      ..sort(),
   );
 
   // 4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오
 
-  print(transactions.map((e) => e.trader.name).toSet());
+  print(transactions.map((e) => e.trader.name).toSet().toList()..sort());
 
   // 5. 밀라노에 거래자가 있는가?
   print(transactions.any((e) => e.trader.city == "Milan"));
