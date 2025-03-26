@@ -1,8 +1,8 @@
-class CollectioSalePrice {
+class CollectionSalePrice {
   double price;
   DateTime cvtDatetime;
 
-  CollectioSalePrice({required this.price, required this.cvtDatetime});
+  CollectionSalePrice({required this.price, required this.cvtDatetime});
 
   // 직렬화
   Map<String, dynamic> toJson() {
@@ -13,7 +13,7 @@ class CollectioSalePrice {
   }
 
   // 역직렬화
-  CollectioSalePrice.fromJson(Map<String, dynamic> json)
+  CollectionSalePrice.fromJson(Map<String, dynamic> json)
     : price = json['price'], // toDouble
       cvtDatetime = DateTime.parse(json['cvtDatetime']); // string -> Datetime
 

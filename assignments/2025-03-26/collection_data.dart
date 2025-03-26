@@ -1,8 +1,8 @@
-import 'collectio_sale_price.dart';
+import 'collection_sale_price.dart';
 
 class CollectionData {
   String collectionName;
-  List<CollectioSalePrice>? collectionSalePrice;
+  List<CollectionSalePrice>? collectionSalePrice;
 
   CollectionData({required this.collectionName, this.collectionSalePrice});
 
@@ -24,7 +24,7 @@ class CollectionData {
     : collectionName = json['collectionName'],
       collectionSalePrice =
           (json['collectionSalePrice'] as List?)
-              ?.map((e) => CollectioSalePrice.fromJson(e))
+              ?.map((e) => CollectionSalePrice.fromJson(e))
               .toList();
 
   @override
