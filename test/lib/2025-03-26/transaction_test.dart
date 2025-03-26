@@ -28,12 +28,12 @@ void main() {
   });
 
   test('거래자가 근무하는 모든 도시를 중복 없이 나열해야한다.', () {
-    Set<String> expected = {'Cambridge', 'Milan'};
+    List<String> expected = ['Cambridge', 'Milan'];
 
-    Set<String> set =
-        transactions.map((Transaction e) => e.trader.city).toSet();
+    List<String> set =
+        transactions.map((Transaction e) => e.trader.city).toSet().toList();
 
-    expect(set, expected);
+    expect(set, equals(expected));
   });
 
   test('케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열해야한다.', () {
@@ -42,7 +42,7 @@ void main() {
         .map((e) => e.trader.name)
         .sortedBy((name) => name);
 
-    expect(names, ['Alan', 'Brian', 'Raoul', 'Raoul']);
+    expect(names, equals(['Alan', 'Brian', 'Raoul', 'Raoul']));
   });
 
   test('모든 거래자의 이름을 알파벳순으로 정렬하여 나열해야한다.', () {
@@ -53,12 +53,15 @@ void main() {
             .map((e) => e.name)
             .toList();
 
-    expect(names, ['Alan', 'Brian', 'Mario', 'Mario', 'Raoul', 'Raoul']);
+    expect(
+      names,
+      equals(['Alan', 'Brian', 'Mario', 'Mario', 'Raoul', 'Raoul']),
+    );
   });
 
   test('밀라노에 거래자가 있는지 판별하고 있다면 true를 반환해야한다.', () {
     bool exist = transactions.any((e) => e.trader.city == 'Milan');
-    expect(exist, true);
+    expect(exist, isTrue);
   });
 
   test('케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력해야한다.', () {
@@ -68,16 +71,16 @@ void main() {
             .map((e) => e.value)
             .toList();
 
-    expect(values, [300, 1000, 400, 950]);
+    expect(values, equals([300, 1000, 400, 950]));
   });
 
   test('전체 트랜잭션 중 최대값을 출력해야한다.', () {
     int value = transactions.map((e) => e.value).reduce(max);
-    expect(value, 1000);
+    expect(value, equals(1000));
   });
 
   test('전체 트랜잭션 중 최소값을 출력해야한다.', () {
     int value = transactions.map((e) => e.value).reduce(min);
-    expect(value, 300);
+    expect(value, equals(300));
   });
 }
