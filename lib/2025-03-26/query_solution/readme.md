@@ -37,4 +37,4 @@ final transactions = [
 ];
 ```
 
-[!img](https://raw.githubusercontent.com/doggodking/modu-3-dart-study/refs/heads/master/lib/2025-03-26/query_solution/2025-03-26-group1meeting.png)
+![img](https://raw.githubusercontent.com/doggodking/modu-3-dart-study/refs/heads/master/lib/2025-03-26/query_solution/2025-03-26-group1meeting.png)
