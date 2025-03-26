@@ -3,6 +3,7 @@ import 'collection_sale_price.dart';
 class CollectionChartData {
   String collectionName;
   List<CollectionSalePrice>? collectionSalePrice;
+  
   CollectionChartData(this.collectionName, this.collectionSalePrice);
 
   CollectionChartData.fromJson(Map<String, dynamic> json)
@@ -17,5 +18,13 @@ class CollectionChartData {
   @override
   String toString() {
     return 'collectionName : $collectionName, collectionSalePrice : $collectionSalePrice';
+  }
+
+  Map<String, dynamic> toJson(CollectionChartData data) {
+    return {
+      'collectionName': data.collectionName,
+      if (data.collectionSalePrice != null)
+        'collectionSalePrice': data.collectionSalePrice,
+    };
   }
 }

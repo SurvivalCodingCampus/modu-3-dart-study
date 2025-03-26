@@ -13,4 +13,5 @@ void main() {
   for (Map<String, dynamic> data in jsonMap['collectionChartDataList']) {
     print(CollectionChartData.fromJson(data));
   }
+  
 }
