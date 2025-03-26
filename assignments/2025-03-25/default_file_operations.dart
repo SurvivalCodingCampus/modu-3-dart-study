@@ -68,6 +68,7 @@ class DefaultFileOperations implements FileOperations {
       print('파일 작업 중 문제가 발생했습니다:');
       print('오류 메시지: ${e.message}');
       print('문제 경로: ${e.path}');
+      throw FileSystemException('[FileSystemException] 파일 작업 중 문제가 발생했습니다:');
     }
   }
 }
