@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'collection_chart_data.dart';
+
 void main() {
   String json =
       File('assignments/2025-03-26/chart_data.json').readAsStringSync();
@@ -10,39 +12,5 @@ void main() {
 
   for (Map<String, dynamic> data in jsonMap['collectionChartDataList']) {
     print(CollectionChartData.fromJson(data));
-  }
-}
-
-class CollectionChartData {
-  String collectionName;
-  List<CollectionSalePrice>? collectionSalePrice;
-  CollectionChartData(this.collectionName, this.collectionSalePrice);
-
-  CollectionChartData.fromJson(Map<String, dynamic> json)
-    : collectionName = json['collectionName'],
-      collectionSalePrice =
-          json['collectionSalePrice'] == null
-              ? null
-              : (json['collectionSalePrice'] as List)
-                  .map((e) => CollectionSalePrice.fromJson(e))
-                  .toList();
-
-  @override
-  String toString() {
-    return 'collectionName : $collectionName, collectionSalePrice : $collectionSalePrice';
-  }
-}
-
-class CollectionSalePrice {
-  double price;
-  DateTime cvtDatetime;
-
-  CollectionSalePrice.fromJson(Map<String, dynamic> json)
-    : price = json['price'],
-      cvtDatetime = DateTime.parse(json['cvtDatetime']);
-
-  @override
-  String toString() {
-    return 'price : $price, cvtDatetime : $cvtDatetime';
   }
 }
