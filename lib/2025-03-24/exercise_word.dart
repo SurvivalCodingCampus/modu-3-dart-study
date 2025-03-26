@@ -16,6 +16,6 @@ class Word {
       return false;
     }
     String consonant = word[i].toLowerCase();
-    return !'aeiou'.contains(consonant) && consonant.contains(RegExp(r'[a-z]');
+    return !'aeiou'.contains(consonant) && consonant.contains(RegExp(r'[a-z]'));
   }
 }
