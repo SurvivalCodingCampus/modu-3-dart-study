@@ -1,0 +1,27 @@
+@startuml
+class SalePrice {
+  - price: double
+  - cvtDatetime: DateTime
+  + SalePrice(price: double, cvtDatetime: DateTime)
+  + fromJson(json: Map<String, dynamic>): SalePrice
+  + toJson(): Map<String, dynamic>
+}
+
+class CollectionChartData {
+  - collectionName: String
+  - collectionSalePrice: List<SalePrice>
+  + CollectionChartData(collectionName: String, collectionSalePrice: List<SalePrice>)
+  + fromJson(json: Map<String, dynamic>): CollectionChartData
+  + toJson(): Map<String, dynamic>
+}
+
+class CollectionChartDataResponse {
+  - collectionChartDataList: List<CollectionChartData>
+  + CollectionChartDataResponse(collectionChartDataList: List<CollectionChartData>)
+  + fromJson(json: Map<String, dynamic>): CollectionChartDataResponse
+  + toJson(): Map<String, dynamic>
+}
+
+CollectionChartDataResponse --> CollectionChartData : contains
+CollectionChartData --> SalePrice : contains
+@enduml
