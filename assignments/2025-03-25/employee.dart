@@ -29,7 +29,7 @@ void main() {
   final Department hongGilDongDepartment = Department('총무부', hongGilDong);
 
   /* 
-    직열화 
+    직렬화 
     객체 -> json
   */
   // 1. 파일 열기
@@ -42,7 +42,7 @@ void main() {
   companyFile.writeAsStringSync(jsonString);
 
   /* 
-    역직열화 
+    역직렬화 
     json -> 객체로
   */
   // 1. 파일에서 JSON 문자열 읽기
