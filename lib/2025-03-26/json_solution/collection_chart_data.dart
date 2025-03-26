@@ -7,13 +7,10 @@ class CollectionChartData {
   const CollectionChartData({this.collectionName, this.collectionSalePrice});
 
   CollectionChartData.fromJson(Map<String, dynamic> json)
-    : collectionName = json['collectionName'],
-      collectionSalePrice =
-          json['collectionSalePrice'] == null
-              ? null
-              : (json['collectionSalePrice'] as List)
-                  .map((e) => SalePrice.fromJson(e))
-                  .toList();
+      : collectionName = json['collectionName'] as String?,
+        collectionSalePrice = (json['collectionSalePrice'] as List?)
+            ?.map((e) => SalePrice.fromJson(e as Map<String, dynamic>))
+            .toList();
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};

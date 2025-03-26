@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 
 class Trader {
-  String name;
-  String city;
+  final String name;
+  final String city;
 
   Trader(this.name, this.city);
 
@@ -24,9 +24,9 @@ class Trader {
 }
 
 class Transaction {
-  Trader trader;
-  int year;
-  int value;
+  final Trader trader;
+  final int year;
+  final int value;
 
   Transaction(this.trader, this.year, this.value);
 }
