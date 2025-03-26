@@ -9,10 +9,11 @@ class SalePrice {
   const SalePrice({this.price, this.cvtDatetime});
 
   SalePrice.fromJson(Map<String, dynamic> json)
-      : price = json['price'] != null ? (json['price'] as num).toDouble() : null,
-        cvtDatetime = json['cvtDatetime'] != null
-            ? DateTime.tryParse(json['cvtDatetime'])
-            : null;
+    : price = json['price'] != null ? (json['price'] as num).toDouble() : null,
+      cvtDatetime =
+          json['cvtDatetime'] != null
+              ? DateTime.tryParse(json['cvtDatetime'])
+              : null;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};

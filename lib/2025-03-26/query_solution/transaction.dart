@@ -44,12 +44,11 @@ void main() {
   print("--------------------------------------------------");
   print("1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오");
 
-  final result1 =
-      transactions
-          .where((t) => t.year == 2011)
-          .toList()
-          .sorted((a, b) => a.value.compareTo(b.value))
-          .map((tr) => tr.trader.name);
+  final result1 = transactions
+      .where((t) => t.year == 2011)
+      .toList()
+      .sorted((a, b) => a.value.compareTo(b.value))
+      .map((tr) => tr.trader.name);
   print(result1);
 
   print("--------------------------------------------------");
@@ -65,7 +64,6 @@ void main() {
       .toSet()
       .toList()
       .sorted((a, b) => a.name.compareTo(b.name));
-
 
   print(result3.toString());
 
@@ -83,23 +81,18 @@ void main() {
 
   print("--------------------------------------------------");
   print("6. 케임브리지에 거주하는 거래자의 모든 트랜잭션 값을 출력하시오");
-  final result6 =
-      transactions
-          .where((t) => t.trader.city == 'Cambridge')
-          .map((tr) => tr.value);
+  final result6 = transactions
+      .where((t) => t.trader.city == 'Cambridge')
+      .map((tr) => tr.value);
   print(result6);
 
   print("--------------------------------------------------");
   print("7. 전체 트랜잭션 중 최대값은 얼마인가?");
-  final result7 = transactions
-      .map((tx) => tx.value)
-      .reduce(max);
+  final result7 = transactions.map((tx) => tx.value).reduce(max);
   print(result7);
 
   print("--------------------------------------------------");
   print("8. 전체 트랜잭션 중 최소값은 얼마인가?");
-  final result8 = transactions
-      .map((tx) => tx.value)
-      .reduce(min);
+  final result8 = transactions.map((tx) => tx.value).reduce(min);
   print(result8);
 }

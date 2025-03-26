@@ -3,23 +3,22 @@ import 'dart:io';
 import 'package:modu_3_dart_study/2025-03-26/json_solution/collection_chart_data_list.dart';
 import 'package:test/test.dart';
 
-
 void main() {
   // setUpAll()에서 파일 로드 뒤 초기화 하게 위해 late로 정의
   late final String jsonString;
 
   final String jsonPath = 'test/2025-03-26/json_solution/chart_data.json';
 
-// 각 테스트 함수에 파일 로드를 위해 비동기로 처리
+  // 각 테스트 함수에 파일 로드를 위해 비동기로 처리
   setUpAll(() async {
     try {
       final file = File(jsonPath); // 파일 경로 확인
-      jsonString = await file.readAsString();  // 파일 읽기 비동기 작업
+      jsonString = await file.readAsString(); // 파일 읽기 비동기 작업
       if (jsonString.isEmpty) {
         throw '파일 내용이 비어있음';
       }
     } catch (e) {
-      fail('❌ 파일 읽기 실패: $e');  // 예외 발생 시 테스트 실패
+      fail('❌ 파일 읽기 실패: $e'); // 예외 발생 시 테스트 실패
     }
   });
 
@@ -31,7 +30,9 @@ void main() {
         final response = CollectionChartDataResponse.fromJson(jsonMap);
 
         expect(response.collectionChartDataList.isNotEmpty, isTrue);
-        print('✅ collectionChartDataList.length: ${response.collectionChartDataList.length}');
+        print(
+          '✅ collectionChartDataList.length: ${response.collectionChartDataList.length}',
+        );
       } catch (e) {
         fail('❌ JSON 파싱 실패: $e');
       }
@@ -44,7 +45,8 @@ void main() {
         final response = CollectionChartDataResponse.fromJson(jsonMap);
 
         final hasNull = response.collectionChartDataList.any(
-                (item) => item.collectionSalePrice == null);
+          (item) => item.collectionSalePrice == null,
+        );
 
         expect(hasNull, isTrue);
         print('✅ null인 collectionSalePrice 존재함');
@@ -61,17 +63,18 @@ void main() {
             {
               "collectionName": "Invalid Date",
               "collectionSalePrice": [
-                {
-                  "price": 99.99,
-                  "cvtDatetime": "not-a-date"
-                }
-              ]
-            }
-          ]
+                {"price": 99.99, "cvtDatetime": "not-a-date"},
+              ],
+            },
+          ],
         };
 
         final response = CollectionChartDataResponse.fromJson(badJson);
-        final datetime = response.collectionChartDataList[0].collectionSalePrice?[0].cvtDatetime;
+        final datetime =
+            response
+                .collectionChartDataList[0]
+                .collectionSalePrice?[0]
+                .cvtDatetime;
 
         expect(datetime, isNull);
         print('✅ 잘못된 날짜 → null 처리됨');
@@ -89,12 +92,12 @@ void main() {
               // collectionName 누락
               "collectionSalePrice": [
                 {
-                  "price": 100.0
+                  "price": 100.0,
                   // cvtDatetime 누락
-                }
-              ]
-            }
-          ]
+                },
+              ],
+            },
+          ],
         };
 
         final response = CollectionChartDataResponse.fromJson(missingJson);
