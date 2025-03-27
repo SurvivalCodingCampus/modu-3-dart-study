@@ -9,7 +9,7 @@ Future<Movie> getMovieInfo(String json) async {
 }
 
 void main() {
-  test('getMovieInfo() 함수를 완성하고 director를 출력하라', () async {
+  test('1. getMovieInfo() 함수를 완성하고 director를 출력하라', () async {
     // GIVEN
     final String json = '''{
       "title": "Star Wars",
