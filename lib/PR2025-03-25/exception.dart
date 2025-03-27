@@ -23,3 +23,14 @@ class MyException implements Exception {
     return 'MyException{message: $message}';
   }
 }
+
+// void main(){
+//   int zero =0;
+//   try {
+//     final numString = '10.5';
+//     int num = int.parse(numString);
+//     print(num);
+//   } catch (e) {
+//     print(zero);
+//   }
+// }

@@ -21,6 +21,7 @@ void main() {
       final String jsonString = jsonEncode(department.toJson());
       //json을 map으로 변환
       final Map<String, dynamic> json = jsonDecode(jsonString);
+      //생성자 받고 이것도 테스트 추가하기
       Department.fromJson(json);
       //company파일 생성 코드
       String path = 'test/PR2025-03-25/company.txt';
