@@ -97,7 +97,4 @@ void main() {
   } catch (e) {
     print("부서 정보 생성 오류: $e");
   }
-
-  print(department2.name);
-  print(department2.leader);
 }
