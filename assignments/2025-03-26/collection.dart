@@ -22,7 +22,7 @@ class ChartData {
 
   ChartData.fromJson(Map<String, dynamic> json)
     : collectionName = json["collectionName"],
-      //값을 리스트 형태로 변환
+      //값을 리스트 형태로 역직렬화, 중요한 구조
       collectionSalePrice =
           (json["collectionSalePrice"] as List)
               .map((item) => SalePrice.fromJson(item))

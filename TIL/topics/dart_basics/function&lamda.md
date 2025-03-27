@@ -1,16 +1,3 @@
-## 디버깅
-
-로깅 - 로깅은 코드가 실행되는 동안 발생하는 이벤트 기록
-브레이크 포인트 - 코드의 특정 지점에서 실행 중지
-디버거 - 디버깅 돕는 도구
-스택 추척 - 호출 스택을 추적해 코드가 실행 중인 위치를 확인
-
-디버깅 팁
-
-1. 작게 시작 - 작은문제부터 시작하기
-2. 단순하게 유지 - 코드를 단순하게 유지하기
-3. 인내심 갖기 - 인내심 갖고 오류 찾아보기
-
 1급 객체 = 변수에 대입 가능한 객체
 EX) 값, 인스턴스, 함수
 
@@ -63,24 +50,3 @@ print(minTransaction);
 - .map을 활용해 transaction의 있는 내용들을 특정 값으로 바꿀 수 있음
 - .toList를 쓰지 않았을 때는 변수 선언시 String이나 bool, int형 등을 잘 파악하고 넣기
 - .reduce를 사용하면 값을 제거해 나갈 수 있어서 max나 min값 구할때 사용하기 좋음
-
-## List 형식에 역직렬화 방법
-
-```dart
-class ChartData {
-  final String collectionName;
-
-  //원본에 collectionSalePrice이곳은 List 형식으로 저장되어있어 List형식으로 선언
-  final List<SalePrice> collectionSalePrice;
-
-  ChartData(this.collectionName, this.collectionSalePrice);
-
-  ChartData.fromJson(Map<String, dynamic> json)
-      : collectionName = json["collectionName"],
-  //값을 리스트 형태로 역직렬화, 중요한 구조
-        collectionSalePrice =
-        (json["collectionSalePrice"] as List)
-            .map((item) => SalePrice.fromJson(item))
-            .toList();
-}
-```
