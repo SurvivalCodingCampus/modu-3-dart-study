@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 void main () {
 
   /// 직렬화 테스트
-  group('[Json 직력화/역직렬화] - ', () {
+  group('[Json 직렬화/역직렬화] - ', () {
 
     //기본정보 셋팅
     final Employee employee = Employee(name: '홍길동', age: 41);
