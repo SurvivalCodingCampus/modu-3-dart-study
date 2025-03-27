@@ -1,13 +1,20 @@
 void main(List<String> args) async {
   final int seconds = 3;
 
-  isTwitter = true;
-  // Future.wait([bird1(), bird2(), bird3()]);
-  Future.wait([bird('꾸우', 1), bird('까악', 2), bird('짹짹', 3)]);
-  await Future.delayed(Duration(seconds: seconds),);
-  // await Future.delayed(Duration(seconds: seconds), () => print('$seconds초가 지났습니다.'),);
-  isTwitter = false;
-  
+  // isTwitter = true;
+  // // Future.wait([bird1(), bird2(), bird3()]);
+  // Future.wait([bird('꾸우', 1), bird('까악', 2), bird('짹짹', 3)]);
+  // await Future.delayed(Duration(seconds: seconds));
+  // // await Future.delayed(Duration(seconds: seconds), () => print('$seconds초가 지났습니다.'),);
+  // isTwitter = false;
+
+  Future.doWhile(() async {
+    isTwitter = true;
+    Future.wait([bird('꾸우', 1), bird('까악', 2), bird('짹짹', 3)]);
+    await Future.delayed(Duration(seconds: seconds));
+    isTwitter = false;
+    return isTwitter == true;
+  });
 }
 
 bool isTwitter = true;
