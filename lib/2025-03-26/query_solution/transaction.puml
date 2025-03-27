@@ -1,0 +1,19 @@
+@startuml
+class Trader {
+  - name: String
+  - city: String
+  + Trader(name: String, city: String)
+  + ==(other: Object): bool
+  + hashCode: int
+  + toString(): String
+}
+
+class Transaction {
+  - trader: Trader
+  - year: int
+  - value: int
+  + Transaction(trader: Trader, year: int, value: int)
+}
+
+Transaction --> Trader : contains
+@enduml
