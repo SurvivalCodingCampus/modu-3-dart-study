@@ -9,9 +9,4 @@ class Movie {
     : title = json['title'],
       director = json['director'],
       year = json['year'];
-
-  @override
-  String toString() {
-    return 'title: $title, direct: $director, year: $year';
-  }
 }

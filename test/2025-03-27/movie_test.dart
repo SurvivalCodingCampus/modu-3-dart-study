@@ -6,16 +6,14 @@ import '../../assignments/2025-03-27/movie.dart';
 
 void main() {
   test('movie fufure test', () async {
-    final stopWatch = Stopwatch()..start();
     final movie = await getMovieInfo();
-    print(movie.toString());
-    
-    expect(stopWatch.elapsed.inSeconds == 1, isTrue);
+
+    expect(movie.director, equals('George Lucas'), reason: 'director check');
   });
 }
 
 Future<Movie> getMovieInfo() async {
-  await Future.delayed(Duration(seconds: 1));
+  await Future.delayed(Duration(seconds: 2));
 
   final String jsonString = '''
 {
@@ -23,6 +21,6 @@ Future<Movie> getMovieInfo() async {
 "director":"George Lucas",
 "year":1977}
 ''';
-final movie = Movie.fromJson(jsonDecode(jsonString));
-return movie;
+  final movie = Movie.fromJson(jsonDecode(jsonString));
+  return movie;
 }
