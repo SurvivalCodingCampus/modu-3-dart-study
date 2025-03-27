@@ -12,7 +12,7 @@ void main() async {
   Future.delayed(Duration(seconds: 10), () {
     flag = false;
     print("🪟창문닫음!");
-    exit(0); // 강제종료,,,,
+    // exit(0); // 강제종료,,,,
   });
 
   await Future.wait([
