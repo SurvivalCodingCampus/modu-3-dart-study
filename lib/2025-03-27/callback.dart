@@ -39,11 +39,10 @@ Future<void> fetchData2(String job, void Function(String) onSuccess) async {
 
   await fetchWeather('날씨', (e) {
     print('날씨 $e');
-  }).then((e) => print('날씨 완료'));
-
+  });
   await fetchUnse('운세', (e) {
     print('운세 $e');
-  }).then((e) => print('운세 완료'));
+  });
 
   onSuccess('$job 완료');
 }
