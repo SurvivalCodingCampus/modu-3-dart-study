@@ -25,7 +25,6 @@ final transactions = [
   Transaction(Trader("Alan", "Cambridge"), 2012, 950),
 ];
 
-
 void main() {
   print('1️⃣. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오');
   final List<String> transactionsIn2011 =
