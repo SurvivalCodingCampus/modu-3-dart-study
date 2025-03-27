@@ -2,11 +2,11 @@
 
 
 
-### Library & imports 종류
+## Library & imports 종류
 
 
 
-#### 라이브러리란?
+### 라이브러리란?
 
 - Dart 코드의 재사용성과 모듈화를 위해 **라이브러리(Library)** 개념을 사용.
 
@@ -18,9 +18,9 @@ import 'utils.dart';  // 로컬 파일
 
 
 
-#### 라이브러리 종류
+### 라이브러리 종류
 
-##### 코어 라이브러리 (dart: prefix)
+#### 코어 라이브러리 (dart: prefix)
 
 - dart:core (자동 포함) → String, List, int 등 기본 기능 제공
 - dart:async → Future, Stream 지원
@@ -46,22 +46,22 @@ import 'utils.dart';  // 같은 폴더에 있는 utils.dart 파일 가져오기
 
 
 
-#### import 옵션들
+### import 옵션들
 
-##### **별칭 사용 (as)**
+#### **별칭 사용 (as)**
 
 ```dart
 import 'package:math_expressions/math_expressions.dart' as math;
 math.Parser p = math.Parser();
 ```
 
-##### 필요한 부분만 가져오기 (show)
+#### 필요한 부분만 가져오기 (show)
 
 ```dart
 import 'dart:math' show Random, pi;
 ```
 
-##### 특정 부분 제외하고 가져오기 (hide)
+#### 특정 부분 제외하고 가져오기 (hide)
 
 ```dart
 import 'dart:math' hide sin, cos;
@@ -69,7 +69,7 @@ import 'dart:math' hide sin, cos;
 
 
 
-#### part와 part of (라이브러리 분할)
+### part와 part of (라이브러리 분할)
 
 - 한 라이브러리를 여러 파일로 나누기 위해 사용.
 - **일반적으로 import를 사용하고, part는 큰 라이브러리를 여러 파일로 나눌 때만 사용.**
@@ -84,6 +84,27 @@ part 'utils.dart';
 ```dart
 part of 'main.dart';
 ```
+
+
+
+
+
+## 람다식과 함수
+
+- 변수에 대입 가능한 객체를 **1급 객체(final class object)**라고 한다.
+  - 대표적인 1급 객체: 값, 인스턴스, 함수
+
+###  메서드와 함수의 차이
+
+- 메서드는 클래스에 속하고 클래스를 조작하기 위한 일종의 함수
+- 메서드는 이름이 있지만 함수에게 이름은 중요치않다.
+
+### 고계함수
+
+- 함수에서 함수를 받는 함수
+- 매개변수로 넘기는 함수에 따라 예측이 안된다.
+- `[1, 2, 3].reduce(max)`
+  - 이 코드도 동작이 가능 - 인자 수가 맞으므로
 
 
 

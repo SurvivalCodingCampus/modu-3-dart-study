@@ -13,4 +13,9 @@ class DefaultFileOperations implements FileOperation {
     final File file = File(targetPath);
     file.writeAsStringSync(contents);
   }
+
+  String read(String targetPath) {
+    final file = File(targetPath);
+    return file.readAsStringSync();
+  }
 }

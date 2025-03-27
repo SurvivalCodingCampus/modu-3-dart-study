@@ -41,12 +41,24 @@
 | Evaluate Expression 열기(디버깅 관련) | `Option + F8`        |
 | 커밋                                  | `Cmd + K`            |
 | 제너레이터                            | `Cmd + N`            |
-| Debug Mode Run                        | `Option + D`         |
-| Debug Resume                          | `Option + Cmd + R`   |
+| Evaluate                              | option + F8          |
 | 최근 파일 목록 보이기                 | cmd + e              |
 | Run 콘솔 올리기 내리기                | Cmd + 4              |
 | Structure 확인                        | Cmd + 7 or cmd + f12 |
 | 상속 계층                             | control + h          |
+
+
+
+### Debug
+
+| 기능 설명                             | 단축키               |
+| ------------------------------------- | -------------------- |
+| Debug Mode Run                        | `Option + D`         |
+| Debug Resume                          | `Option + Cmd + R`   |
+| Debug Step info(들어가보기)           | F7                   |
+| Debug Step over(한 칸씩 이동)         | F8                   |
+| Debug Step out(나오기)                | shift + F8           |
+| Stop                                  | Command + F2         |
 
 
 

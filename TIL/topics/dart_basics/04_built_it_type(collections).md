@@ -348,7 +348,7 @@ print(digits); // [1, 2]
 
 ## List
 
-
+- List 자체로는 동등성 비교가 안된다. 항상 주의!
 
 ### Array와 List 차이
 

@@ -29,7 +29,7 @@ void main() {
 
 ### returnNormally
 
-- void함수 활용 시
+- void함수 활용 시, 정상 동작했다는 매쳐
 
 ### throwsException
 
