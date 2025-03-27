@@ -48,4 +48,4 @@ Movie 클래스를 작성,
 
 
 # 연습문제 2~3번 함께 생각하고 코딩하기
-![img](2025-03-27-04.png)
+![img](https://raw.githubusercontent.com/doggodking/modu-3-dart-study/refs/heads/master/lib/2025-03-27/2025-03-27-04.jpg)
