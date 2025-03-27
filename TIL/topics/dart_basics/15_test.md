@@ -41,7 +41,9 @@ void main() {
 
 
 
+### setupAll
 
+- setup과 다르게 테스트 전 한번만 코드 실행
 
 ### 경계값 분석
 
