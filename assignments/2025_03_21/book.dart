@@ -15,7 +15,11 @@ class Book implements Comparable<Book> {
       title == other.title;
 
   @override
-  int get hashCode => publishDate.hashCode;
+  int get hashCode =>
+      publishDate.year.hashCode ^
+      publishDate.month.hashCode ^
+      publishDate.day.hashCode ^
+      title.hashCode;
 
   @override
   String toString() {
