@@ -12,7 +12,7 @@ class Bird {
 
   Future<String> tweet() async {
     _count += 1;
-    return sound;
+    return await Future.value(sound);
   }
 
   Future<Timer> repeat() async {
