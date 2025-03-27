@@ -27,7 +27,7 @@ void main() {
 
       expect(newList, equals(['Brian', 'Raoul']));
     });
-    test('거래자가 근무하는 모든 도시를 중복 없이 나열하시오', () {
+    test('거래자가 근무하는 모든 도시를 중복 없이 나열하시오.', () {
       final Set<String> citySet =
           transactions.map((e) => e.trader.city).toSet();
 
