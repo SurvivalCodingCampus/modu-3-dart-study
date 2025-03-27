@@ -1,0 +1,8 @@
+@startuml
+class Movie {
+    - title: String
+    - director: String
+    - year: int
+    + fromJson(json: Map<String, dynamic>): Movie
+}
+@enduml
