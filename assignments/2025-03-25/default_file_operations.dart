@@ -32,7 +32,7 @@ class DefaultFileOperations implements FileOperations {
 
       // print('파일명 : $originFileName, 확장자: $originFileExtension');
       // 1-2 복사 대상의 내용 읽어오기
-      final List<int> originFileContent = await originFile.readAsBytesSync();
+      final List<int> originFileContent = await originFile.readAsBytes();
 
       // 2. 복사본 파일
       // 2-1. 복사본 파일의 이름과 주소 생성 (StringBuffer)
