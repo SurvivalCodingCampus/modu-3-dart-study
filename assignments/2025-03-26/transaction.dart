@@ -25,6 +25,7 @@ final transactions = [
   Transaction(Trader("Alan", "Cambridge"), 2012, 950),
 ];
 
+
 void main() {
   print('1️⃣. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오');
   final List<String> transactionsIn2011 =
@@ -34,15 +35,13 @@ void main() {
           .map((e) => e.trader.name)
           .toList();
   print('$transactionsIn2011');
-  print('\n');
 
-  print('2️⃣. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오');
+  print('\n2️⃣. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오');
   final List<String> transactionCity =
       transactions.map((e) => e.trader.city).toSet().toList();
   print('$transactionCity');
-  print('\n');
 
-  print('3️⃣. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오');
+  print('\n3️⃣. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오');
   final List<String> cambridgeTrader =
       transactions
           .where((e) => e.trader.city == 'Cambridge')
@@ -73,39 +72,33 @@ void main() {
   */
   print('$cambridgeTrader');
   // print('$cambridgeTrader2');
-  print('\n');
 
-  print('4️⃣. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오');
+  print('\n4️⃣. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오');
   final List<String> traderName =
       transactions.map((e) => e.trader.name).toSet().toList()
         ..sort((a, b) => a.compareTo(b));
   print(traderName);
-  print('\n');
 
-  print('5️⃣. 밀라노에 거래자가 있는가?');
+  print('\n5️⃣. 밀라노에 거래자가 있는가?');
   final bool milanTrader = transactions.any((e) => e.trader.city == 'Milan');
   print(milanTrader);
-  print('\n');
 
-  print('6️⃣. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오');
+  print('\n6️⃣. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오');
   final int cambridgeTransactionVelue = transactions
       .where((e) => e.trader.city == 'Cambridge') // 케임브리지에 거주하는 거래만 필터링
       .map((e) => e.value) // 각 거래의 값 (value)만 추출
       .reduce((v, e) => v + e);
   print(cambridgeTransactionVelue);
-  print('\n');
 
-  print('7️⃣. 전체 트랜잭션 중 최대값은 얼마인가?');
-  final int TransactionMaxVelue = transactions
+  print('\n7️⃣. 전체 트랜잭션 중 최대값은 얼마인가?');
+  final int transactionMaxVelue = transactions
       .map((e) => e.value)
       .reduce((v, e) => max(v, e));
-  print(TransactionMaxVelue);
-  print('\n');
+  print(transactionMaxVelue);
 
-  print('8️⃣. 전체 트랜잭션 중 최소값은 얼마인가?');
-  final int TransactioMinVelue = transactions
+  print('\n8️⃣. 전체 트랜잭션 중 최소값은 얼마인가?');
+  final int transactioMinVelue = transactions
       .map((e) => e.value)
       .reduce((v, e) => min(v, e));
-  print(TransactioMinVelue);
-  print('\n');
+  print(transactioMinVelue);
 }
