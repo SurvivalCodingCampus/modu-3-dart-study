@@ -32,7 +32,7 @@ class Bird1 extends Bird {
   Future<void> makeSound() async {
     for (int i = 0; i < 4; i++) {
       await Future.delayed(Duration(seconds: 1));
-      sounds.add("꾸우");
+      sounds.add(sound);
       print(sound);
     }
     /*for (;;) { // 무한루프
@@ -50,7 +50,7 @@ class Bird2 extends Bird {
   Future<void> makeSound() async {
     for (int i = 0; i < 4; i++) {
       await Future.delayed(Duration(seconds: 2));
-      sounds.add("까악");
+      sounds.add(sound);
       print(sound);
     }
     // for (;;) { // 무한루프
@@ -68,7 +68,7 @@ class Bird3 extends Bird {
   Future<void> makeSound() async {
     for (int i = 0; i < 4; i++) {
       await Future.delayed(Duration(seconds: 3));
-      sounds.add("짹짹");
+      sounds.add(sound);
       print(sound);
     }
 
@@ -84,7 +84,8 @@ void main() async {
   final bird2 = Bird2("새2", "까악");
   final bird3 = Bird3("새3", "짹짹");
 
-  await Future.wait([bird1.makeSound(), bird2.makeSound(), bird3.makeSound()]);
+  final sounds = [bird1.makeSound(), bird2.makeSound(), bird3.makeSound()];
+  await Future.wait(sounds);
 
   print(bird1.sounds);
   print(bird2.sounds);
