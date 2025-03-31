@@ -32,6 +32,11 @@ class Bird {
     }
     print('[$sound새님이 나가셨습니다. / 채팅 기록 : $count 회]');
   }
+
+}
+
+class Abc{
+
 }
 
 void main() async {}
