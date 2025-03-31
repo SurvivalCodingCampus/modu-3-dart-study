@@ -6,10 +6,13 @@ void main() {
   test('todo data 역직렬화 테스트', () async {
     final TodoDataSource dataSourceImpl = TodoDataSourceImpl();
     final todo = await dataSourceImpl.fetchTodo();
+    final todoList = await dataSourceImpl.fetchTodos();
 
     expect(todo.id, equals(1));
     expect(todo.userId, equals(1));
     expect(todo.title, equals("delectus aut autem"));
     expect(todo.completed, equals(false));
+
+    expect(todoList.length, equals(200));
   });
 }
