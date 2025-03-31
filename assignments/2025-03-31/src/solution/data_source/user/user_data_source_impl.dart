@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'user.dart';
+import '../../model/user/user.dart';
 import 'user_data_source.dart';
 
 class UserDataSourceImpl implements UserDataSource {

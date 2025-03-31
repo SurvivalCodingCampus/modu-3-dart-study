@@ -1,4 +1,4 @@
-import 'todo.dart';
+import '../../model/todo/todo.dart';
 
 abstract interface class TodoDataSource {
   Future<Todo> getTodo();

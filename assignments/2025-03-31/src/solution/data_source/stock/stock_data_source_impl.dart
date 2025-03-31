@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'stock.dart';
+import '../../model/stock/stock.dart';
 import 'stock_data_source.dart';
 
 class StockDataSourceImpl implements StockDataSource {

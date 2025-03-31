@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-03-31/src/solution/todo.dart';
-import '../../../../assignments/2025-03-31/src/solution/todo_data_source_impl.dart';
+import '../../../../assignments/2025-03-31/src/solution/data_source/todo/todo_data_source_impl.dart';
+import '../../../../assignments/2025-03-31/src/solution/model/todo/todo.dart';
 
 void main() {
   final todo = Todo(

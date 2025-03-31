@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'todo.dart';
+import '../../model/todo/todo.dart';
 import 'todo_data_source.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
