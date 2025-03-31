@@ -8,24 +8,25 @@
 
 ### 코드 편집 및 탐색 관련 단축키
 
-| 기능 설명                            | 단축키                     |
-| ------------------------------------ | -------------------------- |
-| 줄 번호로 바로 이동                  | `Cmd + L`                  |
-| 중괄호 전체 선택                     | `Option + 방향키`          |
-| 첫 커서로 이동                       | `Fn + Cmd + Shift + ←`     |
-| 인덴트 자동 정렬                     | `Option + Cmd + L`         |
-| 다중 커서 추가                       | `Shift + Option + 클릭`    |
-| 위로 블록 전체 지정, 괄호 전체 블록  | `Option + ↑`               |
-| 앞에 문자 무시하고 개행              | `Shift + Enter`            |
-| import 도움 단축                     | `Alt + Enter`              |
-| 해당 줄 그대로 복사                  | `Cmd + D`                  |
-| 코드 펼치기, 접기                    | `Cmd + .`                  |
-| 폰트 사이즈 조절                     | `Control + Shift + , or .` |
-| 여러줄 caret 방향키로 추가           | `option 두번 후 방향키`    |
-| 여러줄 블록 지정한 끝줄에 caret 추가 | Option + shift + g         |
-| 여러줄 블록 지정한 시작에 caret 추가 | Cmd + shift + 8            |
-| Show Context Action                  | `Option + Enter`           |
-| 최근 파일 목록 보이기                | cmd + e                    |
+| 기능 설명                              | 단축키                     |
+| -------------------------------------- | -------------------------- |
+| 줄 번호로 바로 이동                    | `Cmd + L`                  |
+| 중괄호 전체 선택                       | `Option + 방향키`          |
+| 첫 커서로 이동                         | `Fn + Cmd + Shift + ←`     |
+| 인덴트 자동 정렬                       | `Option + Cmd + L`         |
+| 다중 커서 추가                         | `Shift + Option + 클릭`    |
+| 위로 블록 전체 지정, 괄호 전체 블록    | `Option + ↑`               |
+| 앞에 문자 무시하고 개행                | `Shift + Enter`            |
+| import 도움 단축                       | `Alt + Enter`              |
+| 해당 줄 그대로 복사                    | `Cmd + D`                  |
+| 코드 펼치기, 접기                      | `Cmd + .`                  |
+| 폰트 사이즈 조절                       | `Control + Shift + , or .` |
+| 여러줄 caret 방향키로 추가             | `option 두번 후 방향키`    |
+| 여러줄 블록 지정한 끝줄에 caret 추가   | Option + shift + g         |
+| 여러줄 블록 지정한 시작에 caret 추가   | Cmd + shift + 8            |
+| Show Context Action                    | `Option + Enter`           |
+| 최근 파일 목록 보이기                  | cmd + e                    |
+| 블록 지정한 코드 똑같은 다음 코드 잡기 | control + g                |
 
 
 
@@ -51,14 +52,15 @@
 
 ### Debug
 
-| 기능 설명                             | 단축키               |
-| ------------------------------------- | -------------------- |
-| Debug Mode Run                        | `Option + D`         |
-| Debug Resume                          | `Option + Cmd + R`   |
-| Debug Step info(들어가보기)           | F7                   |
-| Debug Step over(한 칸씩 이동)         | F8                   |
-| Debug Step out(나오기)                | shift + F8           |
-| Stop                                  | Command + F2         |
+| 기능 설명                     | 단축키             |
+| ----------------------------- | ------------------ |
+| Debug Mode Run                | `Option + D`       |
+| Debug Resume                  | `Option + Cmd + R` |
+| Debug Step info(들어가보기)   | F7                 |
+| Debug Step over(한 칸씩 이동) | F8                 |
+| Debug Step out(나오기)        | shift + F8         |
+| Stop                          | Command + F2       |
+| Evaluate Expression           | option + F8        |
 
 
 
