@@ -2,7 +2,6 @@ class Wand {
   String _name;
   double _power;
 
-  // 생성자에서 유효성 검사 수행
   Wand({required String name, required double power})
       : _name = name,
         _power = power {
@@ -43,7 +42,6 @@ class Wizard {
   int _hp;
   Wand _wand;
 
-  // 생성자에서 유효성 검사 수행
   Wizard({required String name, required int mp, required int hp, required Wand wand})
       : _name = name,
         _mp = mp,
