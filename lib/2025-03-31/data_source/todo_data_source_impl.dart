@@ -8,7 +8,7 @@ class TodoDataSourceImpl implements TodoDataSource{
   @override
   Future<Todo> getTodo() async {
     final File file = File('lib/2025-03-31/todo.json');
-    final String fileString = file.readAsStringSync();
+    final String fileString = await file.readAsString();
     final Map<String, dynamic> decodedJson = jsonDecode(fileString);
 
     return Todo.fromJson(decodedJson);
@@ -17,7 +17,7 @@ class TodoDataSourceImpl implements TodoDataSource{
   @override
   Future<List<Todo>> getTodos() async {
     final File file = File('lib/2025-03-31/todos.json');
-    final String fileString = file.readAsStringSync();
+    final String fileString = await file.readAsString();
     final List<dynamic> jsonList  = jsonDecode(fileString); // 다이나믹으로 밖에 안받아짐.
 
     return jsonList.map((e) => Todo.fromJson(e)).toList();

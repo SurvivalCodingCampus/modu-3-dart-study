@@ -9,7 +9,7 @@ class StockDataSourceImpl implements StockDataSource{
   Future<List<StockListing>> getStockListings() async {
     List<StockListing> list = [];
     final File file = File('lib/2025-03-31/listing_status.csv');
-    final List<String> rows = file.readAsLinesSync();
+    final List<String> rows = await file.readAsLines();
 
     for (final row in rows) {
       final List<String?> values = row.split(',');
