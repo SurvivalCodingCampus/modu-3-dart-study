@@ -14,15 +14,6 @@ class Movie {
         '$rating }';
   }
 
-  Movie({
-    required this.title,
-    required this.originalTitle,
-    required this.description,
-    required this.genre,
-    required this.year,
-    required this.rating,
-  });
-
   Map<String, dynamic> toJson() => {
     "title": title,
     "originalTitle": originalTitle,
@@ -39,4 +30,13 @@ class Movie {
       genre = json["genre"],
       year = json["year"],
       rating = json["rating"];
+
+  Movie({
+    required this.title,
+    required this.originalTitle,
+    required this.description,
+    required this.genre,
+    required this.year,
+    required this.rating,
+  });
 }
