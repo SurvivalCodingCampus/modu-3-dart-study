@@ -1,5 +1,9 @@
 import 'package:modu_3_dart_study/PR2025-03-19/tangibleAsset.dart';
 
+void printNumber(List<int> a) {
+  print(a);
+}
+
 void main() {
   // Pocket pocket = Pocket();
   // pocket.put(1);
@@ -12,7 +16,14 @@ void main() {
   //pocket.put();
   final data = pocket.get();
   //만약 put에 문자를 넣으면 터져버림
+  List<int> number = [];
+  number.add(5);
+  print(number);
   print(data);
+
+  List<String> names = [];
+  names.addAll(['현수', '미수', '미자']);
+  print(names);
 }
 
 class Pocket<E extends TangibleAsset> {

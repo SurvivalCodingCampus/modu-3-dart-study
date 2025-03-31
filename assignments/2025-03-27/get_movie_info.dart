@@ -7,11 +7,13 @@ Future<Movie> getMovieInfo() async {
   "openYear" : 1977
   }''';
 
-  final Map<String, dynamic> json = jsonDecode(jsonString);
-
-  final Movie movie = Movie.fromJson(json);
-
-  return movie;
+  try {
+    final Map<String, dynamic> json = jsonDecode(jsonString);
+    final Movie movie = Movie.fromJson(json);
+    return movie;
+  } catch (e) {
+    throw Exception('영화 정보를 파싱하는 중 오류가 발생했습니다');
+  }
 }
 
 class Movie {
@@ -26,7 +28,7 @@ class Movie {
   }
 
   Movie.fromJson(Map<String, dynamic> json)
-      : title = json['title'],
-        director = json['director'],
-        openYear = json['openYear'];
+    : title = json['title'],
+      director = json['director'],
+      openYear = json['openYear'];
 }

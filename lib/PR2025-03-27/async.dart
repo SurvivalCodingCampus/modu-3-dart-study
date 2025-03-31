@@ -45,7 +45,9 @@ Future<void> printParallelInts() async {
     getInt4(),
     getInt5(),
   ];
-  print(results);
+  //병렬처리
+  final values = Future.wait(results);
+  print(values);
 }
 
 void main() async {
