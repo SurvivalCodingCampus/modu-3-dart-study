@@ -22,6 +22,8 @@ class Movie {
       director = json['director'],
       year = json['year'];
 
+      
+
   @override
   String toString() {
     return 'title : $title, director : $director, year : $year';
