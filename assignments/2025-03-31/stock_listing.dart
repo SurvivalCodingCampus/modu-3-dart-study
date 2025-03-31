@@ -1,11 +1,11 @@
 class StockListing {
-  String symbol;
-  String name;
-  String exchange;
-  String assetType;
-  DateTime? ipoDate;
-  DateTime? delistingDate;
-  String status;
+  final String symbol;
+  final String name;
+  final String exchange;
+  final String assetType;
+  final DateTime? ipoDate;
+  final DateTime? delistingDate;
+  final String status;
   StockListing({
     required this.symbol,
     required this.name,

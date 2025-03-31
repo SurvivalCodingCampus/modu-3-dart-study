@@ -1,6 +1,6 @@
 class Geo {
-  double lat;
-  double lng;
+  final double lat;
+  final double lng;
   Geo({required this.lat, required this.lng});
 
   factory Geo.fromJson(Map<String, dynamic> jsonMap) {

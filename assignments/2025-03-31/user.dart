@@ -2,14 +2,14 @@ import 'address.dart';
 import 'company.dart';
 
 class User {
-  int id;
-  String name;
-  String username;
-  String email;
-  Address address;
-  String phone;
-  String website;
-  Company company;
+  final int id;
+  final String name;
+  final String username;
+  final String email;
+  final Address address;
+  final String phone;
+  final String website;
+  final Company company;
   User({
     required this.id,
     required this.name,
