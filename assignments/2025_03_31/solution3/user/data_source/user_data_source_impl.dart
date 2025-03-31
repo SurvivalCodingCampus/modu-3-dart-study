@@ -12,7 +12,6 @@ class UserDataSourceImpl implements UserDataSource {
 
     final List userData = jsonDecode(userJsonString);
     List<User> users = userData.map((user) => User.fromJson(user)).toList();
-    print(users);
 
     return users;
   }
