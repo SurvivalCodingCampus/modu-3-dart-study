@@ -8,7 +8,7 @@ class StockDataSourceImpl implements StockDataSource {
   Future<List<Stock>> getStockListings() async {
     final file =
         await File(
-          'assignments/2025-03-31/src/solution/stock.csv',
+          'assignments/2025-03-31/src/solution/data_source/stock/stock.csv',
         ).readAsString();
 
     final datas = file.split('\n');

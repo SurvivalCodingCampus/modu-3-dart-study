@@ -9,7 +9,7 @@ class UserDataSourceImpl implements UserDataSource {
   Future<List<User>> getUsers() async {
     final file =
         await File(
-          'assignments/2025-03-31/src/solution/users.json',
+          'assignments/2025-03-31/src/solution/data_source/user/users.json',
         ).readAsString();
 
     List<dynamic> contents = jsonDecode(file);

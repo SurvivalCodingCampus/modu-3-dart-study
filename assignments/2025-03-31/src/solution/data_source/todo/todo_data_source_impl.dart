@@ -9,7 +9,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<Todo> getTodo() async {
     final todoJson =
         File(
-          'assignments/2025-03-31/src/solution/todo.json',
+          'assignments/2025-03-31/src/solution/data_source/todo/todo.json',
         ).readAsStringSync();
     final result = await jsonDecode(todoJson);
     return Todo.fromJson(result);
@@ -19,7 +19,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<List<Todo>> getTodos() async {
     final todosJson =
         File(
-          'assignments/2025-03-31/src/solution/todos.json',
+          'assignments/2025-03-31/src/solution/data_source/todo/todos.json',
         ).readAsStringSync();
 
     List<dynamic> result = await jsonDecode(todosJson);
