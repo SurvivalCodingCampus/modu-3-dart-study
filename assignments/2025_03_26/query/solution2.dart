@@ -21,12 +21,12 @@ void main() {
       .where((element) => element.year == 2011)
       .toList()
       .sorted((a, b) => a.value.compareTo(b.value))
+      .map((e) => e.trader.name)
       .forEach(print);
 
   // 2
   print('----------2번 문제----------');
-  final cityTransactions = transactions.map((e) => e.trader.city).toSet();
-  print(cityTransactions);
+  transactions.map((e) => e.trader.city).toSet().forEach(print);
 
   // 3
   print('----------3번 문제----------');
@@ -36,15 +36,13 @@ void main() {
       .map((e) => e.trader.name)
       .toList()
       .sorted()
+      .toSet()
       .forEach(print);
 
   // 4
   print('----------4번 문제----------');
-  final nameTransactions = transactions
-      .map((e) => e.trader.name)
-      .toList()
-      .sorted((a, b) => a.compareTo(b));
-  print(nameTransactions);
+
+  transactions.map((e) => e.trader.name).toSet().sorted().forEach(print);
 
   // 5
   print('----------5번 문제----------');
@@ -55,20 +53,16 @@ void main() {
   print('----------6번 문제----------');
   transactions
       .where((element) => element.trader.city == 'Cambridge')
-      .toList()
+      .map((e) => e.value)
       .forEach(print);
 
   // 7
   print('----------7번 문제----------');
 
-  final maxValue = transactions
-      .map((e) => e.value)
-      .reduce((value, element) => max(value, element));
+  final maxValue = transactions.map((e) => e.value).reduce(max);
   print(maxValue);
   // 8
   print('----------8번 문제----------');
-  final minValue = transactions
-      .map((e) => e.value)
-      .reduce((value, element) => min(value, element));
+  final minValue = transactions.map((e) => e.value).reduce(min);
   print(minValue);
 }
