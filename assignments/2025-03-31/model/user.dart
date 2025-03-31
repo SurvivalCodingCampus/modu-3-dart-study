@@ -16,14 +16,14 @@ class User {
     required this.name,
     required this.username,
     required this.email,
-    required this.address,
+    this.address,
     required this.phone,
     required this.website,
-    required this.company,
+    this.company,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    id: json['id'] ?? '',
+    id: json['id'] ?? 0,
     name: json['name'] ?? '',
     username: json['username'] ?? '',
     email: json['email'] ?? '',

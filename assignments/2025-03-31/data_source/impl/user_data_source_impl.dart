@@ -16,6 +16,8 @@ class UserDataSourceImpl implements UserDataSource {
           .toList();
     } on PathNotFoundException {
       throw ArgumentError('파일을 찾을 수 없습니다.');
+    } on FormatException {
+      throw ArgumentError('json 형식에 맞는 데이터를 넣어주세요.');
     }
   }
 }
