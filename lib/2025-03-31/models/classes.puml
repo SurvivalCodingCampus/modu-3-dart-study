@@ -1,0 +1,50 @@
+@startuml
+
+class StockListing {
+  +String? symbol
+  +String? name
+  +String? exchange
+  +String? assetType
+  +DateTime? ipoDate
+  +DateTime? delistingDate
+  +String? status
+  +String toCsvRow()
+  +void debugPrint()
+}
+
+class Todo {
+  +int? userId
+  +int? id
+  +String? title
+  +bool? completed
+  +void debugPrint()
+}
+
+class Geo {
+  +double? lat
+  +double? lng
+}
+
+class Address {
+  +String? street
+  +String? city
+  +Geo? geo
+}
+
+class Company {
+  +String? name
+}
+
+class User {
+  +int? id
+  +String? name
+  +Address? address
+  +Company? company
+  +void debugPrint()
+}
+
+User ..> Address : used
+User ..> Company : used
+Address ..> Geo : used
+
+@enduml
