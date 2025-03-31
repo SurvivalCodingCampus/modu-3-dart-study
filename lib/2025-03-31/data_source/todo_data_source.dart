@@ -7,7 +7,9 @@ abstract interface class TodoSingleDataSource {
 }
 
 class TodoSingleDataSourceImpl implements TodoSingleDataSource {
-  final String jsonPath = 'lib/2025-03-31/data/todo.json';
+  final String jsonPath;
+
+  TodoSingleDataSourceImpl({this.jsonPath = 'lib/2025-03-31/data/todo.json'});
 
   @override
   Future<Todo?> getTodo() async {
@@ -15,7 +17,7 @@ class TodoSingleDataSourceImpl implements TodoSingleDataSource {
       final jsonString = await File(jsonPath).readAsString();
       final jsonMap = jsonDecode(jsonString);
       final todo = Todo.fromJson(jsonMap);
-      todo.debugPrint();
+
       return todo;
     } catch (e) {
       print('getTodo 실패: $e');

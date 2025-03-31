@@ -4,7 +4,6 @@ import 'dart:io';
 import 'dart:convert';
 
 void main() {
-
   group('Todo 리스트 파싱', () {
     test('todo 리스트 파일을 읽어 Todo 객체 목록을 반환해야 한다', () async {
       final dataSource = TodoListDataSourceImpl();

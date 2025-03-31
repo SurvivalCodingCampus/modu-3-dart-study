@@ -25,7 +25,9 @@ class Todo {
   }
 
   void debugPrint() {
-    print('Todo { userId: $userId, id: $id, title: $title, completed: $completed }');
+    print(
+      'Todo { userId: $userId, id: $id, title: $title, completed: $completed }',
+    );
     print('========================================');
   }
 }

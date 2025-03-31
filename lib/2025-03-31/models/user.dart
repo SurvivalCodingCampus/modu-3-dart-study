@@ -78,8 +78,10 @@ class User {
     return User(
       id: json['id'] as int?,
       name: json['name'] as String?,
-      address: json['address'] != null ? Address.fromJson(json['address']) : null,
-      company: json['company'] != null ? Company.fromJson(json['company']) : null,
+      address:
+          json['address'] != null ? Address.fromJson(json['address']) : null,
+      company:
+          json['company'] != null ? Company.fromJson(json['company']) : null,
     );
   }
 
@@ -93,7 +95,9 @@ class User {
   }
 
   void debugPrint() {
-    print('User { id: $id, name: $name, city: ${address?.city}, company: ${company?.name} }');
+    print(
+      'User { id: $id, name: $name, city: ${address?.city}, company: ${company?.name} }',
+    );
     print('========================================');
   }
 }

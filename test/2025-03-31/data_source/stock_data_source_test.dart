@@ -7,7 +7,8 @@ void main() {
     final dataSource = StockDataSourceImpl();
 
     test('getStockListings()는 StockListing 객체의 리스트로 반환되어야 한다', () async {
-      final List<StockListing> stockListings = await dataSource.getStockListings();
+      final List<StockListing> stockListings =
+          await dataSource.getStockListings();
 
       // 반환된 stockListings 리스트를 출력해서 데이터 상태를 확인
       for (var stock in stockListings) {
@@ -27,7 +28,8 @@ void main() {
     });
 
     test('getStockListings()는 StockListing 객체를 CSV로 직렬화 할 수 있어야 한다', () async {
-      final List<StockListing> stockListings = await dataSource.getStockListings();
+      final List<StockListing> stockListings =
+          await dataSource.getStockListings();
 
       // 첫 번째 StockListing 객체를 CSV로 직렬화한 후, 출력문 확인
       final stockListingCsvRow = stockListings.first.toCsvRow();

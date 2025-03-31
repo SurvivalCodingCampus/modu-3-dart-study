@@ -25,18 +25,13 @@ class StockListing {
       return StockListing._invalid();
     }
 
-    DateTime? delistingDate = _parseDate(values[5].trim());
-    if (delistingDate == null || values[5].trim().isEmpty) {
-      delistingDate = null;
-    }
-
     return StockListing(
       symbol: values[0].trim(),
       name: values[1].trim(),
       exchange: values[2].trim(),
       assetType: values[3].trim().isEmpty ? null : values[3].trim(),
       ipoDate: _parseDate(values[4].trim()),
-      delistingDate: delistingDate,
+      delistingDate: _parseDate(values[5].trim()),
       status: values[6].trim().isEmpty ? null : values[6].trim(),
     );
   }
@@ -52,7 +47,8 @@ class StockListing {
 
   // CSV 직렬화 처리 전에 debugPrint 추가
   String toCsvRow() {
-    final csvRow = '$symbol,$name,$exchange,$assetType,${ipoDate?.toIso8601String() ?? ''},${delistingDate?.toIso8601String() ?? ''},$status';
+    final csvRow =
+        '$symbol,$name,$exchange,$assetType,${ipoDate?.toIso8601String() ?? ''},${delistingDate?.toIso8601String() ?? ''},$status';
 
     // 직렬화된 데이터 출력
     print('CSV 직렬화: $csvRow'); // 여기에 출력문 추가
@@ -60,17 +56,19 @@ class StockListing {
   }
 
   void debugPrint() {
-    print('StockListing { symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: $delistingDate, status: $status }');
+    print(
+      'StockListing { symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: $delistingDate, status: $status }',
+    );
     print('========================================');
   }
 
   // 유효하지 않은 객체를 처리하기 위한 private 생성자
   StockListing._invalid()
-      : symbol = null,
-        name = null,
-        exchange = null,
-        assetType = null,
-        ipoDate = null,
-        delistingDate = null,
-        status = null;
+    : symbol = null,
+      name = null,
+      exchange = null,
+      assetType = null,
+      ipoDate = null,
+      delistingDate = null,
+      status = null;
 }

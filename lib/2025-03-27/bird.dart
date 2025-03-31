@@ -34,9 +34,3 @@ class Bird {
   }
 
 }
-
-class Abc{
-
-}
-
-void main() async {}

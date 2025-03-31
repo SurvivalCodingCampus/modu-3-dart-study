@@ -6,9 +6,11 @@ abstract interface class StockDataSource {
 }
 
 class StockDataSourceImpl implements StockDataSource {
-  final String csvPath = 'lib/2025-03-31/data/listing_status.csv';
+  final String csvPath;
 
-  StockDataSourceImpl();
+  StockDataSourceImpl({
+    this.csvPath = 'lib/2025-03-31/data/listing_status.csv',
+  });
 
   @override
   Future<List<StockListing>> getStockListings() async {
@@ -17,7 +19,8 @@ class StockDataSourceImpl implements StockDataSource {
       final String csvString = await File(csvPath).readAsString();
 
       // 문자열을 "\n" 기준으로 나눠서 각 라인들을 분리합니다.
-      final List<String> lines = csvString.split("\n").skip(1).toList(); // 첫 번째 라인(헤더)은 건너뜁니다.
+      final List<String> lines =
+          csvString.split("\n").skip(1).toList(); // 첫 번째 라인(헤더)은 건너뜁니다.
 
       final List<StockListing> listings = <StockListing>[];
 
