@@ -10,5 +10,6 @@ void main() {
   test('users.json을 데이터소스 구현체를 통해 역직렬화 해야한다.', () async {
     List<User> users = await dataSource.getUsers(path);
     expect(users, isA<List<User>>());
+    expect(users.last.name, equals('Clementina DuBuque'));
   });
 }

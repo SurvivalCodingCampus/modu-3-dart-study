@@ -11,6 +11,7 @@ void main() {
     Todo todo = await dataSource.getTodo(path);
 
     expect(todo, isA<Todo>());
+    expect(todo.title, equals('delectus aut autem'));
   });
 
   test('todos.json을 데이터소스 구현체를 통해 역직렬화 해야한다.', () async {
@@ -18,5 +19,6 @@ void main() {
     List<Todo> todos = await dataSource.getTodos(path);
 
     expect(todos, isA<List<Todo>>());
+    expect(todos[1].title, equals('quis ut nam facilis et officia qui'));
   });
 }
