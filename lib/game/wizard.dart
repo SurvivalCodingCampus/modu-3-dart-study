@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/game/hero.dart';
+import 'hero.dart';
 
 class Wand {
   String name;

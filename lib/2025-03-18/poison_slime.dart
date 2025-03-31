@@ -1,17 +1,4 @@
-import 'package:modu_3_dart_study/game/hero.dart';
-
-class Slime {
-  final String suffix;
-  int hp = 50;
-
-  Slime(this.suffix);
-
-  void attack(Hero hero) {
-    print('슬라임 $suffix 이/가 공격했다.');
-    print('10의 데미지');
-    hero.hp -= 10;
-  }
-}
+import 'package:modu_3_dart_study/2025-03-18/slime.dart';
 
 class PoisonSlime extends Slime {
   PoisonSlime({required String suffix}) : super(suffix);
@@ -21,8 +8,8 @@ class PoisonSlime extends Slime {
   int get poisonCount => _poisonCount;
 
   @override
-  void attack(Hero hero) {
-    super.attack(hero);
+  void attack() {
+    super.attack(Hero hero);
     if (_poisonCount > 0) {
       print('추가로, 독 포자를 살포했다!');
       int doubleHp = (hero.hp * 0.2).toInt();

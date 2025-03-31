@@ -3,7 +3,6 @@ import 'exercise_3.dart';
 void main() {
   Computer computer = Computer('갠역시', 10000, 'black', 100, '삼성');
   computer.weight = 1;
-
 }
 
 class Computer extends TangibleAsset {
@@ -12,7 +11,7 @@ class Computer extends TangibleAsset {
   Computer(super.name, super.price, super.color, super.size, this.makeName);
 
   @override
-  set weight(double value){
+  set weight(double value) {
     _weight = value;
     print('$name의 무게는 $_weight 이다');
   }
@@ -26,13 +25,13 @@ class Computer extends TangibleAsset {
     super.learn();
     print('$name에서 배우다.');
   }
+
   @override
   void look() {
     // TODO: implement look
     super.look();
     print('$name의 상표는 $makeName이다');
   }
-
 }
 
 abstract class TangibleAsset extends Asset implements Thing {

@@ -1,11 +1,3 @@
-import 'package:modu_3_dart_study/game/hero.dart';
-
-void main() {
-  Wand wand = Wand(name: '지팡이', power: 99.9);
-  Wizard wizard = Wizard(name: '마법사', hp: 100);
-  wizard.grab(wand);
-}
-
 class Wand {
   String name;
   double power;
@@ -14,7 +6,7 @@ class Wand {
 }
 
 class Wizard {
-  int mp = 100;
+  final int mp = 100;
   String name;
   int hp;
   Wand? _wand;

@@ -1,3 +1,5 @@
+import 'package:modu_3_dart_study/game/slime.dart';
+
 class Sword {
   String name;
   int damage;
@@ -6,14 +8,32 @@ class Sword {
 }
 
 class Hero {
+  static int money = 100;
   String name;
-  int hp;
-  Sword? sword;
+  int _hp;
+  Sword? sword = null;
 
-  Hero({required this.name, required this.hp, this.sword});
+  Hero({required this.name,required int hp}) :
+      _hp = hp;
+  // Hero({required this.name, required this.hp, this.sword});
 
-  void attack() {
+  int get hp => _hp;
+
+  void bye() {
+    print('바이');
+  }
+
+  void _die() {
+    print('죽었다');
+  }
+
+  void attack(Slime slime) {
     print('$name is attacking');
+    print('$name이 $slime을 공격했다');
+    _hp -= 10;
+    if (_hp <= 0) {
+      _die();
+    }
   }
 
   void run() {

@@ -1,4 +1,4 @@
-abstract interface class Thing {
+abstract class Thing {
   double get weight;
 
   set weight(double value);

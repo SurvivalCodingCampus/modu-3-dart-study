@@ -1,6 +1,3 @@
-import 'package:modu_3_dart_study/game/hero.dart';
-import 'package:modu_3_dart_study/2025-03-18/wizard.dart';
-
 class GreatWizard extends Wizard {
   GreatWizard({required String name, required int hp, required Wand? wand})
     : super(name: name, hp: hp, wand: wand);

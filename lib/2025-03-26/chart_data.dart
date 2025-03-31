@@ -4,9 +4,9 @@ class CollectionCharDataList {
   CollectionCharDataList({required this.collectionCharDataList});
 
   CollectionCharDataList.fromJson(Map<String, dynamic> json)
-      : collectionCharDataList = [] {
+    : collectionCharDataList = [] {
     final rawList = json['collectionChartDataList'];
-    if(rawList is List){
+    if (rawList is List) {
       for (var item in rawList) {
         collectionCharDataList.add(CollectionData.fromJson(item));
       }
@@ -18,8 +18,7 @@ class CollectionCharDataList {
     for (var item in collectionCharDataList) {
       chartDataList.add(item.toJson());
     }
-    return {
-      'collectionCharDataList': chartDataList};
+    return {'collectionCharDataList': chartDataList};
   }
 }
 
@@ -33,8 +32,8 @@ class CollectionData {
   });
 
   CollectionData.fromJson(Map<String, dynamic> json)
-      : collectionName = json['collectionName'] ?? '',
-        collectionSalePrice = [] {
+    : collectionName = json['collectionName'] ?? '',
+      collectionSalePrice = [] {
     final rawPrices = json['collectionSalePrice'];
     if (rawPrices is List) {
       for (var priceJson in rawPrices) {
@@ -60,8 +59,8 @@ class CollectionSalePrice {
   CollectionSalePrice({required this.price, required this.cvtDatetime});
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json)
-      : price = json['price'] ?? 0,
-        cvtDatetime = DateTime.parse(json['cvtDatetime']);
+    : price = json['price'] ?? 0,
+      cvtDatetime = DateTime.parse(json['cvtDatetime']);
 
   Map<String, dynamic> toJson() {
     return {'price': price, 'cvtDatetime': cvtDatetime};

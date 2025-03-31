@@ -1,18 +1,19 @@
 class Person {
-  List<Map<String, dynamic>> students = [
-    {'name': '홍길동'},
-    {'name': '한석봉'},
-  ];
+  final List<Person> names = [];
+  String name;
 
-  void printStudent() {
-    for (var student in students) {
-      // print(student);
-      print('${student['name']}');
-    }
+  Person({required this.name});
+
+  void addList(Person person) {
+    names.add(person);
   }
 }
 
 void main() {
-  Person person = Person();
-  person.printStudent();
+  Person gilDong = Person(name: '홍길동');
+  Person seokBong = Person(name: '한석봉');
+
+  gilDong.addList(gilDong);
+  gilDong.addList(seokBong);
+
 }

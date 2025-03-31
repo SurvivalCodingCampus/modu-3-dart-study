@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/2025-03-17/wizard_2.dart';
+import 'package:modu_3_dart_study/2025-03-17/exercise_wizard.dart';
 import 'package:test/test.dart';
 
 void main() {

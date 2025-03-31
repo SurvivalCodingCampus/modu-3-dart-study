@@ -1,10 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-TangibleAsset <|-- Book
-TangibleAsset <|-- Computer
-
-abstract class TangibleAsset{
+abstract class TangibleAsset {
 String name
 int price
 String color
@@ -13,14 +10,14 @@ void look()
 void learn()
 }
 
-class Book {
+class Book extends TangibleAsset {
 
 String isbn
 void read()
 }
 
 
-class Computer {
+class Computer extends TangibleAsset {
 
 String makeName
 void calculation()
