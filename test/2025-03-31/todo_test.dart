@@ -25,7 +25,8 @@ void main() {
       expect(todos[0].id == 1, isTrue);
       expect(todos[0].title == 'delectus aut autem', isTrue);
       expect(todos[0].completed == false, isTrue);
-      print(todos.length);
+      // print(todos);
+      // print(todos.length);
     });
   });
 }
