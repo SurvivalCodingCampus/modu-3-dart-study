@@ -1,0 +1,40 @@
+@startuml
+
+interface CommentRepository {
+  +getComments(postId: int): Future<List<Comment>>
+}
+
+class CommentRepositoryImpl {
+  -_datasource: CommentDatasource
+  +getComments(postId: int): Future<List<Comment>>
+}
+
+interface CommentDatasource {
+  +fetchComments(): Future<List<Map<String, dynamic>>>
+}
+
+class MockCommentDatasourceImpl {
+  +fetchComments(): Future<List<Map<String, dynamic>>>
+}
+
+class CommentLocalDatasourceImpl {
+  +fetchComments(): Future<List<Map<String, dynamic>>>
+}
+
+class Comment {
+  +postId: int
+  +id: int
+  +name: String
+  +email: String
+  +body: String
+  +fromJson(json: Map): Comment
+  +toJson(): Map
+}
+
+CommentRepository <|.. CommentRepositoryImpl
+CommentRepositoryImpl --> CommentDatasource
+CommentDatasource <|.. MockCommentDatasourceImpl
+CommentDatasource <|.. CommentLocalDatasourceImpl
+CommentRepositoryImpl --> Comment : uses
+
+@enduml

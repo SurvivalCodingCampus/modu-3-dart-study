@@ -1,0 +1,41 @@
+@startuml
+
+interface TodoRepository {
+  +getTodos(): Future<List<Todo>>
+  +getCompletedTodos(): Future<List<Todo>>
+}
+
+class TodoRepositoryImpl {
+  -_datasource: TodoDatasource
+  +getTodos(): Future<List<Todo>>
+  +getCompletedTodos(): Future<List<Todo>>
+}
+
+interface TodoDatasource {
+  +fetchTodos(): Future<List<Map<String, dynamic>>>
+}
+
+class MockTodoDatasourceImpl {
+  +fetchTodos(): Future<List<Map<String, dynamic>>>
+}
+
+class TodoLocalDatasourceImpl {
+  +fetchTodos(): Future<List<Map<String, dynamic>>>
+}
+
+class Todo {
+  +int userId
+  +int id
+  +String title
+  +bool completed
+  +fromJson(Map): Todo
+  +toJson(): Map
+}
+
+TodoRepository <|.. TodoRepositoryImpl
+TodoRepositoryImpl --> TodoDatasource
+TodoDatasource <|.. MockTodoDatasourceImpl
+TodoDatasource <|.. TodoLocalDatasourceImpl
+TodoRepositoryImpl --> Todo : uses
+
+@enduml

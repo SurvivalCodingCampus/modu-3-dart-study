@@ -1,0 +1,38 @@
+@startuml
+
+interface AlbumRepository {
+  +getAlbums(limit: int): Future<List<Album>>
+}
+
+class AlbumRepositoryImpl {
+  -_datasource: AlbumDatasource
+  +getAlbums(limit: int): Future<List<Album>>
+}
+
+interface AlbumDatasource {
+  +fetchAlbums(): Future<List<Map<String, dynamic>>>
+}
+
+class MockAlbumDatasourceImpl {
+  +fetchAlbums(): Future<List<Map<String, dynamic>>>
+}
+
+class AlbumLocalDatasourceImpl {
+  +fetchAlbums(): Future<List<Map<String, dynamic>>>
+}
+
+class Album {
+  -userId: int
+  -id: int
+  -title: String
+  +fromJson(json: Map<String, dynamic>): Album
+  +toJson(): Map<String, dynamic>
+}
+
+AlbumRepository <|.. AlbumRepositoryImpl
+AlbumRepositoryImpl --> AlbumDatasource
+AlbumDatasource <|.. MockAlbumDatasourceImpl
+AlbumDatasource <|.. AlbumLocalDatasourceImpl
+AlbumRepositoryImpl --> Album : uses
+
+@enduml

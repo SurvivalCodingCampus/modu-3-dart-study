@@ -1,0 +1,41 @@
+@startuml
+title 📸 Photo 도메인 클래스 다이어그램
+
+interface PhotoRepository {
+  +getPhotos(albumId: int): Future<List<Photo>>
+}
+
+class PhotoRepositoryImpl {
+  -_datasource: PhotoDatasource
+  +getPhotos(albumId: int): Future<List<Photo>>
+}
+
+interface PhotoDatasource {
+  +fetchPhotos(): Future<List<Map<String, dynamic>>>
+}
+
+class MockPhotoDatasourceImpl {
+  +fetchPhotos(): Future<List<Map<String, dynamic>>>
+}
+
+class PhotoLocalDatasourceImpl {
+  +fetchPhotos(): Future<List<Map<String, dynamic>>>
+}
+
+class Photo {
+  +int albumId
+  +int id
+  +String title
+  +String url
+  +String thumbnailUrl
+  +fromJson(Map)
+  +toJson()
+}
+
+PhotoRepository <|.. PhotoRepositoryImpl
+PhotoRepositoryImpl --> PhotoDatasource
+PhotoDatasource <|.. MockPhotoDatasourceImpl
+PhotoDatasource <|.. PhotoLocalDatasourceImpl
+PhotoRepositoryImpl --> Photo : uses
+
+@enduml
