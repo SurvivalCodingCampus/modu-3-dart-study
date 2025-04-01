@@ -5,7 +5,7 @@ import '../../assignments/2025-04-01/model/comment.dart';
 import '../../assignments/2025-04-01/repository/comment_repository_impl.dart';
 
 void main() {
-  group('목데이터 테스트', () {
+  group('Comment 테스트', () {
     MockCommentDataSourceImpl mockCommentDataSourceImpl =
         MockCommentDataSourceImpl();
     CommentRepositoryImpl commentRepositoryImpl = CommentRepositoryImpl(
