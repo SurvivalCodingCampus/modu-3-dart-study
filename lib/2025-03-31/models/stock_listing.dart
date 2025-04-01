@@ -17,7 +17,6 @@ class StockListing {
     this.status,
   });
 
-  // 기존의 _invalid() 메서드는 그대로 두고, toCsvRow() 수정
   factory StockListing.fromCsv(String line) {
     final values = line.split(',');
 
@@ -45,7 +44,6 @@ class StockListing {
     }
   }
 
-  // CSV 직렬화 처리 전에 debugPrint 추가
   String toCsvRow() {
     final csvRow =
         '$symbol,$name,$exchange,$assetType,${ipoDate?.toIso8601String() ?? ''},${delistingDate?.toIso8601String() ?? ''},$status';

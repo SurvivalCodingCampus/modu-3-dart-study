@@ -18,15 +18,15 @@ class StockDataSourceImpl implements StockDataSource {
       // 파일을 읽어 문자열로 가져옵니다.
       final String csvString = await File(csvPath).readAsString();
 
-      // 문자열을 "\n" 기준으로 나눠서 각 라인들을 분리합니다.
+      // 문자열을 "\n" 기준으로 나눠서 각 라인 분리
       final List<String> lines =
-          csvString.split("\n").skip(1).toList(); // 첫 번째 라인(헤더)은 건너뜁니다.
+          csvString.split("\n").skip(1).toList(); // 첫 번째 라인(헤더)은 스킵
 
       final List<StockListing> listings = <StockListing>[];
 
       // 각 라인에 대해 처리합니다.
       for (final String line in lines) {
-        if (line.isEmpty) continue; // 빈 줄은 무시합니다.
+        if (line.isEmpty) continue; // 빈 줄은 무시
 
         try {
           final StockListing? stock = StockListing.fromCsv(line);
@@ -36,7 +36,7 @@ class StockDataSourceImpl implements StockDataSource {
             listings.add(stock); // stock이 null이 아니면 추가
           }
         } catch (_) {
-          continue; // 예외가 발생하면 해당 항목을 건너뜁니다.
+          continue; // 예외가 발생하면 스킵
         }
       }
 
