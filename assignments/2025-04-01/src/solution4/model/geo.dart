@@ -33,8 +33,8 @@ class Geo {
 
   Map<String, dynamic> toJson() {
     return {
-      "lat": lat,
-      "lng": lng
+      "lat": lat.toString(),
+      "lng": lng.toString()
     };
   }
 }
