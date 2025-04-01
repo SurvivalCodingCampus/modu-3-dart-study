@@ -1,4 +1,5 @@
 import 'package:modu_3_dart_study/2025-03-31/data_source/todo_data_source.dart';
+import 'package:modu_3_dart_study/2025-03-31/models/todo.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -7,7 +8,7 @@ void main() {
   const todoCompleted = false;
 
   group('TodoSingleDataSourceImpl - 과제 1', () {
-    final dataSource = TodoSingleDataSourceImpl();
+    final TodoSingleDataSource dataSource = TodoSingleDataSourceImpl();
 
     test('getTodo() 는 Todo 객체로 반환 되었는지', () async {
       final todo = await dataSource.getTodo();
@@ -16,6 +17,7 @@ void main() {
       expect(todo?.id, todoId);
       expect(todo?.title, todoTitle);
       expect(todo?.completed, todoCompleted);
+      expect(todo, isA<Todo>());
     });
   });
 }

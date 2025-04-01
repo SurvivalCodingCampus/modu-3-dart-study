@@ -20,7 +20,7 @@ class UserDataSourceImpl implements UserDataSource {
 
       return users;
     } catch (e) {
-      print('getUsers 실패: $e');
+      print('getUsers 실패: \$e');
       return [];
     }
   }
