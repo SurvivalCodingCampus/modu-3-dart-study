@@ -37,11 +37,19 @@ class Movie {
   Movie({required this.title, required this.director, required this.year});
 
   // 역직렬화
-  Movie.fromJson(Map<String, dynamic> json)
-    : title = json['title'],
-      director = json['director'],
-      year = json['year'];
+  // Movie.fromJson(Map<String, dynamic> json)
+  //   : title = json['title'],
+  //     director = json['director'],
+  //     year = json['year'];
+  factory Movie.fromJson(Map<String, dynamic> json) {
+    final String title = json['title'] ?? '';
 
+    return Movie(
+      title: json['title'] as String,
+      director: json['director'] as String,
+      year: json['year'] as int,
+    );
+  }
   // 직렬화
   Map<String, dynamic> toJson() {
     return {'title': title, 'director': director, 'year': year};
