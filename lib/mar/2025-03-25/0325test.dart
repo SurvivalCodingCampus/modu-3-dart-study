@@ -13,6 +13,11 @@ class Employee {
   Employee.fromJson(Map<String, dynamic> json)
     : name = json['name'],
       age = json['age'];
+
+  @override
+  String toString() {
+    return 'Employee{name: $name, age: $age}';
+  }
 }
 
 class Department {
@@ -28,6 +33,11 @@ class Department {
   Department.fromJson(Map<String, dynamic> json)
     : name = json['name'],
       leader = Employee.fromJson(json['leader']);
+
+  @override
+  String toString() {
+    return 'Department{name: $name, leader: $leader}';
+  }
 }
 
 void main() {
