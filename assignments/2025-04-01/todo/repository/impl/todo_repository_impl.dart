@@ -9,8 +9,6 @@ class TodoRepositoryImpl extends JsonRepository<Todo, bool, TodoDataSourceImpl>
 
   @override
   Future<List<Todo>> getItemsByCompleted(String fileName) async {
-    return (await getItems(
-      fileName,
-    )).where((element) => element.completed == true).toList();
+    return await query(fileName, (e) => e.completed == true);
   }
 }

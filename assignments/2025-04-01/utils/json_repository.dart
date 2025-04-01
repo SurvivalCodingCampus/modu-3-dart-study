@@ -32,4 +32,19 @@ abstract class JsonRepository<
 
     return listData.take(limit).toList();
   }
+
+  Future<List<T>> getItemsWithPaging(
+    String fileName, {
+    int page = 0,
+    int size = 10,
+  }) async {
+    List<T> listData = await getItems(fileName);
+    int start = page * size;
+    return listData.skip(start).take(size).toList();
+  }
+
+  Future<List<T>> query(String fileName, bool Function(T) predicate) async {
+    final items = await getItems(fileName);
+    return items.where(predicate).toList();
+  }
 }
