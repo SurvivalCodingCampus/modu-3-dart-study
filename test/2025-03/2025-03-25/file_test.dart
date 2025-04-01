@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-25/file.dart';
+import '../../../assignments/2025-03/2025-03-25/file.dart';
 
 void main() {
   group('file 테스트', () {

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-25/data.dart';
+import '../../../assignments/2025-03/2025-03-25/data.dart';
 
 void main() {
   group('JSON 테스트', () {

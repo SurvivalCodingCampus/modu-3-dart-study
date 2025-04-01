@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-26/trader.dart';
-import '../../assignments/2025-03-26/transaction.dart';
+import '../../../assignments/2025-03/2025-03-26/trader.dart';
+import '../../../assignments/2025-03/2025-03-26/transaction.dart';
 
 void main() {
   final transactions = [

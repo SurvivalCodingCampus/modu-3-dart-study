@@ -162,17 +162,18 @@ class StockDataSourceImpl implements StockDataSource {
 }
 
 void main() async {
+  print(''.split(','));
   //4
-//   File csv = File('assignments/2025-03-31/listing_status.csv');
-//   final lines = await csv.readAsLines();
-//   print(lines.sublist(0, 10));
-//   print(lines[0].split(','));
-//   print(lines[1].split(','));
+  //   File csv = File('assignments/2025-03-31/listing_status.csv');
+  //   final lines = await csv.readAsLines();
+  //   print(lines.sublist(0, 10));
+  //   print(lines[0].split(','));
+  //   print(lines[1].split(','));
 
-  String path = 'assignments/2025-03-31/listing_status.csv';
-  StockDataSourceImpl stockDataSourceImpl = StockDataSourceImpl(path: path);
-  List<StockListing> list = await stockDataSourceImpl.getStockListings();
-  print(list.sublist(0, 10));
+  //   String path = 'assignments/2025-03-31/listing_status.csv';
+  //   StockDataSourceImpl stockDataSourceImpl = StockDataSourceImpl(path: path);
+  //   List<StockListing> list = await stockDataSourceImpl.getStockListings();
+  //   print(list.sublist(0, 10));
 
   //3
   //   UserDataSourceImpl userDataSourceImpl = UserDataSourceImpl(

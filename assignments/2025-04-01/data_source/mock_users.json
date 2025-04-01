@@ -1,0 +1,25 @@
+[
+    {
+    "id": 1,
+    "name": "test name",
+    "username": "test username",
+    "email": "test email",
+    "address": {
+    "street": "test street",
+    "suite": "test suite",
+    "city": "test city",
+    "zipcode": "test zipcode",
+    "geo": {
+    "lat": "-1",
+    "lng": "1"
+    }
+    },
+    "phone": "test phone",
+    "website": "test website",
+    "company": {
+    "name": "test company name",
+    "catchPhrase": "test catchPhrase",
+    "bs": "test bs"
+    }
+    }
+]

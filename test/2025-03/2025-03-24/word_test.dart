@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-24/word.dart';
+import '../../../assignments/2025-03/2025-03-24/word.dart';
 
 void main() {
   group('Word 클래스', () {
