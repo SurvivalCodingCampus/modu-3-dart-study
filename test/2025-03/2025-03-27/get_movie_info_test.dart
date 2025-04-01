@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-27/get_movie_info.dart';
+import '../../../assignments/2025-03/2025-03-27/get_movie_info.dart';
 
 void main() {
   final String jsonString = '''{

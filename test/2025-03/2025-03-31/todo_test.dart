@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-31/todo.dart';
-import '../../assignments/2025-03-31/todo_data_source_impl.dart';
+import '../../../assignments/2025-03/2025-03-31/todo.dart';
+import '../../../assignments/2025-03/2025-03-31/todo_data_source_impl.dart';
 
 void main() {
   group('Todo 테스트', () {

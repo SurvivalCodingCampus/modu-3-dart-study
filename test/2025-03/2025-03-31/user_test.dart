@@ -1,9 +1,9 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-31/address.dart';
+import '../../../assignments/2025-03/2025-03-31/address.dart';
 
-import '../../assignments/2025-03-31/user.dart';
-import '../../assignments/2025-03-31/user_data_source_impl.dart';
+import '../../../assignments/2025-03/2025-03-31/user.dart';
+import '../../../assignments/2025-03/2025-03-31/user_data_source_impl.dart';
 
 void main() {
   group('User 테스트', () {
