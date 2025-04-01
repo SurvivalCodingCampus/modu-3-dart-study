@@ -1,8 +1,8 @@
 import '../../utils/json_repository.dart';
-import '../data_source/impl/album_data_source_impl.dart';
+import '../data_source/album_data_source.dart';
 import '../model/album.dart';
 
-abstract interface class AlbumRepository
-    extends JsonRepository<Album, int, AlbumDataSourceImpl> {
+abstract class AlbumRepository
+    extends JsonRepository<Album, int, AlbumDataSource> {
   AlbumRepository(super.dataSource, super.entity);
 }

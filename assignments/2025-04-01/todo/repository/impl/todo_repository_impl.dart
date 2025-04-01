@@ -1,10 +1,7 @@
-import '../../../utils/json_repository.dart';
-import '../../data_source/impl/todo_data_source_impl.dart';
 import '../../model/todo.dart';
 import '../todo_repository.dart';
 
-class TodoRepositoryImpl extends JsonRepository<Todo, bool, TodoDataSourceImpl>
-    implements TodoRepository {
+class TodoRepositoryImpl extends TodoRepository {
   TodoRepositoryImpl(super.dataSource, super.entity);
 
   @override

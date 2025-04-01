@@ -1,8 +1,8 @@
 import '../../utils/json_repository.dart';
-import '../data_source/impl/comment_data_source_impl.dart';
+import '../data_source/comment_data_source.dart';
 import '../model/comment.dart';
 
-abstract interface class CommentRepository
-    extends JsonRepository<Comment, int, CommentDataSourceImpl> {
+abstract class CommentRepository
+    extends JsonRepository<Comment, int, CommentDataSource> {
   CommentRepository(super.dataSource, super.entity);
 }

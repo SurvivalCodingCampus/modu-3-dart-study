@@ -1,12 +1,9 @@
 import 'package:collection/collection.dart';
 
-import '../../../utils/json_repository.dart';
-import '../../data_source/impl/user_data_source_impl.dart';
 import '../../model/user.dart';
 import '../user_repository.dart';
 
-class UserRepositoryImpl extends JsonRepository<User, int, UserDataSourceImpl>
-    implements UserRepository {
+class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl(super.dataSource, super.entity);
 
   @override

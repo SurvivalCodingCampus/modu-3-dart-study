@@ -1,3 +1,3 @@
 import '../../utils/json_data_source.dart';
 
-abstract interface class PhotoDataSource extends JsonDataSource {}
+abstract class PhotoDataSource extends JsonDataSource {}
