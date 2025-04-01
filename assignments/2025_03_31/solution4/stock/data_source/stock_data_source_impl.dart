@@ -12,11 +12,14 @@ class StockDataSourceImpl implements StockDataSource {
     List<String> stockList = csvLines.skip(1).toList();
 
     List<StockListing> stocks =
-        stockList.map((line) {
-          List<String> values = line.split(',');
+        stockList
+            .map((line) {
+              List<String> values = line.split(',');
 
-          return StockListing.fromCsv(List.from(values));
-        }).toList();
+              return StockListing.fromCsv(List.from(values));
+            })
+            .where((e) => e.name?.isNotEmpty ?? false)
+            .toList();
 
     return stocks;
   }
