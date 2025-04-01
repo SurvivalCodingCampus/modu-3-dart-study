@@ -1,15 +1,40 @@
 class Geo {
-  double lat;
-  double lng;
+  final double lat;
+  final double lng;
 
-  Geo({required this.lat, required this.lng});
+  const Geo({required this.lat, required this.lng});
 
-  factory Geo.fromJson(Map<String, dynamic> json) {
-    return Geo(lat: double.parse(json['lat']), lng: double.parse(json['lng']));
+  Geo copyWith({double? lat, double? lng}) {
+    return Geo(lat: lat ?? this.lat, lng: lng ?? this.lng);
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Geo &&
+          runtimeType == other.runtimeType &&
+          lat == other.lat &&
+          lng == other.lng;
+
+  @override
+  int get hashCode => lat.hashCode ^ lng.hashCode;
 
   @override
   String toString() {
     return 'Geo{lat: $lat, lng: $lng}';
+  }
+
+  factory Geo.fromJson(Map<String, dynamic> json) {
+    return Geo(
+        lat: double.tryParse(json['lat'] as String) ?? 0,
+        lng: double.tryParse(json['lng'] as String) ?? 0
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "lat": lat,
+      "lng": lng
+    };
   }
 }
