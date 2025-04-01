@@ -10,11 +10,8 @@ class CommentDataSource implements DataSource<Comment> {
     String relativePath = '/lib/data/comments.json',
   }) async {
     File file = File(Directory.current.path + relativePath);
-    List<dynamic> json = jsonDecode(await file.readAsString());
+    List<Map<String, dynamic>> json = jsonDecode(await file.readAsString());
 
-    return json
-        .cast<Map<String, dynamic>>()
-        .map((e) => Comment.fromJson(e))
-        .toList();
+    return json.map((e) => Comment.fromJson(e)).toList();
   }
 }

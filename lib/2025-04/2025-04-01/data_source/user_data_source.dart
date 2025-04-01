@@ -10,11 +10,8 @@ class UserDataSource implements DataSource<User> {
     String relativePath = '/lib/data/users.json',
   }) async {
     File file = File(Directory.current.path + relativePath);
-    List<dynamic> json = jsonDecode(await file.readAsString());
+    List<Map<String, dynamic>> json = jsonDecode(await file.readAsString());
 
-    return json
-        .cast<Map<String, dynamic>>()
-        .map((e) => User.fromJson(e))
-        .toList();
+    return json.map((e) => User.fromJson(e)).toList();
   }
 }
