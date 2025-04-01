@@ -6,5 +6,5 @@ abstract class TodoRepository
     extends JsonRepository<Todo, bool, TodoDataSource> {
   TodoRepository(super.dataSource, super.entity);
 
-  Future<List<Todo>> getItemsByCompleted(String fileFame);
+  Future<List<Todo>> getItemsByCompleted(String fileName);
 }
