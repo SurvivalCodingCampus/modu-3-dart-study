@@ -1,11 +1,13 @@
 void main() {
-  //myFunction();
+  myFunction();
   try {
     final numString = '10.5';
     int num = int.parse(numString);
     print(num);
   } catch (e) {
-    throw e;
+    throw ('오류오류');
+  } finally {
+    print('무조건 출력');
   }
 }
 
@@ -23,14 +25,3 @@ class MyException implements Exception {
     return 'MyException{message: $message}';
   }
 }
-
-// void main(){
-//   int zero =0;
-//   try {
-//     final numString = '10.5';
-//     int num = int.parse(numString);
-//     print(num);
-//   } catch (e) {
-//     print(zero);
-//   }
-// }
