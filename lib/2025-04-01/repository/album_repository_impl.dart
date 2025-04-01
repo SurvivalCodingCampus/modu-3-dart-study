@@ -12,7 +12,12 @@ class AlbumRepositoryImpl implements AlbumRepository {
     final raw = await _datasource.fetchAlbums();
     final albums = raw.map((e) => Album.fromJson(e)).toList();
     if (limit != null && limit < albums.length) {
-      return albums.take(limit).toList();
+      final limited = <Album>[];
+      for (int i = 0; i < limit; i++) {
+        limited.add(albums[i]);
+      }
+      return limited;
+      // return albums.take(limit).toList(); // for문 안돌려도 되는 쉬운 방법!!!
     }
     return albums;
   }
