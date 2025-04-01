@@ -4,92 +4,100 @@
 
 ## Android Studio
 
-
-
-### 코드 편집 및 탐색 관련 단축키
-
-| 기능 설명                              | 단축키                     |
-| -------------------------------------- | -------------------------- |
-| 줄 번호로 바로 이동                    | `Cmd + L`                  |
-| 중괄호 전체 선택                       | `Option + 방향키`          |
-| 첫 커서로 이동                         | `Fn + Cmd + Shift + ←`     |
-| 인덴트 자동 정렬                       | `Option + Cmd + L`         |
-| 다중 커서 추가                         | `Shift + Option + 클릭`    |
-| 위로 블록 전체 지정, 괄호 전체 블록    | `Option + ↑`               |
-| 앞에 문자 무시하고 개행                | `Shift + Enter`            |
-| import 도움 단축                       | `Alt + Enter`              |
-| 해당 줄 그대로 복사                    | `Cmd + D`                  |
-| 코드 펼치기, 접기                      | `Cmd + .`                  |
-| 폰트 사이즈 조절                       | `Control + Shift + , or .` |
-| 여러줄 caret 방향키로 추가             | `option 두번 후 방향키`    |
-| 여러줄 블록 지정한 끝줄에 caret 추가   | Option + shift + g         |
-| 여러줄 블록 지정한 시작에 caret 추가   | Cmd + shift + 8            |
-| Show Context Action                    | `Option + Enter`           |
-| 최근 파일 목록 보이기                  | cmd + e                    |
-| 블록 지정한 코드 똑같은 다음 코드 잡기 | control + g                |
+# Android Studio 단축키 정리
 
 
 
-### 프로젝트 관리 및 도구 관련 단축키
+## 파일 및 프로젝트 탐색
 
-| 기능 설명                             | 단축키               |
-| ------------------------------------- | -------------------- |
-| Project 창 열기                       | `Cmd + 1`            |
-| Project 창에서 코드 파일 열기         | `Enter`              |
-| Project 창 숨기기/보이기              | `Cmd + Shift + F12`  |
-| 파일, 디렉토리 영역으로 이동          | `Cmd + 1`            |
-| 최근에 사용한 프로젝트 오픈           | `Cmd + E`            |
-| Evaluate Expression 열기(디버깅 관련) | `Option + F8`        |
-| 커밋                                  | `Cmd + K`            |
-| 제너레이터                            | `Cmd + N`            |
-| Evaluate                              | option + F8          |
-| 최근 파일 목록 보이기                 | cmd + e              |
-| Run 콘솔 올리기 내리기                | Cmd + 4              |
-| Structure 확인                        | Cmd + 7 or cmd + f12 |
-| 상속 계층                             | control + h          |
+| 기능                                    | 단축키 (Mac)        |
+| --------------------------------------- | ------------------- |
+| Project 창 열기/파일 디렉토리 영역 이동 | `Cmd + 1`           |
+| Project 창에서 코드 파일 열기           | `Enter`             |
+| Project 창 숨기기/보이기                | `Cmd + Shift + F12` |
+| 최근 사용 파일 목록 보기                | `Cmd + E`           |
+| 현재 파일 위치 보기                     | `Command + F1`      |
+| 폴더 모두 펼치기                        | `Command + Right`   |
+| 변경된 파일 확인 (Version Control 창)   | `Cmd + 9`           |
+| Run 콘솔 토글                           | `Cmd + 4`           |
+| 전체 파일에서 찾기                      | Cmd + shift + f     |
 
 
 
-### Debug
+## 코드 편집 기본
 
-| 기능 설명                     | 단축키             |
-| ----------------------------- | ------------------ |
-| Debug Mode Run                | `Option + D`       |
-| Debug Resume                  | `Option + Cmd + R` |
-| Debug Step info(들어가보기)   | F7                 |
-| Debug Step over(한 칸씩 이동) | F8                 |
-| Debug Step out(나오기)        | shift + F8         |
-| Stop                          | Command + F2       |
-| Evaluate Expression           | option + F8        |
-
-
-
-## 에뮬레이터 관련
-
-| 기능                             | 단축키 (Windows/Linux)     | 단축키 (Mac)               |
-| -------------------------------- | -------------------------- | -------------------------- |
-| 에뮬레이터 창 크기 확대          | `Ctrl` + `↑`               | `Cmd` + `↑`                |
-| 에뮬레이터 창 크기 축소          | `Ctrl` + `↓`               | `Cmd` + `↓`                |
-| 에뮬레이터 창 크기 조절 (드래그) | **마우스로 모서리 드래그** | **마우스로 모서리 드래그** |
-| 에뮬레이터 창 원래 크기로 복귀   | `Ctrl` + `0`               | `Cmd` + `0`                |
+| 기능                       | 단축키 (Mac)               |
+| -------------------------- | -------------------------- |
+| 줄 번호로 바로 이동        | `Cmd + L`                  |
+| 인덴트 자동 정렬           | `Option + Cmd + L`         |
+| 해당 줄 그대로 복사        | `Cmd + D`                  |
+| 코드 펼치기, 접기          | `Cmd + .`                  |
+| 폰트 사이즈 조절           | `Control + Shift + , or .` |
+| 앞에 문자 무시하고 개행    | `Shift + Enter`            |
+| import 도움/Context Action | `Option + Enter`           |
 
 
 
-## git - Android Studio에서 Git 관련 단축키 (Mac)
+## 커서 및 선택
+
+| 기능                   | 단축키 (Mac)                    |
+| ---------------------- | ------------------------------- |
+| 중괄호/블록 전체 선택  | `Option + 방향키`, `Option + ↑` |
+| 첫 커서로 이동         | `Fn + Cmd + Shift + ←`          |
+| 다중 커서 추가         | `Shift + Option + 클릭`         |
+| 여러줄 caret 추가      | `Option 두번 후 방향키`         |
+| 블록 끝줄에 caret 추가 | `Option + Shift + G`            |
+| 블록 시작에 caret 추가 | `Cmd + Shift + 8`               |
+| 동일 코드 다음 선택    | `Control + G`                   |
 
 
 
-| **기능**                                   | **단축키**                                   |
-| ------------------------------------------ | -------------------------------------------- |
-| 변경된 파일 확인 (Version Control 창 열기) | Cmd + 9                                      |
-| 변경 사항 커밋                             | Cmd + K                                      |
-| Push (Remote 저장소로 업로드)              | Cmd + Shift + K                              |
-| Pull (Remote에서 최신 코드 가져오기)       | Cmd + T                                      |
-| 파일 히스토리 보기                         | Cmd + Shift + C                              |
-| 특정 파일의 Git 변경 내역 확인             | Cmd + Shift + A → “Show History” 검색        |
-| 변경 사항 취소 (Revert)                    | Cmd + Alt + Z                                |
-| Git 브랜치 변경                            | Cmd + Shift + A → “Branches” 검색            |
-| Merge/Rebase 실행                          | Cmd + Shift + A → “Merge” 또는 “Rebase” 검색 |
+## 코드 분석 및 생성
+
+| 기능                  | 단축키 (Mac)               |
+| --------------------- | -------------------------- |
+| 코드 생성(제너레이터) | `Cmd + N`                  |
+| Structure 확인        | `Cmd + 7` 또는 `Cmd + F12` |
+| 상속 계층 보기        | `Control + H`              |
+| Parameter 정보 보기   | `Command + P`              |
+
+
+
+## 디버깅
+
+| 기능                   | 단축키 (Mac)       |
+| ---------------------- | ------------------ |
+| Debug Mode Run         | `Option + D`       |
+| Debug Resume           | `Option + Cmd + R` |
+| Step Into (들어가기)   | `F7`               |
+| Step Over (한 칸 이동) | `F8`               |
+| Step Out (나오기)      | `Shift + F8`       |
+| 실행 중지              | `Command + F2`     |
+| Evaluate Expression    | `Option + F8`      |
+
+
+
+## Git 관련
+
+| 기능                    | 단축키 (Mac)                       |
+| ----------------------- | ---------------------------------- |
+| 변경 사항 커밋          | `Cmd + K`                          |
+| Push                    | `Cmd + Shift + K`                  |
+| Pull                    | `Cmd + T`                          |
+| 파일 히스토리 보기      | `Cmd + Shift + C`                  |
+| 변경 사항 취소 (Revert) | `Cmd + Alt + Z`                    |
+| Git 브랜치/Merge/Rebase | `Cmd + Shift + A` → 해당 기능 검색 |
+
+
+
+## 에뮬레이터 제어
+
+| 기능                    | 단축키 (Mac)           |
+| ----------------------- | ---------------------- |
+| 에뮬레이터 창 크기 확대 | `Cmd + ↑`              |
+| 에뮬레이터 창 크기 축소 | `Cmd + ↓`              |
+| 원래 크기로 복귀        | `Cmd + 0`              |
+| 창 크기 수동 조절       | 마우스로 모서리 드래그 |
 
 
 

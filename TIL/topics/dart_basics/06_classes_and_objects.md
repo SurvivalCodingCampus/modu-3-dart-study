@@ -737,6 +737,21 @@ class Logger {
 
 
 
+#### factory를 활용한 fromJson
+
+```dart
+// factory constructor를 활용
+factory Movie.fromJson(Map<String, dynamic> json) {
+  return Movie(
+    title: json['title'] as String,
+    director: json['director'] as String,
+    year: json['year'] as int,
+  );
+}
+```
+
+
+
 ### 8. 초기화 리스트(Initializer List)
 
 생성자 본문이 실행되기 전에 인스턴스 변수를 초기화할 수 있습니다.

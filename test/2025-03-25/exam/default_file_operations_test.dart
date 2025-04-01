@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:modu_3_dart_study/2025-03-25/exam/default_file_operations.dart';
@@ -14,26 +13,36 @@ void main() {
 
   final FileOperations fileOperations = DefaultFileOperations();
 
-  setUp(() {
+  // 한번
+  setUpAll(() async {
     // 테스트용 파일 작성
-    file.writeAsStringSync(content);
+    await file.writeAsString(content);
   });
 
-  test('존재하지 않는 파일 복사 시 예외 발생', () {
-    fileOperations.copy(sourcePath, targetPath);
+  // 매번
+  setUp(() async {});
+
+  test('존재하지 않는 파일 복사 시 예외 발생', () async {
+    await fileOperations.copy(sourcePath, targetPath);
 
     final File targetFile = File(targetPath);
-    expect(targetFile.readAsStringSync() == content, isTrue);
+    expect(await targetFile.readAsString() == content, isTrue);
   });
 
-  test('존재하지 않는 파일 복사 시 예외 발생', () {
-    expect(() => fileOperations.copy('123123', targetPath), throwsException);
+  test('파일 복사 성공', () async {
+    expect(
+      () async => await fileOperations.copy('123123', targetPath),
+      throwsException,
+    );
   });
 
   // 테스트 끝나고 수행되어야 하는 코드
-  tearDown(() {
+  tearDown(() async {});
+
+  // 끝날 때 한 번
+  tearDownAll(() async {
     // 테스트용 파일 삭제
-    file.deleteSync();
-    File(targetPath).deleteSync();
+    await file.delete();
+    await File(targetPath).delete();
   });
 }
