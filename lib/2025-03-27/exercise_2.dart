@@ -1,6 +1,6 @@
 import 'dart:async';
 
-abstract class Bird {
+abstract interface class Bird {
   Future<void> makeSound();
 }
 
