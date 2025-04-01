@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-01/data_source/local/user_local_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/data_source/mock/mock_user_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/model/user.dart';
 import 'package:modu_3_dart_study/2025-04-01/repository/interface/user_repository.dart';
@@ -10,7 +11,9 @@ void main() {
   const int topCount = 10;
 
   setUp(() {
+    // mock 데이터 사용 시
     repository = UserRepositoryImpl(MockUserDatasourceImpl());
+    // 실제 로컬 파일 사용 시
     // repository = UserRepositoryImpl(UserLocalDatasourceImpl());
   });
 

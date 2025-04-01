@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-01/data_source/local/todo_local_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/data_source/mock/mock_todo_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/model/todo.dart';
 import 'package:modu_3_dart_study/2025-04-01/repository/interface/todo_repository.dart';
@@ -8,7 +9,9 @@ void main() {
   late TodoRepository repository;
 
   setUp(() {
+    // mock 데이터 사용 시
     repository = TodoRepositoryImpl(MockTodoDatasourceImpl());
+    // 실제 로컬 파일 사용 시
     // repository = TodoRepositoryImpl(TodoLocalDatasourceImpl());
   });
 

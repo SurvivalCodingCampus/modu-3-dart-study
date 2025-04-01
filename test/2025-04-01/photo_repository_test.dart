@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-01/data_source/local/photo_local_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/data_source/mock/mock_photo_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/model/photo.dart';
 import 'package:modu_3_dart_study/2025-04-01/repository/interface/photo_repository.dart';
@@ -11,7 +12,9 @@ void main() {
   const int albumIdWithNoPhotos = 999;
 
   setUp(() {
+    // mock 데이터 사용 시
     repository = PhotoRepositoryImpl(MockPhotoDatasourceImpl());
+    // 실제 로컬 파일 사용 시
     // repository = PhotoRepositoryImpl(PhotoLocalDatasourceImpl());
   });
 

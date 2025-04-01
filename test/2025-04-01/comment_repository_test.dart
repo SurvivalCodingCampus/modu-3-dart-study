@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-01/data_source/local/comment_local_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/data_source/mock/mock_comment_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/model/comment.dart';
 import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository_impl.dart';
@@ -12,6 +13,7 @@ void main() {
   const int postIdWithNoComments = 999;
 
   setUp(() {
+    // mock 데이터 사용 시
     repository = CommentRepositoryImpl(MockCommentDatasourceImpl());
     // 실제 로컬 파일 사용 시
     // repository = CommentRepositoryImpl(CommentLocalDatasourceImpl());

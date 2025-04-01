@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-01/data_source/local/album_local_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/data_source/mock/mock_album_datasource_impl.dart';
 import 'package:modu_3_dart_study/2025-04-01/model/album.dart';
 import 'package:modu_3_dart_study/2025-04-01/repository/album_repository_impl.dart';
@@ -10,7 +11,9 @@ void main() {
   const int limitCount = 5;
 
   setUp(() {
+    // mock 데이터 사용 시
     repository = AlbumRepositoryImpl(MockAlbumDatasourceImpl());
+    // 실제 로컬 파일 사용 시
     // repository = AlbumRepositoryImpl(AlbumLocalDatasourceImpl());
   });
 
