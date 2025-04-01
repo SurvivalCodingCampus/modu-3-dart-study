@@ -22,7 +22,7 @@ class TodoDataSourceImpl implements TodoDataSource {
           'assignments/2025-03-31/src/solution/data_source/todo/todos.json',
         ).readAsStringSync();
 
-    List<dynamic> result = await jsonDecode(todosJson);
+    List<dynamic> result = jsonDecode(todosJson);
 
     result = result.map((e) => e as Map<String, dynamic>).toList();
 

@@ -17,7 +17,7 @@ void main() {
     test('역직렬화 테스트', () async {
       final jsonString =
           await File(
-            'assignments/2025-03-31/src/solution/todo.json',
+            'assignments/2025-03-31/src/solution/data_source/todo/todo.json',
           ).readAsString();
 
       final result = Todo.fromJson(jsonDecode(jsonString));
@@ -39,14 +39,14 @@ void main() {
       expect(result.completed, todo.completed);
     });
 
-    test(TodoDataSourceImpl().getTodos(), () async {
+    test('TodoDataSourceImpl().getTodos() 테스트', () async {
       final todos = await TodoDataSourceImpl().getTodos();
 
       final result = todos.map((e) => e.toJson()).toList();
 
       final todosJson =
           File(
-            'assignments/2025-03-31/src/solution/todos.json',
+            'assignments/2025-03-31/src/solution/data_source/todo/todos.json',
           ).readAsStringSync();
 
       expect(result, jsonDecode(todosJson));

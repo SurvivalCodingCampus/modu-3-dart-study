@@ -15,7 +15,6 @@ class Company {
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{name: $name, catchPhrase: $catchPhrase, bs: $bs}';
   }
 }

@@ -13,7 +13,6 @@ class Geo {
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{lat: ${lat.toString()}, lng: ${lng.toString()}';
   }
 }

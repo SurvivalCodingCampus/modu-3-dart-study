@@ -40,15 +40,14 @@ class Stock {
       name: result.length > 1 ? result[1] : null,
       exchange: result.length > 2 ? result[2] : null,
       assetType: result.length > 3 ? result[3] : null,
-      delistingDate: result.length > 4 ? result[4] : null,
-      ipoDate: result.length > 5 ? result[5] : null,
+      ipoDate: result.length > 4 ? result[4] : null,
+      delistingDate: result.length > 5 ? result[5] : null,
       status: result.length > 6 ? result[6] : null,
     );
   }
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: $delistingDate, status: $status}';
   }
 }

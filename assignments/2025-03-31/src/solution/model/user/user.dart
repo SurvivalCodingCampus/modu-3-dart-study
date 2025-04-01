@@ -38,7 +38,6 @@ class User {
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{id: $id, name: $name, username: $userName, email: $email, address: $address, phone: $phone, website: $webSite, company: $company}';
   }
 }

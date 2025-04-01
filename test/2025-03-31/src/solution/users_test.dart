@@ -88,12 +88,6 @@ void main() {
         }
       ''';
 
-      final company = Company(
-        name: 'Romaguera-Crona',
-        catchPhrase: 'Multi-layered client-server neural-net',
-        bs: 'harness real-time e-markets',
-      );
-
       final json = jsonDecode(jsonString);
 
       final test = Company.fromJson(json);

@@ -28,7 +28,6 @@ class Todo {
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{userId: $userId, id: $id, title: $title, completed: $completed}';
   }
 }

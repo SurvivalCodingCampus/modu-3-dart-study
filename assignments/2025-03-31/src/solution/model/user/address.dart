@@ -20,14 +20,13 @@ class Address {
       street: json['street'] ?? '',
       suite: json['suite'] ?? '',
       city: json['city'] ?? '',
-      zipCode: json['zipcode'],
+      zipCode: json['zipcode'] ?? '',
       geo: Geo.fromJson(json['geo']),
     );
   }
 
   @override
   String toString() {
-    // TODO: implement toString
     return '{street: $street, suite: $suite, city: $city, geo: $geo}';
   }
 }
