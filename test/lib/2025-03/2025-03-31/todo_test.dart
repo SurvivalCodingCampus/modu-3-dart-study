@@ -7,7 +7,7 @@ void main() {
   final TodoDataSource dataSource = TodoDataSourceImpl();
 
   test('todo.json을 데이터소스 구현체를 통해 역직렬화 해야한다.', () async {
-    const String path = '/lib/2025-03/2025-03-31/data/todo.json';
+    const String path = '/lib/data/todo.json';
     Todo todo = await dataSource.getTodo(path);
 
     expect(todo, isA<Todo>());
@@ -15,7 +15,7 @@ void main() {
   });
 
   test('todos.json을 데이터소스 구현체를 통해 역직렬화 해야한다.', () async {
-    const String path = '/lib/2025-03/2025-03-31/data/todos.json';
+    const String path = '/lib/data/todos.json';
     List<Todo> todos = await dataSource.getTodos(path);
 
     expect(todos, isA<List<Todo>>());
