@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:async';
 
-
-
 class Movie {
   final String title;
   final String director;
@@ -20,7 +18,6 @@ class Movie {
 }
 
 Future<Movie> getMovieInfo() async {
-
   final String jsonString = '''{
     "title": "Star Wars",
     "director": "George Lucas",
@@ -28,7 +25,6 @@ Future<Movie> getMovieInfo() async {
   }''';
 
   await Future.delayed(Duration(seconds: 2));
-
 
   final Map<String, dynamic> jsonData = jsonDecode(jsonString);
 

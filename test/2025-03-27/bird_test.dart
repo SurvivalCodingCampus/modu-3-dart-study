@@ -17,9 +17,21 @@ void main() {
 
   // 테스트 전에 인스턴스 초기화
   setUpAll(() {
-    bird1 = Bird(sound: '꾸우', interval: testIntervalBird1, targetTime: testTargetTime);
-    bird2 = Bird(sound: '까악', interval: testIntervalBird2, targetTime: testTargetTime);
-    bird3 = Bird(sound: '짹짹', interval: testIntervalBird3, targetTime: testTargetTime);
+    bird1 = Bird(
+      sound: '꾸우',
+      interval: testIntervalBird1,
+      targetTime: testTargetTime,
+    );
+    bird2 = Bird(
+      sound: '까악',
+      interval: testIntervalBird2,
+      targetTime: testTargetTime,
+    );
+    bird3 = Bird(
+      sound: '짹짹',
+      interval: testIntervalBird3,
+      targetTime: testTargetTime,
+    );
   });
 
   group('새 울음소리 기본 4회 반복', () {

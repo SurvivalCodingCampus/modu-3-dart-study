@@ -1,0 +1,47 @@
+@startuml
+
+interface StockDataSource {
+  +Future<List<StockListing>> getStockListings()
+}
+
+class StockDataSourceImpl {
+  -String csvPath
+  +Future<List<StockListing>> getStockListings()
+}
+
+StockDataSourceImpl -|> StockDataSource
+
+interface TodoSingleDataSource {
+  +Future<Todo?> getTodo()
+}
+
+class TodoSingleDataSourceImpl {
+  -String jsonPath
+  +Future<Todo?> getTodo()
+}
+
+TodoSingleDataSourceImpl -|> TodoSingleDataSource
+
+interface TodoListDataSource {
+  +Future<List<Todo>> getTodos()
+}
+
+class TodoListDataSourceImpl {
+  -String jsonPath
+  +Future<List<Todo>> getTodos()
+}
+
+TodoListDataSourceImpl -|> TodoListDataSource
+
+interface UserDataSource {
+  +Future<List<User>> getUsers()
+}
+
+class UserDataSourceImpl {
+  -String jsonPath
+  +Future<List<User>> getUsers()
+}
+
+UserDataSourceImpl -|> UserDataSource
+
+@enduml

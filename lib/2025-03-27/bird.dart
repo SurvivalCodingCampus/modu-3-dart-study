@@ -2,12 +2,11 @@ import 'dart:async';
 
 class Bird {
   final String sound;
-  final int interval;  // 소리의 간격 (초 단위)
-  final int targetTime;  // 종료 시간 (초 단위)
+  final int interval; // 소리의 간격 (초 단위)
+  final int targetTime; // 종료 시간 (초 단위)
   final int _defaultCount = 4; //기본용
 
   Bird({required this.sound, required this.interval, required this.targetTime});
-
 
   Future<void> basicTime() async {
     int count = 0;
@@ -33,8 +32,5 @@ class Bird {
     }
     print('[$sound새님이 나가셨습니다. / 채팅 기록 : $count 회]');
   }
-}
-
-void main() async {
 
 }

@@ -1,0 +1,10 @@
+@startuml
+class Bird {
+    - sound: String
+    - interval: int
+    - targetTime: int
+    - _defaultCount: int
+    + basicTime(): Future<void>
+    + repeatUntilTime(): Future<void>
+}
+@enduml
