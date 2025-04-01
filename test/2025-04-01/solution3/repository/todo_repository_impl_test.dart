@@ -28,6 +28,6 @@ void main() {
     final TodoRepository todoRepository = TodoRepositoryImpl(MockTodoDataSourceImpl());
     final todoList = await todoRepository.getCompletedTodos();
 
-    expect(todoList.any((e) => e.completed != false), isFalse);
+    expect(todoList.any((e) => e.completed == false), isFalse, reason: 'completed가 false인게 있으면 안됨.');
   });
 }
