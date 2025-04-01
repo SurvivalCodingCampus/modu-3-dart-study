@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 import '../../assignments/2025-04-01/data_source/comment_data_source.dart';
 import '../../assignments/2025-04-01/data_source/comment_data_source_impl.dart';
-import '../../assignments/2025-04-01/mock/mock.dart';
+import '../../assignments/2025-04-01/mock/mock_comment.dart';
 import '../../assignments/2025-04-01/model/comment.dart';
 import '../../assignments/2025-04-01/repository/comment_repository_impl.dart';
 
