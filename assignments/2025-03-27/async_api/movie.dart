@@ -14,7 +14,7 @@ Future<Movie> getMovieInfo() async {
   await Future.delayed(Duration(seconds: 2));
 
   final String jsonString = '''{
-    "title": "Star Ward",
+    "title": "Star Wars",
     "director": "George Lucas",
     "year": 1977
   }''';
@@ -23,8 +23,8 @@ Future<Movie> getMovieInfo() async {
   final Map<String, dynamic> movieInfoMap = jsonDecode(jsonString);
 
   final Movie movie = Movie(
-    title: movieInfoMap['title'],
-    director: movieInfoMap['director'],
+    title: movieInfoMap['title'] as String,
+    director: movieInfoMap['director'] as String,
     year: movieInfoMap['year'].toString(),
   );
 
