@@ -1,5 +1,5 @@
 import '../../model/comment.dart';
 
-abstract class CommentRepository {
+abstract interface class CommentRepository {
   Future<List<Comment>> getComments(int postId);
 }
