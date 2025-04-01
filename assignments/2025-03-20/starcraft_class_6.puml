@@ -14,6 +14,12 @@ abstract class Terran extends StarCraft implements Attackable {
 
 abstract class TerranUnit extends Terran {
 
+
+
+
+
+
+
     + String name
     + int healthPoint
 }

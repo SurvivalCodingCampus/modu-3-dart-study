@@ -3,7 +3,7 @@ void main() {
   int num;
 
   try {
-    num = int.parse(numString);
+    num = int.parse(numString); // tryparse
   } catch (e) {
     num = 0;
   }
