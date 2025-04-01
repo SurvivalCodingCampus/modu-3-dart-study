@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/2025-04/data_source.dart';
 
 class MockCommentDataSource implements DataSource<Comment> {
   @override
-  Future<List<Comment>> load() async {
+  Future<List<Comment>> load({String? relativePath}) async {
     return [
       Comment(
         postId: 1,
