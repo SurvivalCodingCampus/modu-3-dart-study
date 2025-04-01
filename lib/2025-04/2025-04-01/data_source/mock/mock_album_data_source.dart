@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/2025-04/data_source.dart';
 
 class MockAlbumDataSource implements DataSource<Album> {
   @override
-  Future<List<Album>> load({String? relativePath = ''}) async {
+  Future<List<Album>> load({String? relativePath}) async {
     return [
       Album(id: 1, title: 'A', userId: 1),
       Album(id: 2, title: 'A', userId: 1),

@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/2025-04/data_source.dart';
 
 class MockPhotoDataSource implements DataSource<Photo> {
   @override
-  Future<List<Photo>> load({String? relativePath = ''}) async {
+  Future<List<Photo>> load({String? relativePath}) async {
     return [
       Photo(
         id: 1,
