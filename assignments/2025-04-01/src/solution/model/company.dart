@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Company {
   final String name;
   final String catchPhrase;
@@ -33,4 +34,12 @@ class Company {
 
   @override
   int get hashCode => name.hashCode ^ catchPhrase.hashCode ^ bs.hashCode;
+
+  Company copyWith({String? name, String? catchPhrase, String? bs}) {
+    return Company(
+      name: name ?? this.name,
+      catchPhrase: catchPhrase ?? this.catchPhrase,
+      bs: bs ?? this.bs,
+    );
+  }
 }

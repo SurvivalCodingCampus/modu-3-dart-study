@@ -4,6 +4,10 @@ class Geo {
 
   const Geo({required this.lat, required this.lng});
 
+  Geo copyWith({double? lat, double? lng}) {
+    return Geo(lat: lat ?? this.lat, lng: lng ?? this.lng);
+  }
+
   Map<String, dynamic> toJson() {
     return {'lat': lat.toString(), 'lng': lng.toString()};
   }

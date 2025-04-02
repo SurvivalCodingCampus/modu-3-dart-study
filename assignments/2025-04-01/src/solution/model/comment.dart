@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Comment {
   final int postId;
   final int id;
@@ -58,4 +59,20 @@ class Comment {
       name.hashCode ^
       email.hashCode ^
       body.hashCode;
+
+  Comment copyWith({
+    int? postId,
+    int? id,
+    String? name,
+    String? email,
+    String? body,
+  }) {
+    return Comment(
+      postId: postId ?? this.postId,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      body: body ?? this.body,
+    );
+  }
 }

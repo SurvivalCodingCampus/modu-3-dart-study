@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Album {
   final int userId;
   final int id;
@@ -34,4 +35,12 @@ class Album {
   @override
   // TODO: implement hashCode
   int get hashCode => userId.hashCode ^ id.hashCode ^ title.hashCode;
+
+  Album copyWith({int? userId, int? id, String? title}) {
+    return Album(
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+    );
+  }
 }

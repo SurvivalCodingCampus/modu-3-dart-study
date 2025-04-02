@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'geo.dart';
 
 class Address {
@@ -58,4 +59,20 @@ class Address {
       city.hashCode ^
       zipCode.hashCode ^
       geo.hashCode;
+
+  Address copyWith({
+    String? street,
+    String? suite,
+    String? city,
+    String? zipCode,
+    Geo? geo,
+  }) {
+    return Address(
+      street: street ?? this.street,
+      suite: suite ?? this.suite,
+      city: city ?? this.city,
+      zipCode: zipCode ?? this.zipCode,
+      geo: geo ?? this.geo,
+    );
+  }
 }
