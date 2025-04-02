@@ -1,7 +1,7 @@
 // 가짜 데이터 소스 (테스트용)
 import 'data_source.dart';
 
-class MockPhotoDataSourceImple implements DataSource {
+class MockPhotoDataSourceImpl implements DataSource {
   @override
   Future<List<dynamic>> getList(filePath) async {
     await Future.delayed(Duration(seconds: 1)); // 네트워크 요청처럼 딜레이 추가
