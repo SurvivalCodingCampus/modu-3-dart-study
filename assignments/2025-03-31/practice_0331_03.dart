@@ -1,4 +1,3 @@
-// https://maybe-developer.tistory.com/64 참고
 import 'dart:convert';
 import 'dart:io';
 
@@ -99,7 +98,7 @@ class Geo {
 
 void main() async {
   final dataSource = UserData(
-    '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/userdata_source.json',
+    '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/user_data_source.json',
   );
   final user = await dataSource.getUsers();
   print(user);

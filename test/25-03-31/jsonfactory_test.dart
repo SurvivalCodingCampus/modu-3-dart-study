@@ -18,7 +18,7 @@ void main() {
     });
     test('getTodos', () async {
       final dataSource2 = TodoDataSourceImpl(
-        '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/tododata_source.json',
+        '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/todo_data_source.json',
       );
       final todo2 = await dataSource2.getTodos();
       expect(todo2, isA<List<Todo>>());

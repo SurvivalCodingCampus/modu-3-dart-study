@@ -17,6 +17,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<Todo> getTodo() async {
     final file = File(filePath);
     final jsonString = await file.readAsString();
+    //  List 가 아닐 때
     final Map<String, dynamic> jsonData = jsonDecode(jsonString);
     return Todo.fromJson(jsonData);
   }
@@ -25,6 +26,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<List<Todo>> getTodos() async {
     final file = File(filePath);
     final jsonString = await file.readAsString();
+    //  List 일 때
     final List<dynamic> jsonData = jsonDecode(jsonString);
     return jsonData.map((e) => Todo.fromJson(e)).toList();
   }
@@ -65,7 +67,7 @@ void main() async {
   print(todo);
 
   final dataSource2 = TodoDataSourceImpl(
-    '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/tododata_source.json',
+    '/Users/hemu/dev/DartProject/modu-3-dart-study/lib/data_source/todo_data_source.json',
   );
   final todo2 = await dataSource2.getTodos();
   print(todo2.length);
