@@ -40,6 +40,18 @@ class StockListing {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'symbol': symbol,
+      'name': name,
+      'exchange': exchange,
+      'assetsType': assetsType,
+      'ipoDate': ipoDate,
+      'delistingDate': delistingDate,
+      'status': status,
+    };
+  }
+
   @override
   String toString() {
     return 'StockListing(symbol: $symbol, name: $name, exchange: $exchange, assetsType: $assetsType, '
