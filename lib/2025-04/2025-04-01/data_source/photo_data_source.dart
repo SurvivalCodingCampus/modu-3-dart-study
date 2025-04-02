@@ -10,8 +10,11 @@ class PhotoDataSource implements DataSource<Photo> {
     String relativePath = '/lib/data/photos.json',
   }) async {
     File file = File(Directory.current.path + relativePath);
-    List<Map<String, dynamic>> json = jsonDecode(await file.readAsString());
+    List<dynamic> json = jsonDecode(await file.readAsString());
 
-    return json.map((e) => Photo.fromJson(e)).toList();
+    return json
+        .cast<Map<String, dynamic>>()
+        .map((e) => Photo.fromJson(e))
+        .toList();
   }
 }

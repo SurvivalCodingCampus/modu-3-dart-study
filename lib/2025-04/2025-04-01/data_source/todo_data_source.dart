@@ -10,8 +10,11 @@ class TodoDataSource implements DataSource<Todo> {
     String relativePath = '/lib/data/todos.json',
   }) async {
     File file = File(Directory.current.path + relativePath);
-    List<Map<String, dynamic>> json = jsonDecode(await file.readAsString());
+    List<dynamic> json = jsonDecode(await file.readAsString());
 
-    return json.map((e) => Todo.fromJson(e)).toList();
+    return json
+        .cast<Map<String, dynamic>>()
+        .map((e) => Todo.fromJson(e))
+        .toList();
   }
 }
