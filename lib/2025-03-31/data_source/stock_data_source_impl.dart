@@ -18,6 +18,10 @@ class StockDataSourceImpl implements StockDataSource{
       }
     }
     return list;
+    // return rows
+    //     .map((e) => StockListing.fromCsv(e))
+    //     .where((e) => e.name?.isNotEmpty ?? false)
+    //     .toList();
   }
 }
 
