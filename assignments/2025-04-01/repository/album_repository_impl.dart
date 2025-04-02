@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:collection/collection.dart';
 
 import '../data_source/data_source.dart';
-import '../data_source/mock_album_data_source_impl.dart';
+import '../data_source/mock/mock_album_data_source_impl.dart';
 import '../model/album.dart';
 import 'album_repository.dart';
 import 'user_repository.dart';

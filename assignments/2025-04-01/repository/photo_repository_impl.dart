@@ -2,7 +2,7 @@ import 'dart:io';
 
 import '../data_source/data_source.dart';
 import '../data_source/date_source_impl.dart';
-import '../data_source/mock_photo_data_source_impl.dart';
+import '../data_source/mock/mock_photo_data_source_impl.dart';
 import '../model/photo.dart';
 import 'photo_repository.dart';
 
