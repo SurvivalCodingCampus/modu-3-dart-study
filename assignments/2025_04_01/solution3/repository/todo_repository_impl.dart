@@ -15,7 +15,8 @@ class TodoRepositoryImpl implements TodoRepository {
 
   @override
   Future<List<Todo>> getCompletedTodos() async {
-    final List jsonList = await _todoDataSource.getTodos();
+    final List<Map<String, dynamic>> jsonList =
+        await _todoDataSource.getTodos();
 
     return jsonList
         .map((e) => Todo.fromJson(e))

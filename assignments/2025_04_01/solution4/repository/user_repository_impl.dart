@@ -18,7 +18,7 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<List<User>> getUsersTop10ByUserName() async {
-    final users = await _userDataSource.getUsers();
+    final List<Map<String, dynamic>> users = await _userDataSource.getUsers();
 
     return users
         .map((e) => User.fromJson(e))

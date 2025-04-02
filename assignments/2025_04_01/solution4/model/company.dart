@@ -35,7 +35,11 @@ class Company {
     return 'name : $name, catchPhrase : $catchPhrase , bs : $bs';
   }
 
-  Company copyWith() {
-    return Company(name: name, catchPhrase: catchPhrase, bs: bs);
+  Company copyWith({String? name, String? catchPhrase, String? bs}) {
+    return Company(
+      name: name ?? this.name,
+      catchPhrase: catchPhrase ?? this.catchPhrase,
+      bs: bs ?? this.bs,
+    );
   }
 }

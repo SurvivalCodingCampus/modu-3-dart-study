@@ -4,9 +4,7 @@ import 'dart:io';
 import 'user_data_source.dart';
 
 class UserDataSourceImpl implements UserDataSource {
-  final jsonFile = File(
-    'C:\\Users\\Ujun\\modu-3-dart-study\\assignments\\2025_04_01\\solution4\\user.json',
-  );
+  final jsonFile = File('assets/json/2025_04_01/user.json');
 
   @override
   Future<List<Map<String, dynamic>>> getUsers() async {

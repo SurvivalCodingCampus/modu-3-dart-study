@@ -4,9 +4,7 @@ import 'dart:io';
 import 'photo_data_source.dart';
 
 class PhotoDataSourceImpl implements PhotoDataSource {
-  final jsonFile = File(
-    'C:\\Users\\Ujun\\modu-3-dart-study\\assignments\\2025_04_01\\solution2\\photo.json',
-  );
+  final jsonFile = File('assets/json/2025_04_01/photo.json');
   @override
   Future<List<Map<String, dynamic>>> getPhotos() async {
     final jsonString = await jsonFile.readAsString();

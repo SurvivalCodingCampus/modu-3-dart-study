@@ -59,13 +59,19 @@ class Address {
     return 'street : $street, suite : $suite, city : $city, zipcode : $zipcode, geo : $geo';
   }
 
-  Address copyWith() {
+  Address copyWith({
+    String? street,
+    String? suite,
+    String? city,
+    String? zipcode,
+    Geo? geo,
+  }) {
     return Address(
-      street: street,
-      suite: suite,
-      city: city,
-      zipcode: zipcode,
-      geo: geo,
+      street: street ?? this.street,
+      suite: suite ?? this.suite,
+      city: city ?? this.city,
+      zipcode: zipcode ?? this.zipcode,
+      geo: geo ?? this.geo,
     );
   }
 }

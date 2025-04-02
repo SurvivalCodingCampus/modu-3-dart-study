@@ -22,13 +22,14 @@ class CommentRepositoryImpl implements CommentRepository {
 
   @override
   Future<Comment> getComment(int id) async {
-    final List jsonList = await _commentDataSource.getComments();
+    final List<Map<String, dynamic>> jsonList =
+        await _commentDataSource.getComments();
 
     final List<Comment> commentList =
         jsonList.map((e) => Comment.fromJson(e)).toList();
 
-    final commentMap = commentList.singleWhere((map) => map.id == id);
+    final comment = commentList.singleWhere((map) => map.id == id);
 
-    return commentMap;
+    return comment;
   }
 }

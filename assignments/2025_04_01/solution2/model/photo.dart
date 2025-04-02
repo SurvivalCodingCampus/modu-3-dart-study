@@ -58,13 +58,19 @@ class Photo {
     return 'Photo(albumId : $albumId, id : $id, title : $title, url : $url, thumbnailUrl : $thumbnailUrl)\n';
   }
 
-  Photo copyWith() {
+  Photo copyWith({
+    int? albumId,
+    int? id,
+    String? title,
+    String? url,
+    String? thumbnailUrl,
+  }) {
     return Photo(
-      albumId: albumId,
-      id: id,
-      title: title,
-      url: url,
-      thumbnailUrl: thumbnailUrl,
+      albumId: albumId ?? this.albumId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      url: url ?? this.url,
+      thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
     );
   }
 }
