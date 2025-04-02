@@ -30,7 +30,11 @@ class Album {
     return 'Album(userId : $userId, id : $id, title : $title)\n';
   }
 
-  Album copyWith() {
-    return Album(userId: userId, id: id, title: title);
+  Album copyWith({int? userId, int? id, String? title}) {
+    return Album(
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+    );
   }
 }

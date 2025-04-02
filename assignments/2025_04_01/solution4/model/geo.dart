@@ -27,7 +27,7 @@ class Geo {
     return 'lat : $lat, lng : $lng';
   }
 
-  Geo copyWith() {
-    return Geo(lat: lat, lng: lng);
+  Geo copyWith({double? lat, double? lng}) {
+    return Geo(lat: lat ?? this.lat, lng: lng ?? this.lng);
   }
 }

@@ -4,9 +4,7 @@ import 'dart:io';
 import 'comment_data_source.dart';
 
 class CommentDataSourceImpl implements CommentDataSource {
-  final jsonFile = File(
-    'C:\\Users\\Ujun\\modu-3-dart-study\\assignments\\2025_04_01\\solution1\\comment.json',
-  );
+  final jsonFile = File('assets/json/2025_04_01/comment.json');
   @override
   Future<List<Map<String, dynamic>>> getComments() async {
     final jsonString = await jsonFile.readAsString();

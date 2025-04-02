@@ -58,13 +58,19 @@ class Comment {
     return 'Comment(postId : $postId, id : $id, name : $name, email : $email, body : $body)\n';
   }
 
-  Comment copyWith() {
+  Comment copyWith({
+    int? postId,
+    int? id,
+    String? name,
+    String? email,
+    String? body,
+  }) {
     return Comment(
-      postId: postId,
-      id: id,
-      name: name,
-      email: email,
-      body: body,
+      postId: postId ?? this.postId,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      body: body ?? this.body,
     );
   }
 }

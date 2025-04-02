@@ -9,7 +9,8 @@ class AlbumRepositoryImpl implements AlbumRepository {
 
   @override
   Future<List<Album>> getAlbums({int? limit}) async {
-    final albums = await _albumDataSource.getAlbums();
+    final List<Map<String, dynamic>> albums =
+        await _albumDataSource.getAlbums();
 
     final albumsList = albums
         .map((e) => Album.fromJson(e))

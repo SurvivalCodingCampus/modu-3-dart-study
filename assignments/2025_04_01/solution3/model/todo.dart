@@ -44,7 +44,12 @@ class Todo {
     return 'Todo(userId : $userId, id : $id, title : $title, completed : $completed)\n';
   }
 
-  Todo copyWith() {
-    return Todo(userId: userId, id: id, title: title, completed: completed);
+  Todo copyWith({int? userId, int? id, String? title, bool? completed}) {
+    return Todo(
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      completed: completed ?? this.completed,
+    );
   }
 }
