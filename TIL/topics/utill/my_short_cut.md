@@ -21,6 +21,7 @@
 | 변경된 파일 확인 (Version Control 창)   | `Cmd + 9`           |
 | Run 콘솔 토글                           | `Cmd + 4`           |
 | 전체 파일에서 찾기                      | Cmd + shift + f     |
+| 현재 파일 내 바꾸기                     | Cmd + R             |
 
 
 

@@ -224,6 +224,19 @@ final allEven = numbers.every((e) => e % 2 == 0); // true
 
 
 
+### take(n)
+
+```dart
+void main() {
+  List<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  // 앞에서 3개의 원소 가져오기
+  var firstThree = numbers.take(3);
+  
+  print(firstThree.toList()); // [1, 2, 3]
+}
+```
+
 
 
 
