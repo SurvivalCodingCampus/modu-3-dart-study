@@ -11,11 +11,20 @@ void main() {
   const title = 'delectus aut autem';
   const completed = false;
 
+  final Map<String, dynamic> expected = {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false,
+  };
+
   test('todo.json 확인', () async {
     final dataSource = TodoDataSourceImpl();
     final todo = await dataSource.getTodo();
-    
+
     expect(todo, isA<Todo>());
+    //json형태로 바뀌었는지 확인하는 테스트
+    expect(todo.toJson(), expected);
     expect(todo.userId, equals(userId));
     expect(todo.id, equals(id));
     expect(todo.title, equals(title));
