@@ -43,7 +43,7 @@ class TodoRepositoryImpl implements TodoRepository {
 }
 
 void main() async {
-  final mockTodosDataSource = MockTodoDataSourceImple();
+  final mockTodosDataSource = MockTodoDataSourceImpl();
   final todoRepository = TodoRepositoryImpl(mockTodosDataSource);
 
   List<Todo> todos = await todoRepository.getTodos();

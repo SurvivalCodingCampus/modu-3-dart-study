@@ -4,7 +4,7 @@ import '../../assignments/2025-04-01/model/todo.dart';
 import '../../assignments/2025-04-01/repository/todo_repository_impl.dart';
 
 void main() {
-  final mockTodoDataSource = MockTodoDataSourceImple();
+  final mockTodoDataSource = MockTodoDataSourceImpl();
   group('예제3) todos', () {
     test('todo 목록 가져오기', () async {
       final todoRepository = TodoRepositoryImpl(mockTodoDataSource);

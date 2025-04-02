@@ -4,7 +4,7 @@ import '../../assignments/2025-04-01/model/user.dart';
 import '../../assignments/2025-04-01/repository/user_repository_impl.dart';
 
 void main() {
-  final mockUserDataSource = MockUserDataSourceImple();
+  final mockUserDataSource = MockUserDataSourceImpl();
   group('예제4) users', () {
     test('users 목록 가져오기', () async {
       final userRepository = UserRepositoryImpl(mockUserDataSource);

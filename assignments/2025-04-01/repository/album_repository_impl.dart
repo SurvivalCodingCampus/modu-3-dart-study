@@ -31,7 +31,7 @@ class AlbumRepositoryImpl implements AlbumRepository {
 }
 
 void main() async {
-  final mockAlbumDataSource = MockAlbumDataSourceImple();
+  final mockAlbumDataSource = MockAlbumDataSourceImpl();
   final userRepository = AlbumRepositoryImpl(mockAlbumDataSource);
 
   List<Album> albums = await userRepository.getAlbums();

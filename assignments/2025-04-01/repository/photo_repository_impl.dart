@@ -29,7 +29,7 @@ class PhotoRepositoryImpl implements PhotoRepository {
 }
 
 void main() async {
-  final mockPhotoDataSource = MockPhotoDataSourceImple();
+  final mockPhotoDataSource = MockPhotoDataSourceImpl();
   final dataSource = DataSourceImpl();
   final photoRepository = PhotoRepositoryImpl(mockPhotoDataSource);
 

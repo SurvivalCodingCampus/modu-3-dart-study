@@ -29,7 +29,7 @@ class CommentRepositoryImpl implements CommentRepository {
 }
 
 void main() async {
-  final mockCommentDataSource = MockCommentDataSourceImple();
+  final mockCommentDataSource = MockCommentDataSourceImpl();
   final commentDataSource = DataSourceImpl();
   final commentRepository = CommentRepositoryImpl(commentDataSource);
 

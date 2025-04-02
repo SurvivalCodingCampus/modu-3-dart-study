@@ -4,7 +4,7 @@ import '../../assignments/2025-04-01/model/album.dart';
 import '../../assignments/2025-04-01/repository/album_repository_impl.dart';
 
 void main() {
-  final mockAlbumDataSource = MockAlbumDataSourceImple();
+  final mockAlbumDataSource = MockAlbumDataSourceImpl();
   group('예제5) albums', () {
     test('전체목록 가져오기', () async {
       final albumRepository = AlbumRepositoryImpl(mockAlbumDataSource);

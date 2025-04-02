@@ -43,7 +43,7 @@ class UserRepositoryImpl implements UserRepository {
 }
 
 void main() async {
-  final mockUserDataSource = MockUserDataSourceImple();
+  final mockUserDataSource = MockUserDataSourceImpl();
   final userRepository = UserRepositoryImpl(mockUserDataSource);
 
   List<User> users = await userRepository.getUsers();
@@ -51,7 +51,7 @@ void main() async {
   List<User> uersTop10ByUserName =
       await userRepository.getUsersTop10ByUserName();
 
-  for (int i = 0; i < users.length; i++) {
+  for (int i = 0; i < uersTop10ByUserName.length; i++) {
     print(uersTop10ByUserName[i].username);
   }
   // print(uersTop10ByUserName);

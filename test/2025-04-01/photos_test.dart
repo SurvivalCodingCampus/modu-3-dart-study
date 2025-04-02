@@ -8,7 +8,7 @@ import '../../assignments/2025-04-01/repository/comment_repository_impl.dart';
 import '../../assignments/2025-04-01/repository/photo_repository_impl.dart';
 
 void main() {
-  final mockPhotoDataSource = MockPhotoDataSourceImple();
+  final mockPhotoDataSource = MockPhotoDataSourceImpl();
   group('예제2) photos', () {
     test('mock 테스트', () async {
       final photoRepository = PhotoRepositoryImpl(mockPhotoDataSource);
