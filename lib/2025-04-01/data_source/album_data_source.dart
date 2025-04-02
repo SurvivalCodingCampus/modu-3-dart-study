@@ -1,0 +1,3 @@
+abstract class AlbumDataSource {
+  Future<List<Map<String, dynamic>>> getAllAlbums();
+}
