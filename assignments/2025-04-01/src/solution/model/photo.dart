@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Photo {
   final int albumId;
   final int id;
@@ -60,5 +61,21 @@ class Photo {
   @override
   String toString() {
     return 'Photo{albumId: $albumId, id: $id, title: $title, url: $url, thumbnailUrl: $thumbnailUrl}';
+  }
+
+  Photo copyWith({
+    int? albumId,
+    int? id,
+    String? title,
+    String? url,
+    String? thumbnailUrl,
+  }) {
+    return Photo(
+      albumId: albumId ?? this.albumId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      url: url ?? this.url,
+      thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
+    );
   }
 }
