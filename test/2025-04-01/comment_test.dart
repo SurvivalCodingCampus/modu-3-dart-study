@@ -6,7 +6,7 @@ import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository.dart'
 import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository_impl.dart';
 import 'package:test/test.dart';
 
-/*
+
 void main() async {
   final String filePath =
       'C:/dev/DartProjects/modu-3-dart-study/test/2025-04-01/';
@@ -18,8 +18,8 @@ void main() async {
     print(comment);
   }
 }
-*/
 
+/*
 void main() async {
   group('[ Comment Model Class ] - ', () {
     test('fromJson() 를 통해 comment 객체가 생성 되어야 한다.', () {
@@ -72,3 +72,4 @@ void main() async {
     });
   });
 }
+*/
