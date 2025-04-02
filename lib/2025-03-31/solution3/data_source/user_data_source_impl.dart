@@ -9,9 +9,9 @@ class UserDataSourceImpl implements UserDataSource {
   Future<List<User>> getUsers() async {
     List<User> userList = [];
     String userJsonString =
-        File(
+        await File(
           "lib/2025-03-31/solution3/data_source/users.json",
-        ).readAsStringSync();
+        ).readAsString();
 
     List userListDecode = jsonDecode(userJsonString);
 

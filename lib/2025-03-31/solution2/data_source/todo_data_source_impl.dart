@@ -9,9 +9,9 @@ class TodoDataSourceImpl implements TodoDataSource {
   @override
   Future<Todo> getTodo() async {
     String todoJsonText =
-        File(
+        await File(
           'lib/2025-03-31/solution1/data_source/todo.json',
-        ).readAsStringSync();
+        ).readAsString();
     Map<String, dynamic> todoJson = jsonDecode(todoJsonText);
     return Todo.fromJson(todoJson);
   }
@@ -21,9 +21,9 @@ class TodoDataSourceImpl implements TodoDataSource {
     List<Todo> todoList = [];
 
     String todoListJsonText =
-        File(
+        await File( 
           'lib/2025-03-31/solution2/data_source/todos.json',
-        ).readAsStringSync();
+        ).readAsString();
 
     List<dynamic> todoListConvert = jsonDecode(todoListJsonText);
 
