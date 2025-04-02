@@ -11,7 +11,10 @@ class TodoLocalDatasourceImpl implements TodoDatasource {
   Future<List<Map<String, dynamic>>> fetchTodos() async {
     final file = File(filePath);
     final jsonStr = await file.readAsString();
-    final List<dynamic> decoded = json.decode(jsonStr);
-    return decoded.cast<Map<String, dynamic>>();
+    final decoded = json.decode(jsonStr);
+
+    return (decoded as List)
+        .map((e) => Map<String, dynamic>.from(e))
+        .toList();
   }
 }

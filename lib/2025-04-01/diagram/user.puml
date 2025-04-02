@@ -1,0 +1,41 @@
+@startuml
+
+interface UserRepository {
+  +getUsers(): Future<List<User>>
+  +getUsersTop10ByUserName(): Future<List<User>>
+}
+
+class UserRepositoryImpl {
+  -_datasource: UserDatasource
+  +getUsers(): Future<List<User>>
+  +getUsersTop10ByUserName(): Future<List<User>>
+}
+
+interface UserDatasource {
+  +fetchUsers(): Future<List<Map<String, dynamic>>>
+}
+
+class MockUserDatasourceImpl {
+  +fetchUsers(): Future<List<Map<String, dynamic>>>
+}
+
+class UserLocalDatasourceImpl {
+  +fetchUsers(): Future<List<Map<String, dynamic>>>
+}
+
+class User {
+  +int id
+  +String name
+  +String username
+  +String email
+  +fromJson(Map): User
+  +toJson(): Map
+}
+
+UserRepository <|.. UserRepositoryImpl
+UserRepositoryImpl --> UserDatasource
+UserDatasource <|.. MockUserDatasourceImpl
+UserDatasource <|.. UserLocalDatasourceImpl
+UserRepositoryImpl --> User : uses
+
+@enduml
