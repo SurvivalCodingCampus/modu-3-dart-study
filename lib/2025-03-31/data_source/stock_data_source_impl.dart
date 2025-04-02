@@ -6,7 +6,7 @@ import 'stock_data_source.dart';
 class StockDataSourceImpl implements StockDataSource {
   @override
   Future<List<StockListing>> getStockListings() async {
-    final file = File('lib/2025-03-31/data/listing_status.csv');
+    final file = File('lib/2025-03-31/data_source/listing_status.csv');
     final lines = await file.readAsLines();
 
     final dataLines = lines.skip(1);

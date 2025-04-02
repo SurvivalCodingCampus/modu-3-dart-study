@@ -8,7 +8,7 @@
 // void main() {
 //   print('${DateTime.now().toString().substring(0, 19)}: 시작');
 //
-//   fetchData('A', 2).then((data) => print('결과 A: $data'));
+//   fetchData('A', 2).then((data_source) => print('결과 A: $data_source'));
 //   print('${DateTime.now().toString().substring(0, 19)}: 모든 작업이 시작됨');
 // }
 
@@ -18,8 +18,8 @@
 // }
 //
 // void main() async {
-//   String data = await fetchData();
-//   print(data);
+//   String data_source = await fetchData();
+//   print(data_source);
 // }
 
 Future<int> getInt1() async {

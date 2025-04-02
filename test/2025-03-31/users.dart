@@ -6,7 +6,7 @@ import 'package:modu_3_dart_study/2025-03-31/model/user.dart';
 
 void main() {
   test('3. getUsers', () async {
-    final file = File('lib/2025-03-31/data/get_users.json');
+    final file = File('lib/2025-03-31/data_source/get_users.json');
     final jsonUser = await file.readAsString();
 
     final userString = TodoDataSourceImpl(

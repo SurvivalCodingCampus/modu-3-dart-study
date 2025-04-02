@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('1. getTodo', () async {
-    final file = File('lib/2025-03-31/data/todo.json');
+    final file = File('lib/2025-03-31/data_source/todo.json');
     final jsonString = await file.readAsString();
 
     final dataString = TodoDataSourceImpl(
