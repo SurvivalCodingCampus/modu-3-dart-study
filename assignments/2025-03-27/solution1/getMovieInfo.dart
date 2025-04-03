@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:modu_3_dart_study/2025-03-27/solution1/Movie.dart';
 

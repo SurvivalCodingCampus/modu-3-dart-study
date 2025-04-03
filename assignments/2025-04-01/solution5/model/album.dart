@@ -20,7 +20,7 @@ class Album {
   }
 
   Map<String, dynamic> toMap() {
-    return {'userId': this.userId, 'id': this.id, 'title': this.title};
+    return {'userId': userId, 'id': id, 'title': title};
   }
 
   factory Album.fromMap(Map<String, dynamic> map) {

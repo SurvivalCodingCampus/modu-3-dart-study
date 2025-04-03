@@ -7,7 +7,7 @@ class ChatData {
   @override
   String toString() {
     // TODO: implement toString
-    return 'ChatData{name : ${this.name.toString()}, salePrice : ${this.salePrice}, ';
+    return 'ChatData{name : ${name.toString()}, salePrice : $salePrice, ';
   }
 
   Map<String, dynamic> toJson() {

@@ -9,18 +9,18 @@ class Book {
   @override
   String toString() {
     // TODO: implement toString
-    return 'Book{title : ${this.title}, comment : ${this.comment}, '
-        'publishDate : ${this.publishDate}}';
+    return 'Book{title : $title, comment : $comment, '
+        'publishDate : $publishDate}';
   }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is Book &&
-          this.title == other.title &&
-          this.publishDate.year == other.publishDate.year &&
-          this.publishDate.month == other.publishDate.month &&
-          this.publishDate.day == other.publishDate.day;
+          title == other.title &&
+          publishDate.year == other.publishDate.year &&
+          publishDate.month == other.publishDate.month &&
+          publishDate.day == other.publishDate.day;
 
   @override
   int get hashCode => title.hashCode ^ publishDate.hashCode ^ comment.hashCode;

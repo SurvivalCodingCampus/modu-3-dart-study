@@ -44,5 +44,5 @@ void main() {
 
   final List dataList = jsonData["collectionChartDataList"];
 
-  dataList.forEach((e) {});
+  for (var e in dataList) {}
 }
