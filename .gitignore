@@ -171,3 +171,6 @@ fabric.properties
 
 # FVM Version Cache
 .fvm/
+
+# generator file
+.g.dart

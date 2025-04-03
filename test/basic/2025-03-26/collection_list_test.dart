@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-26/collection_list.dart';
+import '../../../lib/assignments/basic/2025-03-26/collection_list.dart';
 
 void main() {
   

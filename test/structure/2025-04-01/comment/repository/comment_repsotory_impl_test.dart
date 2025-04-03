@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
-import '../../../../../assignments/structure/2025-04-01/comment/data_source/local/comment_data_source_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/comment/repository/comment_repository.dart';
-import '../../../../../assignments/structure/2025-04-01/comment/repository/comment_repository_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/comment/repository/mock/mock_comment_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/comment/data_source/local/comment_data_source_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/comment/repository/comment_repository.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/comment/repository/comment_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/comment/repository/mock/mock_comment_repository_impl.dart';
 
 void main() {
   group('comment repo test', () {

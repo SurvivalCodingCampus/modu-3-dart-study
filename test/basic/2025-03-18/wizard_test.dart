@@ -1,8 +1,8 @@
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-18/hero.dart';
-import '../../../assignments/basic/2025-03-18/wizard.dart';
+import '../../../lib/assignments/basic/2025-03-18/hero.dart';
+import '../../../lib/assignments/basic/2025-03-18/wizard.dart';
 
 void main() {
   group("wizard heal test", () {

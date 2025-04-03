@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-24/word.dart';
+import '../../../lib/assignments/basic/2025-03-24/word.dart';
 
 void main() {
   group("word 함수 테스트", () {

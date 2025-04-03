@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../../assignments/basic/2025-03-19/computer.dart';
+import '../../../lib/assignments/basic/2025-03-19/computer.dart';
 
 void main() {
   group("유형자산 책(book) 테스트", () {

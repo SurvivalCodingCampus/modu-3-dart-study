@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-25/default_file_operations.dart';
-import '../../../assignments/basic/2025-03-25/department.dart';
-import '../../../assignments/basic/2025-03-25/employee.dart';
+import '../../../lib/assignments/basic/2025-03-25/default_file_operations.dart';
+import '../../../lib/assignments/basic/2025-03-25/department.dart';
+import '../../../lib/assignments/basic/2025-03-25/employee.dart';
 
 void main() {
   group('파일 글 작성 테스트', () {

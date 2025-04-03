@@ -1,7 +1,7 @@
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-17/wand.dart';
+import '../../../lib/assignments/basic/2025-03-17/wand.dart';
 
 void main() {
   // ----- Constructor -----

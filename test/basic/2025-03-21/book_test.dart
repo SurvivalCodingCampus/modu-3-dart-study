@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-21/book.dart';
+import '../../../lib/assignments/basic/2025-03-21/book.dart';
 
 void main() {
   group('book test', () {

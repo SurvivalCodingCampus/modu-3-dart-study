@@ -1,4 +1,4 @@
-import '../../../assignments/basic/2025-03-13/hero.dart';
+import '../../../lib/assignments/basic/2025-03-13/hero.dart';
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 

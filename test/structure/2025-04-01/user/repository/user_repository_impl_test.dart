@@ -1,9 +1,9 @@
 import 'package:test/test.dart';
 
-import '../../../../../assignments/structure/2025-04-01/user/data_source/local/user_local_data_source_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/user/repository/mock/mock_user_repository_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/user/repository/user_repository.dart';
-import '../../../../../assignments/structure/2025-04-01/user/repository/user_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/user/data_source/local/user_local_data_source_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/user/repository/mock/mock_user_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/user/repository/user_repository.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/user/repository/user_repository_impl.dart';
 
 void main() {
   group('user repo test', (){

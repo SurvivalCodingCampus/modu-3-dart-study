@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
-import '../../../../../assignments/structure/2025-04-01/photo/data_source/local/photo_data_source_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/photo/repository/mock/mock_photo_repository_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/photo/repository/photo_repository.dart';
-import '../../../../../assignments/structure/2025-04-01/photo/repository/photo_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/photo/data_source/local/photo_data_source_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/photo/repository/mock/mock_photo_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/photo/repository/photo_repository.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/photo/repository/photo_repository_impl.dart';
 
 void main() {
   group('photo repo test', () {

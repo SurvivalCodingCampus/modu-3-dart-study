@@ -1,9 +1,9 @@
 import 'package:test/test.dart';
 
-import '../../../../../assignments/structure/2025-04-01/todo/data_source/local/todo_data_source_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/todo/repository/mock/mock_todo_repository_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/todo/repository/todo_repository.dart';
-import '../../../../../assignments/structure/2025-04-01/todo/repository/todo_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/todo/data_source/local/todo_data_source_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/todo/repository/mock/mock_todo_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/todo/repository/todo_repository.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/todo/repository/todo_repository_impl.dart';
 
 void main() {
   group('todo repo test', () {

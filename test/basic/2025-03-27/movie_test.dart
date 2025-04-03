@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-27/movie.dart';
+import '../../../lib/assignments/basic/2025-03-27/movie.dart';
 
 void main() {
   test('movie fufure test', () async {

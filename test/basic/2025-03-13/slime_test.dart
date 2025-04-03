@@ -1,4 +1,4 @@
-import '../../../assignments/basic/2025-03-13/slime.dart';
+import '../../../lib/assignments/basic/2025-03-13/slime.dart';
 import 'package:test/test.dart';
 
 void main(){

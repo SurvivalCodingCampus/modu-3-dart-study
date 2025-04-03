@@ -1,5 +1,4 @@
-import '../../../assignments/basic/2025-03-13/cleric.dart';
-import 'package:test/scaffolding.dart';
+import '../../../lib/assignments/basic/2025-03-13/cleric.dart';
 import 'package:test/test.dart';
 
 void main() {

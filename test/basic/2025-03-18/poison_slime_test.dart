@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-18/hero.dart';
-import '../../../assignments/basic/2025-03-18/slime.dart';
+import '../../../lib/assignments/basic/2025-03-18/hero.dart';
+import '../../../lib/assignments/basic/2025-03-18/slime.dart';
 
 void main() {
   group("posion slime test", () {

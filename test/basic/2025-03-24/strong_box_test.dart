@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-24/key_type.dart';
-import '../../../assignments/basic/2025-03-24/strong_box.dart';
+import '../../../lib/assignments/basic/2025-03-24/key_type.dart';
+import '../../../lib/assignments/basic/2025-03-24/strong_box.dart';
 
 void main() {
   final intInitialValue = 1;

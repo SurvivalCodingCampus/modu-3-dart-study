@@ -1,7 +1,7 @@
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-17/person.dart';
+import '../../../lib/assignments/basic/2025-03-17/person.dart';
 
 void main() {
   test("person 객체 및 나이 계산 테스트", () {

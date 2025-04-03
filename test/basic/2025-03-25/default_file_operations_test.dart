@@ -1,7 +1,7 @@
 import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-25/default_file_operations.dart';
+import '../../../lib/assignments/basic/2025-03-25/default_file_operations.dart';
 
 void main() {
   group('파일 테스트', () {

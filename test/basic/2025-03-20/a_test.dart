@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
 
-import '../../../assignments/basic/2025-03-20/a.dart';
-import '../../../assignments/basic/2025-03-20/x.dart';
-import '../../../assignments/basic/2025-03-20/y.dart';
+import '../../../lib/assignments/basic/2025-03-20/a.dart';
+import '../../../lib/assignments/basic/2025-03-20/x.dart';
+import '../../../lib/assignments/basic/2025-03-20/y.dart';
 
 void main() {
   group("A 와 X 테스트", () {

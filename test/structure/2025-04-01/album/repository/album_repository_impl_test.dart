@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
-import '../../../../../assignments/structure/2025-04-01/album/data_source/local/album_local_data_source_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/album/repository/album_repository.dart';
-import '../../../../../assignments/structure/2025-04-01/album/repository/album_repository_impl.dart';
-import '../../../../../assignments/structure/2025-04-01/album/repository/mock/mock_album_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/album/data_source/local/album_local_data_source_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/album/repository/album_repository.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/album/repository/album_repository_impl.dart';
+import '../../../../../lib/assignments/structure/2025-04-01/album/repository/mock/mock_album_repository_impl.dart';
 
 void main() {
   group('album repo test', () {

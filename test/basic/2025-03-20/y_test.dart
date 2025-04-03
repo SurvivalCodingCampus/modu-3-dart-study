@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
-import '../../../assignments/basic/2025-03-20/a.dart';
-import '../../../assignments/basic/2025-03-20/b.dart';
-import '../../../assignments/basic/2025-03-20/y.dart';
+import '../../../lib/assignments/basic/2025-03-20/a.dart';
+import '../../../lib/assignments/basic/2025-03-20/b.dart';
+import '../../../lib/assignments/basic/2025-03-20/y.dart';
 
 void main() {
   test('Y, B 메서드 호출 테스트', () {
