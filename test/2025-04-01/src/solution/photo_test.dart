@@ -1,9 +1,9 @@
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/data_source/photo_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/model/photo.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/photo_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/photo_repository_impl.dart';
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-04-01/src/solution/data_source/photo_data_source_impl.dart';
-import '../../../../assignments/2025-04-01/src/solution/model/photo.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/photo_repository.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/photo_repository_impl.dart';
 import 'mock/mock_photo_data_source_impl.dart';
 
 void main() {

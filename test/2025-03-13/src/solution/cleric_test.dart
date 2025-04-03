@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-13/src/solution/cleric.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-13/src/solution/cleric.dart';
 
 void main() {
   test('Cleric - selfAid 테스트', () {

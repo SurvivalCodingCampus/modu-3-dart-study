@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-27/src/solution/bird.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-27/src/solution/bird.dart';
 
 void main() {
   final bird1 = Bird1('새1', "꾸우");

@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-21/src/solution/book.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-21/src/solution/book.dart';
 
 void main() {
   final String title = '아몬드';

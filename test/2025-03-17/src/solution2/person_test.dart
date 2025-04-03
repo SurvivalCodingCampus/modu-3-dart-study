@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-17/src/solution2/question3.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-17/src/solution2/question3.dart';
 
 void main() {
   test('문제 2번 테스트', () {

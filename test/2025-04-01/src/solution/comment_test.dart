@@ -1,9 +1,9 @@
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/data_source/comment_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/model/comment.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/comment_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/comment_repository_impl.dart';
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-04-01/src/solution/data_source/comment_data_source_impl.dart';
-import '../../../../assignments/2025-04-01/src/solution/model/comment.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/comment_repository.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/comment_repository_impl.dart';
 import 'mock/mock_comment_data_source_impl.dart';
 
 void main() {

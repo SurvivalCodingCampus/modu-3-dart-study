@@ -1,4 +1,4 @@
-import '../../../../../assignments/2025-04-01/src/solution/data_source/todo_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/data_source/todo_data_source.dart';
 
 class MockTwoTodoDataSourceImpl implements TodoDataSource {
   @override

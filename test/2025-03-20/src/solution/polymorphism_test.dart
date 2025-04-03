@@ -1,9 +1,8 @@
+import 'package:modu_3_dart_study/assignments/2025-03-20/src/solution/a.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/src/solution/b.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/src/solution/x.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/src/solution/y.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-20/src/solution/a.dart';
-import '../../../../assignments/2025-03-20/src/solution/b.dart';
-import '../../../../assignments/2025-03-20/src/solution/x.dart';
-import '../../../../assignments/2025-03-20/src/solution/y.dart';
 
 void main() {
   test('A 생성 테스트', () {

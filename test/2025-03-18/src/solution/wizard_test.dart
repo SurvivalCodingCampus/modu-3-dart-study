@@ -1,7 +1,6 @@
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/hero.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/wizard.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-18/src/solution/hero.dart';
-import '../../../../assignments/2025-03-18/src/solution/wizard.dart';
 
 void main() {
   group('Wizard 테스트 - 초기값', () {

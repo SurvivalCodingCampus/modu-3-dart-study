@@ -1,8 +1,7 @@
 import 'dart:io';
 
+import 'package:modu_3_dart_study/assignments/2025-03-25/src/solution/default_file_operations.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-25/src/solution/default_file_operations.dart';
 
 void main() {
   test('DefaultFileOperations', () {
