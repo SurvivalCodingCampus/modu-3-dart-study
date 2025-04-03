@@ -9,19 +9,19 @@ class ImageRepositoryImpl implements ImageRepository {
   final ImageDataSource _imageDataSource;
 
   const ImageRepositoryImpl({required ImageDataSource imageDataSource})
-    : _imageDataSource = imageDataSource;
+      : _imageDataSource = imageDataSource;
 
   @override
   Future<void> saveImage(String url, String path) async {
     final Uint8List imageData = await _imageDataSource.fetchImage(url);
-    _imageDataSource.saveImage(imageData, path);
+    await _imageDataSource.saveImage(imageData, path);
   }
 
   @override
   Future<void> saveImages(List<String> urls, String directory) async {
     for (int i = 0; i < urls.length; i++) {
       final Uint8List imageData = await _imageDataSource.fetchImage(urls[i]);
-      _imageDataSource.saveImage(imageData, '$directory/image${i + 1}.png');
+      await _imageDataSource.saveImage(imageData, '$directory/image${i + 1}.png');
     }
   }
 }

@@ -18,12 +18,13 @@ class MovieDataSourceImpl implements MovieDataSource {
   @override
   Future<List<Map<String, dynamic>>> getUpcomingMovies() async {
     final response = await _client.get(Uri.parse(_uri));
-    final json = await jsonDecode(utf8.decode(response.bodyBytes));
-    final List<dynamic> results = json['results'];
 
     if(response.statusCode != 200) {
       throw Exception('API 호출 오류');
     }
+
+    final json = await jsonDecode(utf8.decode(response.bodyBytes));
+    final List<dynamic> results = json['results'];
 
     return results.map((movie) {
       return {
