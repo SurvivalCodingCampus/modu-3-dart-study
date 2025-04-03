@@ -14,10 +14,10 @@ class MockHttpClientImpl implements MockHttpClient {
             jsonEncode({
               "results": [
                 {
-                  "id": 939243,
-                  "title": "수퍼 소닉 3",
-                  "overview": "너클즈, 테일즈와 함께 평화로운 일상을 보내던 초특급 히어로 소닉...",
-                  "releaseDate": "2024-12-19",
+                  "id": 1197306,
+                  "title": "A Working Man",
+                  "overview": "전직 블랙 옵스 요원이었던 레본 케이드(제이슨 스타뎀)는 평범한 건설 노동자로 살아가며 딸과 함께 조용한 삶을 추구하고 있었으나 그의 상사의 딸이 인신매매 조직에 의해 납치되면서, 다시 과거의 전투 기술을 사용해 그녀를 구하기 위해 나서게 된다. 이 과정에서 시카고의 범죄 조직과 러시아 마피아와 얽히며, 부패와 폭력으로 가득 찬 어두운 세계를 마주하게 되는데...",
+                  "releaseDate": "2025-03-26",
                 },
               ],
             }),
@@ -28,6 +28,7 @@ class MockHttpClientImpl implements MockHttpClient {
       return http.Response('Not Found', 404);
     });
   }
+
 
   @override
   MockClient createTodoMockClient(String url) {
