@@ -6,6 +6,9 @@ import '../../2025-04-01/model/todo.dart';
 import 'todo_data_source.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
+  static const header = {
+    'Accept-Charset': 'utf-8',
+  }; //{'content-type': 'application/json; charset=utf-8'};
   final String _path;
 
   TodoDataSourceImpl({String path = 'https://jsonplaceholder.typicode.com'})
@@ -15,10 +18,7 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<List<Todo>> getTodos() async {
     final http.Client client = http.Client();
     try {
-      final res = await client.get(
-        Uri.parse('$_path/todos'),
-        headers: {'Accept-Charset': 'utf-8'},
-      );
+      final res = await client.get(Uri.parse('$_path/todos'), headers: header);
 
       if (res.statusCode == 200) {
         final list = jsonDecode(utf8.decode(res.bodyBytes)) as List;
@@ -37,7 +37,7 @@ class TodoDataSourceImpl implements TodoDataSource {
     try {
       final res = await client.get(
         Uri.parse('$_path/todos/$id'),
-        headers: {'Accept-Charset': 'utf-8'},
+        headers: header,
       );
 
       if (res.statusCode == 200) {
