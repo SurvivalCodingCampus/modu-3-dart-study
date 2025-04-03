@@ -14,7 +14,9 @@ class ImageDataSourceImpl implements ImageDataSource {
       final image = response.bodyBytes;
       return image;
     }
-    throw Exception();
+    throw Exception(
+      '이미지를 가져오는데 실패했습니다. 상태 코드: ${response.statusCode}, 응답: ${response.body}',
+    );
   }
 
   @override
