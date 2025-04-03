@@ -21,8 +21,8 @@ void main() {
     final ImageRepository imageRepository = ImageRepositoryImpl(
       dataSource: imageDataSource,
     );
-    imageRepository.saveImage(imageUrl2, path);
-    imageRepository.saveImages(
+    await imageRepository.saveImage(imageUrl2, path);
+    await imageRepository.saveImages(
       imageUrlList,
       'assignments/2025-04-03/image/data',
     );
