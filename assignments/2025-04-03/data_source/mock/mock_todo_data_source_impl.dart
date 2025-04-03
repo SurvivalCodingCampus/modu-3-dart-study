@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
-import '../model/todo.dart';
-import 'todo_data_source.dart';
+import '../../model/todo.dart';
+import '../todo_data_source.dart';
 
 class MockTodoDataSourceImpl implements TodoDataSource {
   final String _url = 'https://jsonplaceholder.typicode.com/posts';

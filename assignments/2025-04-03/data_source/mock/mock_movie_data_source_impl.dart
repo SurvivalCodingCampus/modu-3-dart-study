@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
-import 'movie_data_source.dart';
+import '../movie_data_source.dart';
 
 class MockMovieDataSourceImpl implements MovieDataSource {
   @override

@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-04-03/data_source/mock_movie_data_source_impl.dart';
+import '../../assignments/2025-04-03/data_source/mock/mock_movie_data_source_impl.dart';
 import '../../assignments/2025-04-03/repository/movie_repository_impl.dart';
 
 void main() {
