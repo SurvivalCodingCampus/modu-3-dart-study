@@ -7,6 +7,11 @@ import '../../2025-04-01/model/todo.dart';
 import 'todo_data_source.dart';
 
 class MockTodoDataSource implements TodoDataSource {
+  static const header = {'content-type': 'application/json; charset=utf-8'};
+  final String _path;
+
+  MockTodoDataSource({String path = 'https://jsonplaceholder.typicode.com'})
+    : _path = path;
   final http.Client _client = MockClient((request) async {
     final url = request.url.toString();
 
@@ -17,7 +22,7 @@ class MockTodoDataSource implements TodoDataSource {
           {'userId': 1, 'id': 2, 'title': '끝낸 일 2', 'completed': true},
         ]),
         200,
-        headers: {'content-type': 'application/json; charset=utf-8'},
+        headers: header,
       );
     } else if (url.endsWith('/todos/1')) {
       return http.Response(
@@ -28,7 +33,7 @@ class MockTodoDataSource implements TodoDataSource {
           'completed': false,
         }),
         200,
-        headers: {'content-type': 'application/json; charset=utf-8'},
+        headers: header,
       );
     }
 
@@ -37,10 +42,7 @@ class MockTodoDataSource implements TodoDataSource {
 
   @override
   Future<List<Todo>> getTodos() async {
-    final res = await _client.get(
-      Uri.parse('https://jsonplaceholder.typicode.com/todos'),
-      headers: {'Accept-Charset': 'utf-8'},
-    );
+    final res = await _client.get(Uri.parse('$_path/todos'), headers: header);
 
     if (res.statusCode == 200) {
       final list = jsonDecode(utf8.decode(res.bodyBytes)) as List;
@@ -53,7 +55,7 @@ class MockTodoDataSource implements TodoDataSource {
   @override
   Future<Todo> getTodo(int id) async {
     final res = await _client.get(
-      Uri.parse('https://jsonplaceholder.typicode.com/todos/$id'),
+      Uri.parse('$_path/todos/$id'),
       headers: {'Accept-Charset': 'utf-8'},
     );
 

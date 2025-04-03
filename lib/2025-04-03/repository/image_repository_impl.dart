@@ -1,18 +1,18 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import '../data_source/image_data_source.dart';
 import 'image_repository.dart';
 
 class ImageRepositoryImpl implements ImageRepository {
-  final ImageDataSource dataSource;
+  final ImageDataSource _dataSource;
 
-  ImageRepositoryImpl({required this.dataSource});
+  ImageRepositoryImpl({required ImageDataSource dataSource})
+    : _dataSource = dataSource;
 
   @override
   Future<void> saveImage(String url, String path) async {
-    Uint8List imageBytes = await dataSource.fetchImage(url);
-    await dataSource.saveImage(imageBytes, path);
+    Uint8List imageBytes = await _dataSource.fetchImage(url);
+    await _dataSource.saveImage(imageBytes, path);
   }
 
   @override
@@ -26,12 +26,8 @@ class ImageRepositoryImpl implements ImageRepository {
 
   @override
   Future<bool> saveImageIfNotExists(String url, String path) async {
-    final file = File(path);
-    if (await file.exists()) {
-      return false;
-    } else {
-      await saveImage(url, path);
-      return true;
-    }
+    if (await _dataSource.exists(path)) return false;
+    await saveImage(url, path);
+    return true;
   }
 }

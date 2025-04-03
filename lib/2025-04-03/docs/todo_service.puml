@@ -5,13 +5,11 @@ interface TodoDataSource {
 }
 
 class TodoDataSourceImpl {
-  -_client: http.Client
   +getTodos(): Future<List<Todo>>
   +getTodo(id: int): Future<Todo>
 }
 
 class MockTodoDataSource {
-  -_client: http.MockClient
   +getTodos(): Future<List<Todo>>
   +getTodo(id: int): Future<Todo>
 }
@@ -22,7 +20,7 @@ interface TodoRepository {
 }
 
 class TodoRepositoryImpl {
-  -dataSource: TodoDataSource
+  -_dataSource: TodoDataSource
   +fetchTodos(): Future<List<Todo>>
   +fetchTodoById(id: int): Future<Todo>
 }
@@ -34,10 +32,10 @@ class Todo {
   +completed: bool
 }
 
-TodoDataSourceImpl ..|> TodoDataSource
-MockTodoDataSource ..|> TodoDataSource
-TodoRepositoryImpl ..|> TodoRepository
+TodoDataSourceImpl ..|> TodoDataSource : 구현
+MockTodoDataSource ..|> TodoDataSource : 구현
+TodoRepositoryImpl ..|> TodoRepository : 구현
 TodoRepositoryImpl --> TodoDataSource : 의존
-TodoRepositoryImpl --> Todo : 의존
+TodoRepository --> Todo : 의존
 TodoDataSource --> Todo : 의존
 @enduml

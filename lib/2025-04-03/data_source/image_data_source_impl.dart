@@ -8,11 +8,16 @@ import 'image_data_source.dart';
 class ImageDataSourceImpl implements ImageDataSource {
   @override
   Future<Uint8List> fetchImage(String url) async {
-    final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    } else {
-      throw HttpException('이미지 다운로드 실패');
+    try {
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        return response.bodyBytes;
+      } else {
+        throw HttpException('이미지 다운로드 실패');
+      }
+    } catch (e) {
+      throw Exception('이미지 다운로드 실패 : ${e.toString()}');
     }
   }
 
@@ -24,5 +29,10 @@ class ImageDataSourceImpl implements ImageDataSource {
       parent.createSync(recursive: true);
     }
     await file.writeAsBytes(bytes);
+  }
+
+  @override
+  Future<bool> exists(String path) {
+    return File(path).exists();
   }
 }

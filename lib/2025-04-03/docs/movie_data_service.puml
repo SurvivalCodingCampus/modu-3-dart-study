@@ -4,7 +4,6 @@ interface MovieDataSource {
 }
 
 class MovieDataSourceImpl {
-  -httpClient: http.Client
   +getUpcomingMovies(): Future<Map<String, dynamic>>
 }
 
@@ -17,15 +16,8 @@ interface MovieRepository {
 }
 
 class MovieRepositoryImpl {
-  -dataSource: MovieDataSource
+  -_dataSource: MovieDataSource
   +getMovieInfoList(): Future<List<Movie>>
-}
-
-class Movie {
-  +id: int
-  +title: String
-  +overview: String
-  +releaseDate: String
 }
 
 interface Response<T> {
@@ -37,11 +29,19 @@ class MovieResponse {
   +fromJson(json: Map<String, dynamic>): MovieResponse
 }
 
-MovieDataSourceImpl ..|> MovieDataSource
-MockMovieDataSourceImpl ..|> MovieDataSource
-MovieRepositoryImpl ..|> MovieRepository
+class Movie {
+  +id: int
+  +title: String
+  +overview: String
+  +releaseDate: String
+}
+
+MovieDataSourceImpl ..|> MovieDataSource : 구현
+MockMovieDataSourceImpl ..|> MovieDataSource : 구현
+MovieRepositoryImpl ..|> MovieRepository : 구현
 MovieRepositoryImpl --> MovieDataSource : 의존
-MovieRepositoryImpl --> MovieResponse : 사용
+MovieRepositoryImpl --> MovieResponse : 의존
+MovieRepository --> Movie : 의존
 MovieResponse ..|> Response
-MovieResponse --> Movie : 포함
+MovieResponse --> Movie : 의존
 @enduml

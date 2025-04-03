@@ -3,13 +3,14 @@ import '../data_source/todo_data_source.dart';
 import 'todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final TodoDataSource dataSource;
+  final TodoDataSource _dataSource;
 
-  TodoRepositoryImpl({required this.dataSource});
-
-  @override
-  Future<List<Todo>> fetchTodos() => dataSource.getTodos();
+  TodoRepositoryImpl({required TodoDataSource dataSource})
+    : _dataSource = dataSource;
 
   @override
-  Future<Todo> fetchTodoById(int id) => dataSource.getTodo(id);
+  Future<List<Todo>> fetchTodos() => _dataSource.getTodos();
+
+  @override
+  Future<Todo> fetchTodoById(int id) => _dataSource.getTodo(id);
 }

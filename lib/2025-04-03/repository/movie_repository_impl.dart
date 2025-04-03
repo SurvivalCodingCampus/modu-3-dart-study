@@ -4,13 +4,14 @@ import '../response/movie_response.dart';
 import 'movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
-  final MovieDataSource dataSource;
+  final MovieDataSource _dataSource;
 
-  MovieRepositoryImpl({required this.dataSource});
+  MovieRepositoryImpl({required MovieDataSource dataSource})
+    : _dataSource = dataSource;
 
   @override
   Future<List<Movie>> getMovieInfoList() async {
-    final json = await dataSource.getUpcomingMovies();
+    final json = await _dataSource.getUpcomingMovies();
     final response = MovieResponse.fromJson(json);
     return response.results;
   }

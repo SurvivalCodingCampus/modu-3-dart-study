@@ -2,17 +2,13 @@
 interface ImageDataSource {
   +fetchImage(url: String): Future<Uint8List>
   +saveImage(bytes: Uint8List, path: String): Future<void>
+  +exists(path: String): Future<bool>
 }
 
 class ImageDataSourceImpl {
   +fetchImage(url: String): Future<Uint8List>
   +saveImage(bytes: Uint8List, path: String): Future<void>
-}
-
-class MockImageDataSource {
-  -simulatedStorage: Map<String, Uint8List>
-  +fetchImage(url: String): Future<Uint8List>
-  +saveImage(bytes: Uint8List, path: String): Future<void>
+  +exists(path: String): Future<bool>
 }
 
 interface ImageRepository {
@@ -22,14 +18,13 @@ interface ImageRepository {
 }
 
 class ImageRepositoryImpl {
-  -dataSource: ImageDataSource
+  -_dataSource: ImageDataSource
   +saveImage(url: String, path: String): Future<void>
   +saveImages(urls: List<String>, directory: String): Future<void>
   +saveImageIfNotExists(url: String, path: String): Future<bool>
 }
 
+ImageDataSourceImpl ..|> ImageDataSource : 구현
+ImageRepositoryImpl ..|> ImageRepository : 구현
 ImageRepositoryImpl --> ImageDataSource : 의존
-ImageDataSourceImpl ..|> ImageDataSource
-MockImageDataSource ..|> ImageDataSource
-ImageRepositoryImpl ..|> ImageRepository
 @enduml
