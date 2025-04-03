@@ -21,10 +21,14 @@ void main() {
     final ImageRepository imageRepository = ImageRepositoryImpl(
       dataSource: imageDataSource,
     );
-    await imageRepository.saveImage(imageUrl2, path);
-    await imageRepository.saveImages(
-      imageUrlList,
-      'assignments/2025-04-03/image/data',
-    );
+    try {
+      await imageRepository.saveImage(imageUrl2, path);
+      await imageRepository.saveImages(
+        imageUrlList,
+        'assignments/2025-04-03/image/data',
+      );
+    } catch (e) {
+      throw Exception(e);
+    }
   });
 }
