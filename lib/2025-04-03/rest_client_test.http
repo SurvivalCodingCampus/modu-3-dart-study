@@ -1,0 +1,21 @@
+### GET 요청 예제
+GET https://jsonplaceholder.typicode.com/posts/1
+
+
+### POST 요청 예제
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json;
+
+{
+    "title": "VS Code REST Client",
+    "body": "이거 진짜 편함!",
+    "userId": 1
+}
+
+
+
+@baseUrl = https://jsonplaceholder.typicode.com
+# @authToken = Bearer YOUR_ACCESS_TOKEN
+
+### 변수 사용 예제
+GET {{baseUrl}}/posts/1
