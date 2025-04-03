@@ -14,7 +14,7 @@ void main() {
       // results 키 존재 여부와 리스트 형태 확인
       final rawResults = rawJson['results'];
       expect(rawResults, isA<List>());
-      print('🟡 TMDB 응답 results 개수: ${rawResults.length}');
+      print('🟡 응답 results 개수: ${rawResults.length}');
 
       final movies = await repository.getMovieInfoList();
 
