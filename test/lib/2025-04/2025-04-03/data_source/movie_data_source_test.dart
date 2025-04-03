@@ -5,7 +5,8 @@ import 'package:test/test.dart';
 import '../mock/mock_http_client.dart' show mockClient;
 
 void main() {
-  final String url = 'https://example.com';
+  const String url =
+      'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1';
   final MovieDataSource source = MovieDataSourceImpl(mockClient);
 
   test(
