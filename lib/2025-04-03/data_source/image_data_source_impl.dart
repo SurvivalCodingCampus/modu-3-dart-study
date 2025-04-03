@@ -17,18 +17,22 @@ class ImageDataSourceImpl implements ImageDataSource {
         throw HttpException('이미지 다운로드 실패');
       }
     } catch (e) {
-      throw Exception('이미지 다운로드 실패 : ${e.toString()}');
+      throw HttpException('이미지 다운로드 실패 : ${e.toString()}');
     }
   }
 
   @override
   Future<void> saveImage(Uint8List bytes, String path) async {
-    final file = File(path);
-    final parent = file.parent;
-    if (!parent.existsSync()) {
-      parent.createSync(recursive: true);
+    try {
+      final file = File(path);
+      final parent = file.parent;
+      if (!parent.existsSync()) {
+        parent.createSync(recursive: true);
+      }
+      await file.writeAsBytes(bytes);
+    } catch (e) {
+      throw FileSystemException('이미지 저장 실패: ${e.toString()}');
     }
-    await file.writeAsBytes(bytes);
   }
 
   @override
