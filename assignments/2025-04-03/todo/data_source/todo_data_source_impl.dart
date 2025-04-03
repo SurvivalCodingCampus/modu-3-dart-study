@@ -21,7 +21,7 @@ class TodoDataSourceImpl implements TodoDataSource {
       final todoList = jsonList.map((e) => Todo.fromJson(e)).toList();
       return todoList;
     }
-    throw UnimplementedError();
+    throw Exception('Failed to load todos: ${response.statusCode}');
   }
 
   @override
@@ -32,7 +32,7 @@ class TodoDataSourceImpl implements TodoDataSource {
     if (response.statusCode == 200) {
       return Todo.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
     }
-    throw UnimplementedError();
+    throw Exception('Failed to load todos: ${response.statusCode}');
   }
 
   @override
