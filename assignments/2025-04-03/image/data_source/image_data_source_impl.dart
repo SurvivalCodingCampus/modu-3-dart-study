@@ -11,7 +11,6 @@ class ImageDataSourceImpl implements ImageDataSource {
   Future<Uint8List> fetchImage(String url) async {
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print('status code : 200');
       final image = response.bodyBytes;
       return image;
     }
