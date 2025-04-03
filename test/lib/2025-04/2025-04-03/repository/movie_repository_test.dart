@@ -1,6 +1,7 @@
 import 'package:modu_3_dart_study/2025-04/2025-04-03/data_source/movie_data_source.dart';
 import 'package:modu_3_dart_study/2025-04/2025-04-03/data_source/movie_data_source_impl.dart';
-import 'package:modu_3_dart_study/2025-04/2025-04-03/movie.dart' show Movie;
+import 'package:modu_3_dart_study/2025-04/2025-04-03/model/movie.dart'
+    show Movie;
 import 'package:modu_3_dart_study/2025-04/2025-04-03/repository/movie_repository.dart';
 import 'package:modu_3_dart_study/2025-04/2025-04-03/repository/movie_repository_impl.dart';
 import 'package:test/test.dart';
