@@ -7,6 +7,8 @@ class Movie {
   final int id;
   final String title;
   final String overview;
+
+  @JsonKey(name: 'release_date')
   final String releaseDate;
 
   Movie({
