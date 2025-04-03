@@ -15,7 +15,7 @@ class ImageDataSourceImpl implements ImageDataSource {
       final image = response.bodyBytes;
       return image;
     }
-    throw UnimplementedError();
+    throw Exception();
   }
 
   @override

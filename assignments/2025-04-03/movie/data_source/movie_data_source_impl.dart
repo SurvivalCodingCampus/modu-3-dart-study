@@ -34,6 +34,6 @@ class MovieDataSourceImpl implements MovieDataSource {
       final movieList = jsonList.map((e) => e as Map<String, dynamic>).toList();
       return movieList;
     }
-    throw UnimplementedError();
+    throw Exception();
   }
 }

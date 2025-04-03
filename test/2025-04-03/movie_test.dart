@@ -42,4 +42,39 @@ void main() {
       throw Exception(e);
     }
   });
+  test('Movie test - 404 not found', () async {
+    final String url = 'https://api.example.com/invalid';
+    final mockClient = MockClient((request) async {
+      return http.Response('Not Found', 404);
+    });
+
+    MovieDataSource mockMovieDataSource = MovieDataSourceImpl(
+      url: url,
+      client: mockClient,
+    );
+    MovieRepository mockMovieRepository = MovieRepositoryImpl(
+      dataSource: mockMovieDataSource,
+    );
+    
+    expect(() async => await mockMovieRepository.getMovieInfoList(), 
+           throwsA(isA<Exception>()));
+  });
+
+  test('Movie test - network error', () async {
+    final String url = 'https://api.example.com/error';
+    final mockClient = MockClient((request) async {
+      throw Exception('Network error');
+    });
+
+    MovieDataSource mockMovieDataSource = MovieDataSourceImpl(
+      url: url,
+      client: mockClient,
+    );
+    MovieRepository mockMovieRepository = MovieRepositoryImpl(
+      dataSource: mockMovieDataSource,
+    );
+    
+    expect(() async => await mockMovieRepository.getMovieInfoList(), 
+           throwsA(isA<Exception>()));
+  });
 }
