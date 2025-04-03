@@ -36,10 +36,14 @@ void main() {
       final TodoRepository todoRepository = TodoRepositoryImpl(
         dataSource: todoDataSource,
       );
-      final result = await todoRepository.fetchTodos();
-      expect(result.first.id, 1);
-      expect(result.first.title, 'Todo 1');
-      expect(result.first.completed, false);
+      try {
+        final result = await todoRepository.fetchTodos();
+        expect(result.first.id, 1);
+        expect(result.first.title, 'Todo 1');
+        expect(result.first.completed, false);
+      } catch (e) {
+        throw Exception(e);
+      }
     });
     test('fetchTodo(int i) test', () async {
       final mockClient = MockClient((request) async {
@@ -65,10 +69,14 @@ void main() {
       final TodoRepository todoRepository = TodoRepositoryImpl(
         dataSource: todoDataSource,
       );
-      final result = await todoRepository.fetchTodo(1);
-      expect(result.id, 1);
-      expect(result.title, 'Todo 1');
-      expect(result.completed, false);
+      try {
+        final result = await todoRepository.fetchTodo(1);
+        expect(result.id, 1);
+        expect(result.title, 'Todo 1');
+        expect(result.completed, false);
+      } catch (e) {
+        throw Exception(e);
+      }
     });
   });
 }

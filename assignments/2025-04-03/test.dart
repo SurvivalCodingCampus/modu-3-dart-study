@@ -48,6 +48,10 @@ void main(List<String> args) async {
   MovieRepository mockMovieRepository = MovieRepositoryImpl(
     dataSource: mockMovieDataSource,
   );
-  final temp3 = await mockMovieRepository.getMovieInfoList();
-  print(temp3);
+  try {
+    final temp3 = await mockMovieRepository.getMovieInfoList();
+    print(temp3);
+  } catch (e) {
+    throw Exception(e);
+  }
 }

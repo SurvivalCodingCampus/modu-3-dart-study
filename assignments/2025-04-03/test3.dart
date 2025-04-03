@@ -33,6 +33,10 @@ void main(List<String> args) async {
   final TodoRepository todoRepository1 = TodoRepositoryImpl(
     dataSource: todoDataSource1,
   );
-  final result1 = await todoRepository1.fetchTodos();
-  print(result1);
+  try {
+    final result1 = await todoRepository1.fetchTodos();
+    print(result1);
+  } catch (e) {
+    throw Exception(e);
+  }
 }
