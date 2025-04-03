@@ -1,0 +1,35 @@
+@startuml
+interface ImageDataSource {
+  +fetchImage(url: String): Future<Uint8List>
+  +saveImage(bytes: Uint8List, path: String): Future<void>
+}
+
+class ImageDataSourceImpl {
+  +fetchImage(url: String): Future<Uint8List>
+  +saveImage(bytes: Uint8List, path: String): Future<void>
+}
+
+class MockImageDataSource {
+  -simulatedStorage: Map<String, Uint8List>
+  +fetchImage(url: String): Future<Uint8List>
+  +saveImage(bytes: Uint8List, path: String): Future<void>
+}
+
+interface ImageRepository {
+  +saveImage(url: String, path: String): Future<void>
+  +saveImages(urls: List<String>, directory: String): Future<void>
+  +saveImageIfNotExists(url: String, path: String): Future<bool>
+}
+
+class ImageRepositoryImpl {
+  -dataSource: ImageDataSource
+  +saveImage(url: String, path: String): Future<void>
+  +saveImages(urls: List<String>, directory: String): Future<void>
+  +saveImageIfNotExists(url: String, path: String): Future<bool>
+}
+
+ImageRepositoryImpl --> ImageDataSource : 의존
+ImageDataSourceImpl ..|> ImageDataSource
+MockImageDataSource ..|> ImageDataSource
+ImageRepositoryImpl ..|> ImageRepository
+@enduml

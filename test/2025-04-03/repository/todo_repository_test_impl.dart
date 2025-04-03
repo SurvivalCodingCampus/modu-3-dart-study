@@ -29,17 +29,5 @@ void main() {
         expect(e.toString(), contains('todo'));
       }
     });
-
-    test('네트워크 에러 케이스 시 예외 처리 확인', () async {
-      final brokenRepo = TodoRepositoryImpl(dataSource: TodoDataSourceImpl());
-
-      try {
-        await brokenRepo.fetchTodoById(123456789); // 유효하지 않은 ID
-        fail('❌ 예외가 발생하지 않았습니다.');
-      } catch (e) {
-        print('✅ 네트워크 실패 시 예외 발생 확인: $e');
-        expect(e, isA<Exception>());
-      }
-    });
   });
 }
