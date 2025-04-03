@@ -74,9 +74,22 @@ void main() {
         expect(result.id, 1);
         expect(result.title, 'Todo 1');
         expect(result.completed, false);
+        expect(() => todoRepository.fetchTodo(999), throwsException);
       } catch (e) {
         throw Exception(e);
       }
+    });
+    test('서버 오류 발생 시 적절한 예외 발생', () async {
+      final mockClient = MockClient((request) async {
+        return http.Response('Internal Server Error', 500);
+      });
+
+      TodoDataSource todoDataSource = TodoDataSourceImpl(client: mockClient);
+      TodoRepository todoRepository = TodoRepositoryImpl(
+        dataSource: todoDataSource,
+      );
+
+      expect(() => todoRepository.fetchTodos(), throwsException);
     });
   });
 }
