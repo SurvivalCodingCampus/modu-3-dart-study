@@ -18,7 +18,7 @@ class ImageRepositoryImpl implements ImageRepository {
   Future<void> saveImages(List<String> urls, String directory) async {
     for (int i = 0; i < urls.length; i++) {
       final bytes = await _imageDataSource.fetchImage(urls[i]);
-      await _imageDataSource.saveImage(bytes, '$directory/dog$i');
+      await _imageDataSource.saveImage(bytes, '$directory/$i');
     }
   }
 }
