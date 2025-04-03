@@ -4,7 +4,7 @@ import 'file_operations.dart';
 
 class DefaultFileOperations implements FileOperations {
   @override
-  void copy(String sourcePath, String targetPath) {
+  Future<void> copy(String sourcePath, String targetPath) async {
     // sourcePath : 복사할 원본 파일의 경로
     // targetPath : 파일이 복사될 대상의 경로
     try {
@@ -14,12 +14,25 @@ class DefaultFileOperations implements FileOperations {
       final List<String> sourcePathList = sourcePath.split('/');
 
       final String originFilePath = sourcePathList[sourcePathList.length - 1];
-      final String originFileName = originFilePath.split('.')[0];
-      final String originFileExtension = originFilePath.split('.')[1];
+      // final String originFileName = originFilePath.split('.')[0];
+      // final String originFileExtension = originFilePath.split('.')[1];
+      final int lastDotIndex = originFilePath.lastIndexOf('.');
+      String originFileName;
+      String originFileExtension;
+
+      if (lastDotIndex != -1) {
+        // 점(.)이 있는 경우
+        originFileName = originFilePath.substring(0, lastDotIndex);
+        originFileExtension = originFilePath.substring(lastDotIndex + 1);
+      } else {
+        // 점(.)이 없는 경우
+        originFileName = originFilePath;
+        originFileExtension = '.txt';
+      }
 
       // print('파일명 : $originFileName, 확장자: $originFileExtension');
       // 1-2 복사 대상의 내용 읽어오기
-      final List<int> originFileContent = originFile.readAsBytesSync();
+      final List<int> originFileContent = await originFile.readAsBytes();
 
       // 2. 복사본 파일
       // 2-1. 복사본 파일의 이름과 주소 생성 (StringBuffer)
@@ -31,7 +44,6 @@ class DefaultFileOperations implements FileOperations {
 
       // 2-2. 동일한 파일이름이 확인후 다른 이름의 파일 만들기  (중복 방지)
       int counter = 1;
-      print(File(copyFilePath).existsSync());
       while (File(copyFilePath).existsSync()) {
         copyFileNameAndExension.clear();
 
@@ -48,8 +60,15 @@ class DefaultFileOperations implements FileOperations {
       final File copyFile = File(copyFilePath);
       // 2-4. 복사 대상에 파일 넣기
       copyFile.writeAsBytesSync(originFileContent);
-    } on PathNotFoundException {
+    } on PathNotFoundException catch (e) {
+      // print('오류 메시지: ${e.message}');
+      // print('문제 경로: ${e.path}');
       throw ArgumentError('[ArgumentError] 파일 경로를 확인해 주세요');
+    } on FileSystemException catch (e) {
+      print('파일 작업 중 문제가 발생했습니다:');
+      // print('오류 메시지: ${e.message}');
+      // print('문제 경로: ${e.path}');
+      throw FileSystemException('[FileSystemException] 파일 작업 중 문제가 발생했습니다:');
     }
   }
 }

@@ -1,3 +1,3 @@
 abstract interface class FileOperations {
-  void copy(String sourcePath, String targetPath);
+  Future<void> copy(String sourcePath, String targetPath);
 }

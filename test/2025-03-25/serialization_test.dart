@@ -7,7 +7,7 @@ import '../../assignments/2025-03-25/employee.dart';
 void main() {
   group('JSON 파일만들기', () {
     final String jsonFilePath =
-        '/Users/jilong/Desktop/workspace/flutter_modu /assignments/2025-03-25/company.txt';
+        Directory.current.path +'/assignments/2025-03-25/company.txt';
 
     test('객체를 JSON으로 변환', () {
       final Employee employee = Employee('홍길동', 41);

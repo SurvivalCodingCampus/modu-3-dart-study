@@ -49,9 +49,9 @@ void main() {
   final items1 = [1, 2, 2, 3, 3, 4, 5];
   var result = [];
   var temp = <int>{};
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 0; i < items1.length; i++) {
     if (items1[i] % 2 == 0) {
-      temp.add(items[i]);
+      temp.add(items1[i]);
     }
   }
   result = temp.toList();
