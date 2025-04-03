@@ -7,7 +7,7 @@ import 'package:modu_3_dart_study/2025-04/2025-04-03/data_source/image_data_sour
 class ImageDataSourceImpl implements ImageDataSource {
   final http.Client _client;
 
-  ImageDataSourceImpl(this._client);
+  const ImageDataSourceImpl(this._client);
 
   @override
   Future<Uint8List> fetchImage(String url) async {
