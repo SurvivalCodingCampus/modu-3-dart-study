@@ -18,14 +18,3 @@ class MovieRepositoryImpl implements MovieRepository {
     return movies;
   }
 }
-
-// void main() async {
-//   final MovieRepository movieRepository = MovieRepositoryImpl(
-//     movieDataSource: MovieDataSourceImpl(
-//       uri:
-//           'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1',
-//     ),
-//   );
-//
-//   print(await movieRepository.getMovieInfoList());
-// }
