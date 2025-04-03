@@ -81,6 +81,8 @@ captures/
 *~
 *.swp
 
+*.g.dart
+
 # Keystore files
 *.jks
 *.keystore

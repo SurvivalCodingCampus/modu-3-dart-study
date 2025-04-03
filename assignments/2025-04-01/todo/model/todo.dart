@@ -1,6 +1,6 @@
 import '../../utils/json_convertible.dart';
 
-class Todo implements JsonConvertible<Todo, bool> {
+class Todo implements JsonConvertible<Todo, int> {
   final int userId;
   final int id;
   final String title;
@@ -44,7 +44,7 @@ class Todo implements JsonConvertible<Todo, bool> {
 
   @override
   // TODO: implement filterKey
-  bool get filterKey => completed;
+  int get filterKey => id;
 
   @override
   Todo fromJson(Map<String, dynamic> json) {
