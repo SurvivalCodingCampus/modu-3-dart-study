@@ -13,13 +13,8 @@ void main() {
   test('Movie test', () async {
     final String url =
         'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1';
-    MovieDataSource movieDataSource = MovieDataSourceImpl(url: url);
-    MovieRepository movieRepository = MovieRepositoryImpl(
-      dataSource: movieDataSource,
-    );
     final mockClient = MockClient((request) async {
-      if (request.url.toString() ==
-          'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1') {
+      if (request.url.toString() == url) {
         final response = http.Response.bytes(
           utf8.encode(MovieDataSourceImpl.testData),
           200,
