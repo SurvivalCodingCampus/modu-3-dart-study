@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-04-01/data_source/mock_comment_data_source_impl.dart';
-import '../../assignments/2025-04-01/data_source/mock_photo_data_source_impl.dart';
+import '../../assignments/2025-04-01/data_source/mock/mock_comment_data_source_impl.dart';
+import '../../assignments/2025-04-01/data_source/mock/mock_photo_data_source_impl.dart';
 import '../../assignments/2025-04-01/model/comment.dart';
 import '../../assignments/2025-04-01/model/photo.dart';
 import '../../assignments/2025-04-01/repository/comment_repository_impl.dart';
