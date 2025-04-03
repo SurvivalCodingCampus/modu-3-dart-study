@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-13/hero.dart';
-import '../../assignments/2025-03-17/wizard.dart';
+import 'package:modu_3_dart_study/2025-03-13/hero.dart';
+import 'package:modu_3_dart_study/2025-03-17/wizard.dart';
 
 void main() {
   test('마나가 부족할 때 힐을 시전하지 않음', () {

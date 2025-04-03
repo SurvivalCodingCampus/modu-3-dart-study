@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
 import 'dart:io';
-import '../../assignments/2025-04-01/data_source/comment_data_source.dart';
-import '../../assignments/2025-04-01/data_source/comment_data_source_impl.dart';
-import '../../assignments/2025-04-01/mock/mock_comment_data_source_impl.dart';
-import '../../assignments/2025-04-01/model/comment.dart';
-import '../../assignments/2025-04-01/repository/comment_repository_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/comment_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/comment_data_source_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/mock/mock_comment_data_source_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/comment.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository_impl.dart';
 
 /// 데이터 소스 팩토리 - Mock 또는 실제 구현체 생성
 CommentDataSource getDataSource(bool useMock) {
@@ -12,7 +12,7 @@ CommentDataSource getDataSource(bool useMock) {
     return MockCommentDataSource();
   } else {
     // 상대 경로 사용 - 어떤 환경에서도 작동
-    final String filePath = 'assignments/2025-04-01/data/comments.json';
+    final String filePath = 'package:modu_3_dart_study/2025-04-01/data/comments.json';
     return CommentDataSourceImpl(filePath: filePath);
   }
 }
@@ -65,7 +65,7 @@ void main() {
   // 실제 데이터 사용 시에만 파일 존재 확인 테스트 실행
   group('JSON 파일 테스트', () {
     test('comments.json 파일이 올바르게 로드되는지 확인', () async {
-      final String filePath = 'assignments/2025-04-01/data/comments.json';
+      final String filePath = 'package:modu_3_dart_study/2025-04-01/data/comments.json';
       final file = File(filePath);
       expect(await file.exists(), isTrue, reason: '파일이 존재해야 함');
       

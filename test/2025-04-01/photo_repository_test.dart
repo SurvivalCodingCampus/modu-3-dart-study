@@ -1,9 +1,9 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-04-01/data_source/photo_data_source.dart';
-import '../../assignments/2025-04-01/data_source/photo_data_source_impl.dart';
-import '../../assignments/2025-04-01/mock/mock_photo.dart';
-import '../../assignments/2025-04-01/model/photo.dart';
-import '../../assignments/2025-04-01/repository/photo_repository_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/photo_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/photo_data_source_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/mock/mock_photo.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/photo.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/photo_repository_impl.dart';
 import 'dart:io';
 import 'dart:convert';
 

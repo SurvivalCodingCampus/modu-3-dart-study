@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'package:test/test.dart';
-import '../../assignments/2025-03-17/wand.dart';
-import '../../assignments/2025-03-17/wizard.dart'; // Exception을 사용하기 위해 필요
+import 'package:modu_3_dart_study/2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/2025-03-17/wizard.dart'; // Exception을 사용하기 위해 필요
 
 void main() {
   group('Wizard Class Tests', () {
