@@ -18,7 +18,7 @@ class ImageRepositoryImpl implements ImageRepository {
   @override
   Future<void> saveImages(List<String> urls, String directory) async {
     for (int i = 0; i < urls.length; i++) {
-      saveImage(urls[i], '$directory/image$i.png');
+      await saveImage(urls[i], '$directory/image$i.png');
     }
   }
 }
