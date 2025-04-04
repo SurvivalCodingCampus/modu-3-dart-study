@@ -17,6 +17,10 @@ abstract class JsonRepository<
     )).map((e) => entity.fromJson(e) as T).toList();
   }
 
+  Future<T> getItem(int key) async {
+    return entity.fromJson(await dataSource.getItem('', key));
+  }
+
   Future<List<T>> getItemsByKey(ID key, String fileName) async {
     return (await getItems(
       fileName,
