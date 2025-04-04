@@ -1,8 +1,8 @@
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/data_source/album_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/album_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/src/solution/repository/album_repository_impl.dart';
 import 'package:test/test.dart';
 
-import '../../../../assignments/2025-04-01/src/solution/data_source/album_data_source_impl.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/album_repository.dart';
-import '../../../../assignments/2025-04-01/src/solution/repository/album_repository_impl.dart';
 import 'mock/mock_album_data_source_impl.dart';
 
 void main() {

@@ -1,7 +1,6 @@
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/great_wizard.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/hero.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-18/src/solution/great_wizard.dart';
-import '../../../../assignments/2025-03-18/src/solution/hero.dart';
 
 void main() {
   group('Great Wizard - 초기값', () {

@@ -1,7 +1,6 @@
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/data_source/stock/stock_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/stock/stock.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-31/src/solution/data_source/stock/stock_data_source_impl.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/stock/stock.dart';
 
 void main() {
   group('Stock', () {

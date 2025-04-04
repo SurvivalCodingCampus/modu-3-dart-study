@@ -1,7 +1,6 @@
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/hero.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-18/src/solution/poison_slime.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-18/src/solution/hero.dart';
-import '../../../../assignments/2025-03-18/src/solution/poison_slime.dart';
 
 void main() {
   group('Poison Slime - 초기값', () {

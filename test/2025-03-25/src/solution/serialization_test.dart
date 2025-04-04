@@ -1,8 +1,7 @@
 import 'dart:convert';
 
+import 'package:modu_3_dart_study/assignments/2025-03-25/src/solution/serialization.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-25/src/solution/serialization.dart';
 
 void main() {
   const String name = '홍길동';

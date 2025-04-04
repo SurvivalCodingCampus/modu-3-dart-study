@@ -1,12 +1,11 @@
 import 'dart:convert';
 
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/data_source/user/user_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/user/address.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/user/company.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/user/geo.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/user/user.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-31/src/solution/data_source/user/user_data_source_impl.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/user/address.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/user/company.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/user/geo.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/user/user.dart';
 
 void main() {
   final geo = Geo(lat: -37.3159, lng: 81.1496);

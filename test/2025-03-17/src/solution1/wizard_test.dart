@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-17/src/solution1/wizard.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-17/src/solution1/wizard.dart';
 
 void main() {
   test('Wizard 테스트 - 이름을 null로 설정하는 경우', () {

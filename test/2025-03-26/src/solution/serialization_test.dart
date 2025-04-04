@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:modu_3_dart_study/assignments/2025-03-26/src/solution/collection.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-26/src/solution/collection_chart_data.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-26/src/solution/sale_price.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-26/src/solution/collection.dart';
-import '../../../../assignments/2025-03-26/src/solution/collection_chart_data.dart';
-import '../../../../assignments/2025-03-26/src/solution/sale_price.dart';
 
 void main() {
   final file = File('assignments/2025-03-26/src/solution/chart_data.json');

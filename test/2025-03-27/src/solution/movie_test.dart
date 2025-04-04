@@ -1,8 +1,7 @@
 import 'dart:convert';
 
+import 'package:modu_3_dart_study/assignments/2025-03-27/src/solution/movie.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-27/src/solution/movie.dart';
 
 void main() {
   final String jsonString = '''

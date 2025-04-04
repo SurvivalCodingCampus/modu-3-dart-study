@@ -1,8 +1,7 @@
+import 'package:modu_3_dart_study/assignments/2025-03-19/src/solution/asset.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-19/src/solution/computer.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-19/src/solution/tangible_asset.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-19/src/solution/asset.dart';
-import '../../../../assignments/2025-03-19/src/solution/computer.dart';
-import '../../../../assignments/2025-03-19/src/solution/tangible_asset.dart';
 
 void main() {
   String makerName = '애플';

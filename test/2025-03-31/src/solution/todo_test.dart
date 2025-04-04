@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/data_source/todo/todo_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/src/solution/model/todo/todo.dart';
 import 'package:test/test.dart';
-
-import '../../../../assignments/2025-03-31/src/solution/data_source/todo/todo_data_source_impl.dart';
-import '../../../../assignments/2025-03-31/src/solution/model/todo/todo.dart';
 
 void main() {
   final todo = Todo(
