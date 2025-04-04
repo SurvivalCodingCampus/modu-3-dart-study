@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/2025-04-04/data_source/photo_data_source.dart';
-
+import 'photo_data_source.dart';
 import '../dto/photo_dto.dart';
 
 class PhotoDataSourceImpl implements PhotoDataSource{

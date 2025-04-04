@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:modu_3_dart_study/2025-04-04/data_source/store_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/dto/store_dto.dart';
 import 'package:http/http.dart' as http;
+
+import '../dto/store_dto.dart';
+import 'store_data_source.dart';
 
 class StoreDataSourceImpl implements StoreDataSource {
   final String _url;

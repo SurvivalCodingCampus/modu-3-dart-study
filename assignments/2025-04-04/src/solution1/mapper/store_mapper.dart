@@ -1,5 +1,4 @@
-import 'package:modu_3_dart_study/2025-04-04/dto/store_dto.dart';
-
+import '../dto/store_dto.dart';
 import '../model/store.dart';
 
 extension StoreMapper on StoreDto {

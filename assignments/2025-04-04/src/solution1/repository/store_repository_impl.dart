@@ -1,10 +1,9 @@
-import 'package:modu_3_dart_study/2025-04-04/data_source/store_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/data_source/store_data_source_impl.dart';
-import 'package:modu_3_dart_study/2025-04-04/mapper/store_mapper.dart';
-import 'package:modu_3_dart_study/2025-04-04/repository/store_repository.dart';
-
+import '../data_source/store_data_source.dart';
+import '../data_source/store_data_source_impl.dart';
 import '../dto/store_dto.dart';
+import '../mapper/store_mapper.dart';
 import '../model/store.dart';
+import 'store_repository.dart';
 
 class StoreRepositoryImpl implements StoreRepository {
   final StoreDataSource _storeDataSource;
