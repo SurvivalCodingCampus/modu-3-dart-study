@@ -82,6 +82,7 @@ captures/
 *.swp
 
 *.g.dart
+*.freezed.dart
 
 # Keystore files
 *.jks
