@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:test/test.dart';
-import '../../assignments/2025-03-25/employee.dart';
+import 'package:modu_3_dart_study/2025-03-25/employee.dart';
 
 void main() {
   group('Department Serialization Tests', () {

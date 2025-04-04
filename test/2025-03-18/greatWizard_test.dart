@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-13/hero.dart';
-import '../../assignments/2025-03-18/greatWizard.dart';
+import 'package:modu_3_dart_study/2025-03-13/hero.dart';
+import 'package:modu_3_dart_study/2025-03-18/greatWizard.dart';
 
 void main() {
   test('슈퍼 힐을 시전할 때 마나가 충분한 경우', () {

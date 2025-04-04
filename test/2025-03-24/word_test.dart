@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-24/word.dart';
+import 'package:modu_3_dart_study/2025-03-24/word.dart';
 
 void main() {
   group("Word 클래스 테스트", () {

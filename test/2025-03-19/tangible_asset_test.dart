@@ -1,6 +1,6 @@
 import 'package:test/test.dart';  
-import '../../assignments/2025-03-19/book.dart';
-import '../../assignments/2025-03-19/computer.dart';
+import 'package:modu_3_dart_study/2025-03-19/book.dart';
+import 'package:modu_3_dart_study/2025-03-19/computer.dart';
 
 void main() {
   // Book 테스트

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-21/book.dart';
+import 'package:modu_3_dart_study/2025-03-21/book.dart';
 
 void main() {
   group('Book 클래스 테스트', () {

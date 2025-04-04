@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-27/getmovie_info.dart';
+import 'package:modu_3_dart_study/2025-03-27/getmovie_info.dart';
 
 void main() {
   test('getMovieInfo returns the correct movie info', () async {
