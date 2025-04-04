@@ -1,22 +1,36 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'store_dto.freezed.dart';
 part 'store_dto.g.dart';
 
-@freezed
-abstract class StoreDto with _$StoreDto {
-  const factory StoreDto({
-    String? addr,
-    String? code,
-    @JsonKey(name: "created_at") String? createdAt,
-    num? lat,
-    num? lng,
-    String? name,
-    @JsonKey(name: "remain_stat") String? remainStat,
-    @JsonKey(name: "stock_at") String? stockAt,
-    String? type,
-  }) = _StoreDto;
+@JsonSerializable()
+class StoreDto {
+  final String? addr;
+  final String? code;
+  @JsonKey(name: "created_at")
+  final String? createdAt;
+  final num? lat;
+  final num? lng;
+  final String? name;
+  @JsonKey(name: "remain_stat")
+  final String? remainStat;
+  @JsonKey(name: "stock_at")
+  final String? stockAt;
+  final String? type;
+
+  StoreDto({
+    required this.addr,
+    required this.code,
+    required this.createdAt,
+    required this.lat,
+    required this.lng,
+    required this.name,
+    required this.remainStat,
+    required this.stockAt,
+    required this.type,
+  });
 
   factory StoreDto.fromJson(Map<String, dynamic> json) =>
       _$StoreDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StoreDtoToJson(this);
 }

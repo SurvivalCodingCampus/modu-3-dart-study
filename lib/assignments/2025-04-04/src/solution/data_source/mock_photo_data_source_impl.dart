@@ -50,7 +50,11 @@ class MockPhotoDataSourceImpl implements PhotoDataSource {
   @override
   Future<PhotoDto> getPhoto(id) async {
     final response = await getPhotos();
-    return response.firstWhere((e) => e.id == id);
+    try {
+      return response.firstWhere((e) => e.id == id);
+    } catch (e) {
+      throw Exception('ID가 $id인 사진을 찾을 수 없습니다');
+    }
   }
 
   @override

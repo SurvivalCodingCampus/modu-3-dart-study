@@ -65,7 +65,11 @@ class MockStoreDataSourceImpl implements StoreDataSource {
   @override
   Future<StoreDto> getStore(String code) async {
     final response = await getStores();
-    return response.firstWhere((e) => e.code == code);
+    try {
+      return response.firstWhere((e) => e.code == code);
+    } catch (e) {
+      throw Exception('코드가 $code인 Store을 찾을 수 없습니다');
+    }
   }
 
   @override

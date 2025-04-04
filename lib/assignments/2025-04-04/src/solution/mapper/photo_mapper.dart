@@ -5,13 +5,14 @@ import '../model/photo.dart';
 extension PhotoMapper on PhotoDto {
   Photo toPhoto() {
     return Photo(
-      id: id.runtimeType == String ? int.parse(id) : id,
+      id: id is String ? int.parse(id) : id,
       type: MediaType.fromString(type),
       title: title,
       content: content,
       url: url,
       caption: caption,
-      createdAt: DateTime.parse(createdAt ?? ''),
+      createdAt:
+          createdAt != null ? DateTime.parse(createdAt!) : DateTime.now(),
     );
   }
 }
