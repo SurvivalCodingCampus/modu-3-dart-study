@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:modu_3_dart_study/PR2025-04-03/image/data_source/image_data_source.dart';
+import 'package:modu_3_dart_study/PR2025-04-03/image/data_source/image_data_source_impl.dart';
 import 'package:modu_3_dart_study/PR2025-04-03/image/repository/image_repository.dart';
 
 class ImageRepositoryImpl implements ImageRepository {
@@ -21,4 +20,13 @@ class ImageRepositoryImpl implements ImageRepository {
       await saveImage(url, path);
     }
   }
+}
+
+void main() async {
+  ImageDataSource imageDataSource = ImageDataSourceImpl();
+  ImageRepository imageRepository = ImageRepositoryImpl(imageDataSource);
+  imageRepository.saveImage(
+    'https://i.namu.wiki/i/E6SRlNTAIyapASN5QCUOE5L5yfbrzUabHun2Nk8Kqygy5gA5s7Uvj3kixUfLV_OkbYzccg6FoHA7A2fY3DaeMsg2IK1za6QACGAfLkT1At6THr17PfxE4RQr38PApP4ZXCr__86FD5m7BvdEy1ELeAwn80IxzkqWAjtG5OhvaB0.webp',
+    'image.jpg',
+  );
 }
