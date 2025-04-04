@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -20,7 +21,14 @@ class StoreRemoteDataSourceImpl implements StoreDataSource {
   @override
   Future<List<StoreDto>> getDtoStores() async {
     try {
-      final response = await _client.get(Uri.parse(_url));
+      final response = await _client
+          .get(Uri.parse(_url))
+          .timeout(
+            _timeout,
+            onTimeout: () {
+              throw TimeoutException('요청 시간이 초과되었습니다');
+            },
+          );
       if (response.statusCode == 200) {
         final List jsonList = jsonDecode(utf8.decode(response.bodyBytes));
         final storeDtoList =
