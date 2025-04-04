@@ -1,0 +1,35 @@
+@startuml
+interface MaskStoreRepository {
+  +Future<List<Store>> getValidStores()
+}
+
+class MaskStoreRepositoryImpl {
+  -MaskStoreDataSource _dataSource
+  +MaskStoreRepositoryImpl(MaskStoreDataSource dataSource)
+  +Future<List<Store>> getValidStores()
+}
+
+interface MaskStoreDataSource {
+  +Future<List<StoreDto>> getStores()
+}
+
+class StoreDto {
+  +Store toStore()
+}
+
+class Store {
+  +String name
+  +String addr
+  +double lat
+  +double lng
+  +String remainStat
+}
+
+MaskStoreRepository <|.. MaskStoreRepositoryImpl
+MaskStoreRepositoryImpl --> MaskStoreDataSource
+MaskStoreDataSource --> StoreDto
+StoreDto --> Store
+
+MaskStoreRepositoryImpl ..> Store : uses
+MaskStoreDataSource ..> Store : uses
+@enduml

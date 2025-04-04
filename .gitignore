@@ -171,3 +171,6 @@ fabric.properties
 
 # json serialize
 *.g.dart
+
+# freezed
+*.freezed.dart
