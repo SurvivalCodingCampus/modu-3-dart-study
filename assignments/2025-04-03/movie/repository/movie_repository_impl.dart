@@ -13,13 +13,7 @@ class MovieRepositoryImpl implements MovieRepository {
     final List<Map<String, dynamic>> jsonMap =
         await _dataSource.getUpcomingMovies();
     return jsonMap.map((e) {
-      final newElement = {
-        'id': e['id'],
-        'title': e['title'],
-        'overview': e['overview'],
-        'release_date': e['release_date'],
-      };
-      return Movie.fromJson(newElement);
+      return Movie.fromJson(e);
     }).toList();
   }
 }
