@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 class ImageRepositoryImpl implements ImageRepository {
   final ImageDataSource _dataSource;
-  static const _defaultDir = 'lib/assignments/2025-04-/2025-04-04/image/data/';
+  static const _defaultDir = 'lib/assignments/2025-04-/2025-04-03/image/data/';
   // 파일명은 저장 날짜 및 분초로 설정
   //   => DateTime은 컴파일 시점에서 할당 불가
   final _path =
