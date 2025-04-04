@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -8,15 +9,24 @@ import 'package:modu_3_dart_study/assignments/2025-04-04/photo/dto/photo_dto.dar
 class PhotoRemoteDataSourceImpl implements PhotoDataSource {
   final String _url;
   final http.Client _client;
+  final Duration _timeout;
 
   PhotoRemoteDataSourceImpl({required String url, required http.Client client})
     : _url = url,
-      _client = client;
+      _client = client,
+      _timeout = Duration(seconds: 10);
 
   @override
   Future<List<PhotoDto>> getDtoPhotoList() async {
     try {
-      final response = await _client.get(Uri.parse(_url));
+      final response = await _client
+          .get(Uri.parse(_url))
+          .timeout(
+            _timeout,
+            onTimeout: () {
+              throw TimeoutException('시간 초과');
+            },
+          );
       if (response.statusCode == 200) {
         final List body = jsonDecode(response.body);
         final List<Map<String, dynamic>> jsonList =
