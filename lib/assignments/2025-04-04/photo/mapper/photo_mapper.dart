@@ -14,7 +14,7 @@ extension PhotoMapper on PhotoDto {
     }
 
     DateTime photoCreateAt =
-        DateTime.tryParse(createdAt!) ?? DateTime(1999, 1, 1);
+        DateTime.tryParse(createdAt ?? '') ?? DateTime(1999, 1, 1);
 
     return Photo(
       id: _parseId(id),
