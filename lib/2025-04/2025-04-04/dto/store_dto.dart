@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:modu_3_dart_study/2025-04/2025-04-04/model/remain_status.dart';
 
-class InventoryDto {
+class StoreDto {
   String? addr;
   String? code;
   DateTime? createdAt;
@@ -12,7 +12,7 @@ class InventoryDto {
   DateTime? stockAt;
   String? type;
 
-  InventoryDto({
+  StoreDto({
     this.lat,
     this.lng,
     this.name,
@@ -24,10 +24,10 @@ class InventoryDto {
     this.type,
   });
 
-  factory InventoryDto.fromJson(Map<String, dynamic> json) {
+  factory StoreDto.fromJson(Map<String, dynamic> json) {
     final DateFormat format = DateFormat("yyyy/MM/dd HH:mm:ss");
 
-    return InventoryDto(
+    return StoreDto(
       addr: json['addr'] ?? null,
       code: json['code'] ?? null,
       createdAt:
