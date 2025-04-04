@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-04-04/data_source/mock_data_source/mock_error_mask_store_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/data_source/mock_data_source/mock_mask_store_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-04/data_source/mock_data_source/mock_error_mask_photo_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-04/data_source/mock_data_source/mock_mask_photo_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-04/data_source/photo_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-04/model/photo.dart';
 import 'package:modu_3_dart_study/2025-04-04/repository/photo_repository.dart';

@@ -6,7 +6,7 @@ import '../model/photo.dart';
 extension PhotoMapper on PhotoDto {
   Photo toPhoto() {
     return Photo(
-      id: id?.toInt() ?? 0,
+      id: id == null ? 0 : int.tryParse(id.toString()) ?? 0,
       type: _mapStringToPhotoType(type),
       title: title ?? '',
       content: content ?? '',
@@ -32,7 +32,7 @@ extension PhotoMapper on PhotoDto {
       return DateTime.now();
     }
     try {
-      return DateFormat('yyyy-MM-ddTHH:mm:ss').parse(date);
+      return DateFormat('yyyy-MM-dd').parse(date);
     } catch (e) {
       return DateTime.now();
     }

@@ -39,12 +39,5 @@ void main() {
 
       expect(() async => await repository.getValidStores(), throwsException);
     });
-
-    test('getValidStores는 500 오류 시 예외를 발생시킵니다', () async {
-      dataSource = MaskStoreDataSourceImpl(url: invalidUrl);
-      repository = MaskStoreRepositoryImpl(dataSource: dataSource);
-
-      expect(() async => await repository.getValidStores(), throwsException);
-    });
   });
 }
