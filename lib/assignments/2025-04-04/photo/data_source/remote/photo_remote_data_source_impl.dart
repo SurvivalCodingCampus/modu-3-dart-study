@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:modu_3_dart_study/assignments/2025-04-04/photo/data_source/photo_data_source.dart';
 
-import 'package:modu_3_dart_study/assignments/2025-04-04/photo/data_source/remote/photo_remote_data_source.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-04/photo/dto/photo_dto.dart';
 
-class PhotoRemoteDataSourceImpl implements PhotoRemoteDataSource {
+class PhotoRemoteDataSourceImpl implements PhotoDataSource {
   final String _url;
   final http.Client _client;
 
