@@ -29,10 +29,10 @@ class Todo {
 
   Map<String, dynamic> toMap() {
     return {
-      'userId': this.userId,
-      'id': this.id,
-      'title': this.title,
-      'completd': this.completd,
+      'userId': userId,
+      'id': id,
+      'title': title,
+      'completd': completd,
     };
   }
 

@@ -1,5 +1,4 @@
 import 'package:modu_3_dart_study/2025-04-01/solution1/data_source/comment_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-01/solution1/model/comment.dart';
 
 class MockCommentDataSourceImpl implements CommentDataSource {
   @override

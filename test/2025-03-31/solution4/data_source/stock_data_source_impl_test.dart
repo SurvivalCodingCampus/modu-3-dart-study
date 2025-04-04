@@ -9,10 +9,10 @@ void main() async {
   test('4.주식 정보를 제공하는 데이터 소스', () async {
     String path = 'lib/2025-03-31/solution4/data_source/listing_status.csv';
     List stockList = [];
-    new File(path)
+    File(path)
         .openRead()
         .transform(utf8.decoder)
-        .transform(new LineSplitter())
+        .transform(LineSplitter())
         .forEach((items) {
           stockList.add(items);
         });

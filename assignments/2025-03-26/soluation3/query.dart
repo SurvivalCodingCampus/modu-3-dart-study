@@ -7,7 +7,7 @@ class Trader {
   @override
   String toString() {
     // TODO: implement toString
-    return 'Trader{name : ${this.name}, city : ${this.city}}';
+    return 'Trader{name : $name, city : $city}';
   }
 }
 
@@ -19,8 +19,8 @@ class Transaction {
   @override
   String toString() {
     // TODO: implement toString
-    return 'Transaction{trader : ${this.trader.toString()}, year : ${this.year}, '
-        'value : ${this.value}}';
+    return 'Transaction{trader : ${trader.toString()}, year : $year, '
+        'value : $value}';
   }
 
   Transaction(this.trader, this.year, this.value);
