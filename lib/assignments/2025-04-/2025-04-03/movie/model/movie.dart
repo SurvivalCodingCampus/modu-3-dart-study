@@ -1,0 +1,44 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:json_annotation/json_annotation.dart';
+
+part 'movie.g.dart';
+
+@JsonSerializable(explicitToJson: true)
+class Movie {
+  final int id;
+  final String title;
+  final String overview;
+
+  @JsonKey(name: 'release_date')
+  final String releaseDate;
+
+  Movie({
+    required this.id,
+    required this.title,
+    required this.overview,
+    required this.releaseDate,
+  });
+
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
+
+  @override
+  bool operator ==(covariant Movie other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.id == id &&
+      other.title == title &&
+      other.overview == overview &&
+      other.releaseDate == releaseDate;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+      title.hashCode ^
+      overview.hashCode ^
+      releaseDate.hashCode;
+  }
+}
