@@ -20,6 +20,12 @@ class HttpInventoryDataSource implements InventoryDataSource {
     return json
         .cast<Map<String, dynamic>>()
         .map((e) => InventoryDto.fromJson(e))
+        .where(
+          (e) =>
+              e.remainStatus != null &&
+              e.stockAt != null &&
+              e.createdAt != null,
+        )
         .toList();
   }
 }
