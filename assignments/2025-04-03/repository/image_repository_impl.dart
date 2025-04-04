@@ -15,7 +15,7 @@ class ImageRepositoryImpl implements ImageRepository {
     Directory(directory).createSync(recursive: true);
 
     for (String url in urls) {
-      String fileName = _getFileNameFromUrl();
+      String fileName = _fileRename();
       String path = "$directory/$fileName";
       await saveImage(url, path);
     }
@@ -28,7 +28,7 @@ class ImageRepositoryImpl implements ImageRepository {
   }
 }
 
-String _getFileNameFromUrl() {
+String _fileRename() {
   DateTime now = DateTime.now();
   String date = "${now.year}-${now.month}-${now.day}";
   int randomNum = Random().nextInt(100000);
