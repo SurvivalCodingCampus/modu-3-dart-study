@@ -15,14 +15,18 @@ class PhotoRemoteDataSourceImpl implements PhotoRemoteDataSource {
 
   @override
   Future<List<PhotoDto>> getDtoPhotoList() async {
-    final response = await _client.get(Uri.parse(_url));
-    if (response.statusCode == 200) {
-      final List body = jsonDecode(response.body);
-      final List<Map<String, dynamic>> jsonList =
-          body.map((e) => e as Map<String, dynamic>).toList();
-      final List<PhotoDto> photoDtoList =
-          jsonList.map((e) => PhotoDto.fromJson(e)).toList();
-      return photoDtoList;
+    try {
+      final response = await _client.get(Uri.parse(_url));
+      if (response.statusCode == 200) {
+        final List body = jsonDecode(response.body);
+        final List<Map<String, dynamic>> jsonList =
+            body.map((e) => e as Map<String, dynamic>).toList();
+        final List<PhotoDto> photoDtoList =
+            jsonList.map((e) => PhotoDto.fromJson(e)).toList();
+        return photoDtoList;
+      }
+    } catch (e) {
+      throw Exception('Failed to fetch photos: $e');
     }
     throw Exception();
   }
