@@ -9,8 +9,6 @@ import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  const String url =
-      'https://gist.githubusercontent.com/junsuk5/2b34223fb2368d2bf44c85082745649a/raw/00cb276cb4f4f9573d868e88382f6f7f6759df31/mask_store.json';
   final http.Client mockClient = MockClient((request) async {
     final String json = jsonEncode({
       "stores": [
@@ -40,11 +38,30 @@ void main() {
   final InventoryDataSource dataSource = HttpInventoryDataSource(mockClient);
 
   test('fetchInventoryItems() 호출 시 List<InventoryDto>를 반환해야한다.', () async {
-    final List<InventoryDto> inventories = await dataSource.fetchInventories(
-      url,
-    );
+    final List<InventoryDto> inventories = await dataSource.fetchInventories();
 
     expect(inventories, isNotEmpty);
     expect(inventories[0].name, equals('승약국'));
   });
+
+  test(
+    'fetchInventoryItems() 호출 시 remainStat, stockAt, createdAt이 빈 InventoryDto는 없어야한다.',
+    () async {
+      final List<InventoryDto> inventories =
+          await dataSource.fetchInventories();
+
+      List<InventoryDto> none =
+          inventories
+              .where(
+                (e) =>
+                    e.remainStatus == null &&
+                    e.stockAt == null &&
+                    e.createdAt == null,
+              )
+              .toList();
+
+      expect(inventories, isNotEmpty);
+      expect(none, isEmpty);
+    },
+  );
 }
