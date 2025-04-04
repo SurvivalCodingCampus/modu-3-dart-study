@@ -25,9 +25,11 @@ class PhotoRemoteDataSourceImpl implements PhotoDataSource {
             jsonList.map((e) => PhotoDto.fromJson(e)).toList();
         return photoDtoList;
       }
+      throw Exception(
+        'Failed to fetch photos: HTTP status ${response.statusCode}',
+      );
     } catch (e) {
       throw Exception('Failed to fetch photos: $e');
     }
-    throw Exception();
   }
 }
