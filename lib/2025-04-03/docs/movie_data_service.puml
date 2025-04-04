@@ -1,0 +1,47 @@
+@startuml
+interface MovieDataSource {
+  +getUpcomingMovies(): Future<Map<String, dynamic>>
+}
+
+class MovieDataSourceImpl {
+  +getUpcomingMovies(): Future<Map<String, dynamic>>
+}
+
+class MockMovieDataSourceImpl {
+  +getUpcomingMovies(): Future<Map<String, dynamic>>
+}
+
+interface MovieRepository {
+  +getMovieInfoList(): Future<List<Movie>>
+}
+
+class MovieRepositoryImpl {
+  -_dataSource: MovieDataSource
+  +getMovieInfoList(): Future<List<Movie>>
+}
+
+interface Response<T> {
+  +results: List<T>
+}
+
+class MovieResponse {
+  +results: List<Movie>
+  +fromJson(json: Map<String, dynamic>): MovieResponse
+}
+
+class Movie {
+  +id: int
+  +title: String
+  +overview: String
+  +releaseDate: String
+}
+
+MovieDataSourceImpl ..|> MovieDataSource : 구현
+MockMovieDataSourceImpl ..|> MovieDataSource : 구현
+MovieRepositoryImpl ..|> MovieRepository : 구현
+MovieRepositoryImpl --> MovieDataSource : 의존
+MovieRepositoryImpl --> MovieResponse : 의존
+MovieRepository --> Movie : 의존
+MovieResponse ..|> Response
+MovieResponse --> Movie : 의존
+@enduml

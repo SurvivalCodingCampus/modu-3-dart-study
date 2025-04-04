@@ -1,0 +1,41 @@
+@startuml
+interface TodoDataSource {
+  +getTodos(): Future<List<Todo>>
+  +getTodo(id: int): Future<Todo>
+}
+
+class TodoDataSourceImpl {
+  +getTodos(): Future<List<Todo>>
+  +getTodo(id: int): Future<Todo>
+}
+
+class MockTodoDataSource {
+  +getTodos(): Future<List<Todo>>
+  +getTodo(id: int): Future<Todo>
+}
+
+interface TodoRepository {
+  +fetchTodos(): Future<List<Todo>>
+  +fetchTodoById(id: int): Future<Todo>
+}
+
+class TodoRepositoryImpl {
+  -_dataSource: TodoDataSource
+  +fetchTodos(): Future<List<Todo>>
+  +fetchTodoById(id: int): Future<Todo>
+}
+
+class Todo {
+  +userId: int
+  +id: int
+  +title: String
+  +completed: bool
+}
+
+TodoDataSourceImpl ..|> TodoDataSource : 구현
+MockTodoDataSource ..|> TodoDataSource : 구현
+TodoRepositoryImpl ..|> TodoRepository : 구현
+TodoRepositoryImpl --> TodoDataSource : 의존
+TodoRepository --> Todo : 의존
+TodoDataSource --> Todo : 의존
+@enduml

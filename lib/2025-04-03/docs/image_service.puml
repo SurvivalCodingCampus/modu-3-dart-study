@@ -1,0 +1,30 @@
+@startuml
+interface ImageDataSource {
+  +fetchImage(url: String): Future<Uint8List>
+  +saveImage(bytes: Uint8List, path: String): Future<void>
+  +exists(path: String): Future<bool>
+}
+
+class ImageDataSourceImpl {
+  +fetchImage(url: String): Future<Uint8List>
+  +saveImage(bytes: Uint8List, path: String): Future<void>
+  +exists(path: String): Future<bool>
+}
+
+interface ImageRepository {
+  +saveImage(url: String, path: String): Future<void>
+  +saveImages(urls: List<String>, directory: String): Future<void>
+  +saveImageIfNotExists(url: String, path: String): Future<bool>
+}
+
+class ImageRepositoryImpl {
+  -_dataSource: ImageDataSource
+  +saveImage(url: String, path: String): Future<void>
+  +saveImages(urls: List<String>, directory: String): Future<void>
+  +saveImageIfNotExists(url: String, path: String): Future<bool>
+}
+
+ImageDataSourceImpl ..|> ImageDataSource : 구현
+ImageRepositoryImpl ..|> ImageRepository : 구현
+ImageRepositoryImpl --> ImageDataSource : 의존
+@enduml
