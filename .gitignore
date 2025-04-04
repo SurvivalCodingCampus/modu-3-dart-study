@@ -170,3 +170,4 @@ fabric.properties
 .idea/
 .DS_Store
 *.g.dart
+*.freezed.dart
