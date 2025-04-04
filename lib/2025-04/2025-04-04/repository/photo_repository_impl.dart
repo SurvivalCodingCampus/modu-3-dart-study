@@ -17,7 +17,7 @@ class PhotoRepositoryImpl implements PhotoRepository {
 
   @override
   Future<Photo?> findOne(FindOneFilter predicate) async {
-    final List<Photo> stores = await findAll();
-    return stores.where(predicate).firstOrNull;
+    final List<Photo> photos = await findAll();
+    return photos.where(predicate).firstOrNull;
   }
 }
