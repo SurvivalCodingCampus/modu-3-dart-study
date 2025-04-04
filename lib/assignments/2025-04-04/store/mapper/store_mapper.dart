@@ -5,7 +5,7 @@ extension StoreMapper on StoreDto {
   List<int> makeDateTime(String string) {
     List<int> result = [];
     if (string != '') {
-      List<String> temp = createdAt.split(' ');
+      List<String> temp = string.split(' ');
       List<String> temp1 = temp.first.split('/');
       List<String> temp2 = temp.last.split(':');
       final year = temp1[0];
@@ -28,7 +28,7 @@ extension StoreMapper on StoreDto {
   }
 
   Store toStore() {
-    DateTime storeCreatedAt = DateTime(1999,1,1);
+    DateTime storeCreatedAt = DateTime(1999, 1, 1);
     if (createdAt != '') {
       final createdAtList = makeDateTime(createdAt);
       storeCreatedAt = DateTime(
@@ -41,7 +41,7 @@ extension StoreMapper on StoreDto {
       );
     }
 
-    DateTime storeStockAt = DateTime(1999,1,1);
+    DateTime storeStockAt = DateTime(1999, 1, 1);
     if (stockAt != '') {
       final stockAtList = makeDateTime(stockAt);
       storeStockAt = DateTime(
