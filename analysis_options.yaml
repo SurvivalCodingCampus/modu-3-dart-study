@@ -12,7 +12,6 @@
 # The core lints are also what is used by pub.dev for scoring packages.
 
 include: package:lints/recommended.yaml
-
 # Uncomment the following section to specify additional rules.
 
 # linter:
@@ -20,6 +19,8 @@ include: package:lints/recommended.yaml
 #     - camel_case_types
 
 # analyzer:
+#   errors:
+#     invalid_annotation_target: ignore
 #   exclude:
 #     - path/to/excluded/files/**
 
