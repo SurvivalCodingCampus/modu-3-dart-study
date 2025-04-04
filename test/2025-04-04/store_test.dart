@@ -12,7 +12,7 @@ void main() {
     );
     
     test('유효하지 않은 데이터 없앴는지 테스트', () async{
-      final dataSourceResult = await storeDataSource.getStores();
+      final dataSourceResult = await storeDataSource.getDtoStores();
       final repositoryResult = await storeRepository.getStores();
       expect(dataSourceResult.length, 222);
       expect(repositoryResult.length, 216);

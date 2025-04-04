@@ -12,8 +12,8 @@ class StoreRepositoryImpl implements StoreRepository {
 
   @override
   Future<List<Store>> getStores() async {
-    final jsonList = await _dataSource.getStores();
-    final dtoList = jsonList.map((e) => StoreDto.fromJson(e)).toList();
+    final List<StoreDto> dtoList = await _dataSource.getDtoStores();
+
     final storeList =
         dtoList
             .map((e) => e.toStore())

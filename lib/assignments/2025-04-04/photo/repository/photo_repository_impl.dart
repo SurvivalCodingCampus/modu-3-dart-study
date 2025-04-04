@@ -12,10 +12,8 @@ class PhotoRepositoryImpl implements PhotoRepository {
 
   @override
   Future<List<Photo>> getPhotos() async {
-    final List<Map<String, dynamic>> jsonList =
-        await _dataSource.getPhotoList();
-    final List<PhotoDto> dtoList =
-        jsonList.map((e) => PhotoDto.fromJson(e)).toList();
+    final List<PhotoDto> dtoList = await _dataSource.getDtoPhotoList();
+
     final List<Photo> photoList = dtoList.map((e) => e.toPhoto()).toList();
     return photoList;
   }
