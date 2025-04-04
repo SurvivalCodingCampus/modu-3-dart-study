@@ -65,6 +65,6 @@ class StoreDto {
 
   @override
   String toString() {
-    return 'InventoryDto{addr: $addr, code: $code, createdAt: $createdAt, lat: $lat, lng: $lng, name: $name, remainStatus: $remainStatus, stockAt: $stockAt, type: $type}';
+    return 'StoreDto{addr: $addr, code: $code, createdAt: $createdAt, lat: $lat, lng: $lng, name: $name, remainStatus: $remainStatus, stockAt: $stockAt, type: $type}';
   }
 }
