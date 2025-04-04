@@ -5,9 +5,9 @@ import '../model/photo.dart';
 extension PhotoMapper on PhotoDto {
   Photo toPhoto() {
     return Photo(
-      id: id != null ? int.parse(id.toString()) : 0,
+      id: id != null ? int.tryParse(id.toString()) ?? 0 : 0,
       type: typeCheck(type),
-      createdAt: DateTime.parse(createdAt ?? '0'),
+      createdAt: DateTime.parse(createdAt ?? '1970-01-01'),
       title: title ?? '',
       content: content ?? '',
       url: url ?? '',
