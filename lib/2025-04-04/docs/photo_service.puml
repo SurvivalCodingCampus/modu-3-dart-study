@@ -1,0 +1,34 @@
+@startuml
+interface PhotoRepository {
+  +Future<List<Photo>> fetchPhotos()
+}
+
+class PhotoRepositoryImpl {
+  -PhotoDataSource _dataSource
+  +PhotoRepositoryImpl(PhotoDataSource dataSource)
+  +Future<List<Photo>> fetchPhotos()
+}
+
+interface PhotoDataSource {
+  +Future<List<PhotoDto>> getPhotos()
+}
+
+class PhotoDto {
+  +Photo toPhoto()
+}
+
+class Photo {
+  +int id
+  +String type
+  +String title
+  +DateTime createdAt
+}
+
+PhotoRepository <|.. PhotoRepositoryImpl
+PhotoRepositoryImpl --> PhotoDataSource
+PhotoDataSource --> PhotoDto
+PhotoDto --> Photo
+
+PhotoRepositoryImpl ..> Photo : uses
+PhotoDataSource ..> Photo : uses
+@enduml
