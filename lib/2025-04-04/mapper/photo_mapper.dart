@@ -6,7 +6,7 @@ import '../model/photo.dart';
 extension PhotoMapper on PhotoDto {
   Photo toPhoto() {
     return Photo(
-      id: id == null ? 0 : int.tryParse(id.toString()) ?? 0,
+      id: id?.toInt() ?? 0,
       type: _mapStringToPhotoType(type),
       title: title ?? '',
       content: content ?? '',
