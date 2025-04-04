@@ -2,9 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/testing.dart';
-import 'package:modu_3_dart_study/2025-04/2025-04-04/data_source/http_inventory_data_source.dart';
-import 'package:modu_3_dart_study/2025-04/2025-04-04/data_source/inventory_data_source.dart';
-import 'package:modu_3_dart_study/2025-04/2025-04-04/dto/inventory_dto.dart';
+import 'package:modu_3_dart_study/2025-04/2025-04-04/data_source/http_store_data_source.dart';
+import 'package:modu_3_dart_study/2025-04/2025-04-04/data_source/store_data_source.dart';
+import 'package:modu_3_dart_study/2025-04/2025-04-04/dto/store_dto.dart'
+    show StoreDto;
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,23 +36,22 @@ void main() {
     );
   });
 
-  final InventoryDataSource dataSource = HttpInventoryDataSource(mockClient);
+  final StoreDataSource dataSource = HttpStoreDataSource(mockClient);
 
-  test('fetchInventoryItems() 호출 시 List<InventoryDto>를 반환해야한다.', () async {
-    final List<InventoryDto> inventories = await dataSource.fetchInventories();
+  test('fetchStore() 호출 시 List<StoreDto>를 반환해야한다.', () async {
+    final List<StoreDto> stores = await dataSource.fetchStore();
 
-    expect(inventories, isNotEmpty);
-    expect(inventories[0].name, equals('승약국'));
+    expect(stores, isNotEmpty);
+    expect(stores[0].name, equals('승약국'));
   });
 
   test(
-    'fetchInventoryItems() 호출 시 remainStat, stockAt, createdAt이 빈 InventoryDto는 없어야한다.',
+    'fetchStore() 호출 시 remainStat, stockAt, createdAt이 빈 StoreDto는 없어야한다.',
     () async {
-      final List<InventoryDto> inventories =
-          await dataSource.fetchInventories();
+      final List<StoreDto> stores = await dataSource.fetchStore();
 
-      List<InventoryDto> none =
-          inventories
+      List<StoreDto> none =
+          stores
               .where(
                 (e) =>
                     e.remainStatus == null &&
@@ -60,7 +60,7 @@ void main() {
               )
               .toList();
 
-      expect(inventories, isNotEmpty);
+      expect(stores, isNotEmpty);
       expect(none, isEmpty);
     },
   );
