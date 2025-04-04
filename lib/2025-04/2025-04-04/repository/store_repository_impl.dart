@@ -1,9 +1,9 @@
 import 'package:modu_3_dart_study/2025-04/2025-04-04/data_source/store_data_source.dart';
+import 'package:modu_3_dart_study/2025-04/2025-04-04/dto/store_dto.dart'
+    show StoreDto;
 import 'package:modu_3_dart_study/2025-04/2025-04-04/mapper/store_mapper.dart';
+import 'package:modu_3_dart_study/2025-04/2025-04-04/model/store.dart';
 import 'package:modu_3_dart_study/2025-04/2025-04-04/repository/store_repository.dart';
-
-import '../dto/store_dto.dart';
-import '../model/store.dart';
 
 class StoreRepositoryImpl implements StoreRepository {
   final StoreDataSource _dataSource;
@@ -12,7 +12,7 @@ class StoreRepositoryImpl implements StoreRepository {
 
   @override
   Future<List<Store>> findAll() async {
-    final List<StoreDto> stores = await _dataSource.fetchStore();
+    final List<StoreDto> stores = await _dataSource.fetch();
     return stores.map((e) => e.toModel()).toList();
   }
 
