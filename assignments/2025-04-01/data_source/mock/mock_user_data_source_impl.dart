@@ -1,5 +1,5 @@
 // 가짜 데이터 소스 (테스트용)
-import 'data_source.dart';
+import '../data_source.dart';
 
 class MockUserDataSourceImpl implements DataSource {
   @override
