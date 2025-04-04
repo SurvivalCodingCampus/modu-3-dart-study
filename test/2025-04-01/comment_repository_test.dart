@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/data_source/comment_data_source.dart';
-import '../../assignment/2025-04-01/model/comment.dart';
-import '../../assignment/2025-04-01/repository/comment_repository.dart';
-import '../../assignment/2025-04-01/repository/comment_repository_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/comment_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/comment.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/comment_repository_impl.dart';
 
 class MockCommentDataSource implements CommentDataSource {
   static const List<Map<String, dynamic>> mockJsonComments = [

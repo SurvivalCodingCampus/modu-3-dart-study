@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/data_source/album_data_source.dart';
-import '../../assignment/2025-04-01/model/album.dart';
-import '../../assignment/2025-04-01/repository/album_repository.dart';
-import '../../assignment/2025-04-01/repository/album_repository_impl.dart';
+import '../../lib/2025-04-01/data_source/album_data_source.dart';
+import '../../lib/2025-04-01/model/album.dart';
+import '../../lib/2025-04-01/repository/album_repository.dart';
+import '../../lib/2025-04-01/repository/album_repository_impl.dart';
 
 class MockAlbumDataSource implements AlbumDataSource {
   static const List<Map<String, dynamic>> mockJsonAlbums = [

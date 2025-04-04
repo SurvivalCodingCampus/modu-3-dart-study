@@ -108,7 +108,15 @@ hero=100
 
 
 
+### Build Runner 사용법
 
+#### 일회성 코드 생성
+
+- 프로젝트 루트에서 `dart run build_runner build --delete-conflicting-outputs` 명령어를 실행하면 모델에 필요한 JSON 직렬화 코드를 생성합니다.
+
+#### 지속적인 코드 생성
+
+- 프로젝트 루트에서 `dart run build_runner watch --delete-conflicting-outputs` 명령어를 실행하여 watcher를 시작합니다.
 
 
 

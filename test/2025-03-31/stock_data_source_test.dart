@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-03-31/stock_data_source.dart';
-import '../../assignment/2025-03-31/stock_data_source_impl.dart';
-import '../../assignment/2025-03-31/stock_listing.dart';
+import 'package:modu_3_dart_study/2025-03-31/stock_data_source.dart';
+import 'package:modu_3_dart_study/2025-03-31/stock_data_source_impl.dart';
+import 'package:modu_3_dart_study/2025-03-31/stock_listing.dart';
 
 void main() {
   final StockDataSource stockDataSource = StockDataSourceImpl();
@@ -13,7 +13,7 @@ void main() {
       final stockList = await stockDataSource.getStockListings();
 
       // toCSV
-      final List<String> csv = [StockListing.indexes.join(',')] ;
+      final List<String> csv = [StockListing.indexes.join(',')];
       csv.addAll(stockList.map((e) => e.toCsvRow()).toList());
 
       // toStockListing
@@ -23,7 +23,10 @@ void main() {
         deserializationStockList.add(stockListing);
       }
 
-      expect(ListEquality().equals(stockList, deserializationStockList), isTrue);
+      expect(
+        ListEquality().equals(stockList, deserializationStockList),
+        isTrue,
+      );
     });
   });
 }

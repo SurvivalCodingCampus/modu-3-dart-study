@@ -1,4 +1,5 @@
-import '../../assignment/2025-03-14/elegant_cleric.dart';
+import 'package:modu_3_dart_study/2025-03-14/elegant_cleric.dart';
+
 import 'package:test/test.dart';
 
 void main() {
@@ -6,7 +7,7 @@ void main() {
     test('Cleric - 변수 체크', () {
       const name = 'Sally';
 
-      final sally = Cleric('Sally');
+      final sally = Cleric('Sally', mp: 1);
 
       expect(sally.hp, equals(50));
       expect(sally.name, equals(name));
@@ -14,9 +15,8 @@ void main() {
 
     test('Cleric - 잘못된 HP 할당', () {
       const name = 'Tom';
-      const excessHp = 100;
 
-      final tom = Cleric(name, hp: excessHp);
+      final tom = Cleric(name, mp: 1);
 
       expect(tom.hp, equals(50));
     });
@@ -33,8 +33,8 @@ void main() {
     });
 
     test('Cleric - 정적변수 테스트', () {
-      const maxHp = Cleric.maxHp;
-      const maxMp = Cleric.maxMp;
+      var maxHp = Cleric.maxHp;
+      var maxMp = Cleric.maxMp;
 
       expect(maxHp, 50);
       expect(maxMp, 10);

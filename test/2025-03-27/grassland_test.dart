@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignment/2025-03-27/index.dart';
+import 'package:modu_3_dart_study/2025-03-27/index.dart';
 
 void main() {
   group('Grassland 테스트', () {

@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-03-31/user.dart';
-import '../../assignment/2025-03-31/user_data_source.dart';
-import '../../assignment/2025-03-31/user_data_source_impl.dart';
+import 'package:modu_3_dart_study/2025-03-31/user.dart';
+import 'package:modu_3_dart_study/2025-03-31/user_data_source.dart';
+import 'package:modu_3_dart_study/2025-03-31/user_data_source_impl.dart';
 
 void main() {
   final UserDataSource userDataSource = UserDataSourceImpl();
@@ -17,7 +17,8 @@ void main() {
       final json = users.map((e) => e.toJson()).toList();
       final jsonString = jsonEncode(json);
       final List<dynamic> deserializationJson = jsonDecode(jsonString);
-      final List<User> deserializationTodos = deserializationJson.map((e) => User.fromJson(e)).toList();
+      final List<User> deserializationTodos =
+          deserializationJson.map((e) => User.fromJson(e)).toList();
 
       expect(ListEquality().equals(users, deserializationTodos), isTrue);
     });

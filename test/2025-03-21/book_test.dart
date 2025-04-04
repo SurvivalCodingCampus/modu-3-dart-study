@@ -1,4 +1,4 @@
-import '../../assignment/2025-03-21/book.dart';
+import 'package:modu_3_dart_study/2025-03-21/book.dart';
 import 'package:test/test.dart';
 
 void main() {

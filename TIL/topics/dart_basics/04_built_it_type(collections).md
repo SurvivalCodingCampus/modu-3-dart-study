@@ -587,6 +587,37 @@ if (myMap.containsKey('apple')) {
 
 
 
+
+
+### Uint8List
+
+`Uint8List`는 겉으로 볼 때는 일반적인 List처럼 보이지만, 내부적으로는 연속된 메모리 버퍼에 8비트 정수(0-255)만 저장할 수 있도록 최적화된 배열입니다.
+
+```dart
+import 'dart:typed_data';
+
+void main() {
+  // 5개의 요소를 가진 Uint8List 생성
+  var bytes = Uint8List(5);
+  
+  // 값 할당
+  bytes[0] = 72;  // 'H'의 ASCII 값
+  bytes[1] = 101; // 'e'의 ASCII 값
+  bytes[2] = 108; // 'l'의 ASCII 값
+  bytes[3] = 108; // 'l'의 ASCII 값
+  bytes[4] = 111; // 'o'의 ASCII 값
+  
+  print(bytes); // [72, 101, 108, 108, 111] 출력
+  
+  // 데이터 크기(바이트 수)
+  print(bytes.lengthInBytes); // 5 출력
+}
+```
+
+
+
+
+
 ### Runes
 
 문자열에서 유니코드 코드 포인트를 다룰 때 사용

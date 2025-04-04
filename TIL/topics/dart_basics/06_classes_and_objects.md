@@ -1346,3 +1346,68 @@ final User user = User.fromJson(json); // ⭐️fromJson() 네이밍 암묵적�
 - **단순한 고정 값**: enum
 - **패턴 매칭과 타입 안전성**: sealed 클래스
 
+
+
+
+
+
+
+
+
+### json_serializable
+
+- JsonSerializable 라이브러리는 fromJson(), toJson() 을 자동으로 생성해 주고
+- 필드명을 바꿀 수 있는 것 외에도 DTO, Model 을 하나로 합칠 수 있는 여러 기능을 제공한다.
+
+
+
+#### @JsonSerializable(explicitToJson: true)
+
+```dart
+// explicitToJson: true 옵션은 중첩된 객체가 있을 때 toJson 메서드를 명시적으로 호출하도록 합니다
+@JsonSerializable(explicitToJson: true)
+```
+
+
+
+
+
+#### JSON Serialization 필드 값 변경 방법
+
+```dart
+import 'package:json_annotation/json_annotation.dart';
+
+part 'mask.g.dart';
+
+@JsonSerializable(explicitToJson: true)
+class Mask {
+  @JsonKey(name: 'addr')
+  final String address;
+  
+  @JsonKey(name: 'lat')
+  final double latitude;
+  
+  @JsonKey(name: 'lng')
+  final double longitude;
+  
+  final String name;
+  
+  @JsonKey(name: 'remain_stat')
+  final String remainStatus;
+  
+  const Mask({
+    required this.address,
+    required this.latitude,
+    required this.longitude,
+    required this.name,
+    required this.remainStatus,
+  });
+  
+  factory Mask.fromJson(Map<String, dynamic> json) => _$MaskFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$MaskToJson(this);
+}
+```
+
+
+

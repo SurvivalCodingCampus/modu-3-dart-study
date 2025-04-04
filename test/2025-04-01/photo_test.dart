@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/model/photo.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/photo.dart';
 
 void main() {
   const List<Map<String, dynamic>> mockPhotos = [
@@ -22,7 +22,10 @@ void main() {
           jsonList.map((e) => Photo.fromJson(e)).toList();
 
       expect(ListEquality().equals(photos, deserializationPhotos), isTrue);
-      expect(photos[0].title.isNotEmpty, equals(deserializationPhotos[0].title.isNotEmpty));
+      expect(
+        photos[0].title.isNotEmpty,
+        equals(deserializationPhotos[0].title.isNotEmpty),
+      );
     });
   });
 }

@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:test/test.dart';
 
-import '../../assignment/2025-03-25/default_file_operations.dart';
-import '../../assignment/2025-03-27/movie.dart';
+import 'package:modu_3_dart_study/2025-03-25/default_file_operations.dart';
+import 'package:modu_3_dart_study/2025-03-27/movie.dart';
 
 void main() {
   group('Movie 테스트', () {
-  final defaultFileOperations = DefaultFileOperations();
-  const sourcePath = 'assignment/2025-03-27/movie.json';
+    final defaultFileOperations = DefaultFileOperations();
+    const sourcePath = 'lib/2025-03-27/movie.json';
     test('직렬화, 역직렬화가 정상적으로 이뤄지고 필드가 같아야 한다.', () {
       // 역직렬화
       final jsonString = defaultFileOperations.read(sourcePath);
@@ -27,14 +27,14 @@ void main() {
       expect(movie, deserializationMovie);
     });
 
-  test('getMovieInfo() 실행 시 딜레이가 2초 이상 걸려야 합니다.', () async {
-    final stopwatch = Stopwatch()..start();
-    const delay = 2;
+    test('getMovieInfo() 실행 시 딜레이가 2초 이상 걸려야 합니다.', () async {
+      final stopwatch = Stopwatch()..start();
+      const delay = 2;
 
-    final _ = await getMovieInfo();
-    final timerTime = stopwatch.elapsed.inSeconds;
+      final _ = await getMovieInfo();
+      final timerTime = stopwatch.elapsed.inSeconds;
 
-    expect(timerTime, greaterThanOrEqualTo(delay));
-  });
+      expect(timerTime, greaterThanOrEqualTo(delay));
+    });
   });
 }

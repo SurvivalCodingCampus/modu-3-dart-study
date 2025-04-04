@@ -1,7 +1,6 @@
-import '../../assignment/2025-03-17/wizard.dart';
-import '../../assignment/2025-03-18/hero.dart';
+import '../../lib/2025-03-17/wizard.dart';
+import '../../lib/2025-03-18/hero.dart';
 import 'package:test/test.dart';
-
 
 void main() {
   group('Wizard 테스트', () {

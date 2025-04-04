@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/data_source/todo_data_source.dart';
-import '../../assignment/2025-04-01/model/todo.dart';
-import '../../assignment/2025-04-01/repository/todo_repository.dart';
-import '../../assignment/2025-04-01/repository/todo_repository_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/todo_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/todo.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/todo_repository.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/todo_repository_impl.dart';
 
 class MockTodoDataSource implements TodoDataSource {
   static const List<Map<String, dynamic>> mockJsonTodos = [

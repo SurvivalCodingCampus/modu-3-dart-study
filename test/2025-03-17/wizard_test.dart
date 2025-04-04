@@ -1,6 +1,6 @@
-import '../../assignment/2025-03-17/task_exception.dart';
-import '../../assignment/2025-03-17/wizard.dart';
-import '../../assignment/2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/2025-03-17/task_exception.dart';
+import 'package:modu_3_dart_study/2025-03-17/wizard.dart';
+import 'package:modu_3_dart_study/2025-03-17/wand.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -17,9 +17,16 @@ void main() {
 
       Wizard wizard;
 
-      expect(() {
-        wizard = Wizard(name, 0);
-      } , throwsA((e) => e is CustomException && e.message == TaskException.invalidName.message));
+      expect(
+        () {
+          wizard = Wizard(name, 0);
+        },
+        throwsA(
+          (e) =>
+              e is CustomException &&
+              e.message == TaskException.invalidName.message,
+        ),
+      );
     });
 
     test('HP는 음수가 되는 상황에서는 0으로 되어야 한다.', () {
@@ -45,9 +52,16 @@ void main() {
 
       Wand wand;
 
-      expect(() {
-        wand = Wand(name, 0.0);
-      } , throwsA((e) => e is CustomException && e.message == TaskException.invalidName.message));
+      expect(
+        () {
+          wand = Wand(name, 0.0);
+        },
+        throwsA(
+          (e) =>
+              e is CustomException &&
+              e.message == TaskException.invalidName.message,
+        ),
+      );
     });
 
     test('지팡이 마력은 경계값(0.5와 100.0)을 포함합니다', () {
@@ -60,21 +74,33 @@ void main() {
       expect(stickC.power, equals(50.0));
     });
 
-
-
     test('유효하지 않은 마력에 대한 메세지가 똑같아야 한다. ', () {
       const double highPower = 101.1;
       const double lowPower = 0.4;
 
       Wand wand;
 
-      expect(() {
-        wand = Wand('foo', highPower);
-      } , throwsA((e) => e is CustomException && e.message == TaskException.invalidPower.message));
+      expect(
+        () {
+          wand = Wand('foo', highPower);
+        },
+        throwsA(
+          (e) =>
+              e is CustomException &&
+              e.message == TaskException.invalidPower.message,
+        ),
+      );
 
-      expect(() {
-        wand = Wand('foo', lowPower);
-      }, throwsA((e) => e is CustomException && e.message == TaskException.invalidPower.message));
+      expect(
+        () {
+          wand = Wand('foo', lowPower);
+        },
+        throwsA(
+          (e) =>
+              e is CustomException &&
+              e.message == TaskException.invalidPower.message,
+        ),
+      );
     });
   });
 }

@@ -196,3 +196,25 @@
 ### 액션 단축키 입력 시 터미널 man페이지 열리는 것 비활성화
 
 ![image-20250320110812101](/Users/okstring/Library/Application Support/typora-user-images/image-20250320110812101.png)
+
+### Android Studio - setting export
+
+setting 들을 내보낼 수 있음
+
+
+
+### Live Templates - Dart
+
+- 더하기를 눌러서 Live Template 추가
+- 'abb'에 'json2'를 입력하고 코드 붙여넣기
+- 'Change'에서 Dart 추가
+- 'Edit Variables'를 누르고 사진과 같이 설정
+
+![img](/Users/okstring/Documents/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F34379f8a-f123-4311-9a1a-d570acf836e1%2FUntitled.png)
+
+- 'Name'에 정보 입력
+
+
+
+
+

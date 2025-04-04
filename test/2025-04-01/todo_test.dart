@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/model/todo.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/todo.dart';
 
 void main() {
   const List<Map<String, dynamic>> mockTodos = [
@@ -16,7 +16,10 @@ void main() {
           jsonList.map((e) => Todo.fromJson(e)).toList();
 
       expect(ListEquality().equals(todos, deserializationTodos), isTrue);
-      expect(todos[0].title.isNotEmpty, equals(deserializationTodos[0].title.isNotEmpty));
+      expect(
+        todos[0].title.isNotEmpty,
+        equals(deserializationTodos[0].title.isNotEmpty),
+      );
     });
   });
 }

@@ -1,13 +1,11 @@
-import '../../assignment/2025-03-25/index.dart';
+import 'package:modu_3_dart_study/2025-03-25/index.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('DefaultFileOperations 테스트', () {
     final defaultFileOperations = DefaultFileOperations();
-    const sourcePath =
-        'assignment/2025-03-25/my_file.txt';
-    const targetPath =
-        'assignment/2025-03-25/copy/my_file.txt';
+    const sourcePath = 'lib/2025-03-25/my_file.txt';
+    const targetPath = 'lib/2025-03-25/copy/my_file.txt';
     const contents = 'Hello World!';
 
     setUp(() {
@@ -23,7 +21,10 @@ void main() {
       final sourceFileName = sourceFile.path.split('/').last;
       final targetFileName = targetFile.path.split('/').last;
 
-      expect(sourceFile.readAsStringSync(), equals(targetFile.readAsStringSync()));
+      expect(
+        sourceFile.readAsStringSync(),
+        equals(targetFile.readAsStringSync()),
+      );
       expect(sourceFileName, equals(targetFileName));
     });
 

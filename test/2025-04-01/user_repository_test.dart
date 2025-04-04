@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/data_source/user_data_source.dart';
-import '../../assignment/2025-04-01/model/user.dart';
-import '../../assignment/2025-04-01/repository/user_repository.dart';
-import '../../assignment/2025-04-01/repository/user_repository_impl.dart';
+import 'package:modu_3_dart_study/2025-04-01/data_source/user_data_source.dart';
+import 'package:modu_3_dart_study/2025-04-01/model/user.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/user_repository.dart';
+import 'package:modu_3_dart_study/2025-04-01/repository/user_repository_impl.dart';
 
 class MockUserDataSource implements UserDataSource {
   static const List<Map<String, dynamic>> mockJsonUsers = [

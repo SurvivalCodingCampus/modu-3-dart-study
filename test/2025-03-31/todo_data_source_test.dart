@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:test/test.dart';
 
-import '../../assignment/2025-03-31/todo.dart';
-import '../../assignment/2025-03-31/todo_data_source.dart';
-import '../../assignment/2025-03-31/todo_data_source_impl.dart';
+import '../../lib/2025-03-31/todo.dart';
+import '../../lib/2025-03-31/todo_data_source.dart';
+import '../../lib/2025-03-31/todo_data_source_impl.dart';
 
 void main() {
   final TodoDataSource todoDataSource = TodoDataSourceImpl();
@@ -27,7 +27,8 @@ void main() {
       final json = todos.map((e) => e.toJson()).toList();
       final jsonString = jsonEncode(json);
       final List<dynamic> deserializationJson = jsonDecode(jsonString);
-      final List<Todo> deserializationTodos = deserializationJson.map((e) => Todo.fromJson(e)).toList();
+      final List<Todo> deserializationTodos =
+          deserializationJson.map((e) => Todo.fromJson(e)).toList();
 
       expect(todos, equals(deserializationTodos));
     });

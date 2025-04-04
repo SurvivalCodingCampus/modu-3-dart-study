@@ -1,13 +1,12 @@
 import 'dart:convert';
 
-import '../../assignment/2025-03-25/index.dart';
+import 'package:modu_3_dart_study/2025-03-25/index.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('Department 테스트', () {
     final defaultFileOperations = DefaultFileOperations();
-    const targetPath =
-        'assignment/2025-03-25/company.txt';
+    const targetPath = 'lib/2025-03-25/company.txt';
 
     test(
       'department를 인스턴스화하고 직렬화해서 company.txt에 저장해야 한다. 이후 제목과 내용, 객체가 같아야한다.',

@@ -1,7 +1,6 @@
-
-import 'package:modu_3_dart_study/2025-03-31/data_source/todo_data_source.dart';
-import 'package:modu_3_dart_study/2025-03-31/data_source/todo_data_source_impl.dart';
-import 'package:modu_3_dart_study/2025-03-31/model/todo.dart';
+import 'package:modu_3_dart_study/2025-03-31/todo.dart';
+import 'package:modu_3_dart_study/2025-03-31/todo_data_source.dart';
+import 'package:modu_3_dart_study/2025-03-31/todo_data_source_impl.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -12,7 +11,7 @@ void main() {
       "userId": 1,
       "id": 1,
       "title": "delectus aut autem",
-      "completed": false
+      "completed": false,
     };
 
     final Todo todo = await dataSource.getTodo();

@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-import '../../assignment/2025-04-01/model/comment.dart';
+import '../../lib/2025-04-01/model/comment.dart';
 
 void main() {
   const List<Map<String, dynamic>> mockComments = [
@@ -23,7 +23,7 @@ void main() {
           jsonList.map((e) => Comment.fromJson(e)).toList();
 
       expect(ListEquality().equals(comments, deserializationComments), isTrue);
-      expect(comments[0].name.isNotEmpty , deserializationComments.isNotEmpty);
+      expect(comments[0].name.isNotEmpty, deserializationComments.isNotEmpty);
     });
   });
 }

@@ -1,4 +1,4 @@
-import '../../assignment/2025-03-13/solution3.dart';
+import 'package:modu_3_dart_study/2025-03-13/solution3.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,7 +8,7 @@ void main() {
 
     test('Cleric selfAid 테스트', () {
       // 준비(Arrange)
-      cleric = Cleric('Sally');
+      cleric = Cleric('Sally', mp: 1);
 
       // 실행(Act)
       cleric.selfAid();
@@ -18,7 +18,7 @@ void main() {
     });
 
     test('Cleric pray 테스트', () {
-      cleric = Cleric('John');
+      cleric = Cleric('John', mp: 1);
 
       cleric.pray(0);
 

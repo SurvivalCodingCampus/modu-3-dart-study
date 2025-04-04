@@ -1,6 +1,6 @@
-import '../../assignment/2025-03-18/hero.dart';
-import '../../assignment/2025-03-18/slime.dart';
-import '../../assignment/2025-03-18/poison_slime.dart';
+import 'package:modu_3_dart_study/2025-03-18/hero.dart';
+import 'package:modu_3_dart_study/2025-03-18/slime.dart';
+import 'package:modu_3_dart_study/2025-03-18/poison_slime.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -20,7 +20,10 @@ void main() {
       for (int i = 0; i < count; i++) {
         poisonSlime.attack(hero);
         // 기본 attack Damage 이후 1/5 데미지 추가
-        expectHp = (expectHp - Slime.attackDamage - ((expectHp - Slime.attackDamage) * 0.2).toInt());
+        expectHp =
+            (expectHp -
+                Slime.attackDamage -
+                ((expectHp - Slime.attackDamage) * 0.2).toInt());
       }
 
       expect(hero.hp, expectHp);
