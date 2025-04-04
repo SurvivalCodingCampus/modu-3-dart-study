@@ -1,44 +1,27 @@
 class StoreDto {
+  String? addr;
+  String? code;
+  String? createdAt;
+  num? lat;
+  num? lng;
+  String? name;
+  String? remainStat;
+  String? stockAt;
+  String? type;
+
   StoreDto({
-      this.count, 
-      this.stores,});
+    this.addr,
+    this.code,
+    this.createdAt,
+    this.lat,
+    this.lng,
+    this.name,
+    this.remainStat,
+    this.stockAt,
+    this.type,
+  });
 
   StoreDto.fromJson(dynamic json) {
-    count = json['count'];
-    if (json['stores'] != null) {
-      stores = [];
-      json['stores'].forEach((v) {
-        stores?.add(Stores.fromJson(v));
-      });
-    }
-  }
-  num? count;
-  List<Stores>? stores;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['count'] = count;
-    if (stores != null) {
-      map['stores'] = stores?.map((v) => v.toJson()).toList();
-    }
-    return map;
-  }
-
-}
-
-class Stores {
-  Stores({
-      this.addr, 
-      this.code, 
-      this.createdAt, 
-      this.lat, 
-      this.lng, 
-      this.name, 
-      this.remainStat, 
-      this.stockAt, 
-      this.type,});
-
-  Stores.fromJson(dynamic json) {
     addr = json['addr'];
     code = json['code'];
     createdAt = json['created_at'];
@@ -49,15 +32,6 @@ class Stores {
     stockAt = json['stock_at'];
     type = json['type'];
   }
-  String? addr;
-  String? code;
-  String? createdAt;
-  num? lat;
-  num? lng;
-  String? name;
-  String? remainStat;
-  String? stockAt;
-  String? type;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -72,5 +46,4 @@ class Stores {
     map['type'] = type;
     return map;
   }
-
 }
