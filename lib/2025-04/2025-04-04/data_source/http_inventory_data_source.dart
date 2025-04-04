@@ -11,7 +11,9 @@ class HttpInventoryDataSource implements InventoryDataSource {
   const HttpInventoryDataSource(this._client);
 
   @override
-  Future<List<InventoryDto>> fetchInventories(String url) async {
+  Future<List<InventoryDto>> fetchInventories() async {
+    const String url =
+        'https://gist.githubusercontent.com/junsuk5/2b34223fb2368d2bf44c85082745649a/raw/00cb276cb4f4f9573d868e88382f6f7f6759df31/mask_store.json';
     Uri uri = Uri.parse(url);
 
     final http.Response data = await _client.get(uri);
