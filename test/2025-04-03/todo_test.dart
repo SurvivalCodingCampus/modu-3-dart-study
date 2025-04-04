@@ -74,6 +74,7 @@ void main() {
         expect(result.id, 1);
         expect(result.title, 'Todo 1');
         expect(result.completed, false);
+        
         expect(() => todoRepository.fetchTodo(999), throwsException);
       } catch (e) {
         throw Exception(e);

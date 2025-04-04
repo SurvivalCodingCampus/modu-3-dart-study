@@ -35,7 +35,7 @@ void main() {
     );
     try {
       final result = await mockMovieRepository.getMovieInfoList();
-    print(result);
+    // print(result);
       expect(result.first.id, 939243);
       expect(result.first.title, '수퍼 소닉 3');
     } catch (e) {
