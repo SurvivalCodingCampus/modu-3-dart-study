@@ -12,18 +12,22 @@ class StoreRepositoryImpl implements StoreRepository {
 
   @override
   Future<List<Store>> getStores() async {
-    final List<StoreDto> dtoList = await _dataSource.getDtoStores();
+    try {
+      final List<StoreDto> dtoList = await _dataSource.getDtoStores();
 
-    final storeList =
-        dtoList
-            .map((e) => e.toStore())
-            .where(
-              (element) =>
-                  (element.remainStat != '' &&
-                      element.stockAt != DateTime(1999, 1, 1) &&
-                      element.createdAt != DateTime(1999, 1, 1)),
-            )
-            .toList();
-    return storeList;
+      final storeList =
+          dtoList
+              .map((e) => e.toStore())
+              .where(
+                (element) =>
+                    (element.remainStat != '' &&
+                        element.stockAt != DateTime(1999, 1, 1) &&
+                        element.createdAt != DateTime(1999, 1, 1)),
+              )
+              .toList();
+      return storeList;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }
