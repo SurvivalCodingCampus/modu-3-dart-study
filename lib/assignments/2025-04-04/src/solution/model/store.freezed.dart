@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Store {
 
- String? get addr; String? get code; double? get lat; double? get lng; String? get name; String? get remainStat; String? get stockAt;
+ String get addr; String get code; double get lat; double get lng; String get name; String get remainStat; String get stockAt;
 /// Create a copy of Store
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -46,7 +46,7 @@ abstract mixin class $StoreCopyWith<$Res>  {
   factory $StoreCopyWith(Store value, $Res Function(Store) _then) = _$StoreCopyWithImpl;
 @useResult
 $Res call({
- String? addr, String? code, double? lat, double? lng, String? name, String? remainStat, String? stockAt
+ String addr, String code, double lat, double lng, String name, String remainStat, String stockAt
 });
 
 
@@ -63,16 +63,16 @@ class _$StoreCopyWithImpl<$Res>
 
 /// Create a copy of Store
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? addr = freezed,Object? code = freezed,Object? lat = freezed,Object? lng = freezed,Object? name = freezed,Object? remainStat = freezed,Object? stockAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? addr = null,Object? code = null,Object? lat = null,Object? lng = null,Object? name = null,Object? remainStat = null,Object? stockAt = null,}) {
   return _then(_self.copyWith(
-addr: freezed == addr ? _self.addr : addr // ignore: cast_nullable_to_non_nullable
-as String?,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String?,lat: freezed == lat ? _self.lat : lat // ignore: cast_nullable_to_non_nullable
-as double?,lng: freezed == lng ? _self.lng : lng // ignore: cast_nullable_to_non_nullable
-as double?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String?,remainStat: freezed == remainStat ? _self.remainStat : remainStat // ignore: cast_nullable_to_non_nullable
-as String?,stockAt: freezed == stockAt ? _self.stockAt : stockAt // ignore: cast_nullable_to_non_nullable
-as String?,
+addr: null == addr ? _self.addr : addr // ignore: cast_nullable_to_non_nullable
+as String,code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String,lat: null == lat ? _self.lat : lat // ignore: cast_nullable_to_non_nullable
+as double,lng: null == lng ? _self.lng : lng // ignore: cast_nullable_to_non_nullable
+as double,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,remainStat: null == remainStat ? _self.remainStat : remainStat // ignore: cast_nullable_to_non_nullable
+as String,stockAt: null == stockAt ? _self.stockAt : stockAt // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -83,16 +83,16 @@ as String?,
 
 
 class _Store implements Store {
-  const _Store({this.addr, this.code, this.lat, this.lng, this.name, this.remainStat, this.stockAt});
+  const _Store({required this.addr, required this.code, required this.lat, required this.lng, required this.name, required this.remainStat, required this.stockAt});
   
 
-@override final  String? addr;
-@override final  String? code;
-@override final  double? lat;
-@override final  double? lng;
-@override final  String? name;
-@override final  String? remainStat;
-@override final  String? stockAt;
+@override final  String addr;
+@override final  String code;
+@override final  double lat;
+@override final  double lng;
+@override final  String name;
+@override final  String remainStat;
+@override final  String stockAt;
 
 /// Create a copy of Store
 /// with the given fields replaced by the non-null parameter values.
@@ -124,7 +124,7 @@ abstract mixin class _$StoreCopyWith<$Res> implements $StoreCopyWith<$Res> {
   factory _$StoreCopyWith(_Store value, $Res Function(_Store) _then) = __$StoreCopyWithImpl;
 @override @useResult
 $Res call({
- String? addr, String? code, double? lat, double? lng, String? name, String? remainStat, String? stockAt
+ String addr, String code, double lat, double lng, String name, String remainStat, String stockAt
 });
 
 
@@ -141,16 +141,16 @@ class __$StoreCopyWithImpl<$Res>
 
 /// Create a copy of Store
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? addr = freezed,Object? code = freezed,Object? lat = freezed,Object? lng = freezed,Object? name = freezed,Object? remainStat = freezed,Object? stockAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? addr = null,Object? code = null,Object? lat = null,Object? lng = null,Object? name = null,Object? remainStat = null,Object? stockAt = null,}) {
   return _then(_Store(
-addr: freezed == addr ? _self.addr : addr // ignore: cast_nullable_to_non_nullable
-as String?,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String?,lat: freezed == lat ? _self.lat : lat // ignore: cast_nullable_to_non_nullable
-as double?,lng: freezed == lng ? _self.lng : lng // ignore: cast_nullable_to_non_nullable
-as double?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String?,remainStat: freezed == remainStat ? _self.remainStat : remainStat // ignore: cast_nullable_to_non_nullable
-as String?,stockAt: freezed == stockAt ? _self.stockAt : stockAt // ignore: cast_nullable_to_non_nullable
-as String?,
+addr: null == addr ? _self.addr : addr // ignore: cast_nullable_to_non_nullable
+as String,code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String,lat: null == lat ? _self.lat : lat // ignore: cast_nullable_to_non_nullable
+as double,lng: null == lng ? _self.lng : lng // ignore: cast_nullable_to_non_nullable
+as double,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,remainStat: null == remainStat ? _self.remainStat : remainStat // ignore: cast_nullable_to_non_nullable
+as String,stockAt: null == stockAt ? _self.stockAt : stockAt // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

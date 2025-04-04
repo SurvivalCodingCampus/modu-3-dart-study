@@ -18,15 +18,15 @@ class StoreDto {
   final String? type;
 
   StoreDto({
-    required this.addr,
-    required this.code,
-    required this.createdAt,
-    required this.lat,
-    required this.lng,
-    required this.name,
-    required this.remainStat,
-    required this.stockAt,
-    required this.type,
+    this.addr,
+    this.code,
+    this.createdAt,
+    this.lat,
+    this.lng,
+    this.name,
+    this.remainStat,
+    this.stockAt,
+    this.type,
   });
 
   factory StoreDto.fromJson(Map<String, dynamic> json) =>

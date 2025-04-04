@@ -14,13 +14,13 @@ class PhotoDto {
   final String? createdAt;
 
   PhotoDto({
-    required this.id,
-    required this.type,
-    required this.title,
-    required this.content,
-    required this.url,
-    required this.caption,
-    required this.createdAt,
+    this.id,
+    this.type,
+    this.title,
+    this.content,
+    this.url,
+    this.caption,
+    this.createdAt,
   });
 
   factory PhotoDto.fromJson(Map<String, dynamic> json) =>
