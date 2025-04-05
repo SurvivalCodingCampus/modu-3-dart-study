@@ -9,9 +9,13 @@ class PhotoDataSourceImpl implements PhotoDataSource {
 
   @override
   Future<List<PhotoDto>> getPhotoDataDto() async {
-    final file = File(filePath);
-    final fileString = await file.readAsString();
-    final List<dynamic> fileJson = jsonDecode(fileString);
-    return fileJson.map((e) => PhotoDto.fromJson(e)).toList();
+    try {
+      final file = File(filePath);
+      final fileString = await file.readAsString();
+      final List<dynamic> fileJson = jsonDecode(fileString);
+      return fileJson.map((e) => PhotoDto.fromJson(e)).toList();
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

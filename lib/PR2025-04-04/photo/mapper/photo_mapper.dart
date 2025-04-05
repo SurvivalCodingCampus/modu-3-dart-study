@@ -11,7 +11,10 @@ extension PhotoMapper on PhotoDto {
       type: type ?? PhotoEnum.Unknown,
       title: title ?? '제목 없음',
       content: content ?? '내용 없음',
-      createdAt: DateTime.parse(created_at!) ?? DateTime.now(),
+      createdAt:
+          created_at != null
+              ? DateTime.tryParse(created_at!) ?? DateTime.now()
+              : DateTime.now(),
       url: url ?? 'url 없음',
       caption: caption ?? '캡션 없음',
     );

@@ -6,7 +6,7 @@ import 'package:modu_3_dart_study/PR2025-04-04/photo/dto/photo_dto.dart';
 
 class PhotoDataSourceImpl implements PhotoDataSource {
   @override
-  Future<List<PhotoDto>> getPhotoesData() async {
+  Future<List<PhotoDto>> getPhotosData() async {
     final String jsonFilePath = 'lib/PR2025-04-04/photo/json/photo.json';
     final File file = File(jsonFilePath);
     final jsonFile = await file.readAsString();

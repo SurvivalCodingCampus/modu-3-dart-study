@@ -5,7 +5,7 @@ import '../enum/photo_enum.dart';
 
 class MockPhotoDataSourceImpl implements PhotoDataSource {
   @override
-  Future<List<PhotoDto>> getPhotoesData() async {
+  Future<List<PhotoDto>> getPhotosData() async {
     return [
       PhotoDto(
         id: 1,

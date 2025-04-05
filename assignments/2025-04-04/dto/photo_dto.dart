@@ -22,7 +22,7 @@ class PhotoDto {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'type': type,
+      'type': type?.toString().split('.').last,
       'title': title,
       'content': content,
       'created_at': created_at,
