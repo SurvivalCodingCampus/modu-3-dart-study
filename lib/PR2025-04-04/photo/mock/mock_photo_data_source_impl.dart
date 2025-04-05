@@ -9,21 +9,21 @@ class MockPhotoDataSourceImpl implements PhotoDataSource {
     return [
       PhotoDto(
         id: 1,
-        type: PhotoEnum.article,
+        type: PhotoEnum.Article,
         title: "This is an article",
         content: "This is the content of the article.",
         created_at: "2020-01-01",
       ),
       PhotoDto(
         id: 2,
-        type: PhotoEnum.image,
+        type: PhotoEnum.Image,
         url: "https://example.com/image.jpg",
         caption: "This is an image.",
         created_at: "2020-02-02",
       ),
       PhotoDto(
         id: 3,
-        type: PhotoEnum.video,
+        type: PhotoEnum.Video,
         url: "https://example.com/video.mp4",
         caption: "This is a video.",
         created_at: "2020-03-03",
@@ -31,7 +31,7 @@ class MockPhotoDataSourceImpl implements PhotoDataSource {
       PhotoDto(
         id: int.tryParse("1") ?? 1,
         // 문자열 id 변환
-        type: PhotoEnum.article,
+        type: PhotoEnum.Article,
         title: "This is an article",
         content: "This is the content of the article.",
         created_at: "2020-01-01",
