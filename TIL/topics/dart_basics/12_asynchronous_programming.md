@@ -130,6 +130,29 @@ print(stopwatch.elapsed);
 
 
 
+
+
+
+
+## async-await 시 forEach, for 주의사항
+
+### forEach
+
+- 비동기 작업의 완료를 기다리지 않음
+- 모든 콜백을 즉시 실행하고 넘어감
+- `await`이 동작하지만 다음 반복을 기다리게 하지 않음
+- 루프 완료 후 코드가 즉시 실행됨
+
+### for 루프
+
+- 각 반복에서 `await` 작업이 완료될 때까지 기다림
+- 순차적으로 실행됨
+- 모든 비동기 작업이 완료된 후에만 루프 이후 코드가 실행됨
+
+
+
+
+
 ## 아이솔레이트 (Isolates)
 
 - [공식문서](https://dart.dev/language/isolates)

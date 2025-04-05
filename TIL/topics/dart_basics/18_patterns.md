@@ -85,4 +85,30 @@ class User {
 
 
 
-# 
+
+
+## DTO, Mapper
+
+### DTO(Data Transfer Object)
+
+- 데이터 소스를 모델 클래스로 변환하는 과정에서 순수하게 클래스에 담기 위한 중간 전달 객체
+- DTO에 toJson(), fromJson이 위치한다.
+- 모든 필드가 Nullable 변수
+  - 그러므로 불완전한 코드가 포함될 것 같다면 DTO 도입하자
+- int, double 자료형은 num으로 안전하게 받는다
+
+### Mapper
+
+- DTO를 모델 클래스로 변환
+- mapper를 따로 나누는 이유는 DTO와 의존이 되어있기 때문
+- 작성 시 extension을 선호하는 이유
+  - DTO는 자동으로 만들고 수정하지 않는다.
+  - mapper는 복잡한 로직이 포함될 수 있어서 인간이 작성
+  - 문제있으면 여기만 살핀다.
+
+
+
+### Model
+
+- class는 non-nullable 값만 가지고 있도록 한다
+

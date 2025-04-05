@@ -18,7 +18,7 @@ void main() {
     const todoBody = {'id': 1, 'title': 'Test Todo 1', 'completed': false};
 
     MockHttpClientImpl mockHttpClient;
-    TodoDataSource movieDataSource;
+    TodoDataSource todoDataSource;
     TodoRepository repository;
 
     test('Todos가 정상적으로 반환되어야 한다.', () async {
@@ -27,12 +27,12 @@ void main() {
 
       mockHttpClient = MockHttpClientImpl(urlString: todosUrlString, body: todosBody);
 
-      movieDataSource = TodoDataSourceImpl(
+      todoDataSource = TodoDataSourceImpl(
         client: mockHttpClient.mockClient,
       );
 
       repository = TodoRepositoryImpl(
-        todoDataSource: movieDataSource,
+        todoDataSource: todoDataSource,
       );
 
       // when
@@ -56,12 +56,12 @@ void main() {
 
       mockHttpClient = MockHttpClientImpl(urlString: todoUrlString, body: todoBody);
 
-      movieDataSource = TodoDataSourceImpl(
+      todoDataSource = TodoDataSourceImpl(
         client: mockHttpClient.mockClient,
       );
 
       repository = TodoRepositoryImpl(
-        todoDataSource: movieDataSource,
+        todoDataSource: todoDataSource,
       );
 
       // when

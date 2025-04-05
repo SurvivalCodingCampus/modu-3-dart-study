@@ -13,7 +13,7 @@
 ```dart
 import 'dart:math';  // Dart의 기본 라이브러리
 import 'package:http/http.dart';  // 패키지 라이브러리
-import 'utils.dart';  // 로컬 파일
+import 'config.dart';  // 로컬 파일
 ```
 
 
@@ -39,7 +39,7 @@ import 'package:http/http.dart' as http;
 #### 로컬 라이브러리 (relative path)
 
 ```dart
-import 'utils.dart';  // 같은 폴더에 있는 utils.dart 파일 가져오기
+import 'config.dart';  // 같은 폴더에 있는 config.dart 파일 가져오기
 ```
 
 
@@ -76,7 +76,7 @@ import 'dart:math' hide sin, cos;
 - main.dart:
 
 ```dart
-part 'utils.dart';
+part 'config.dart';
 ```
 
 - utils.dart:

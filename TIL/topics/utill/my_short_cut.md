@@ -218,3 +218,10 @@ setting 들을 내보낼 수 있음
 
 
 
+### Optimize Imports
+
+- 코드의 import 문을 자동으로 정렬하고 정리해준다
+
+### Action on Save
+
+- 'Action on Save' 설정으로 파일 저장 시 Optimize imports 등 기능들이 자동 실행되도록 할 수 있습니다.
