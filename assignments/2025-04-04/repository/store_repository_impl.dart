@@ -16,6 +16,7 @@ class StoreRepositoryImpl implements StoreRepository {
   @override
   Future<List<Store>> getStores() async {
     final stores = await _dataSorece.getStoresMaskInfo();
+    print('⭐️ 약국별 마스크 목록 가져오기 ⭐️');
     return stores.map((e) => e.toStore()).toList();
   }
 
@@ -23,6 +24,7 @@ class StoreRepositoryImpl implements StoreRepository {
   @override
   Future<Store> getStore(int code) async {
     final StoreDto store = await _dataSorece.getStoreMaskInfo(code: code);
+    print('⭐️ 특정약국의 마스크정보 불러오기 ⭐️');
     return store.toStore();
   }
 
@@ -41,6 +43,7 @@ class StoreRepositoryImpl implements StoreRepository {
       lng: lng,
     );
     final StoreDto newStore = await _dataSorece.getStoreMaskInfo(code: code);
+    print('⭐️ 약국 정보 등록하기 ⭐️');
     return newStore.toStore();
   }
 
@@ -57,12 +60,14 @@ class StoreRepositoryImpl implements StoreRepository {
       stockAt: stockAt,
     );
     final StoreDto updateStore = await _dataSorece.getStoreMaskInfo(code: code);
+    print('⭐️ 특정약국의 마스크 정보 업데이트하기 ⭐️');
     return updateStore.toStore();
   }
 
   /* 특정약국 정보 지우기 */
   @override
   Future<void> deleteStore(int code) async {
+    print('⭐️ 특정약국 정보 지우기 ⭐️');
     await _dataSorece.deleteStore(code);
   }
 }
@@ -74,35 +79,35 @@ void main() async {
   final repository = StoreRepositoryImpl(dataSource);
 
   // /* 약국별 마스크 목록보기 */
-  // final stores = await repository.getStores();
-  // for (Store store in stores) {
-  //   printStore(store);
-  // }
-  // print('\n\n');
-  // /* 특정 약국 정보 보기 */
-  // final store = await repository.getStore(6);
-  // printStore(store);
-  // print('\n\n');
+  final stores = await repository.getStores();
+  for (Store store in stores) {
+    printStore(store);
+  }
+  print('\n\n');
+  /* 특정 약국 정보 보기 */
+  final store = await repository.getStore(4);
+  printStore(store);
+  print('\n\n');
 
   /* 약국 추가하기 */
   final newstore = await repository.createStore(
     addr: '서울시',
-    name: '',
+    name: '지롱이 약국',
     lat: 37.6261612,
     lng: 127.0180494,
   );
   printStore(newstore);
   print('\n\n');
 
-  // /* 약국 마스크 정보 업데이트하기 */
-  // final updateStore = await repository.updateMaskStat(
-  //   code: 6,
-  //   remainStat: StoreRemainStat.some,
-  //   stockAt: '2025/04/05 22:00:30',
-  // );
-  // printStore(updateStore);
-  // /* 약국 삭제하기 */
-  // await repository.deleteStore(7);
+  /* 약국 마스크 정보 업데이트하기 */
+  final updateStore = await repository.updateMaskStat(
+    code: 6,
+    remainStat: StoreRemainStat.some,
+    stockAt: '2025/04/05 22:00:30',
+  );
+  printStore(updateStore);
+  /* 약국 삭제하기 */
+  await repository.deleteStore(7);
 }
 
 void printStore(Store store) {

@@ -9,48 +9,22 @@ import 'package:intl/intl.dart';
 import '../../dto/store_dto.dart';
 import '../../model/store_remain_stat.dart';
 import '../store_data_source.dart';
+import 'store_file_util.dart';
 
 class MockStoreDataSourceImpl implements StoreDataSource {
   final http.Client _client;
+  MockStoreDataSourceImpl(this._client);
 
   final String _url =
       'https://gist.githubusercontent.com/junsuk5/2b34223fb2368d2bf44c85082745649a/raw/00cb276cb4f4f9573d868e88382f6f7f6759df31/mask_store.json';
-
-  final String filePath =
-      '${Directory.current.path}/assignments/2025-04-04/data/mock_store.json';
-
-  Future<List<Map<String, dynamic>>> readJsonData() async {
-    try {
-      final File jsonFile = File(filePath);
-      String jsonFormFile = await jsonFile.readAsString();
-      return jsonDecode(jsonFormFile).cast<Map<String, dynamic>>();
-    } on FormatException {
-      throw FormatException('JSON 파싱 중 오류가 발생했습니다');
-    } catch (e) {
-      throw Exception('예상치 못한 오류가가 발생했습니다.: $e');
-    }
-  }
-
-  @override
-  Future<void> writeJsonFile(List<Map<String, dynamic>> todos) async {
-    try {
-      final File jsonFile = File(filePath);
-      await jsonFile.writeAsString(jsonEncode(todos));
-    } on FileSystemException {
-      throw FormatException('JSON 파싱오류');
-    } catch (e) {
-      throw Exception('예상치 못한 오류가가 발생했습니다.: $e');
-    }
-  }
-
-  MockStoreDataSourceImpl(this._client);
+  final StoreFileUtil _fileUtil = StoreFileUtil(); // JSON 파일 읽어오기
 
   @override
   Future<List<StoreDto>> getStoresMaskInfo() async {
     final client = MockClient((request) async {
       if (request.url.toString() == _url) {
         return http.Response(
-          jsonEncode(await readJsonData()),
+          jsonEncode(await _fileUtil.readJsonData()),
           200,
           headers: {"content-type": "application/json; charset=utf-8"},
         );
@@ -77,7 +51,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
         final codeStr = url.split('/').last;
         Map<String, dynamic>? store;
 
-        final stores = await readJsonData();
+        final stores = await _fileUtil.readJsonData();
         for (var element in stores) {
           if (element['code'] == codeStr) {
             store = element;
@@ -125,8 +99,6 @@ class MockStoreDataSourceImpl implements StoreDataSource {
     required double lat,
     required double lng,
   }) async {
-    print('추가할 약국의 정보 : $addr / $name / $lat / $lng');
-
     final client = MockClient((request) async {
       final url = request.url.toString();
 
@@ -150,7 +122,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
           );
         }
 
-        final stores = await readJsonData();
+        final stores = await _fileUtil.readJsonData();
         int newCode;
 
         if (stores.isNotEmpty) {
@@ -175,7 +147,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
 
         stores.add(storeDto.toJson());
 
-        await writeJsonFile(stores);
+        await _fileUtil.writeJsonFile(stores);
 
         return http.Response(
           jsonEncode({'code': newCode}),
@@ -231,7 +203,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
           orElse: () => throw Exception('유효하지 않은 remainStat 값'),
         );
 
-        final stores = await readJsonData();
+        final stores = await _fileUtil.readJsonData();
         final index = stores.indexWhere(
           (store) => int.tryParse(store['code'].toString()) == requestCode,
         );
@@ -250,7 +222,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
 
         stores[index]['remain_stat'] = remainStat.toString().split('.').last;
 
-        await writeJsonFile(stores);
+        await _fileUtil.writeJsonFile(stores);
         return http.Response(
           '수정 완료',
           200,
@@ -290,7 +262,13 @@ class MockStoreDataSourceImpl implements StoreDataSource {
       final url = request.url.toString();
 
       if (request.method == 'DELETE' && url == _url) {
-        final stores = await readJsonData();
+        final stores = await _fileUtil.readJsonData();
+        final body = jsonDecode(request.body);
+        final int? requestCode = body['code'];
+
+        if (requestCode == null) {
+          return http.Response('Bad Request: 필드 누락', 400);
+        }
 
         final index = stores.indexWhere(
           (store) => int.tryParse(store['code'].toString()) == code,
@@ -306,7 +284,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
 
         stores.removeAt(index); // 삭제
 
-        await writeJsonFile(stores);
+        await _fileUtil.writeJsonFile(stores);
         return http.Response(
           '삭제 완료',
           200,
@@ -319,6 +297,7 @@ class MockStoreDataSourceImpl implements StoreDataSource {
 
     final response = await client.delete(
       Uri.parse(_url),
+      body: jsonEncode({'code': code}),
       headers: {"content-type": "application/json; charset=utf-8"},
     );
 

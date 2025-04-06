@@ -130,5 +130,20 @@ void main() {
       expect(store.name, isNotEmpty);
       expect(store.addr, isNotEmpty);
     });
+
+    test('✅ 약국 삭제 후 조회 시 예외 발생', () async {
+      final int targetCode = 6;
+
+      await repository.deleteStore(targetCode);
+
+      expect(
+        () async => await repository.getStore(targetCode),
+        throwsA(
+          predicate(
+            (e) => e is HttpException && e.toString().contains('404 Not Found'),
+          ),
+        ),
+      );
+    });
   });
 }
