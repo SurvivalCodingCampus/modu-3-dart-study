@@ -9,13 +9,13 @@ import '../model/store_remain_stat.dart';
 import 'store_repository.dart';
 
 class StoreRepositoryImpl implements StoreRepository {
-  final StoreDataSource _dataSorece;
-  StoreRepositoryImpl(this._dataSorece);
+  final StoreDataSource _dataSource;
+  StoreRepositoryImpl(this._dataSource);
 
   /* 약국별 마스크 목록 가져오기 */
   @override
   Future<List<Store>> getStores() async {
-    final stores = await _dataSorece.getStoresMaskInfo();
+    final stores = await _dataSource.getStoresMaskInfo();
     print('⭐️ 약국별 마스크 목록 가져오기 ⭐️');
     return stores.map((e) => e.toStore()).toList();
   }
@@ -23,7 +23,7 @@ class StoreRepositoryImpl implements StoreRepository {
   /* 특정약국의 마스크정보 불러오기 */
   @override
   Future<Store> getStore(int code) async {
-    final StoreDto store = await _dataSorece.getStoreMaskInfo(code: code);
+    final StoreDto store = await _dataSource.getStoreMaskInfo(code: code);
     print('⭐️ 특정약국의 마스크정보 불러오기 ⭐️');
     return store.toStore();
   }
@@ -36,13 +36,13 @@ class StoreRepositoryImpl implements StoreRepository {
     required double lat,
     required double lng,
   }) async {
-    final int code = await _dataSorece.postStoreInfo(
+    final int code = await _dataSource.postStoreInfo(
       addr: addr,
       name: name,
       lat: lat,
       lng: lng,
     );
-    final StoreDto newStore = await _dataSorece.getStoreMaskInfo(code: code);
+    final StoreDto newStore = await _dataSource.getStoreMaskInfo(code: code);
     print('⭐️ 약국 정보 등록하기 ⭐️');
     return newStore.toStore();
   }
@@ -54,12 +54,12 @@ class StoreRepositoryImpl implements StoreRepository {
     required StoreRemainStat remainStat,
     required String stockAt,
   }) async {
-    await _dataSorece.patchStoreMaskInfo(
+    await _dataSource.patchStoreMaskInfo(
       code: code,
       remainStat: remainStat,
       stockAt: stockAt,
     );
-    final StoreDto updateStore = await _dataSorece.getStoreMaskInfo(code: code);
+    final StoreDto updateStore = await _dataSource.getStoreMaskInfo(code: code);
     print('⭐️ 특정약국의 마스크 정보 업데이트하기 ⭐️');
     return updateStore.toStore();
   }
@@ -68,7 +68,7 @@ class StoreRepositoryImpl implements StoreRepository {
   @override
   Future<void> deleteStore(int code) async {
     print('⭐️ 특정약국 정보 지우기 ⭐️');
-    await _dataSorece.deleteStore(code);
+    await _dataSource.deleteStore(code);
   }
 }
 

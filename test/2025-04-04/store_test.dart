@@ -7,16 +7,11 @@ import '../../assignments/2025-04-04/model/store_remain_stat.dart';
 import '../../assignments/2025-04-04/repository/store_repository_impl.dart';
 
 void main() {
-  late StoreRepositoryImpl repository;
-
-  setUp(() {
-    final httpClient = http.Client();
-    final dataSource = MockStoreDataSourceImpl(httpClient);
-    repository = StoreRepositoryImpl(dataSource);
-  });
-
-  group('📦 약국 데이터 테스트', () {
-    test('✅ 약국 목록(성공)', () async {
+  group('약국 데이터 테스트', () {
+    test('약국 목록(성공)', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       final stores = await repository.getStores();
 
       expect(stores, isNotEmpty);
@@ -57,7 +52,10 @@ void main() {
       expect(store4.stockAt, DateTime.parse('2020-06-30 17:43:00.000'));
     });
 
-    test('✅ 약국 하나(성공)', () async {
+    test('약국 하나(성공)', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       final store = await repository.getStore(1);
 
       expect(store.code, 1);
@@ -70,7 +68,10 @@ void main() {
       expect(store.createdAt, DateTime.parse('2020-07-03 11:00:00.000'));
     });
 
-    test('🚫 약국 하나(실패) - 없는 code (404)', () async {
+    test('약국 하나(실패) - 없는 code (404)', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       expect(
         () async => await repository.getStore(99999),
         throwsA(
@@ -83,7 +84,10 @@ void main() {
       );
     });
 
-    test('✅ 약국 추가(성공)', () async {
+    test('약국 추가(성공)', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       final store = await repository.createStore(
         addr: '서울시',
         name: '지롱약국',
@@ -99,7 +103,10 @@ void main() {
       expect(store.createdAt, isA<DateTime>());
     });
 
-    test('🚫 약국 추가(실패) - name 누락', () async {
+    test('약국 추가(실패) - name 누락', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       expect(
         () async => await repository.createStore(
           addr: '서울시',
@@ -117,7 +124,10 @@ void main() {
       );
     });
 
-    test('✅ 마스크 정보 업데이트(성공)', () async {
+    test('마스크 정보 업데이트(성공)', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       final store = await repository.updateMaskStat(
         code: 6,
         remainStat: StoreRemainStat.few,
@@ -131,7 +141,10 @@ void main() {
       expect(store.addr, isNotEmpty);
     });
 
-    test('✅ 약국 삭제 후 조회 시 예외 발생', () async {
+    test('약국 삭제 후 조회 시 예외 발생', () async {
+      final httpClient = http.Client();
+      final dataSource = MockStoreDataSourceImpl(httpClient);
+      final repository = StoreRepositoryImpl(dataSource);
       final int targetCode = 6;
 
       await repository.deleteStore(targetCode);
