@@ -1,5 +1,5 @@
 class Store {
-  final String addres;
+  final String address;
   final String openDay;
   final double lat;
   final double lng;
@@ -8,7 +8,7 @@ class Store {
   final String stockAt;
 
   const Store({
-    required this.addres,
+    required this.address,
     required this.openDay,
     required this.lat,
     required this.lng,
@@ -18,7 +18,7 @@ class Store {
   });
 
   Store copyWith({
-    String? addres,
+    String? address,
     String? openDay,
     double? lat,
     double? lng,
@@ -27,7 +27,7 @@ class Store {
     String? stockAt,
   }) {
     return Store(
-      addres: addres ?? this.addres,
+      address: address ?? this.address,
       openDay: openDay ?? this.openDay,
       lat: lat ?? this.lat,
       lng: lng ?? this.lng,
@@ -39,7 +39,7 @@ class Store {
 
   @override
   String toString() {
-    return 'Store{addres: $addres, openDay: $openDay, lat: $lat, lng: $lng, storeName: $storeName, remainState: $remainState, stockAt: $stockAt}';
+    return 'Store{address: $address, openDay: $openDay, lat: $lat, lng: $lng, storeName: $storeName, remainState: $remainState, stockAt: $stockAt}';
   }
 
   @override
@@ -47,7 +47,7 @@ class Store {
       identical(this, other) ||
       other is Store &&
           runtimeType == other.runtimeType &&
-          addres == other.addres &&
+          address == other.address &&
           openDay == other.openDay &&
           lat == other.lat &&
           lng == other.lng &&
@@ -57,7 +57,7 @@ class Store {
 
   @override
   int get hashCode =>
-      addres.hashCode ^
+      address.hashCode ^
       openDay.hashCode ^
       lat.hashCode ^
       lng.hashCode ^

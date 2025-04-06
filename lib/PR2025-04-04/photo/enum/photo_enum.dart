@@ -7,6 +7,6 @@ enum PhotoEnum {
   Image,
   @JsonValue('video')
   Video,
-  @JsonValue('unkown')
+  @JsonValue('unknown')
   Unknown,
 }

@@ -37,7 +37,7 @@ class PhotoDto {
       type: json['type'],
       title: json['title'],
       content: json['content'],
-      created_at: json['“created_at”'],
+      created_at: json['created_at'],
       url: json['url'],
       caption: json['caption'],
     );
