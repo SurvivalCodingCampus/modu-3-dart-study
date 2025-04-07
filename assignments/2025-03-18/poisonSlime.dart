@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-03-18/hero.dart';
-import 'package:modu_3_dart_study/2025-03-18/slime.dart';
+import 'hero.dart';
+import 'slime.dart';
 
 class PoisonSlime extends Slime {
   //부모의 생성자의 인수를 생성자에 포함

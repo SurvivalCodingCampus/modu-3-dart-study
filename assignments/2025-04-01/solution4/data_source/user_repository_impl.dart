@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-04-01/solution4/data_source/user_repository.dart';
-import 'package:modu_3_dart_study/2025-04-01/solution4/model/user.dart';
+import '../model/user.dart';
+import 'user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
   final List<Map<String, dynamic>> userData;

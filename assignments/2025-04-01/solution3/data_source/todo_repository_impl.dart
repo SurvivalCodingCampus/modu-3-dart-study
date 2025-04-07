@@ -1,8 +1,6 @@
-import 'package:modu_3_dart_study/2025-04-01/solution3/data_source/todo_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-01/solution3/model/todo.dart';
-import 'package:modu_3_dart_study/2025-04-01/solution3/data_source/todo_repository.dart';
-
-
+import '../../../2025-04-01/solution3/data_source/todo_data_source.dart';
+import '../../../2025-04-01/solution3/model/todo.dart';
+import 'todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
   final TodoDataSource _todoDataSource;
