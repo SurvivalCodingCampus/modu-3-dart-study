@@ -14,7 +14,7 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
 
   const AuthRepositoryImpl({required AuthRemoteDataSource authRemoteDataSource})
-    : _authRemoteDataSource = authRemoteDataSource;
+      : _authRemoteDataSource = authRemoteDataSource;
 
   @override
   Future<Result<User, RegistrationError>> registerUser({
@@ -23,10 +23,10 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       final Result<User, RegistrationError> result =
-          await checkEmailAndPassword(
-            email: email,
-            password: password,
-          ).timeout(Duration(seconds: 10)); // 안드로이드 기준 10초 안에 안되면 오류
+      await checkEmailAndPassword(
+        email: email,
+        password: password,
+      ).timeout(Duration(seconds: 10)); // 안드로이드 기준 10초 안에 안되면 오류
 
       return result;
     } catch (e) {
@@ -105,7 +105,7 @@ void main() async {
         case RegistrationError.invalidEmail:
           print('유효하지 않은 이메일 주소입니다.');
         case RegistrationError.weakPassword:
-          print('비밀번호는 6자 이상이어야 합니다.');
+          print('비밀번호는 6자 이하여야 합니다.');
         case RegistrationError.networkError:
           print('네트워크 오류가 발생했습니다.');
       }

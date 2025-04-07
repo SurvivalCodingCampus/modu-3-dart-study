@@ -21,7 +21,5 @@ class UserDto with _$UserDto {
     this.errorMessage
   });
 
-  factory UserDto.fromJson(Map<String, Object?> json) => _$UserDtoFromJson(json);
-
-  Map<String, Object?> toJson() => _$UserDtoToJson(this);
+  factory UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
 }
