@@ -1,0 +1,3 @@
+enum PhotoError {
+  badWord, networkError
+}

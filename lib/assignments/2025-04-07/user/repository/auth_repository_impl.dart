@@ -1,8 +1,9 @@
-import 'package:modu_3_dart_study/assignments/2025-04-05/core/result.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/data_source/auth_data_source.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/model/user.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/repository/auth_repository.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/util/registration_error_enum.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/core/result.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/data_source/auth_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/dto/user_dto.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/model/user.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/repository/auth_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/util/registration_error_enum.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   static final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
@@ -30,8 +31,7 @@ class AuthRepositoryImpl implements AuthRepository {
       final userMap = user.toJson();
       final userRegisterResult = await _dataSource.registerUser(userMap);
 
-      if (userRegisterResult.contains('성공')) {
-        print('유저 데이터베이스에 등록 $userRegisterResult');
+      if (userRegisterResult.errorMessage.isEmpty) {
         return Result.success(user);
       } else {
         return Result.error(RegistrationError.networkError);

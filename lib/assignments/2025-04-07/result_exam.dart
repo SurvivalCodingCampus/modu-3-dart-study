@@ -1,12 +1,12 @@
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/core/result.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/data_source/auth_data_source.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/data_source/mock_auth_remote_data_source_impl.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/model/user.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/repository/auth_repository.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/repository/auth_repository_impl.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/util/registration_error_enum.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/core/result.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/data_source/auth_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/data_source/mock_auth_remote_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/model/user.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/repository/auth_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/repository/auth_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/util/registration_error_enum.dart';
 
 void main() async {
   final mockClient = MockClient((request) async {

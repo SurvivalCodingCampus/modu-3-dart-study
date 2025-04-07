@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/assignments/2025-04-05/data_source/auth_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/data_source/auth_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/dto/user_dto.dart';
 
 class MockAuthRemoteDataSourceImpl implements AuthDataSource {
   final http.Client _client;
@@ -13,7 +14,7 @@ class MockAuthRemoteDataSourceImpl implements AuthDataSource {
   }) : _client = client,
        _url = url;
   @override
-  Future<String> registerUser(Map<String, dynamic> userMap) async {
+  Future<UserDto> registerUser(Map<String, dynamic> userMap) async {
     try {
       final response = await _client.post(
         Uri.parse(_url),
@@ -21,9 +22,16 @@ class MockAuthRemoteDataSourceImpl implements AuthDataSource {
         headers: {'Content-Type': 'application/json'},
       );
       if (response.statusCode == 200) {
-        return '성공. id : ${userMap["id"]}, email : ${userMap["email"]}';
+        return UserDto(id: '0', password: '123456', email: 'test@test.com');
+      } else if (response.statusCode == 201) {
+        return UserDto(
+          id: '0',
+          password: '123456',
+          email: 'test@test.com',
+          errorMessage: '201',
+        );
       } else {
-        throw Exception("실패. response를 받았으나 코드가 200이 아님");
+        throw Exception();
       }
     } catch (e) {
       if (e is http.ClientException) {

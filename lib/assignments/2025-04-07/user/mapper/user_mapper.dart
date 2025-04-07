@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/assignments/2025-04-05/dto/user_dto.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-05/model/user.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/dto/user_dto.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/user/model/user.dart';
 
 extension UserMapper on UserDto {
   User toUser() {
