@@ -1,0 +1,5 @@
+const imageUrl1 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcSAw2LyepK5N_hL1RsKWFmJXa-fbYNx7y0g&s'
+
+const imageUrl2 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGC_lT2YdFU9wAIzo1gPDrFlHI5gf2uhCQnQ&s'
+
+const imageUrl3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnfaZ9iOeNc_fmJygqIIszyTPuSv3xy32vhg&s'

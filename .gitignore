@@ -30,6 +30,9 @@ doc/api/
 .flutter-plugins
 .flutter-plugins-dependencies
 
+*.g.dart
+*.freezed.dart
+
 ### Dart Patch ###
 # dotenv environment variables file
 .env
