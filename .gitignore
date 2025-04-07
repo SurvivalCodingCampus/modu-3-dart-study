@@ -168,3 +168,8 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/dart,androidstudio
 
 .idea/
+
+
+# Dart generated files
+*.g.dart
+*.freezed.dart
