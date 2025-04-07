@@ -61,8 +61,7 @@ void main() {
           expect(result.value.password, testPassword);
 
         case Failure<User, RegistrationError>():
-          // TODO: Handle this case.
-          throw UnimplementedError();
+          fail('사용자 등록이 실패했습니다: ${result.error}');
       }
     });
 

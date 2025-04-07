@@ -29,12 +29,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       body: jsonEncode({'email': email, 'password': password}),
     );
     if (response.statusCode == 200) {
-      return UserDto(
-        id: '0',
-        email: email,
-        password: password,
-        createdAt: DateTime.now().toIso8601String(),
-      );
+      final respData = jsonDecode(response.body);
+      return UserDto.fromJson(respData);
     } else {
       throw Exception('Network error');
     }
