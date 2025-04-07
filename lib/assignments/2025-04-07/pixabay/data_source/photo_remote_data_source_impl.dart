@@ -6,11 +6,10 @@ import 'package:modu_3_dart_study/assignments/2025-04-07/pixabay/dto/photo_dto.d
 
 class PhotoRemoteDataSourceImpl implements PhotoDataSource {
   final http.Client _client;
-  
+
   static const String baseUrl = 'https://pixabay.com/api';
 
-  PhotoRemoteDataSourceImpl({required http.Client client})
-    : _client = client;
+  PhotoRemoteDataSourceImpl({required http.Client client}) : _client = client;
 
   @override
   Future<List<PhotoDto>> getPhotos(String query) async {
@@ -23,11 +22,13 @@ class PhotoRemoteDataSourceImpl implements PhotoDataSource {
             .map((e) => e as Map<String, dynamic>)
             .map((e) => PhotoDto.fromJson(e))
             .toList();
+      } else {
+        throw Exception(
+          'API 요청 실패: 상태 코드 ${response.statusCode}, 응답: ${response.body}',
+        );
       }
     } catch (e) {
       throw Exception('http 요청 에러: $e');
     }
-
-    throw UnimplementedError();
   }
 }
