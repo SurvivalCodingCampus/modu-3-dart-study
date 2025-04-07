@@ -174,3 +174,6 @@ fabric.properties
 
 # generator file
 .g.dart
+
+# freezed
+.freezed.dart
