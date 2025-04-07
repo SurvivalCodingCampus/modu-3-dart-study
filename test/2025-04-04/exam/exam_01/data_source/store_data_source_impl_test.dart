@@ -26,4 +26,36 @@ void main() {
 
     expect(dto.stores, isNotNull);
   });
+
+  test('StoreDataSource 내 잘못', () async {
+    final mockClient = MockClient((request) async {
+      return Response(
+        jsonEncode(storeJson),
+        404,
+        headers: {"content-type": "application/json; charset=utf-8"},
+      );
+    });
+
+    final StoreDataSource storeDataSource = StoreDataSourceImpl(
+      client: mockClient,
+    );
+
+    expect(() => storeDataSource.getStoresResultDto(), throwsA(isA<MyMistakeException>()));
+  });
+
+  test('StoreDataSource 내 잘못', () async {
+    final mockClient = MockClient((request) async {
+      return Response(
+        jsonEncode(storeJson),
+        500,
+        headers: {"content-type": "application/json; charset=utf-8"},
+      );
+    });
+
+    final StoreDataSource storeDataSource = StoreDataSourceImpl(
+      client: mockClient,
+    );
+
+    expect(() => storeDataSource.getStoresResultDto(), throwsA(isA<YourMistakeException>()));
+  });
 }

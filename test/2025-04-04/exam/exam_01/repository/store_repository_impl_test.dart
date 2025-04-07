@@ -12,5 +12,6 @@ void main() {
 
     final stores = await repository.getStores();
     expect(stores.length != 222, isTrue);
+
   });
 }

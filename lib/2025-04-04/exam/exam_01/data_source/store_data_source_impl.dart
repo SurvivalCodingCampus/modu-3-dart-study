@@ -16,6 +16,21 @@ class StoreDataSourceImpl implements StoreDataSource {
   @override
   Future<StoresResultDto> getStoresResultDto() async {
     final response = await _client.get(Uri.parse('$_baseUrl/mask_store.json'));
+
+    if (400 <= response.statusCode && response.statusCode < 500) {
+      throw MyMistakeException();
+    } else if (500 <= response.statusCode) {
+      throw YourMistakeException();
+    }
+
     return StoresResultDto.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
   }
+}
+
+class MyMistakeException implements Exception {
+
+}
+
+class YourMistakeException implements Exception {
+
 }
