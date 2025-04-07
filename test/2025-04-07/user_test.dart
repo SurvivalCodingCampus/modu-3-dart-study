@@ -80,10 +80,7 @@ void main() {
 
       switch (result) {
         case Success<User, RegistrationError>():
-          print(result.data);
-          expect(result.data, isA<User>());
-          expect(result.data.email, userEmail);
-          expect(result.data.password, userPassword);
+          fail('잘못된 Email인데 넘어감');
         case Error<User, RegistrationError>():
           expect(result.e, isA<RegistrationError>());
           expect(result.e, RegistrationError.invalidEmail);
@@ -98,10 +95,7 @@ void main() {
 
       switch (result) {
         case Success<User, RegistrationError>():
-          print(result.data);
-          expect(result.data, isA<User>());
-          expect(result.data.email, userEmail);
-          expect(result.data.password, userPassword);
+          fail('잘못된 Password인데 넘어감');
         case Error<User, RegistrationError>():
           expect(result.e, isA<RegistrationError>());
           expect(result.e, RegistrationError.weakPassword);
@@ -118,10 +112,7 @@ void main() {
 
       switch (result) {
         case Success<User, RegistrationError>():
-          print(result.data);
-          expect(result.data, isA<User>());
-          expect(result.data.email, userEmail);
-          expect(result.data.password, userPassword);
+          fail('잘못된 url인데 넘어감');
         case Error<User, RegistrationError>():
           expect(result.e, isA<RegistrationError>());
           expect(result.e, RegistrationError.networkError);
