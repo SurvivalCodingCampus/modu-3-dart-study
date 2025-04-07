@@ -1,3 +1,4 @@
+import 'hero.dart';
 import 'wizard.dart';
 
 class GreatWizard extends Wizard {

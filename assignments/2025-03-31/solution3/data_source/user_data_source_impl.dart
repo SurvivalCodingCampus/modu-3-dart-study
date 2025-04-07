@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:modu_3_dart_study/2025-03-31/solution3/data_source/user_data_source.dart';
-import 'package:modu_3_dart_study/2025-03-31/solution3/model/user.dart';
+import '../model/user.dart';
+import 'user_data_source.dart';
 
 class UserDataSourceImpl implements UserDataSource {
   @override

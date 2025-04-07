@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:modu_3_dart_study/2025-04-03/solution1/data_source/movie_data_source.dart';
+
+import 'movie_data_source.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
   @override

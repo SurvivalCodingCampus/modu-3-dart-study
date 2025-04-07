@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:modu_3_dart_study/2025-04-01/solution2/data_source/photo_data_source.dart';
+import 'photo_data_source.dart';
 
 class PhotoDataSourceImpl implements PhotoDataSource {
   String path;

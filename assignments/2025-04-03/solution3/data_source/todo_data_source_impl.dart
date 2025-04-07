@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/2025-04-03/solution3/data_source/todo_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-03/solution3/model/todo.dart';
+
+import '../../../2025-04-03/solution3/model/todo.dart';
+import '../../../2025-04-03/solution3/data_source/todo_data_source.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
   @override

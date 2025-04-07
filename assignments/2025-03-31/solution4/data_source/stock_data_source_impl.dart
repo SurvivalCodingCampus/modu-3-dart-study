@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:modu_3_dart_study/2025-03-31/solution4/data_source/stock_data_source.dart';
-import 'package:modu_3_dart_study/2025-03-31/solution4/model/stock_listing.dart';
+import '../model/stock_listing.dart';
+import 'stock_data_source.dart';
 
 class StockDataSourceImpl implements StockDataSource {
   @override

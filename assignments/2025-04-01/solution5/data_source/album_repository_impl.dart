@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-04-01/solution5/data_source/album_repository.dart';
-import 'package:modu_3_dart_study/2025-04-01/solution5/model/album.dart';
+import '../model/album.dart';
+import 'album_repository.dart';
 
 class AlbumRepositoryImpl implements AlbumRepository {
   final List<Map<String, dynamic>> _dataSoure;

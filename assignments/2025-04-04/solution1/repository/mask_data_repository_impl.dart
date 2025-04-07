@@ -1,9 +1,9 @@
-import 'package:modu_3_dart_study/2025-04-04/solution1/data_source/mask_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution1/data_source/mask_data_source_impl.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution1/dto/mask_info_dto.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution1/mapper/mask_mapper.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution1/model/store.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution1/repository/mask_data_repository.dart';
+import '../data_source/mask_data_source.dart';
+import '../data_source/mask_data_source_impl.dart';
+import '../dto/mask_info_dto.dart';
+import '../mapper/mask_mapper.dart';
+import '../model/store.dart';
+import 'mask_data_repository.dart';
 
 class MaskDataRepositoryImpl implements MaskDataRepository {
   MaskDataSource _maskDataSource = MaskDataSourceImpl();
