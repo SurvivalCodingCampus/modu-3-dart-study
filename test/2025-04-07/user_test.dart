@@ -20,7 +20,7 @@ void main() {
     late http.Client client;
     late UserRepository repository;
     const String userEmail = 'wpghks56@naver.com';
-    const String wrongEmail = '';
+    const String wrongEmail = 'asdf@asdf';
     const String userPassword = '1234567';
     const String wrongPassword = '123';
 
