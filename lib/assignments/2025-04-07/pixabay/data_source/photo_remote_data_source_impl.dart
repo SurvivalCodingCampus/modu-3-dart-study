@@ -25,7 +25,7 @@ class PhotoRemoteDataSourceImpl implements PhotoDataSource {
             .toList();
       }
     } catch (e) {
-      throw Exception('http 요청 에러');
+      throw Exception('http 요청 에러: $e');
     }
 
     throw UnimplementedError();

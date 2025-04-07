@@ -41,7 +41,7 @@ void main() {
     dataSource: failMockAuthDataSource,
   );
   final AuthRepository dtoFailAuthRepository = AuthRepositoryImpl(
-    dataSource: failMockAuthDataSource,
+    dataSource: dtoFailMockAuthDataSource,
   );
   group('User 테스트', () {
     test('이메일, 비밀번호 유효 테스트', () async {
@@ -93,7 +93,7 @@ void main() {
       );
     });
     test('Dto 에러 테스트', () async {
-      final result = await failAuthRepository.registerUser(
+      final result = await dtoFailAuthRepository.registerUser(
         email: 'test@example.com',
         password: '12345678',
       );

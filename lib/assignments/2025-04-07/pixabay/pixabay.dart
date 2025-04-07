@@ -20,7 +20,7 @@ void main(List<String> args) async {
 
   switch (result) {
     case Success(data: final photoList):
-      print(photoList);
+      print('Photo List : $photoList');
       print(photoList.length);
     case Error(error: final error):
       switch (error) {
