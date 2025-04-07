@@ -31,7 +31,7 @@ class MockAuthRemoteDataSourceImpl implements AuthDataSource {
           errorMessage: '201',
         );
       } else {
-        throw Exception();
+        throw Exception("HTTP 오류: ${response.statusCode} - ${response.body}");
       }
     } catch (e) {
       if (e is http.ClientException) {
