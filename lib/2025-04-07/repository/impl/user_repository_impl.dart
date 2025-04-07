@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/2025-04-07/dto/user_dto.dart';
 import 'package:modu_3_dart_study/2025-04-07/mapper/user_mapper.dart';
 import 'package:modu_3_dart_study/2025-04-07/model/user.dart';
 import 'package:modu_3_dart_study/2025-04-07/repository/user_repository.dart';
@@ -14,7 +15,11 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   bool _validPassword(String password) {
-    return !(password.length <= 6);
+    return (password.length > 6);
+  }
+
+  bool _validError(UserDto dto) {
+    return dto.errorMessage != null;
   }
 
   @override
@@ -30,16 +35,15 @@ class UserRepositoryImpl extends UserRepository {
       return Result.error(RegistrationError.weakPassword);
     }
 
-    try {
-      User user =
-          (await dataSource.registerUser(
-            email: email,
-            password: password,
-          )).toUser();
+    final UserDto userDto = (await dataSource.registerUser(
+      email: email,
+      password: password,
+    ));
 
-      return Result.success(user);
-    } on RegistrationError {
+    if (_validError(userDto)) {
       return Result.error(RegistrationError.networkError);
     }
+
+    return Result.success(userDto.toUser());
   }
 }

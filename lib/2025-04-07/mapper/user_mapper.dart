@@ -10,13 +10,4 @@ extension UserMapper on UserDto {
       createdAt: DateTime.parse(createdAt ?? '1970-01-01'),
     );
   }
-
-  UserDto toDto(User user) {
-    return UserDto(
-      id: user.id,
-      email: user.email,
-      password: user.password,
-      createdAt: user.createdAt.toIso8601String(),
-    );
-  }
 }

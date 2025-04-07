@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:modu_3_dart_study/2025-04-07/data_source/user_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-07/dto/user_dto.dart';
-import 'package:modu_3_dart_study/enums/registration_error.dart';
 
 class UserDataSourceImpl extends UserDataSource {
   static const String userApi = '';
@@ -25,12 +24,9 @@ class UserDataSourceImpl extends UserDataSource {
       },
     );
 
-    if (httpData.statusCode == 200) {
-      final httpBody = httpData.body;
-      final Map<String, dynamic> httpJson = jsonDecode(httpBody);
+    final httpBody = httpData.body;
+    final Map<String, dynamic> httpJson = jsonDecode(httpBody);
 
-      return dto.fromJson(httpJson);
-    }
-    throw RegistrationError.networkError;
+    return dto.fromJson(httpJson);
   }
 }

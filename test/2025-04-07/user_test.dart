@@ -41,7 +41,7 @@ void main() {
           );
         } else {
           return http.Response(
-            jsonEncode({'message': '네트워크 에러지롱'}),
+            jsonEncode({'errorMessage': '네트워크 에러지롱'}),
             400,
             headers: {
               HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',

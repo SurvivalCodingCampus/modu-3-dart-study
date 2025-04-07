@@ -11,12 +11,14 @@ class UserDto implements JsonConvert<UserDto, User> {
   final String? email;
   final String? password;
   final String? createdAt;
+  final String? errorMessage;
 
   const UserDto({
     required this.id,
     required this.email,
     required this.password,
     required this.createdAt,
+    required this.errorMessage,
   });
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -26,8 +28,10 @@ class UserDto implements JsonConvert<UserDto, User> {
     : id = null,
       email = null,
       password = null,
-      createdAt = null;
+      createdAt = null,
+      errorMessage = null;
 
+  @override
   Map<String, dynamic> toJson() => _$UserDtoToJson(this);
 
   @override
