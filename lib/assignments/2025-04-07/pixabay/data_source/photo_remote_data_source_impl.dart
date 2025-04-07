@@ -15,7 +15,7 @@ class PhotoRemoteDataSourceImpl implements PhotoDataSource {
   @override
   Future<List<PhotoDto>> getPhotos(String query) async {
     try {
-      final response = await _client.get(Uri.parse('$baseUrl/$query'));
+      final response = await _client.get(Uri.parse('$baseUrl$query'));
       if (response.statusCode == 200) {
         final jsonString = response.body;
         final jsonList = jsonDecode(jsonString)["hits"] as List;

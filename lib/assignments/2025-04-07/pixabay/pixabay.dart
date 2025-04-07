@@ -1,3 +1,4 @@
+import 'package:dotenv/dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:modu_3_dart_study/assignments/2025-04-07/pixabay/core/photo_result.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-07/pixabay/data_source/photo_data_source.dart';
@@ -7,6 +8,11 @@ import 'package:modu_3_dart_study/assignments/2025-04-07/pixabay/repository/phot
 import 'package:modu_3_dart_study/assignments/2025-04-07/pixabay/util/photo_error_enum.dart';
 
 void main(List<String> args) async {
+  final env = DotEnv()..load(); // load()를 인스턴스로 호출
+
+  final apiKey = env['PIXABAY_API_KEY'];
+  final query = '';
+
   PhotoDataSource photoDataSource = PhotoRemoteDataSourceImpl(
     client: http.Client(),
   );
@@ -14,9 +20,7 @@ void main(List<String> args) async {
     dataSource: photoDataSource,
   );
 
-  final result = await photoRepository.getPhotos(
-    '/?key=49670428-5777fcd74043221f9aba01a1b',
-  );
+  final result = await photoRepository.getPhotos('/?key=$apiKey&q=$query');
 
   switch (result) {
     case Success(data: final photoList):
