@@ -9,12 +9,14 @@ class UserDto {
   String? email;
   String? password;
   String? createdAt;
+  String? errorMessage;
 
   UserDto({
-    required this.id,
-    required this.email,
-    required this.password,
-    required this.createdAt,
+    this.id,
+    this.email,
+    this.password,
+    this.createdAt,
+    this.errorMessage,
   });
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>

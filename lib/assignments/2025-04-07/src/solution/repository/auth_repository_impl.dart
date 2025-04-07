@@ -1,6 +1,6 @@
 import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/core/result.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/data_source/auth_remote_data_source.dart';
-import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/data_source/auth_remote_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/data_source/mock_auth_remote_data_source_impl.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/enum/registration_error.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/mapper/user_mapper.dart';
 import 'package:modu_3_dart_study/assignments/2025-04-07/src/solution/model/user.dart';
@@ -22,26 +22,28 @@ class AuthRepositoryImpl implements AuthRepository {
       return regex.hasMatch(email);
     }
 
-    try {
-      if (!isValidEmail(email)) {
-        return Future.value(Result.failure(RegistrationError.invalidEmail));
-      } else if (password.length <= 6) {
-        return Future.value(Result.failure(RegistrationError.weakPassword));
-      }
-      final userDto = await _authRemoteDataSource.registerUser(
-        email: email,
-        password: password,
-      );
-      return Result.success(userDto.toUser());
-    } catch (e) {
-      return Future.value(Result.failure(RegistrationError.networkError));
+    if (!isValidEmail(email)) {
+      return Future.value(Result.failure(RegistrationError.invalidEmail));
+    } else if (password.length <= 6) {
+      return Future.value(Result.failure(RegistrationError.weakPassword));
     }
+
+    final userDto = await _authRemoteDataSource.registerUser(
+      email: email,
+      password: password,
+    );
+
+    if (userDto.errorMessage != null) {
+      return Result.failure(RegistrationError.networkError);
+    }
+
+    return Result.success(userDto.toUser());
   }
 }
 
 void main() async {
   final AuthRepository authRepository = AuthRepositoryImpl(
-    authRemoteDataSource: AuthRemoteDataSourceImpl(),
+    authRemoteDataSource: MockAuthRemoteDataSourceImpl(),
   );
 
   final result = await authRepository.registerUser(
