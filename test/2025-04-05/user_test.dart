@@ -14,7 +14,7 @@ void main() {
   final failUrl = "https://testfail.com";
   final mockClient = MockClient((request) async {
     if (request.url.toString() == failUrl) {
-      return http.Response('네트워크 에러날 url', 200);
+      return http.Response('네트워크 에러날 url', 500);
     }
     return http.Response('success', 200);
   });

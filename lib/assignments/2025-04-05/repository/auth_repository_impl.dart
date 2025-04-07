@@ -7,7 +7,8 @@ import 'package:modu_3_dart_study/assignments/2025-04-05/util/registration_error
 class AuthRepositoryImpl implements AuthRepository {
   static final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
   final AuthDataSource _dataSource;
-  AuthRepositoryImpl({dataSource}) : _dataSource = dataSource;
+  AuthRepositoryImpl({required AuthDataSource dataSource})
+    : _dataSource = dataSource;
   @override
   Future<Result<User, RegistrationError>> registerUser({
     required String email,
@@ -28,10 +29,15 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final userMap = user.toJson();
       final userRegisterResult = await _dataSource.registerUser(userMap);
-      print('유저 데이터베이스에 등록 $userRegisterResult');
+
+      if (userRegisterResult.contains('성공')) {
+        print('유저 데이터베이스에 등록 $userRegisterResult');
+        return Result.success(user);
+      } else {
+        return Result.error(RegistrationError.networkError);
+      }
     } catch (e) {
       return Result.error(RegistrationError.networkError);
     }
-    return Result.success(user);
   }
 }

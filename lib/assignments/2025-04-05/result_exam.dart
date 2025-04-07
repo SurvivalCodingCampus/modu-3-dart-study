@@ -34,9 +34,9 @@ void main() async {
         case (RegistrationError.invalidEmail):
           print("유효하지 않은 이메일 주소입니다.");
         case (RegistrationError.weakPassword):
-          print("유효하지 않은 이메일 주소입니다.");
+          print("비밀번호가 너무 약합니다. 8자 이상의 복잡한 비밀번호를 사용해주세요.");
         case (RegistrationError.networkError):
-          print("유효하지 않은 이메일 주소입니다.");
+          print("네트워크 오류가 발생했습니다. 인터넷 연결을 확인해주세요.");
       }
   }
 }

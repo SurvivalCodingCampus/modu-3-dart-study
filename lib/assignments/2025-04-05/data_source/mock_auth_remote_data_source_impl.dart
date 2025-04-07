@@ -13,14 +13,24 @@ class MockAuthRemoteDataSourceImpl implements AuthDataSource {
   @override
   Future<String> registerUser(Map<String, dynamic> userMap) async {
     try {
-      final response = await _client.post(Uri.parse(_url));
+      final response = await _client.post(
+        Uri.parse(_url),
+        body: userMap,
+        headers: {'Content-Type': 'application/json'},
+      );
       if (response.statusCode == 200) {
         return '성공. id : ${userMap["id"]}, email : ${userMap["email"]}}';
       } else {
         throw Exception("실패. response를 받았으나 코드가 200이 아님");
       }
     } catch (e) {
-      throw Exception(e);
+      if (e is http.ClientException) {
+        throw Exception("네트워크 오류: ${e.message}");
+      } else if (e is FormatException) {
+        throw Exception("응답 형식 오류: ${e.message}");
+      } else {
+        throw Exception("사용자 등록 중 오류 발생: $e");
+      }
     }
   }
 }
