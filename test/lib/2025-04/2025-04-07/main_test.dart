@@ -35,7 +35,7 @@ void main() async {
         case RegistrationError.weakPassword:
           print('유효하지 않은 이메일 주소입니다.');
         case RegistrationError.networkError:
-          print('비밀번호는 6자 이상이어야 합니다.');
+          print('네트워크 오류가 발생했습니다.');
       }
   }
 }
