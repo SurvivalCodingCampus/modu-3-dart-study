@@ -29,7 +29,7 @@ extension PhotoMapper on PhotoDto {
 
   DateTime _parseDate(String? date) {
     if (date == null) {
-      return DateTime.now();
+      return DateTime.fromMillisecondsSinceEpoch(0);
     }
     try {
       return DateFormat('yyyy-MM-dd').parse(date);
