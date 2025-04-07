@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -7,8 +8,8 @@ import 'todo_data_source.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
   static const header = {
-    'Accept-Charset': 'utf-8',
-  }; //{'content-type': 'application/json; charset=utf-8'};
+    HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+  };
   final String _path;
 
   TodoDataSourceImpl({String path = 'https://jsonplaceholder.typicode.com'})
