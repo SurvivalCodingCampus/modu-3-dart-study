@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:modu_3_dart_study/2025-04-07/data_source/auth_remote_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-07/dto/user_dto.dart';
@@ -20,6 +21,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final response = await _client.post(
       Uri.parse(_url),
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+      },
       body: jsonEncode({
         'email': email,
         'password': password,
