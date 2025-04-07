@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 class SalePrice {
   final double price;
   final DateTime cvtDatetime;
