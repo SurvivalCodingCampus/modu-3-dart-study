@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:modu_3_dart_study/assignments/2025-04-05/data_source/auth_data_source.dart';
 
@@ -15,11 +17,11 @@ class MockAuthRemoteDataSourceImpl implements AuthDataSource {
     try {
       final response = await _client.post(
         Uri.parse(_url),
-        body: userMap,
+        body: jsonEncode(userMap),
         headers: {'Content-Type': 'application/json'},
       );
       if (response.statusCode == 200) {
-        return '성공. id : ${userMap["id"]}, email : ${userMap["email"]}}';
+        return '성공. id : ${userMap["id"]}, email : ${userMap["email"]}';
       } else {
         throw Exception("실패. response를 받았으나 코드가 200이 아님");
       }
