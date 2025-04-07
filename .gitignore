@@ -190,3 +190,23 @@ TIL/daily/PR_template.md
 
 # json_serialization
 *.g.dart
+
+# freezed
+*.freezed.dart
+
+# dart doc
+doc/api/
+
+# pub
+.dart_tool/
+build/
+pubspec.lock 
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# mockito
+*.mocks.dart

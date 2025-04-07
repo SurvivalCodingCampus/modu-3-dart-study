@@ -1377,7 +1377,7 @@ final User user = User.fromJson(json); // ⭐️fromJson() 네이밍 암묵적�
 ```dart
 import 'package:json_annotation/json_annotation.dart';
 
-part 'mask.g.dart';
+part 'store_dto.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Mask {
