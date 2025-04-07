@@ -22,8 +22,51 @@ void main() {
       expect(todos.last.title, '딸기케이크');
       expect(todos.last.body, '먹고싶다.');
     });
+    test('getTodos() - 네트워크에러', () async {
+      final todoRepository = TodoRepositoryImpl(mockTodoDataSource);
+
+      final todo = await todoRepository.getTodo(1);
+
+      expect(todo.userId, 1);
+      expect(todo.id, 1);
+      expect(todo.title, '쭈꾸미샤브');
+      expect(todo.body, '먹고싶다.');
+    });
+
+    test('getTodos() - 잘못된 요청에러', () async {
+      final todoRepository = TodoRepositoryImpl(mockTodoDataSource);
+
+      final todo = await todoRepository.getTodo(1);
+
+      expect(todo.userId, 1);
+      expect(todo.id, 1);
+      expect(todo.title, '쭈꾸미샤브');
+      expect(todo.body, '먹고싶다.');
+    });
 
     test('getTodo() - 성공 응답', () async {
+      final todoRepository = TodoRepositoryImpl(mockTodoDataSource);
+
+      final todo = await todoRepository.getTodo(1);
+
+      expect(todo.userId, 1);
+      expect(todo.id, 1);
+      expect(todo.title, '쭈꾸미샤브');
+      expect(todo.body, '먹고싶다.');
+    });
+
+    test('getTodo() - 네트워크에러', () async {
+      final todoRepository = TodoRepositoryImpl(mockTodoDataSource);
+
+      final todo = await todoRepository.getTodo(1);
+
+      expect(todo.userId, 1);
+      expect(todo.id, 1);
+      expect(todo.title, '쭈꾸미샤브');
+      expect(todo.body, '먹고싶다.');
+    });
+
+    test('getTodo() - 잘못된 요청에러', () async {
       final todoRepository = TodoRepositoryImpl(mockTodoDataSource);
 
       final todo = await todoRepository.getTodo(1);

@@ -12,7 +12,7 @@ class MockTodoDataSourceImpl implements TodoDataSource {
   @override
   Future<Map<String, dynamic>> getTodo(int id) async {
     final client = MockClient((request) async {
-      if (request.url.toString() == _url) {
+      if (request.url.toString() == '$_url/1') {
         final todo = {"userId": 1, "id": 1, "title": "쭈꾸미샤브", "body": "먹고싶다."};
 
         return http.Response(
@@ -23,8 +23,10 @@ class MockTodoDataSourceImpl implements TodoDataSource {
             "content-type": "application/json; charset=utf-8",
           },
         );
+      } else if (request.url.toString() == '$_url/100') {
+        return http.Response('Not Found', 404);
       }
-      return http.Response('Not Found', 404);
+      return http.Response('Bad Request', 500);
     });
 
     final response = await client.get(Uri.parse(_url));
