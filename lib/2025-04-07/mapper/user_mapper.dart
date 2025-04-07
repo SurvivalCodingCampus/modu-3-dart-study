@@ -9,7 +9,8 @@ extension UserMapper on UserDto {
       password: password ?? '',
       createAt: createAt != null && createAt != ''
           ? DateTime.tryParse(createAt!) ?? DateTime(1970, 1, 1)
-          : DateTime(1970, 1, 1)
+          : DateTime(1970, 1, 1),
+      errorMessage: errorMessage
     );
   }
 }

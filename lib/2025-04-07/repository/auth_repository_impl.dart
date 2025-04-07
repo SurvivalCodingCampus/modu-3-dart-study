@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:modu_3_dart_study/2025-04-07/core/result.dart';
 import 'package:modu_3_dart_study/2025-04-07/data_source/auth_remote_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-07/data_source/auth_remote_data_source_impl.dart';
@@ -6,12 +11,10 @@ import 'package:modu_3_dart_study/2025-04-07/model/user.dart';
 import 'package:modu_3_dart_study/2025-04-07/repository/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-
   final AuthRemoteDataSource _authRemoteDataSource;
 
-  const AuthRepositoryImpl({
-    required AuthRemoteDataSource authRemoteDataSource,
-  }) : _authRemoteDataSource = authRemoteDataSource;
+  const AuthRepositoryImpl({required AuthRemoteDataSource authRemoteDataSource})
+    : _authRemoteDataSource = authRemoteDataSource;
 
   @override
   Future<Result<User, RegistrationError>> registerUser({
@@ -19,10 +22,11 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     try {
-      final Result<User, RegistrationError> result = await checkEmailAndPassword(
-        email: email,
-        password: password,
-      ).timeout(Duration(seconds: 10)); // 안드로이드 기준 10초 안에 안되면 오류
+      final Result<User, RegistrationError> result =
+          await checkEmailAndPassword(
+            email: email,
+            password: password,
+          ).timeout(Duration(seconds: 10)); // 안드로이드 기준 10초 안에 안되면 오류
 
       return result;
     } catch (e) {
@@ -34,7 +38,6 @@ class AuthRepositoryImpl implements AuthRepository {
     required String email,
     required String password,
   }) async {
-
     //await Future.delayed(Duration(seconds: 11));
 
     //{영어 & 숫자}@{영어 & 숫자}.{영어 & 숫자}
@@ -55,7 +58,39 @@ class AuthRepositoryImpl implements AuthRepository {
 }
 
 void main() async {
-  final AuthRepository authRepository = AuthRepositoryImpl(authRemoteDataSource: AuthRemoteDataSourceImpl());
+  final mockClient = MockClient((request) async {
+    if (request.url.toString() == 'example.com') {
+      Map<String, dynamic> json = jsonDecode(request.body);
+      return http.Response(
+        jsonEncode({
+          'id': (json['email'] as String).split('@').first,
+          'email': json['email'],
+          'password': json['password'],
+          'createAt': DateTime.now().toString(),
+        }),
+        200,
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+        },
+      );
+    } else {
+      return http.Response(
+        jsonEncode({'errorMessage': '네트워크 오류가 발생했습니다.'}),
+        400,
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+        },
+      );
+    }
+  });
+
+  final AuthRemoteDataSource authRemoteDataSource = AuthRemoteDataSourceImpl(
+    client: mockClient,
+    url: 'example.com',
+  );
+  final AuthRepository authRepository = AuthRepositoryImpl(
+    authRemoteDataSource: authRemoteDataSource,
+  );
 
   final result = await authRepository.registerUser(
     email: 'test@example.com',
