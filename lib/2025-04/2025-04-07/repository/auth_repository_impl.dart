@@ -29,13 +29,11 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   Result<User, RegistrationError> validateRegistration(User user) {
-    final emailRegex = RegExp(r'^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$');
-
-    if (!emailRegex.hasMatch(user.email)) {
+    if (!user.isEmailValid) {
       return Result.failure(RegistrationError.invalidEmail);
     }
 
-    if (user.password.length <= 6) {
+    if (!user.isPasswordValid) {
       return Result.failure(RegistrationError.weakPassword);
     }
 

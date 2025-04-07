@@ -88,7 +88,10 @@ void main() {
 
       // WHEN
       final Result<User, RegistrationError> result = await repository
-          .registerUser(email: mock['email'], password: mock['password']);
+          .registerUser(
+            email: weakPassword['email'],
+            password: weakPassword['password'],
+          );
 
       // THEN
       expect(

@@ -16,14 +16,11 @@ class UserDto {
   @JsonKey(fromJson: _forceToString)
   final String createdAt;
 
-  String? errorMessage;
-
   UserDto({
     required this.id,
     required this.email,
     required this.password,
     required this.createdAt,
-    this.errorMessage = '',
   });
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>

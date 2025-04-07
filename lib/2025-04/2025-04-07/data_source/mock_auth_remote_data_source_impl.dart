@@ -16,12 +16,10 @@ class MockAuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) async {
     final http.Response data = await _client.get(Uri.parse(''));
 
-    UserDto dto = UserDto.fromJson(jsonDecode(data.body));
     if (data.statusCode == 200) {
-      return dto;
-    } else {
-      dto.errorMessage = 'network error';
-      return dto;
+      return UserDto.fromJson(jsonDecode(data.body));
     }
+
+    throw Exception('network error');
   }
 }
