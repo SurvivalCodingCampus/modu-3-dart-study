@@ -7,17 +7,26 @@ import 'package:modu_3_dart_study/enums/registration_error.dart';
 class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl(super.dataSource, super.dto);
 
+  bool _validEmail(String email) {
+    return RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    ).hasMatch(email);
+  }
+
+  bool _validPassword(String password) {
+    return !(password.length <= 6);
+  }
+
   @override
   Future<Result<User, RegistrationError>> registerUser({
     required String email,
     required String password,
   }) async {
-    if (!RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-    ).hasMatch(email)) {
+    if (!_validEmail(email)) {
       return Result.error(RegistrationError.invalidEmail);
     }
-    if (password.length <= 6) {
+
+    if (!_validPassword(password)) {
       return Result.error(RegistrationError.weakPassword);
     }
 
