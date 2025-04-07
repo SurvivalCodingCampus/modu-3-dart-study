@@ -9,13 +9,13 @@ import '../../dto/photo_dto.dart';
 class PhotoRepositoryImpl extends PhotoRepository {
   PhotoRepositoryImpl(super.dataSource, super.dto);
 
-  bool _validQuery(String query) {
+  bool _containsSlang(String query) {
     return query.contains('바보');
   }
 
   @override
   Future<Result<List<Photo>, PhotoError>> getPhotos(String query) async {
-    if (_validQuery(query)) {
+    if (_containsSlang(query)) {
       return Result.error(PhotoError.slangError);
     }
     try {
