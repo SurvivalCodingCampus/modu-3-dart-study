@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-31/stock_solution/stock_data_source_impl.dart';
-import '../../assignments/2025-03-31/stock_solution/stock_iisting.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/stock_solution/stock_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-31/stock_solution/stock_iisting.dart';
 
 void main() {
   group('StockDataSource_cvs', () {

@@ -1,5 +1,5 @@
+import 'package:modu_3_dart_study/assignments/2025-03-13/cleric.dart';
 import 'package:test/test.dart';
-import '../../assignments/2025-03-13/cleric.dart';
 
 void main() {
   test('[과제]연습문제1-클레릭생성자만들기', () {

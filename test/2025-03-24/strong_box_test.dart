@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-24/key_type.dart';
-import '../../assignments/2025-03-24/strong_box.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-24/key_type.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-24/strong_box.dart';
 
 void main() {
   group('StrongBox', () {

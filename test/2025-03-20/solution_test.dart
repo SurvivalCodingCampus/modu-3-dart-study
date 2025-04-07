@@ -1,9 +1,9 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-20/a.dart';
-import '../../assignments/2025-03-20/b.dart';
-import '../../assignments/2025-03-20/x.dart';
-import '../../assignments/2025-03-20/y.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/a.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/b.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/x.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-20/y.dart';
 
 void main() {
   group('Solution2', () {

@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-import '../../assignments/2025-04-03/data_source/image_data_source.dart';
-import '../../assignments/2025-04-03/data_source/image_data_source_impl.dart';
-import '../../assignments/2025-04-03/repository/image_repository.dart';
-import '../../assignments/2025-04-03/repository/image_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/data_source/image_data_source.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/data_source/image_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/repository/image_repository.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/repository/image_repository_impl.dart';
 
 void main() {
   group('Image', () {

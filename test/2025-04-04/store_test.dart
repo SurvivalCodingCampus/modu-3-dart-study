@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
-import '../../assignments/2025-04-04/data_source/mock/mock_store_data_source_impl.dart';
-import '../../assignments/2025-04-04/model/store_remain_stat.dart';
-import '../../assignments/2025-04-04/repository/store_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/data_source/mock/mock_store_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/model/store_remain_stat.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/repository/store_repository_impl.dart';
 
 void main() {
   group('약국 데이터 테스트', () {

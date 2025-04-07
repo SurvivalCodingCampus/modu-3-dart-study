@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import '../../assignments/2025-03-26/collection_chart_data_list.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-26/collection_chart_data_list.dart';
 
 void main() {
   final String filePath =

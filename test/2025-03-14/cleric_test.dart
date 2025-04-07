@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-14/cleric.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-14/cleric.dart';
 
 void main() {
   test('기본생성자 테스트1', () {

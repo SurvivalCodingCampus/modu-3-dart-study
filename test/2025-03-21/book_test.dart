@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-21/solution.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-21/solution.dart';
 
 void main() {
   group('Book', () {
