@@ -4,7 +4,7 @@ import '../model/store.dart';
 extension StoreMapper on StoreDto {
   Store toStore() {
     return Store(
-      addres: addr ?? '위치 알 수 없음',
+      address: addr ?? '위치 알 수 없음',
       openDay: created_at ?? '오픈 일자 알 수 없음',
       lat: lat?.toDouble() ?? 0.0,
       lng: lng?.toDouble() ?? 0.0,

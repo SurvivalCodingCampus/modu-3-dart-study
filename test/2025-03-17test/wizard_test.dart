@@ -7,6 +7,7 @@ void main() {
   group('Wizard test', () {
     test('마법사 이름 수 test', () {
       //given
+      // ignore: unused_local_variable
       Wand woodWand = Wand(name: "나무지팡이", power: 3);
       Wand waterWand = Wand(name: "물지팡이", power: 10);
       //when

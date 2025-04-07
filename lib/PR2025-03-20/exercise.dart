@@ -58,6 +58,7 @@ void main() {
   //둘다 오버라이드 된 slime의 run으로 결과 출력됨.
   slime.run();
   monster.run();
+  // ignore: unused_local_variable
   Slime slime2 = monster as Slime;
 
   Monster monster2 = Slime('슬라임');
