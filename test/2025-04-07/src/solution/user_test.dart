@@ -52,7 +52,7 @@ void main() {
       switch (result) {
         case Success<User, RegistrationError>():
           expect(result.value, isA<User>());
-          expect(result.value.id, '0');
+          expect(result.value.id, 'abcd1234');
           expect(result.value.email, testEmail);
           expect(result.value.password, testPassword);
 

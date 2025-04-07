@@ -22,22 +22,26 @@ class AuthRepositoryImpl implements AuthRepository {
       return regex.hasMatch(email);
     }
 
-    if (!isValidEmail(email)) {
-      return Future.value(Result.failure(RegistrationError.invalidEmail));
-    } else if (password.length <= 6) {
-      return Future.value(Result.failure(RegistrationError.weakPassword));
+    try {
+      if (!isValidEmail(email)) {
+        return Future.value(Result.failure(RegistrationError.invalidEmail));
+      } else if (password.length <= 6) {
+        return Future.value(Result.failure(RegistrationError.weakPassword));
+      }
+
+      final userDto = await _authRemoteDataSource.registerUser(
+        email: email,
+        password: password,
+      );
+
+      if (userDto.errorMessage != null) {
+        return Result.failure(RegistrationError.networkError);
+      }
+
+      return Result.success(userDto.toUser());
+    } catch (e) {
+      throw Exception('예상치 못한 에러: $e');
     }
-
-    final userDto = await _authRemoteDataSource.registerUser(
-      email: email,
-      password: password,
-    );
-
-    if (userDto.errorMessage != null) {
-      return Result.failure(RegistrationError.networkError);
-    }
-
-    return Result.success(userDto.toUser());
   }
 }
 

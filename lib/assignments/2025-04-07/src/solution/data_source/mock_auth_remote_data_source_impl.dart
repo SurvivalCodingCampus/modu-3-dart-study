@@ -65,13 +65,7 @@ class MockAuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     bool isExist = users.any((e) => e.email == email);
 
     if (isExist) {
-      return UserDto(
-        id: 'abcd1234',
-        email: email,
-        password: password,
-        createdAt: DateTime.now().toIso8601String(),
-        errorMessage: 'address is exist',
-      );
+      return users.firstWhere((e) => e.email == email);
     }
 
     return UserDto(
