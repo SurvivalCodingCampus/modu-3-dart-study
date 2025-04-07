@@ -89,13 +89,14 @@ void main() {
       email: 'test@example.com',
       password: '12345678',
     );
+    final successResult = result as Success<User, RegistrationError>;
 
-    expect(result, isA<Success>());
-    expect((result as Success).data.id, '');
-    expect((result as Success).data.email, '');
-    expect((result as Success).data.password, '');
-    expect((result as Success).data.createAt, DateTime(1970, 1, 1));
-    expect((result as Success).data.errorMessage, '네트워크 오류가 발생했습니다.');
+    expect(result, isA<Success<User, RegistrationError>>());
+    expect(successResult.data.id, '');
+    expect(successResult.data.email, '');
+    expect(successResult.data.password, '');
+    expect(successResult.data.createAt, DateTime(1970, 1, 1));
+    expect(successResult.data.errorMessage, '네트워크 오류가 발생했습니다.');
   });
   test('정상 사용자 등록', () async {
     final AuthRemoteDataSource authRemoteDataSource = AuthRemoteDataSourceImpl(
@@ -110,9 +111,12 @@ void main() {
       email: 'test@example.com',
       password: '12345678',
     );
+    final successResult = result as Success<User, RegistrationError>;
 
-    expect(result, isA<Success>());
-    expect((result as Success).data.email, 'test@example.com');
-    expect((result as Success).data.password, '12345678');
+    expect(result, isA<Success<User, RegistrationError>>());
+    expect(successResult.data.email, 'test@example.com');
+    expect(successResult.data.password, '12345678');
+    expect(successResult.data.id, 'test');
+    expect(successResult.data.createAt, isNotNull);
   });
 }
