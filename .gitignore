@@ -168,3 +168,7 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/dart,androidstudio
 
 .idea/
+**/person.g.dart
+**/movie.g.dart
+**/todo.g.dart
+

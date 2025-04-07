@@ -11,5 +11,5 @@ class _B {}
 
 Set<int> lottoSet = {1, 2, 3, 4};
 
-print(lottoSet.contains(1));
-print(lottoSet.contains(5));
+// print(lottoSet.contains(1));
+// print(lottoSet.contains(5));
