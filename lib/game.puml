@@ -1,6 +1,6 @@
 @startuml
 
-scale 2
+scale 1
 
 class PoisonSlime extends Slime {
     + int poisonCount
