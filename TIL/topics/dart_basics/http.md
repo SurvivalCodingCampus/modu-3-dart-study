@@ -1,6 +1,4 @@
-## Json
-
-## HTTP
+# HTTP
 
 - URL 을 던짐
 - GET 요청으로 서버의 문서를 읽어옴
@@ -96,29 +94,9 @@ Future<void> patchComments(int id) async {
 
 ```
 
-json placeholder = 가짜 api 데이터
-
-상태 코드
+### 상태 코드
 
 - 200 : OK
 - 400 : Bad Request
 - 404 : Not Found
 - 500 : Internal Server Error
-
-dart run build_runner build
-
-2번문제 구글링해서 아무 이미지 주소 받아오는 방식으로 문제진행
-
-file.writeasbytes = 이미지로 파일 만들 ㅅ 있음
-jsonDeocde(reponse.bodyBytes) 쓰면 이미지도 받을 수 있음
-
-from 을 사용하면 형변환이 쉽게 됨
-List<String>.from(리스트<다이나믹>)
-
-final List<dynamic> results = jsonData['results'];
-//List<dynamic>으로 변환한 데이터는 함수에서 ist<Map<String, dynamic>> 이 타입으로 받으니 from 을 사용해 형변환해서 출력
-return List<Map<String, dynamic>>.from(results);
-
-List형식이라면 Map((e)=>e. User.fromJson(e)).toList(); 이렇게 해줘하고
-list가 아니라면 그냥 return User.fromJson(response); 바로 사용해줘도 됨
-expect에서 오류가 나는걸 확인하려면 throwException 

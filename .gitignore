@@ -4,6 +4,10 @@
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
 
+# Ignore Freezed & JsonSerializable generated files
+*.freezed.dart
+*.g.dart
+
 # Files and directories created by pub
 .dart_tool/
 .packages
