@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-04-07/core/registration_error.dart';
+import 'package:modu_3_dart_study/2025-04-07/core/error.dart';
 import 'package:modu_3_dart_study/2025-04-07/core/result.dart';
 
 import '../model/user.dart';

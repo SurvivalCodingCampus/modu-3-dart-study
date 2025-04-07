@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-04-07/core/registration_error.dart';
+import 'package:modu_3_dart_study/2025-04-07/core/error.dart';
 import 'package:modu_3_dart_study/2025-04-07/core/result.dart';
 import 'package:modu_3_dart_study/2025-04-07/data_source/auth_remote_data_source.dart';
 import 'package:modu_3_dart_study/2025-04-07/mapper/user_mapper.dart';
