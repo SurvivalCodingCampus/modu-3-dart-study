@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/2025-03-26/soluation3/query.dart';
+import 'query.dart';
 
 void main() {
   //1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오

@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-20/problem2/problem.dart';
+import 'problem.dart';
 
 void main() {
   X obj = A();
