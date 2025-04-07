@@ -16,6 +16,11 @@ class StoreDataSourceImpl implements StoreDataSource {
     try {
       final response = await http.get(Uri.parse(_url));
 
+      if(400 <= response.statusCode && response.statusCode < 500) {
+        throw Exception();
+      } else if (500 <= response.statusCode) {
+        throw Exception();
+      }
       if(response.statusCode == 200) {
         final json = await jsonDecode(utf8.decode(response.bodyBytes));
         final List<dynamic> stores = json['stores'];
