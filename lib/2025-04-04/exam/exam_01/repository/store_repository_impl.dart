@@ -3,6 +3,8 @@ import 'package:modu_3_dart_study/2025-04-04/exam/exam_01/mapper/store_mapper.da
 import 'package:modu_3_dart_study/2025-04-04/exam/exam_01/model/store.dart';
 import 'package:modu_3_dart_study/2025-04-04/exam/exam_01/repository/store_repository.dart';
 
+import '../data_source/store_data_source_impl.dart';
+
 class StoreRepositoryImpl implements StoreRepository {
   final StoreDataSource _dataSource;
 
