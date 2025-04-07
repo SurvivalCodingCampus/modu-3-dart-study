@@ -12,7 +12,7 @@ class User {
   });
 
   bool get isEmailValid =>
-      RegExp(r'^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
+      RegExp(r'^[\w\\\.]+@([\w-]+\.)+[\w-]{2,}$').hasMatch(email);
 
   bool get isPasswordValid => password.length > 6;
 }
