@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-04-03/data_source/mock/mock_todo_data_source_impl.dart';
-import '../../assignments/2025-04-03/repository/todo_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/data_source/mock/mock_todo_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-03/repository/todo_repository_impl.dart';
 
 void main() {
   group('Todo Http 통신', () {

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-25/exception.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-25/exception.dart';
 
 void main() {
   group('Exception(문자열 정수로 바꾸기)', () {

@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/2025-03-14/hero.dart';
 import 'package:test/test.dart';
-import '../../assignments/2025-03-18/poison_slime.dart';
-import '../../assignments/2025-03-18/slime.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-18/poison_slime.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-18/slime.dart';
 
 void main() {
   group('PoisonSlime 클래스 테스트', () {

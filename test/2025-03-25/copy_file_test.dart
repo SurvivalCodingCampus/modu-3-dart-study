@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:test/test.dart';
-import '../../assignments/2025-03-25/default_file_operations.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-25/default_file_operations.dart';
 
 void main() {
   final DefaultFileOperations dfo = DefaultFileOperations();

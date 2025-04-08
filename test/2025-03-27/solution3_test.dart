@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-27/solution3.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-27/solution3.dart';
 
 void main() {
   // 예측되는 값을 여기서 미리 상수로 선언 할 수 있음

@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import '../../assignments/2025-03-17/person.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-17/person.dart';
 
 void main() {
   group('Person 클래스 테스트', () {

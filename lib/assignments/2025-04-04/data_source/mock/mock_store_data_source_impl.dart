@@ -298,6 +298,9 @@ class MockStoreDataSourceImpl implements StoreDataSource {
     final response = await client.delete(
       Uri.parse(_url),
       body: jsonEncode({'code': code}),
+      // headers: {
+      //   HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
+      // },
       headers: {"content-type": "application/json; charset=utf-8"},
     );
 

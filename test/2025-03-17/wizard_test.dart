@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-03-17/wand.dart';
-import '../../assignments/2025-03-17/wizard.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-17/wand.dart';
+import 'package:modu_3_dart_study/assignments/2025-03-17/wizard.dart';
 
 void main() {
   group('wand 과제 테스트', () {

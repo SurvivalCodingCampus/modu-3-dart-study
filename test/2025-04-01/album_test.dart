@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
-import '../../assignments/2025-04-01/data_source/mock/mock_album_data_source_impl.dart';
-import '../../assignments/2025-04-01/model/album.dart';
-import '../../assignments/2025-04-01/repository/album_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/data_source/mock/mock_album_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/model/album.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-01/repository/album_repository_impl.dart';
 
 void main() {
   final mockAlbumDataSource = MockAlbumDataSourceImpl();

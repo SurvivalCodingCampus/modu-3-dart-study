@@ -1,13 +1,9 @@
-import 'dart:io';
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/testing.dart';
 
-import '../../assignments/2025-04-01/model/photo.dart';
-import '../../assignments/2025-04-04/data_source/mock/mock_photo_data_source_impl.dart';
-import '../../assignments/2025-04-04/dto/photo_dto.dart';
-import '../../assignments/2025-04-04/model/photo_type.dart';
-import '../../assignments/2025-04-04/repository/photo_repository_imp.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/data_source/mock/mock_photo_data_source_impl.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/model/photo_type.dart';
+import 'package:modu_3_dart_study/assignments/2025-04-04/repository/photo_repository_imp.dart';
 
 void main() {
   group('Photo', () {
