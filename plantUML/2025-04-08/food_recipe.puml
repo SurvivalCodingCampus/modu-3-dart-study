@@ -1,0 +1,188 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+' ================ USER DOMAIN ================
+
+package "User Domain" {
+  enum SocialLogin {
+    none
+    facebook
+    google
+  }
+
+  abstract class User {
+    String id
+    String name
+    String email
+    String profileImgUrl
+    String bio
+    String job
+    int followersCount
+    int followingsCount
+    int receipeCount
+  }
+
+  class GoogleUser extends User {
+  }
+
+  class FacebookUser extends User {
+  }
+
+  class NoneSocialUser extends User {
+    String password
+  }
+
+  interface UserRepository {
+    Future<Result<User>> getUser()
+    Future<Result<void>> follow(String id)
+  }
+
+  interface AuthRepository {
+    Future<Result<void>> signIn(String email, String password)
+    Future<Result<void>> signInForSocial()
+    Future<Result<void>> singUp(String name, String email, String password)
+    Future<Result<void>> singUpForSocial(SocialLogin type, String authKey)
+  }
+}
+
+' ================ RECIPE DOMAIN ================
+package "Recipe Domain" {
+  enum TimeFilterType {
+    all
+    newest
+    oldest
+    popularity
+  }
+
+  enum RateType {
+    one
+    two
+    three
+    four
+    five
+  }
+
+  class ReceipeTagList {
+    List<String> receipeTags
+  }
+
+  class Receipe {
+    String id
+    String name
+    int estimatedTime
+    bool isFavorite
+    double rate
+    String makeUserName
+    String makeUserImageUrl
+    String? videoUrl
+    String imageUrl
+  }
+
+  class ReceipeInfo extends Receipe {
+    int reviewCount
+    List<Ingrident> ingrident
+    List<Procedure> procedure
+    String makeUserLocation?
+    bool isfollow?
+    String receipeDeepLink
+  }
+
+  class Ingrident {
+    String name
+    int weight
+    String imageUrl
+  }
+
+  class Procedure {
+    List<String> descriptions
+  }
+
+  interface tagRepository {
+    Future<Result<ReceipeTagList>> getTagList()
+  }
+
+  interface ReceipeRepository {
+    Future<Result<List<Receipe>>> getReceipeListForTag(String tag)
+    Future<Result<List<Receipe>>> getReceipeListForSearch(String query, TimeFilterType timeFilterType, RateType rateType, String tag)
+    Future<Result<List<Receipe>>> getReceipeListForSavedReceipe()
+    Future<Result<List<Receipe>>> getReceipeListForRecent()
+    Future<Result<ReceipeInfo>> getReceipeInfo(String receipeId)
+  }
+
+  interface UserReceipeRepository {
+    Future<Result<void>> saveBookmark(String receipeId)
+    Future<Result<void>> removeBookmark(String receipeId)
+    Future<Result<void>> rateRating(String receipeId)
+    Future<Result<void>> addReceipe(ReceipeInfo receipeInfo)
+    Future<Result<String>> getReceipeDeepLink(String receipeId)
+    Future<Result<Receipe>> getMyReceipe()
+    Future<Result<Receipe>> getMyReceipeWithVideo()
+    Future<Result<Receipe>> getMyReceipeWithTag()
+  }
+}
+
+' ================ REVIEW DOMAIN ================
+package "Review Domain" {
+  class ReviewUiModel {
+    String receipeId
+    int commentsCount
+    int favoriteCount
+    List<Review> reviews
+  }
+
+  class Review {
+    String name
+    String profileImageUrl
+    Datetime createdAt
+    String contents
+    int likeCount
+    int unlikeCount
+  }
+
+  interface reviewRepsitory {
+    Future<Result<void>> writeComment(String receipeId, String contents)
+    Future<Result<ReviewUiModel>> getReceipeInfo(String id)
+    Future<Result<void>> likeReview(String reviewId)
+    Future<Result<void>> unlikeReview(String reviewId)
+  }
+}
+
+' ================ NOTIFICATION DOMAIN ================
+package "Notification Domain" {
+  enum ReadAlertType {
+    all
+    read
+    unread
+  }
+
+  class Notification {
+    String id
+    String title
+    String decription
+    Datetime createdAt
+    bool isNewest
+    bool hasRead
+  }
+
+  interface notificationRepository {
+    Future<Result<List<Notification>>> getNotifications(ReadAlertType readAlertType)
+    Future<Result<void>> readNotifications(String notificationId)
+  }
+
+' ================ RELATIONSHIPS ================
+User -- UserRepository
+User -- AuthRepository
+
+Receipe -- ReceipeRepository    
+ReceipeTagList -- tagRepository
+Receipe -- UserReceipeRepository
+
+ReceipeInfo -- Ingrident
+ReceipeInfo -- Procedure
+
+' Review는 ReviewRepository에 의존하지 않음
+ReviewUiModel -- reviewRepsitory
+
+Notification -- notificationRepository
+
+@enduml
