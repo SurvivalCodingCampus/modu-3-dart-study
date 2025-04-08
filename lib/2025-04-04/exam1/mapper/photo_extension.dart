@@ -17,7 +17,7 @@ Type parseType(String? value) {
 extension PhotoExtension on PhotoDto {
   Photo photo() {
     return Photo(
-      id: id?.int() ?? -1,
+      id: id ?? -1,
       type: parseType(type),
       title: title ?? '제목 없음',
       url: url ?? 'url 없음',
