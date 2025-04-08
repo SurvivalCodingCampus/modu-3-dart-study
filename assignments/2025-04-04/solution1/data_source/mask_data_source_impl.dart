@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/2025-04-04/solution1/data_source/mask_data_source.dart';
+
+import 'mask_data_source.dart';
 
 class MaskDataSourceImpl implements MaskDataSource {
   @override

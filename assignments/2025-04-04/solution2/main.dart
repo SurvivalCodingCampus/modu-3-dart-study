@@ -3,10 +3,11 @@ import 'dart:io';
 
 import 'package:http/testing.dart';
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/2025-04-04/solution2/data_source/mock_photo_data_source_impl.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/data_source/photo_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/repository/photo_repository.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/model/photo.dart';
+
+import 'data_source/mock_photo_data_source_impl.dart';
+import 'data_source/photo_data_source.dart';
+import 'model/photo.dart';
+import 'repository/photo_repository.dart';
 
 void main() async {
   final mockData =

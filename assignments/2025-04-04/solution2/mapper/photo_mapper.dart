@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/2025-04-04/solution2/model/content_type.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/model/photo.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/dto/photo_dto.dart';
+import '../dto/photo_dto.dart';
+import '../model/content_type.dart';
+import '../model/photo.dart';
 
 extension PhotoMapper on PhotoDto {
   Photo toPhoto() {

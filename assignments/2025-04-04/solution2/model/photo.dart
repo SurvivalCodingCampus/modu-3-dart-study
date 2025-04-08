@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/model/content_type.dart';
+
+import 'content_type.dart';
 
 part 'photo.freezed.dart';
 

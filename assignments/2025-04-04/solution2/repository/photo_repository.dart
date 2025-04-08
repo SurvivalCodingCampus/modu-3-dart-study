@@ -1,8 +1,7 @@
-import 'package:modu_3_dart_study/2025-04-04/solution2/data_source'
-    '/photo_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/dto/photo_dto.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/mapper/photo_mapper.dart';
-import 'package:modu_3_dart_study/2025-04-04/solution2/model/photo.dart';
+import '../data_source/photo_data_source.dart';
+import '../dto/photo_dto.dart';
+import '../mapper/photo_mapper.dart';
+import '../model/photo.dart';
 
 class PhotoRepository {
   final PhotoDataSource photoDataSource;

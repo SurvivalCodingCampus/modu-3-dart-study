@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/2025-03-21/Book.dart';
+import 'Book.dart';
 
 void main() {
   //1. 제목과 출간일이 같으면 같은 책으로 판단한다

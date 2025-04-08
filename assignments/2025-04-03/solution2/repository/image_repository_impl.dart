@@ -1,12 +1,10 @@
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:modu_3_dart_study/2025-04-03/solution2/repository/image_repository.dart';
+
+import 'image_repository.dart';
 
 class ImageRepositoryImpl implements ImageRepository {
-
-
-
   @override
   Future<void> saveImage(String url, String path) async {
     final response = await http.get(Uri.parse(url));
