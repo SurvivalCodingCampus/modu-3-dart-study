@@ -45,6 +45,14 @@ Directory('/Users/okstring/Documents/flutter/modu-3-dart-study/assignment/2025-0
 - FormattedString을 기반으로 새로운 DateTime 인스턴스를 구성
 - https://api.flutter.dev/flutter/dart-core/DateTime/parse.html
 
+### 
+
+### epoch 타임 설정
+
+```
+print(DateTime.fromMillisecondsSinceEpoch(0));
+```
+
 
 
 
@@ -146,4 +154,10 @@ hero=100
 
 - 작게 시작, 단순하게 유지, 인내심을 가져야 한다
 - flutter에서는 에러가 나도 돌아가는 이유때문에 디버깅이 필요
+
+
+
+### debug모드 활용
+
+![스크린샷 2025-04-07 오전 10.14.31](/Users/okstring/Documents/image/스크린샷 2025-04-07 오전 10.14.31.png)
 

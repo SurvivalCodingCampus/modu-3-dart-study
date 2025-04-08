@@ -105,8 +105,69 @@ class Photo with _$Photo {
 
 ## json_serializable
 
+- JsonSerializable 라이브러리는 fromJson(), toJson() 을 자동으로 생성해 주고
+- 필드명을 바꿀 수 있는 것 외에도 DTO, Model 을 하나로 합칠 수 있는 여러 기능을 제공한다.
+
 - 👍 자동 JSON 파싱 코드 생성으로 반복 작업 제거 및 타입 안전성 확보
 - 👎 코드 생성 단계가 필요하며 복잡한 중첩 구조에서 설정이 까다로울 수 있음
+
+
+
+#### @JsonSerializable(explicitToJson: true)
+
+```dart
+// explicitToJson: true 옵션은 중첩된 객체가 있을 때 toJson 메서드를 명시적으로 호출하도록 합니다
+@JsonSerializable(explicitToJson: true)
+```
+
+
+
+
+
+#### JSON Serialization 필드 값 변경 방법
+
+```dart
+import 'package:json_annotation/json_annotation.dart';
+
+part 'store_dto.g.dart';
+
+@JsonSerializable(explicitToJson: true)
+class Mask {
+  @JsonKey(name: 'addr')
+  final String address;
+  
+  @JsonKey(name: 'lat')
+  final double latitude;
+  
+  @JsonKey(name: 'lng')
+  final double longitude;
+  
+  final String name;
+  
+  @JsonKey(name: 'remain_stat')
+  final String remainStatus;
+  
+  const Mask({
+    required this.address,
+    required this.latitude,
+    required this.longitude,
+    required this.name,
+    required this.remainStatus,
+  });
+  
+  factory Mask.fromJson(Map<String, dynamic> json) => _$MaskFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$MaskToJson(this);
+}
+```
+
+
+
+
+
+
+
+
 
 ####   @JsonKey
 
@@ -200,3 +261,166 @@ expect(capturedUser.passwordHash, isNot(equals("password123")));
 
 
 
+
+
+## squlite
+
+
+
+SQLite는 Flutter 앱에서 로컬 데이터베이스로 널리 사용되는 솔루션
+
+### Database 관련
+
+1. **openDatabase**
+
+   ```dart
+   await dbFactory.openDatabase(path, options: OpenDatabaseOptions(...))
+   ```
+
+   - 데이터베이스 파일을 열거나 생성하는 메소드
+   - 옵션을 통해 버전, 생성/업그레이드 콜백 등 지정 가능
+
+2. **getDatabasesPath**
+
+   ```dart
+   final dbPath = await dbFactory.getDatabasesPath();
+   ```
+
+   - 앱의 데이터베이스 파일들이 저장되는 기본 디렉토리 경로를 반환
+
+3. **OpenDatabaseOptions**
+
+   - `version`: 데이터베이스 스키마 버전 (마이그레이션 관리용)
+   - `onCreate`: 데이터베이스 최초 생성 시 호출되는 콜백
+   - `onUpgrade`: 버전이 증가할 때 호출되는 콜백 (마이그레이션)
+   - `onDowngrade`: 버전이 감소할 때 호출되는 콜백
+
+4. **인메모리 데이터베이스**
+
+   ```dart
+   ':memory:'
+   ```
+
+   - 파일로 저장하지 않고 메모리에만 데이터베이스 생성
+   - 주로 테스트용으로 사용 (앱 종료 시 데이터 소멸)
+
+### 데이터 조작 메소드
+
+1. **execute**
+
+   ```dart
+   await db.execute('CREATE TABLE $quoteTable(...)');
+   ```
+
+   - 직접 SQL 쿼리 실행 (주로 DDL문에 사용)
+   - 테이블 생성, 인덱스 생성 등에 활용
+
+2. **insert**
+
+   ```dart
+   await db.insert(tableName, dataMap, conflictAlgorithm: ConflictAlgorithm.replace);
+   ```
+
+   - 테이블에 새 레코드 삽입
+   - 데이터는 Map<String, dynamic> 형태로 전달
+   - 충돌 알고리즘으로 중복 처리 방식 지정
+   - 성공 시 삽입된 행의 rowid 반환
+
+3. **update**
+
+   ```dart
+   await db.update(
+     tableName, 
+     dataMap,
+     where: 'id = ?',
+     whereArgs: [id],
+   );
+   ```
+
+   - 조건에 맞는 레코드 수정
+   - where과 whereArgs로 SQL 인젝션 방지
+   - 영향받은 행 수 반환
+
+4. **query**
+
+   ```dart
+   final maps = await db.query(
+     tableName,
+     where: 'id = ? AND language = ?',
+     whereArgs: [id, languageCode],
+     limit: 1,
+   );
+   ```
+
+   - 테이블에서 데이터 조회
+   - 결과는 List<Map<String, dynamic>> 형태로 반환
+   - 다양한 옵션:
+     - `columns`: 조회할 열 지정
+     - `where` & `whereArgs`: 조건절
+     - `orderBy`: 정렬
+     - `limit`: 결과 개수 제한
+     - `offset`: 결과 시작 위치
+
+5. **rawQuery**
+
+   ```dart
+   final result = await db.rawQuery(
+     'SELECT COUNT(*) as count FROM $tableName WHERE is_previously_shown = 0 AND language = ?',
+     [languageCode],
+   );
+   ```
+
+   - 직접 SQL 쿼리로 데이터 조회
+   - 복잡한 쿼리나 집계함수 사용 시 유용
+
+6. **delete**
+
+   ```dart
+   await db.delete(
+     tableName, 
+     where: 'id = ?', 
+     whereArgs: [id]
+   );
+   ```
+
+   - 조건에 맞는 레코드 삭제
+   - 영향받은 행 수 반환
+
+7. **batch**
+
+   ```dart
+   final batch = db.batch();
+   // 여러 작업 추가
+   batch.insert(...);
+   batch.update(...);
+   final results = await batch.commit();
+   ```
+
+   - 여러 작업을 한 번에 실행하는 배치 처리
+   - 성능 최적화 (특히 대량 데이터 처리 시)
+   - `commit()`으로 모든 작업 실행하고 결과 배열 반환
+
+### 특수 유틸리티
+
+1. **Sqflite.firstIntValue**
+
+   ```dart
+   Sqflite.firstIntValue(result) ?? 0
+   ```
+
+   - 쿼리 결과에서 첫 번째 행의 첫 번째 열의 정수값 추출
+   - 주로 COUNT 등의 집계 쿼리 결과 추출에 사용
+
+2. **ConflictAlgorithm**
+
+   - `replace`: 기존 레코드 덮어쓰기
+   - `ignore`: 충돌 시 무시하고 넘어감
+   - `fail`: 충돌 시 예외 발생
+   - `abort`: 충돌 시 트랜잭션 롤백
+   - `rollback`: 충돌 시 트랜잭션 롤백하고 제약조건 위반
+
+### 트랜잭션 관리
+
+1. db.close()
+   - 데이터베이스 연결 종료
+   - 리소스 해제를 위해 더 이상 사용하지 않을 때 호출

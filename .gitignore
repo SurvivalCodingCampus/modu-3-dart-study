@@ -210,3 +210,6 @@ pubspec.lock
 
 # mockito
 *.mocks.dart
+
+# Markdown
+just.md

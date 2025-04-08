@@ -6,6 +6,15 @@
 
 ##### `??=` null이 아닐때만 값을 할당
 
+```dart
+// 이런 반환도 가능하다
+Future<Database> get database async {
+  return _database ??= await _initDB();
+}
+```
+
+
+
 ##### `|=` or연산자
 
 #### x = y++ 대입하고 더한다

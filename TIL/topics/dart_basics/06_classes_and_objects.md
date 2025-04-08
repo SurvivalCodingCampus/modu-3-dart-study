@@ -1350,64 +1350,85 @@ final User user = User.fromJson(json); // ⭐️fromJson() 네이밍 암묵적�
 
 
 
+### sealed class
+
+- sealed class는 얘 두개가 있구나 라고 서브타입을 봉인한다.
+- sealed class는 패턴매칭을 활용하여 모든 서브타입에 대한 처리를 하기 용이하다.
+- enum 하고 비슷한 효과 + 다른 객체의 참조를 가질 수 있다
+  - enum에는 ==, hashCode 등이 안된다.
+- main이 try-catch를 안써서 간결해진다.
 
 
 
-
-### json_serializable
-
-- JsonSerializable 라이브러리는 fromJson(), toJson() 을 자동으로 생성해 주고
-- 필드명을 바꿀 수 있는 것 외에도 DTO, Model 을 하나로 합칠 수 있는 여러 기능을 제공한다.
-
-
-
-#### @JsonSerializable(explicitToJson: true)
+#### 구현
 
 ```dart
-// explicitToJson: true 옵션은 중첩된 객체가 있을 때 toJson 메서드를 명시적으로 호출하도록 합니다
-@JsonSerializable(explicitToJson: true)
+sealed class Result<T> {
+  // 컴파일 단계에서 Success와 Error만 알고 있기 때문에 타입 봉인 효과를 가진다.
+ factory Result.success(T data) = Success;
+
+ factory Result.error(String message) = Error;
+}
+
+class Success<T> implements Result<T> {
+ final T data;
+
+ Success(this.data);
+}
+
+class Error<T> implements Result<T> {
+ final String message;
+
+ Error(this.message);
+}
+
 ```
 
-
-
-
-
-#### JSON Serialization 필드 값 변경 방법
+#### ⭐️ frezzed로도 가능하다 위와 똑같은 코드
 
 ```dart
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'result.freezed.dart';
 
-part 'store_dto.g.dart';
-
-@JsonSerializable(explicitToJson: true)
-class Mask {
-  @JsonKey(name: 'addr')
-  final String address;
-  
-  @JsonKey(name: 'lat')
-  final double latitude;
-  
-  @JsonKey(name: 'lng')
-  final double longitude;
-  
-  final String name;
-  
-  @JsonKey(name: 'remain_stat')
-  final String remainStatus;
-  
-  const Mask({
-    required this.address,
-    required this.latitude,
-    required this.longitude,
-    required this.name,
-    required this.remainStatus,
-  });
-  
-  factory Mask.fromJson(Map<String, dynamic> json) => _$MaskFromJson(json);
-  
-  Map<String, dynamic> toJson() => _$MaskToJson(this);
+@freezed
+sealed class Result<T> with _$Result<T> {
+  const factory Result.success(T data) = Success;
+  const factory Result.error(Exception e) = Error;
 }
 ```
+
+#### Error 타입을 다양하게도 할 수 있다
+
+```dart
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'result.freezed.dart';
+
+@freezed
+sealed class Result<D, E> with _$Result<D, E> {
+  const factory Result.success(D data) = Success;
+  const factory Result.error(E error) = Error;
+}
+```
+
+
+
+#### 사용 예시
+
+```dart
+void main() {
+  final Result<int> result = calculate(0, 10);
+  
+  switch(result) {
+    case Success<int>():
+      // smart casting
+      print(result.data);
+    case Error<int>():
+      print(result.message);
+  }
+}
+```
+
+
 
 
 

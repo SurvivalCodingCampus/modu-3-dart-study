@@ -112,3 +112,42 @@ class User {
 
 - class는 non-nullable 값만 가지고 있도록 한다
 
+
+
+
+
+# Result 패턴
+
+- try-catch는 런타임 에러 뿐만 아니라 논리적인 오류나 예외 상황에 대한 처리를 하기에 부족
+- Result패턴은 성공, 실패시 처리에 유용한 패턴
+- 뷰에 넘겨주기 직전인 일단 repository에서 result 사용
+
+
+
+### 장점
+
+- 타입 안정성 향상
+- 에러 처리 강제성
+- 에러타입의 명확한 문서화
+- try-catch 남용 방지
+- 비즈니스 로직과 에러 처리 분리
+- 옵셔널(Nullable) 타입 감소
+- 테스트 용이성
+
+```dart
+test('이메일이 유효하지 않으면 에러를 반환한다', () {
+  final result = registerUser(email: 'invalid-email', password: 'password');
+  
+  expect(
+    result,
+    Result<User, RegistrationError>.error(
+      error: RegistrationError.invalidEmail(),
+    ),
+  );
+});
+```
+
+
+
+- 패턴 매칭을 통한 가독성 향상
+
