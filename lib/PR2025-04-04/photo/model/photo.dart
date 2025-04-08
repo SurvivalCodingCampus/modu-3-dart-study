@@ -4,6 +4,7 @@ import '../enum/photo_enum.dart';
 
 part 'photo.freezed.dart';
 
+// ignore_for_file: annotate_overrides
 @freezed
 class Photo with _$Photo {
   final int id;

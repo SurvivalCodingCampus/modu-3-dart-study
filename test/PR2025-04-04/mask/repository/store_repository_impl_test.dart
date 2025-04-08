@@ -20,7 +20,7 @@ void main() {
       final store = await repository.getStoreInfoList();
 
       expect(store.first.storeName, firstName);
-      expect(store.first.addres, firstAddr);
+      expect(store.first.address, firstAddr);
       expect(store.first.lat, firstLat);
       expect(store.first.lng, firstLng);
       expect(store.first.openDay, firstCreatedAt);

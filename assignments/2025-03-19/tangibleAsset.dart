@@ -1,5 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:modu_3_dart_study/PR2025-03-19/asset.dart';
 import 'package:modu_3_dart_study/PR2025-03-19/thing.dart';
+
 import 'computer.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {

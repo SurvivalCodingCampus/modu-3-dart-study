@@ -1,5 +1,3 @@
-import 'package:modu_3_dart_study/PR2025-03-18/hero.dart';
-
 abstract class Monster {
   void run() {
     print('뚜벅뚜벅');

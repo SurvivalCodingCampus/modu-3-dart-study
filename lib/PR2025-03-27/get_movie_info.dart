@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 // Future<Movie> getMovieInfo() async {
 //   //json 형태로 선언
 //   final String jsonString = '''{
@@ -55,8 +53,4 @@ class Movie {
       openYear: json['openYear'],
     );
   }
-}
-
-void main() async {
-  Movie movie = await getMovieInfo();
 }

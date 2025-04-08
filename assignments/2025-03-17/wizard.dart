@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:modu_3_dart_study/PR2025-03-17/wand.dart';
 import 'package:test/test.dart';
 
@@ -45,7 +47,7 @@ class Wizard {
     }
     _wand = value;
   }
-  
+
   Wizard({required String name, required int hp, required int mp, Wand? wand}) {
     this.name = name;
     this.hp = hp;
