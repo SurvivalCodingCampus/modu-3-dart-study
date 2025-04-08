@@ -1,0 +1,1 @@
+enum PhotoError { networkError, invalidQuery }
